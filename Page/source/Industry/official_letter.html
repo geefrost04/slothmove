@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>หลักการเขียนหนังสือราชการ | SlothMove</title><link href="https://slothmoveth.com/Page/source/Industry/official_letter.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="article" property="og:type"/><meta content="th_TH" property="og:locale"/><meta content="SlothMove" property="og:site_name"/><meta content="https://slothmoveth.com/Page/source/Industry/official_letter.html" property="og:url"/><meta content="หลักการเขียนหนังสือราชการ | SlothMove" property="og:title"/><meta content="สรุปเนื้อหาและแนวข้อสอบ หลักการเขียนหนังสือราชการ — SlothMove · คอร์สสป.อก." property="og:description"/><meta content="https://slothmoveth.com/pic/logo_OPSDD.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="หลักการเขียนหนังสือราชการ | SlothMove" name="twitter:title"/><meta content="สรุปเนื้อหาและแนวข้อสอบ หลักการเขียนหนังสือราชการ — SlothMove · คอร์สสป.อก." name="twitter:description"/><meta content="https://slothmoveth.com/pic/logo_OPSDD.png" name="twitter:image"/><meta content="SlothMove — เตรียมสอบราชการ" property="og:image:alt"/>
+<meta content="สรุปเนื้อหาและแนวข้อสอบ หลักการเขียนหนังสือราชการ — SlothMove · คอร์สสป.อก." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Kanit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' rx='22' fill='%230ea5e9'/&gt;&lt;text y='.9em' font-size='72' x='50%' text-anchor='middle'&gt;✍️&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+  body { font-family: 'Sarabun', sans-serif; background: #ffffff; }
+  .font-kanit { font-family: 'Kanit', sans-serif; }
+  .font-sarabun { font-family: 'Sarabun', sans-serif; }
+  .drop-panel { display: none; }
+  .drop-panel.open { display: block; }
+  section { display: none; }
+  section.active { display: block; }
+  .nav-tab { position: relative; transition: all .2s; }
+  .nav-tab::after { content:''; position:absolute; bottom:0; left:50%; right:50%; height:2px; background:#0ea5e9; border-radius:2px; transition:all .2s; }
+  .nav-tab.active { color:#38bdf8; font-weight:700; }
+  .nav-tab.active::after { left:0; right:0; }
+  .acc-body { display:none; }
+  .acc-body.open { display:block; }
+  .acc-arr { transition: transform .25s; }
+  .acc-arr.open { transform: rotate(180deg); }
+</style>
+</head>
+<body class="min-h-screen">
+<!-- NAV -->
+<nav class="bg-slate-900 border-b border-slate-700 sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg flex items-center justify-center text-lg" style="background:#0ea5e9">✍️</div>
+<span class="font-bold text-white font-kanit text-sm hidden sm:block">เขียนหนังสือราชการ</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="nav-tab active px-3 py-2 text-slate-300 hover:text-white text-xs font-kanit rounded-lg" onclick="showSection('home')">🏠 หน้าแรก</button>
+<button class="nav-tab px-3 py-2 text-slate-300 hover:text-white text-xs font-kanit rounded-lg" onclick="showSection('content')">📖 สรุปเนื้อหา</button>
+<button class="nav-tab px-3 py-2 text-slate-300 hover:text-white text-xs font-kanit rounded-lg" onclick="showSection('glossary')">📚 คำศัพท์</button>
+<a class="px-3 py-2 text-sky-400 hover:text-sky-300 text-xs font-kanit rounded-lg transition-colors" href="Quiz_official_letter.html">✏️ ข้อสอบ</a>
+</div>
+<div class="flex items-center gap-2">
+<a class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-sky-900 text-slate-300 hover:text-white text-xs font-kanit border border-slate-600 hover:border-sky-500 transition-all whitespace-nowrap" href="indexindustry.html">
+        ← คอร์ส
+      </a>
+<div class="relative">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-kanit border border-slate-600 hover:border-slate-400 transition-all" onclick="toggleDrop('courses')">
+          วิชาอื่นๆ
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="drop-panel absolute right-0 mt-1 w-72 bg-slate-800 border border-slate-600 rounded-xl shadow-2xl overflow-hidden z-50" id="drop-courses">
+<div class="p-2 border-b border-slate-700">
+<p class="text-slate-400 text-xs font-kanit px-2 py-1">สำนักงานปลัดกระทรวงอุตสาหกรรม</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="strategy_planning.html">
+<span class="text-lg">🎯</span><span class="text-white text-xs font-sarabun">การวิเคราะห์ นโยบาย แผนงาน โครงการ</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="national_plan.html">
+<span class="text-lg">📊</span><span class="text-white text-xs font-sarabun">แผนพัฒนาเศรษฐกิจฯ ฉบับที่ 13</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="admin_act.html">
+<span class="text-lg">⚖️</span><span class="text-white text-xs font-sarabun">พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="info_act.html">
+<span class="text-lg">📰</span><span class="text-white text-xs font-sarabun">พ.ร.บ. ข้อมูลข่าวสารของราชการ</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="good_governance.html">
+<span class="text-lg">🏛️</span><span class="text-white text-xs font-sarabun">การบริหารกิจการบ้านเมืองที่ดี</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="industry_knowledge.html">
+<span class="text-lg">🏭</span><span class="text-white text-xs font-sarabun">ความรู้กระทรวงอุตสาหกรรม &amp; สป.อก.</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-sky-900/40 border-l-2 border-sky-400" href="official_letter.html">
+<span class="text-lg">✍️</span><span class="text-sky-200 text-xs font-sarabun font-bold">หลักการเขียนหนังสือราชการ</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="factory_act.html">
+<span class="text-lg">🏗️</span><span class="text-white text-xs font-sarabun">พ.ร.บ. โรงงาน พ.ศ. 2535</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors" href="industry_volunteer.html">
+<span class="text-lg">🤝</span><span class="text-white text-xs font-sarabun">การขับเคลื่อนโครงการจิตอาสา</span>
+</a>
+<div class="p-2 border-t border-slate-700">
+<a class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-white text-xs font-kanit transition-colors" href="indexindustry.html">← กลับหน้าคอร์ส</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- HOME -->
+<section class="active" id="home">
+<div class="bg-white py-14 px-4 border-b border-slate-100">
+<div class="max-w-4xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 bg-sky-50 border border-sky-200 rounded-full px-4 py-1.5 mb-6">
+<span class="text-sky-800 text-xs font-kanit font-bold">หัวข้อที่ 7 | สป.อก. · งานสารบรรณ</span>
+</div>
+<div class="text-6xl mb-4">✍️</div>
+<h1 class="font-black font-kanit text-3xl md:text-4xl text-slate-900 leading-tight mb-3">
+        ความรู้เกี่ยวกับ
+        <span class="text-sky-600">หลักการเขียนหนังสือราชการ</span>
+</h1>
+<p class="text-slate-500 font-sarabun text-sm mb-2">6 ประเภท · 3 ส่วนของเนื้อ · หลัก 5C · ภายในและภายนอก</p>
+<p class="text-slate-600 font-sarabun text-base mb-8 max-w-xl mx-auto">
+        จากสรุปหัวข้อที่ 7 (งานสารบรรณ) — รูปแบบ ภาษาราชการ ตัวเลขที่มักออกสอบ และหัวข้อลงชื่อจ่าหน้าซอง
+      </p>
+<div class="grid grid-cols-4 gap-4 max-w-xl mx-auto mb-10">
+<div class="bg-sky-50 border border-sky-100 rounded-2xl p-4">
+<div class="text-2xl font-black font-kanit text-sky-600">6</div>
+<div class="text-slate-500 text-xs font-kanit mt-1">ประเภท</div>
+</div>
+<div class="bg-sky-50 border border-sky-100 rounded-2xl p-4">
+<div class="text-2xl font-black font-kanit text-sky-600">3</div>
+<div class="text-slate-500 text-xs font-kanit mt-1">ส่วนเนื้อ</div>
+</div>
+<div class="bg-sky-50 border border-sky-100 rounded-2xl p-4">
+<div class="text-2xl font-black font-kanit text-sky-600">5C</div>
+<div class="text-slate-500 text-xs font-kanit mt-1">หลักการเขียน</div>
+</div>
+<div class="bg-sky-50 border border-sky-100 rounded-2xl p-4">
+<div class="text-2xl font-black font-kanit text-sky-600">200</div>
+<div class="text-slate-500 text-xs font-kanit mt-1">ข้อในคลัง</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+<button class="bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-2xl p-5 text-left transition-all group" onclick="showSection('content')">
+<div class="text-2xl mb-2">📖</div>
+<div class="font-bold text-slate-800 font-kanit text-sm">สรุปเนื้อหา</div>
+<div class="text-slate-500 text-xs font-sarabun mt-1">5 หมวดหลัก</div>
+</button>
+<button class="bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-2xl p-5 text-left transition-all group" onclick="showSection('glossary')">
+<div class="text-2xl mb-2">📚</div>
+<div class="font-bold text-slate-800 font-kanit text-sm">คำศัพท์</div>
+<div class="text-slate-500 text-xs font-sarabun mt-1">นิยามและหัวข้อสำคัญ</div>
+</button>
+<a class="bg-sky-600 hover:bg-sky-700 border border-sky-700 rounded-2xl p-5 text-left transition-all shadow-sm block" href="Quiz_official_letter.html">
+<div class="text-2xl mb-2">✏️</div>
+<div class="font-bold text-white font-kanit text-sm">ทำข้อสอบ</div>
+<div class="text-sky-100 text-xs font-sarabun mt-1">คลัง 200 · ต่อรอบสูงสุด 100 · สุ่ม · เฉลย</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTENT -->
+<section id="content">
+<div class="max-w-4xl mx-auto px-4 py-10">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-8 rounded-full" style="background:#0ea5e9"></div>
+<div>
+<div class="inline-flex items-center gap-1.5 text-xs font-bold font-kanit px-2.5 py-1 rounded-full mb-1 bg-sky-50 text-sky-700">📖 สรุปเนื้อหา</div>
+<h2 class="font-black font-kanit text-xl text-slate-800">หลักการเขียนหนังสือราชการ</h2>
+</div>
+</div>
+<button class="px-4 py-2 text-xs font-bold font-kanit rounded-xl border transition-all hover:opacity-80 bg-sky-50 text-sky-800 border-sky-200" onclick="expandAll()">ขยายทั้งหมด ↓</button>
+</div>
+<div id="accordionList">
+<div class="rounded-2xl overflow-hidden border border-slate-100 bg-white shadow-sm mb-3">
+<button class="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-slate-50 transition-colors" onclick="toggleAcc(0)">
+<div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black font-kanit text-white shrink-0" style="background:#0ea5e9">0</div>
+<span class="text-xl shrink-0">🔢</span>
+<span class="flex-1 font-bold text-slate-800 font-kanit text-sm">ตัวเลขที่มักออกสอบ</span>
+<svg class="w-3.5 h-3.5 text-slate-400 acc-arr shrink-0" fill="none" id="arr0" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+<div class="acc-body" id="body0">
+<div class="px-6 pb-6 pt-1 font-sarabun text-slate-700 text-sm leading-relaxed space-y-2">
+<ul class="list-disc pl-5 space-y-1">
+<li><strong>6</strong> ประเภทของหนังสือราชการ</li>
+<li><strong>3</strong> ส่วนของเนื้อ: เหตุผล · จุดประสงค์ · สรุป</li>
+<li>ครุฑภายนอก <strong>3 ซม.</strong> · บันทึกข้อความ (ภายใน) <strong>1.5 ซม.</strong></li>
+<li>กระดาษปอนด์ขาวขั้นต่ำอย่างน้อย <strong>60 ก./ตร.ม.</strong></li>
+<li>A4 <strong>210 × 297 มม.</strong></li>
+<li>กรอบข้อความฝากส่งบนซอง <strong>2 × 4 ซม.</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden border border-slate-100 bg-white shadow-sm mb-3">
+<button class="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-slate-50 transition-colors" onclick="toggleAcc(1)">
+<div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black font-kanit text-white shrink-0" style="background:#0284c7">1</div>
+<span class="text-xl shrink-0">📂</span>
+<span class="flex-1 font-bold text-slate-800 font-kanit text-sm">พื้นฐานงานสารบรรณและหนังสือราชการ</span>
+<svg class="w-3.5 h-3.5 text-slate-400 acc-arr shrink-0" fill="none" id="arr1" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+<div class="acc-body" id="body1">
+<div class="px-6 pb-6 pt-1 font-sarabun text-slate-700 text-sm leading-relaxed space-y-3">
+<p><strong>งานสารบรรณ</strong> คืองานบริหารเอกสารตั้งแต่จัดทำ รับ ส่ง เก็บรักษา การยืม จนถึงการทำลาย เพื่อไม่ให้เก็บเอกสารที่ไม่จำเป็นไว้</p>
+<p><strong>ความสำคัญ</strong> เป็นหลักฐานราชการ เครื่องมืออ้างอิง ช่วยบริหาร และติดต่อสื่อสาร</p>
+<p><strong>การเขียน</strong> แยกเหตุผลกับความมุ่งหมาย คิดหัวข้อ อะไร เมื่อไร ที่ไหน ใคร ทำไม อย่างไร — ขึ้นต้นเหตุก่อน ต่อด้วยประสงค์และข้อตกลง</p>
+<p class="font-kanit font-bold text-slate-800">ความหมาย "หนังสือราชการ" 6 ประการ</p>
+<ol class="list-decimal pl-5 space-y-1">
+<li>หนังสือที่มีไปมาระหว่างส่วนราชการ</li>
+<li>หนังสือที่ส่วนราชการมีไปถึงหน่วยงานอื่นใดหรือบุคคลภายนอก</li>
+<li>หนังสือที่หน่วยงานอื่นใดหรือบุคคลภายนอกมีมาถึงราชการ</li>
+<li>เอกสารที่ทางราชการจัดทำขึ้นหรือรับไว้เพื่อเป็นหลักฐานในราชการ</li>
+<li>เอกสารที่ทางราชการจัดทำขึ้นตามกฎหมาย ระเบียบหรือข้อบังคับ</li>
+<li>ข้อมูลข่าวสารหรือหนังสือที่ได้รับจากระบบสารบรรณอิเล็กทรอนิกส์</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden border border-slate-100 bg-white shadow-sm mb-3">
+<button class="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-slate-50 transition-colors" onclick="toggleAcc(2)">
+<div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black font-kanit text-white shrink-0" style="background:#0369a1">2</div>
+<span class="text-xl shrink-0">🎯</span>
+<span class="flex-1 font-bold text-slate-800 font-kanit text-sm">หลัก 5C และขั้นตอนการเขียน</span>
+<svg class="w-3.5 h-3.5 text-slate-400 acc-arr shrink-0" fill="none" id="arr2" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+<div class="acc-body" id="body2">
+<div class="px-6 pb-6 pt-1 font-sarabun text-slate-700 text-sm leading-relaxed space-y-3">
+<p class="font-kanit font-bold">5C</p>
+<ul class="list-disc pl-5 space-y-1">
+<li><strong>C</strong>orrect — ถูกต้อง</li>
+<li><strong>C</strong>lear — ชัดเจน</li>
+<li><strong>C</strong>onfirm — รัดกุม</li>
+<li><strong>C</strong>oncise — กะทัดรัด</li>
+<li><strong>C</strong>onvince — โน้มนำสู่จุดประสงค์</li>
+</ul>
+<p class="font-kanit font-bold">ขั้นตอน 5 ขั้น</p>
+<ol class="list-decimal pl-5 space-y-1">
+<li>ศึกษาข้อมูลความเป็นมา กฎ และที่ดำเนินการแล้ว</li>
+<li>รวบรวมความคิดให้ทิศทางชัด</li>
+<li>รวบประเด็นจัดลำดับให้เข้ากับเป้าหมาย</li>
+<li>ลงมือเขียนให้ครบ 3 ส่วน เหตุผล · จุดประสงค์ · สรุป</li>
+<li>ตรวจรูปแบบ เนื้อหา และวรรคตอนภาษา</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden border border-slate-100 bg-white shadow-sm mb-3">
+<button class="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-slate-50 transition-colors" onclick="toggleAcc(3)">
+<div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black font-kanit text-white shrink-0" style="background:#075985">3</div>
+<span class="text-xl shrink-0">🏛️</span>
+<span class="flex-1 font-bold text-slate-800 font-kanit text-sm">โครงสร้างภายในและภายนอก</span>
+<svg class="w-3.5 h-3.5 text-slate-400 acc-arr shrink-0" fill="none" id="arr3" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+<div class="acc-body" id="body3">
+<div class="px-6 pb-6 pt-1 font-sarabun text-slate-700 text-sm leading-relaxed space-y-4">
+<p><strong>6 ประเภท</strong> หนังสือภายนอก · ภายใน · ประทับตรา · สั่งการ · ประชาสัมพันธ์ · หนังสือเจ้าหน้าที่ทำหรือรับเป็นหลักฐาน</p>
+<div class="p-4 rounded-xl bg-sky-50 border border-sky-100">
+<p class="font-kanit font-bold text-sky-900 mb-2">หนังสือภายนอก</p>
+<p class="mb-2">กระดาษตราครุฑ ครุฑ 3 ซม. ติดต่อส่วนราชการหรือบุคคลภายนอก</p>
+<ul class="list-disc pl-5 text-xs space-y-1">
+<li><strong>ที่</strong> ซ้ายบน · <strong>ส่วนราชการเจ้าของ</strong> ขวาสุดสายเดียวกับที่</li>
+<li><strong>วัน เดือน ปี</strong> กลางหน้า · ไม่ต้องมีคำว่า "วันที่" "เดือน" "พ.ศ." นำหน้า</li>
+<li><strong>คำขึ้นต้น</strong> ระบุตำแหน่งผู้รับ · ไม่ต้อง "ฯพณฯ" หรือ "ท่าน"</li>
+<li><strong>อ้างถึง</strong> หนึ่งฉับบจากล่าสุจากด · <strong>สิ่งจากส่งมาด้วย</strong> และแจ้งวิจากถียามาจัดจากจากส่งจาก</li>
+<li><strong>คำจากลงท้ายจาก</strong> เข้าคจากกับจากคำขึ้นจากต้น (เช่น เรียน → ขอแสดงความนับถือ)</li>
+<li><strong>ลงชื่อ</strong> ลายมือชื่อ + ชื่อเต็มในวงเล็บ (คำนำหน้า · ตำแหน่งวิชาการหน้าชื่อในวงเล็บ)</li>
+<li><strong>ส่วนราชการเจ้าของเรื่อง</strong> มุมล่างซ้าย · โทร. / สำเนาส่ง ใต้ชื่อหน่วยนั้น</li>
+</ul>
+</div>
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+<p class="font-kanit font-bold text-slate-900 mb-2">หนังสือภายใน</p>
+<p class="mb-2">บันทึกข้อความ ครุฑ 1.5 ซม. ภายใน กระทรวง / ทบวง / กรม หรือจังหวัดเดียวกัน</p>
+<ul class="list-disc pl-5 text-xs space-y-1">
+<li><strong>ส่วนราชการ</strong> + เบอร์โทร · <strong>ที่</strong> พยัญชนะและเลข / เลขทะเบียนส่ง</li>
+<li><strong>วันที่</strong> เลขวัน ชื่อเต็มเดือน ปี · ไม่มีคำ "เดือน" และ "พ.ศ."</li>
+<li>เนื้อ 3 ส่วนเหมือนกัน · โดยมัก<strong>ไม่แยก</strong>หัวอ้างถึงและส่งมาด้วย</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden border border-slate-100 bg-white shadow-sm mb-3">
+<button class="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-slate-50 transition-colors" onclick="toggleAcc(4)">
+<div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black font-kanit text-white shrink-0" style="background:#0c4a6e">4</div>
+<span class="text-xl shrink-0">✍️</span>
+<span class="flex-1 font-bold text-slate-800 font-kanit text-sm">ภาษาราชการและหลัก 5 อวัยวะ</span>
+<svg class="w-3.5 h-3.5 text-slate-400 acc-arr shrink-0" fill="none" id="arr4" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+<div class="acc-body" id="body4">
+<div class="px-6 pb-6 pt-1 font-sarabun text-slate-700 text-sm leading-relaxed space-y-3">
+<p class="font-kanit font-bold">หลัก 5 อวัยวะก่อนร่าง</p>
+<ul class="list-disc pl-5 space-y-1 text-sm">
+<li><strong>ตา</strong> อ่านให้เข้าใจความเป็นมาและผลต่อเนื่อง</li>
+<li><strong>ปาก</strong> ถามหรือขอรายละเอียด</li>
+<li><strong>หู</strong> ฟังเบื้องหน้าเบื้องหลัง</li>
+<li><strong>หัว (ใจ)</strong> วิเคราะห์แก่นเรื่องอย่างตั้งใจ</li>
+<li><strong>มือ</strong> ค้นกฎและตัวอย่างหนังสือเก่า</li>
+</ul>
+<p class="font-kanit font-bold">คำขึ้นต้นส่วนเหตุ</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>เรื่องใหม่: ด้วย… / เนื่องด้วย…</li>
+<li>ติดต่อต่อจากเดิม: ตาม… / ตามที่… / อนุสนธิ</li>
+<li>ปิดท้ายย่อหน้าเหตุด้วยคำว่า <strong>"นั้น"</strong> (เว้นหนึ่งช่วงตัวอักษร)</li>
+<li>อ้างหนังสือเดิม: เริ่ม "ตามหนังสือที่อ้างถึง…" ปิดด้วย "…ความละเอียดแจ้งแล้วนั้น"</li>
+</ul>
+<p>ส่วนจุดประสงค์มักขึ้นด้วย <strong>จึง…</strong> เช่น เรียนมาเพื่อโปรดทราบ · เพื่อดำเนินการ · เพื่ออนุมัติ และประโยคขอความอนุเคราะห์ตามที่สรุป</p>
+<p class="font-kanit font-bold">ภาษา</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>ห้าม กระผม ดิฉัน ข้าพเจ้า — ใช้ชื่อส่วนราชการเป็นบุรุษที่หนึ่ง</li>
+<li>ห้ามตัดคำผิดธรรมเนียมไทยข้ามบรรทัด</li>
+<li>อักษรย่อเมื่อเป็นที่รู้จัก หรือเขียนเต็มแล้วใส่วงเล็บย่อในครั้งแรก</li>
+<li>ไปยาลน้อย (ฯ): เขียนเต็มครั้งแรก ครั้งต่อไปย่อแล้วใส่ ฯ</li>
+<li>หลายหน้า: หน้าแรกครุฑ · ถัดไปเป็นกระดาษขาวขนาดเทียบเคียม</li>
+</ul>
+<p class="font-kanit font-bold text-red-700">ลักษณะสำนวนที่ควรเลี่ยง</p>
+<ol class="list-decimal pl-5 space-y-1 text-xs">
+<li>ไม่ชัดเจน · ไม่สุภาพ · ไม่ถูกต้องระดับภาษา · ขาดความครบถ้วน · ไม่กะทัดรัด · ขาดความเป็นระเบียบลำดับ</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden border border-slate-100 bg-white shadow-sm mb-3">
+<button class="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-slate-50 transition-colors" onclick="toggleAcc(5)">
+<div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black font-kanit text-white shrink-0" style="background:#082f49">5</div>
+<span class="text-xl shrink-0">📋</span>
+<span class="flex-1 font-bold text-slate-800 font-kanit text-sm">ลงชื่อและจ่าหน้าซอง</span>
+<svg class="w-3.5 h-3.5 text-slate-400 acc-arr shrink-0" fill="none" id="arr5" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+<div class="acc-body" id="body5">
+<div class="px-6 pb-6 pt-1 font-sarabun text-slate-700 text-sm leading-relaxed space-y-2">
+<p><strong>ลงนามแทน</strong> พิมพ์ตำแหน่งผู้ลงนามพร้อมคำว่า "ปฏิบัติราชการแทน" หรือ "รักษาราชการแทน" ในแถวเดียวกัน แล้วระบุตำแหน่งผู้เป็นเจ้าของเรื่องในแถวถัดไป</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>มุมบนซ้ายใต้ครุฑ: ชื่อหน่วย ที่อยู่ และ <strong>เลขที่หนังสือ</strong></li>
+<li>มุมบนขวา: กรอบ 2×4 ซม. สำหรับข้อความค่าฝากส่งเป็นรายเดือน</li>
+<li>ชื่อผู้รับตรงกลางซอง</li>
+<li>ฝากส่งเซ็นหรือประทับมุมล่างซ้ายซอง</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- GLOSSARY -->
+<section id="glossary">
+<div class="max-w-4xl mx-auto px-4 py-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-1.5 h-8 rounded-full" style="background:#0ea5e9"></div>
+<div>
+<div class="inline-flex items-center gap-1.5 text-xs font-bold font-kanit px-2.5 py-1 rounded-full mb-1 bg-sky-50 text-sky-700">📚 คำศัพท์</div>
+<h2 class="font-black font-kanit text-xl text-slate-800">หัวข้อสำคัญ — เขียนหนังสือราชการ</h2>
+</div>
+</div>
+<div class="relative mb-5">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">🔍</span>
+<input class="w-full pl-9 pr-4 py-3 rounded-2xl border border-slate-200 bg-white text-slate-700 font-sarabun text-sm focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-100" id="glossSearch" oninput="filterGloss()" placeholder="ค้นหาคำศัพท์..." type="text"/>
+</div>
+<div class="space-y-3" id="glossList"></div>
+</div>
+</section>
+<div class="py-16 bg-slate-900 text-white text-center">
+<h2 class="text-2xl font-bold mb-3 font-kanit">เลี้ยงกาแฟผมหน่อยครับ ☕</h2>
+<p class="text-slate-400 mb-10 font-sarabun text-sm">หากเนื้อหามีประโยชน์ สนับสนุนได้ตามกำลังครับ</p>
+<div class="bg-white p-5 rounded-[2rem] max-w-[220px] mx-auto shadow-2xl">
+<img alt="QR พร้อมเพย์สำหรับสนับสนุน SlothMove" class="w-full rounded-xl mb-3 border border-slate-100" src="../../../pic/qr.jpg"/>
+<p class="text-slate-500 text-[10px] italic">* สแกนผ่านแอปธนาคารทุกแห่ง</p>
+</div>
+</div>
+<footer class="bg-white border-t border-slate-100 py-8">
+<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-slate-400">
+<div class="flex items-center gap-2 font-kanit font-bold text-slate-700">
+<div class="w-6 h-6 rounded-lg flex items-center justify-center text-white text-[10px] font-black" style="background:#0ea5e9">OL</div>
+      หลักการเขียนหนังสือราชการ
+    </div>
+<p>© 2026 SlothMove · เนื้อหาฟรีตลอดชีพ</p>
+<a class="hover:text-slate-700 transition" href="indexindustry.html">← กลับหน้าคอร์ส</a>
+</div>
+</footer>
+<script>
+const glossaryData = [
+  { icon:'📂', term:'งานสารบรรณ', thai:'Records & archives', def:'บริหารเอกสารตั้งแต่จัดทำ รับ ส่ง เก็บรักษา ยืม จนทำลาย เพื่อไม่ให้เก็บของที่ไม่จำเป็น', tag:'พื้นฐาน' },
+  { icon:'📄', term:'หนังสือราชการ', thai:'Official correspondence', def:'หนังสือและเอกสารที่เข้าข่ายตามนิยาม 6 ประการรวมถึงข้อมูลจากสารบรรณอิเล็กทรอนิกส์ที่เกี่ยวข้อง', tag:'นิยาม' },
+  { icon:'🔢', term:'6 ประเภท', thai:'Six types', def:'ภายนอก ภายใน ประทับตรา สั่งการ ประชาสัมพันธ์ และหนังสือเจ้าหน้าที่ทำหรือรับเป็นหลักฐาน', tag:'จำนวน' },
+  { icon:'📐', term:'3 ส่วนเนื้อ', thai:'Three-part body', def:'ส่วนเหตุผล · ส่วนจุดประสงค์ · ส่วนสรุป', tag:'โครงสร้าง' },
+  { icon:'🎯', term:'5C', thai:'Writing principles', def:'Correct Clear Confirm Concise Convince', tag:'หลักการ' },
+  { icon:'🏛️', term:'หนังสือภายนอก', thai:'External', def:'กระดาษตราครุฑ ครุฑ 3 ซม. ติดต่อภายนอกหรือระหว่างหน่วยอย่างเป็นทางการ', tag:'รูปแบบ' },
+  { icon:'📝', term:'หนังสือภายใน', thai:'Internal', def:'บันทึกข้อความ ครุฑ 1.5 ซม. ภายใน กท. ทบวง กรมหรือจังหวัดเดียวกัน — โดยมักไม่แยกหัวอ้างถึง/ส่งมาด้วยแบบภายนอก', tag:'รูปแบบ' },
+  { icon:'✍️', term:'ภาษาราชการ', thai:'Official Thai', def:'เหตุปิดด้วย "นั้น" · เรื่องใหม่: ด้วย/เนื่องด้วย · ติดต่อต่อจากเดิม: ตาม/อนุสนธิ · จุดประสงค์เริ่ม "จึง…" · ไม่ใช้ กระผม/ดิฉัน/ข้าพเจ้า เป็นบุรุษที่หนึ่ง', tag:'ภาษา' },
+  { icon:'✉️', term:'จ่าหน้าซอง', thai:'Envelope', def:'มุมบนซ้ายใต้ครุฑ: ชื่อหน่วย ที่อยู่ เลขที่หนังสือ · มุมบนขวา: กรอบ 2×4 ซม. ค่าฝากส่ง · ผู้รับกลางซอง · ฝากส่งเซ็น/ประทับมุมล่างซ้าย', tag:'ปฏิบัติ' },
+  { icon:'🖋️', term:'ลงนามแทน', thai:'Acting signatures', def:'ระบุ ปฏิบัติราชการแทน หรือ รักษาราชการแทนพร้อมตำแหน่งผู้ลงนาม และตำแหน่งผู้เป็นเจ้าของเรื่องบรรทัดถัดไป', tag:'ลายเซ็น' },
+];
+
+function renderGloss(data) {
+  const list = document.getElementById('glossList');
+  if (!data.length) { list.innerHTML = '<p class="text-slate-400 font-sarabun text-sm text-center py-8">ไม่พบคำศัพท์</p>'; return; }
+  list.innerHTML = data.map(g => `
+    <div class="flex gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+      <div class="text-2xl shrink-0 mt-0.5">${g.icon}</div>
+      <div class="flex-1">
+        <div class="flex items-center gap-2 flex-wrap mb-1">
+          <span class="font-bold font-kanit text-sm text-slate-800">${g.term}</span>
+          <span class="text-sky-600 font-sarabun text-xs font-semibold">${g.thai}</span>
+          <span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-sky-50 text-sky-700 font-kanit">${g.tag}</span>
+        </div>
+        <p class="text-slate-600 font-sarabun text-sm leading-relaxed">${g.def}</p>
+      </div>
+    </div>`).join('');
+}
+
+function filterGloss() {
+  const q = document.getElementById('glossSearch').value.toLowerCase();
+  renderGloss(q ? glossaryData.filter(g => (g.term+g.thai+g.def+g.tag).toLowerCase().includes(q)) : glossaryData);
+}
+
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    t.classList.toggle('active', t.getAttribute('onclick') && t.getAttribute('onclick').includes(id));
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggleAcc(i) {
+  document.getElementById('body'+i)?.classList.toggle('open');
+  document.getElementById('arr'+i)?.classList.toggle('open');
+}
+
+function expandAll() {
+  for (let i = 0; i < 6; i++) {
+    document.getElementById('body'+i)?.classList.add('open');
+    document.getElementById('arr'+i)?.classList.add('open');
+  }
+}
+
+function toggleDrop(id) {
+  document.getElementById('drop-'+id).classList.toggle('open');
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('[onclick^="toggleDrop"]') && !e.target.closest('.drop-panel')) {
+    document.querySelectorAll('.drop-panel').forEach(p => p.classList.remove('open'));
+  }
+});
+
+renderGloss(glossaryData);
+</script>
+</body>
+</html>
