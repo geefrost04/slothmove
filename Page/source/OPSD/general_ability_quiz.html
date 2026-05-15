@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' rx='8' fill='%23ea580c'/&gt;&lt;text x='16' y='22' font-size='13' font-weight='700' text-anchor='middle' fill='white' font-family='system-ui,sans-serif'&gt;GA&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>เนื้อหา: ความสามารถทั่วไป — SlothMove OPSD</title><link href="https://slothmoveth.com/Page/source/OPSD/general_ability_quiz.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="article" property="og:type"/><meta content="th_TH" property="og:locale"/><meta content="SlothMove" property="og:site_name"/><meta content="https://slothmoveth.com/Page/source/OPSD/general_ability_quiz.html" property="og:url"/><meta content="เนื้อหา: ความสามารถทั่วไป — SlothMove OPSD" property="og:title"/><meta content="ความสามารถทั่วไป OPSD — เทคนิค โครงสร้างข้อสอบ และฝึกทำโจทย์ออนไลน์พร้อมเฉลย — SlothMove" property="og:description"/><meta content="https://slothmoveth.com/pic/logo_OPSDD.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="เนื้อหา: ความสามารถทั่วไป — SlothMove OPSD" name="twitter:title"/><meta content="ความสามารถทั่วไป OPSD — เทคนิค โครงสร้างข้อสอบ และฝึกทำโจทย์ออนไลน์พร้อมเฉลย — SlothMove" name="twitter:description"/><meta content="https://slothmoveth.com/pic/logo_OPSDD.png" name="twitter:image"/><meta content="SlothMove — เตรียมสอบราชการ" property="og:image:alt"/>
+<meta content="ความสามารถทั่วไป OPSD — เทคนิค โครงสร้างข้อสอบ และฝึกทำโจทย์ออนไลน์พร้อมเฉลย — SlothMove" name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&amp;family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Sarabun', sans-serif; }
+        .font-kanit { font-family: 'Kanit', sans-serif; }
+
+        /* Dark Theme Accordion for Content Section */
+        .dark-content { background-color: #0f172a; color: #e2e8f0; border-radius: 3rem; padding: 3rem 2rem; border: 1px solid #1e293b; }
+        .acc-body { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); max-height: 0; opacity: 0; overflow: hidden; }
+        .acc-item.open .acc-body { max-height: 2500px; opacity: 1; padding-bottom: 2rem; }
+
+        /* Accordion Item Dark Styling */
+        .acc-item-dark { background-color: #1e293b; border: 1px solid #334155; border-radius: 2rem; margin-bottom: 1rem; overflow: hidden; }
+        .acc-trigger-dark { width: 100%; padding: 1.5rem; text-align: left; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
+        .acc-trigger-dark:hover { background-color: #334155; }
+        .acc-item.open .acc-trigger-dark { background-color: #334155; border-bottom: 1px solid #475569; }
+
+        .acc-badge-dark { width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem; background-color: #0f172a; color: #3b82f6; font-weight: bold; margin-right: 1rem; }
+        .acc-item.open .acc-badge-dark { background-color: #3b82f6; color: white; }
+        .acc-arrow-dark { transition: transform 0.3s; color: #64748b; }
+        .acc-item.open .acc-arrow-dark { transform: rotate(180deg); color: #3b82f6; }
+
+        /* Quiz Styles */
+        .quiz-option.correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+        .quiz-option.wrong { border-color: #ef4444 !important; background-color: #fef2f2 !important; color: #991b1b !important; }
+
+        /* Org Chart Styles */
+        .org-container { background-color: #0f172a; border-radius: 2rem; padding: 3rem 1rem; color: white; }
+        .org-line-v { width: 2px; height: 30px; background-color: #64748b; margin: 0 auto; }
+        .org-line-h { height: 2px; background-color: #64748b; width: 50%; margin: 0 auto; }
+    
+        /* Nav active tab */
+        .nav-tab.active { color: #ea580c; background-color: #ffedd5; font-weight: 700; }
+
+        /* Dropdown */
+        .drop-panel { display: none; }
+        .drop-panel.open { display: block; animation: fadeIn 0.15s ease-out; }
+        #sharePreview { display: none; border-radius: 1.25rem; width: 100%; max-width: 480px; margin: 0 auto 0.75rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); }
+        .review-correct { background: #dcfce7; border-color: #16a34a; color: #15803d; }
+        .review-wrong { background: #fee2e2; border-color: #dc2626; color: #b91c1c; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-sm" style="font-family:'Kanit', sans-serif;">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="flex items-center h-14 gap-2 sm:gap-3">
+<!-- Back to course -->
+<a class="flex items-center gap-1.5 shrink-0 text-xs font-bold text-slate-500 hover:text-white px-3 py-1.5 rounded-xl transition-all border border-slate-200 hover:border-transparent" href="indexopsd.html" onmouseout="this.style.background='none';this.style.borderColor='#e2e8f0'" onmouseover="this.style.background='#ea580c';this.style.borderColor='#ea580c'" style="background:none;">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+<span class="hidden sm:inline">หน้าคอร์ส</span>
+</a>
+<div class="w-px h-5 bg-slate-200 shrink-0"></div>
+<!-- Subject identity -->
+<div class="flex items-center gap-2 shrink-0">
+<span class="w-8 h-8 rounded-xl flex items-center justify-center text-sm shadow-sm" style="background:#ea580c22;">🧠</span>
+<span class="font-bold text-sm text-slate-800 hidden md:block">ความสามารถทั่วไป</span>
+</div>
+<div class="w-px h-5 bg-slate-200 shrink-0 hidden md:block"></div>
+<!-- Section tabs -->
+<div class="hidden md:flex items-center gap-0.5 flex-1 overflow-x-auto">
+<button class="nav-tab px-3 py-1.5 text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all" data-section="home" onclick="showSection('home')">หน้าแรก</button>
+<button class="nav-tab px-3 py-1.5 text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all" data-section="content" onclick="showSection('content')">เทคนิค</button>
+<button class="nav-tab px-3 py-1.5 text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all" data-section="structure" onclick="showSection('structure')">โครงสร้าง</button>
+<button class="nav-tab px-3 py-1.5 text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all" data-section="quiz" onclick="showSection('quiz')">ทำข้อสอบ</button>
+</div>
+<!-- Right group -->
+<div class="flex items-center gap-2 ml-auto shrink-0">
+<a class="px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold text-white border border-orange-600 transition-all hover:opacity-90 whitespace-nowrap shadow-sm" href="leaderboard.html" style="background:#ea580c">🏅 กระดาน</a>
+<!-- Subjects dropdown -->
+<div class="relative">
+<button class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all border border-slate-200 whitespace-nowrap" onclick="toggleDrop(this)">
+            วิชาอื่น ๆ
+            <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="drop-panel absolute top-full right-0 mt-2 w-64 bg-white rounded-2xl border border-slate-100 shadow-2xl p-2 z-[200]">
+<a class="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors" href="english_exam_comprehensive.html">ภาษาอังกฤษ (ภาค ก.)</a>
+<span class="flex items-center gap-2 px-3 py-2.5 text-sm font-bold rounded-xl" style="background:#ea580c22; color:#ea580c">● ความสามารถทั่วไป</span>
+<a class="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors" href="saraban_regulation.html">ระเบียบงานสารบรรณ</a>
+<a class="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors" href="Security.html">รักษาความปลอดภัยแห่งชาติ</a>
+<a class="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors" href="information_act.html">พ.ร.บ. ข้อมูลข่าวสารฯ</a>
+<a class="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors" href="revolving_fund_act.html">พ.ร.บ. ทุนหมุนเวียน</a>
+<a class="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors" href="ethics_defense.html">จริยธรรมกลาโหม</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-4 py-12">
+<!-- HOME -->
+<div class="section active" id="home">
+<div class="text-center mb-16 font-kanit">
+<div class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6">General Ability Course</div>
+<h1 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                    สรุป &amp; แนวข้อสอบ <br class="hidden md:block"/> <span class="text-blue-600 italic">ความสามารถทั่วไป (ภาค ก.)</span>
+</h1>
+<p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed mb-10 font-sarabun">
+                    รวบรวมเทคนิคการคิดเลขเร็ว อนุกรม โจทย์ปัญหา และทักษะภาษาไทยที่จำเป็นสำหรับการสอบข้าราชการพลเรือนกลาโหม
+                </p>
+<div class="flex flex-wrap justify-center gap-4 mb-12">
+<div class="bg-white px-8 py-4 rounded-2xl border border-slate-100 shadow-sm min-w-[140px]">
+<div class="text-3xl font-black text-orange-600">4</div>
+<div class="text-xs text-slate-400 font-bold uppercase">หมวดเนื้อหา</div>
+</div>
+<div class="bg-white px-8 py-4 rounded-2xl border border-slate-100 shadow-sm min-w-[140px]">
+<div class="text-3xl font-black text-orange-600" id="gaHomePool">—</div>
+<div class="text-xs text-slate-400 font-bold uppercase">ข้อสอบ</div>
+</div>
+<div class="bg-white px-8 py-4 rounded-2xl border border-slate-100 shadow-sm min-w-[140px]">
+<div class="text-3xl font-black text-orange-600">ฟรี</div>
+<div class="text-xs text-slate-400 font-bold uppercase">E-Learning</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-10">
+<button class="group text-left bg-white border border-slate-100 hover:border-orange-300 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all" onclick="showSection('content')">
+<div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-xl mb-3">💡</div>
+<div class="font-bold text-slate-800 font-kanit text-sm mb-1">เทคนิค</div>
+<div class="text-[11px] text-slate-400 font-sarabun leading-snug">เคล็ดลับ<br/>ทำโจทย์เร็ว</div>
+</button>
+<button class="group text-left bg-white border border-slate-100 hover:border-orange-300 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all" onclick="showSection('structure')">
+<div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-xl mb-3">🗂️</div>
+<div class="font-bold text-slate-800 font-kanit text-sm mb-1">โครงสร้างวิชา</div>
+<div class="text-[11px] text-slate-400 font-sarabun leading-snug">คณิต + ภาษาไทย<br/>+ อนุกรม</div>
+</button>
+<button class="group text-left rounded-2xl p-5 shadow-sm hover:shadow-md transition-all" onclick="showSection('quiz')" style="background:#ea580c;">
+<div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-xl mb-3">✏️</div>
+<div class="font-bold text-white font-kanit text-sm mb-1">ทำข้อสอบ</div>
+<div class="text-[11px] text-orange-100 font-sarabun leading-snug">10 / 50 / 100 ข้อ<br/>สุ่มจากคลัง</div>
+</button>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mb-10">
+<button class="bg-slate-900 text-white px-8 py-3.5 rounded-2xl hover:bg-slate-800 shadow-xl transition-all font-bold font-kanit" onclick="showSection('content')">อ่านเทคนิค</button>
+<button class="text-white px-8 py-3.5 rounded-2xl shadow-xl transition-all font-bold font-kanit hover:opacity-90" onclick="showSection('quiz')" style="background:#ea580c">ทำข้อสอบเลย</button>
+</div>
+</div>
+</div>
+<!-- CONTENT (Dark Accordion Style) -->
+<div class="section hidden" id="content">
+<div class="max-w-5xl mx-auto dark-content shadow-2xl">
+<div class="mb-12 border-l-8 border-blue-500 pl-6 py-2">
+<h2 class="text-4xl font-black text-white font-kanit tracking-tight uppercase">เทคนิคการทำโจทย์</h2>
+<p class="text-slate-400 font-medium font-sarabun">ความสามารถทั่วไป: คณิตศาสตร์ และภาษาไทย</p>
+</div>
+<div class="space-y-4">
+<div class="acc-item acc-item-dark open">
+<button class="acc-trigger-dark group" onclick="toggleAcc(this)">
+<div class="flex items-center gap-4">
+<span class="acc-badge-dark">01</span>
+<span class="font-bold text-white font-kanit text-lg group-hover:text-blue-400">อนุกรม (Number Series)</span>
+</div>
+<svg class="acc-arrow-dark w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="acc-body px-8 md:px-20 text-slate-300 leading-relaxed space-y-4">
+<p class="pt-6 text-slate-200">
+                                โฟกัส “พฤติกรรมของตัวเลข” ก่อนลงมือคำนวณ แล้วค่อยเลือกเทคนิคที่เข้าทางที่สุด
+                            </p>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">อนุกรมชั้นเดียว / หลายชั้น (ตีแฉกผลต่าง)</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>เริ่มจาก “ผลต่างชั้นที่ 1” (ตัวติดกัน) ถ้ายังไม่ชัด ให้หาผลต่างชั้นที่ 2–3 ต่อไป</li>
+<li>มักเจอรูปแบบ: บวก/ลบคงที่, เพิ่มทีละ 2, เลขยกกำลัง, หรือสลับจังหวะ</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">อนุกรมข้ามตัว (ก้าวกระโดด)</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>แยกเป็น 2 ชุด: ตัวที่ 1→3→5… และ 2→4→6… (หรือข้ามทีละ 2)</li>
+<li>เหมาะมากกับชุดที่ “เพิ่ม-ลดสลับกัน” หรือ “ตัวเลขแกว่ง”</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">เลขยกกำลัง / ถอดราก</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ถ้าโต/เล็กเร็วผิดปกติ ให้สงสัย \(n^2\), \(n^3\), คูณซ้ำ หรือ “ถอดราก”</li>
+<li>ตัวอย่างแนวคิด: 390,625 → 625 → 25 → 5 (ถอดราก)</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">อนุกรมสะสม (ฟีโบนัชชี/สะสมผล)</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ตัวถัดไปเกิดจาก 2–3 ตัวหน้าบวก/คูณกัน เช่น “3 ตัวหน้าคูณกัน” หรือ “2 ตัวหน้าบวกกัน”</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">ทศนิยม / เศษส่วน</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>แยกดู “เศษ” กับ “ส่วน” ว่ามีแพทเทิร์นเพิ่ม/ลดคนละแบบหรือไม่</li>
+<li>ทศนิยมให้มองเหมือนจำนวนเต็ม แล้วดูผลต่าง เช่น +0.02, +0.03, +0.04…</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="acc-item acc-item-dark">
+<button class="acc-trigger-dark group" onclick="toggleAcc(this)">
+<div class="flex items-center gap-4">
+<span class="acc-badge-dark">02</span>
+<span class="font-bold text-white font-kanit text-lg group-hover:text-blue-400">โอเปอเรชัน (Operations)</span>
+</div>
+<svg class="acc-arrow-dark w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="acc-body px-8 md:px-20 text-slate-300 leading-relaxed space-y-4">
+<p class="pt-6 text-slate-200">
+                                ข้อประเภท “กำหนดให้ F * B = ?” คือการเดาสูตรที่ซ่อนอยู่ระหว่างเลขหน้า (F) และเลขหลัง (B) ให้เริ่มจากสูตรที่ง่ายและใกล้เคียงที่สุดก่อน
+                            </p>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">สูตรยอดฮิตที่ควรลองก่อน</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li><code class="text-slate-200">(F × B) + (F − B)</code></li>
+<li><code class="text-slate-200">(F + B) + F</code></li>
+<li><code class="text-slate-200">F² + B²</code> และ <code class="text-slate-200">F² − B</code></li>
+<li><code class="text-slate-200">2F + 3B</code> (หรือคูณด้วยค่าน้ำหนัก)</li>
+<li><code class="text-slate-200">(B ÷ F) + B</code> (กรณีมีหาร)</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">ทริคจำ</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ถ้าคำตอบ “ใกล้กับผลคูณ” → ลอง <code class="text-slate-200">F×B</code> แล้วค่อยบวก/ลบส่วนต่าง</li>
+<li>ถ้าคำตอบ “ใหญ่ผิดปกติ” → ลองยกกำลังสองก่อน (เช่น <code class="text-slate-200">F² + B²</code>)</li>
+<li>ถ้าโจทย์ให้ตัวอย่าง 2–3 คู่ → ลองหา “สูตรเดียวกัน” ที่ใช้ได้ทุกคู่ (ต้องผ่านทุกตัวอย่าง)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="acc-item acc-item-dark">
+<button class="acc-trigger-dark group" onclick="toggleAcc(this)">
+<div class="flex items-center gap-4">
+<span class="acc-badge-dark">03</span>
+<span class="font-bold text-white font-kanit text-lg group-hover:text-blue-400">โจทย์ปัญหา/ตาราง/คอลัมน์ (Math Applied)</span>
+</div>
+<svg class="acc-arrow-dark w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="acc-body px-8 md:px-20 text-slate-300 leading-relaxed space-y-4">
+<div class="pt-6 space-y-2">
+<p><strong class="text-blue-400 font-kanit">นับขา/หัวสัตว์</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ถ้า “จำนวนเท่ากันทุกชนิด” → ใช้แนวคิด “1 ชุด” แล้วหารตรง: จำนวนต่อชนิด = ขารวม ÷ (ผลรวมขาต่อชุด)</li>
+<li>ถ้าจำนวน “ไม่เท่ากัน” → ตั้งสมการ 2 ตัวแปร (เช่น x, y) จาก “หัว” และ “ขา”</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">จับมือทักทาย (Handshake)</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ถ้าทุกคนจับมือกันคนละ 1 ครั้ง → จำนวนครั้ง = <code class="text-slate-200">n(n−1)/2</code></li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">ปักเสาไฟ/ต้นไม้</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ทางตรงมี “จุดเริ่มต้น” → <code class="text-slate-200">(ระยะทาง ÷ ระยะห่าง) + 1</code></li>
+<li>ถ้าปัก “2 ข้างถนน” → คูณ 2 หลังจากหาจำนวน “ข้างเดียว”</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">ความเร็วเฉลี่ย</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ห้ามเอาความเร็ว 2 ค่า “มาบวกแล้วหาร 2” ถ้าระยะ/เวลาไม่เท่ากัน</li>
+<li>ใช้สูตร: <code class="text-slate-200">ระยะทางรวม ÷ เวลารวม</code></li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">ร้อยละ/ตารางสถิติ</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>การเปลี่ยนแปลงร้อยละ: <code class="text-slate-200">Δ% = ((ค่าใหม่/ค่าเดิม) − 1) × 100</code></li>
+<li>ทริคคิดเร็ว: ตัดทอนเหลือ 2 หลักท้ายก่อนคำนวณเพื่อประมาณค่า (ตรวจคำตอบด้วยความใกล้เคียง)</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">คอลัมน์ (ก/ข/ค)</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>กติกา: ตอบ ก (ก&gt;ข), ตอบ ข (ก&lt;ข), ตอบ ค (ก=ข), ตอบ ง (สรุปไม่ได้)</li>
+<li>อ่าน “เงื่อนไข” (คอลัมน์ ค) ก่อนเสมอ เช่น \(x \ne 0\), \(x&gt;0\) ฯลฯ</li>
+<li>ถ้าลองแทนค่าได้หลายค่าแล้วผลสลับไปมา → ตอบ ง (สรุปไม่ได้)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="acc-item acc-item-dark">
+<button class="acc-trigger-dark group" onclick="toggleAcc(this)">
+<div class="flex items-center gap-4">
+<span class="acc-badge-dark">04</span>
+<span class="font-bold text-white font-kanit text-lg group-hover:text-blue-400">ภาษาไทย: อุปมา/ตรรกะ/เรียงข้อความ</span>
+</div>
+<svg class="acc-arrow-dark w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="acc-body px-8 md:px-20 text-slate-300 leading-relaxed space-y-4">
+<div class="pt-6 space-y-2">
+<p><strong class="text-blue-400 font-kanit">อุปมา-อุปไมย (Analogy)</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>หา “ความสัมพันธ์ของคู่แรก” แล้วเอาไปใช้กับคู่หลัง เช่น อวัยวะ-หน้าที่, เหตุ-ผล, ส่วน-ทั้งหมด, เครื่องมือ-การใช้งาน</li>
+<li>ระวัง “สลับตำแหน่ง” ซ้าย-ขวา ถ้าคู่แรกเป็น “ของ-ที่อยู่” คู่หลังก็ต้องเป็นแบบเดียวกัน</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">ตรรกศาสตร์/สรุปเหตุผล</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ยึด “ข้อสมมติฐาน” ที่โจทย์ให้เท่านั้น อย่าเติมความจริงจากโลกจริง</li>
+<li>ถ้า \(A \rightarrow B\) และ “ไม่เกิด B” ⇒ “ไม่เกิด A” (Modus Tollens)</li>
+<li>ถ้า \(A \rightarrow B\) และ “เกิด B” ⇒ สรุปไม่ได้ว่าเกิดจาก A (อาจเกิดจากสาเหตุอื่น)</li>
+<li>คำว่า “บางคน” ≠ “ทุกคน” (สรุปเหมารวมไม่ได้)</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">เรียงลำดับข้อความ</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>หา “ประโยคเริ่ม” ก่อน: มักไม่ขึ้นต้นด้วยคำเชื่อม เช่น “และ/ส่วน/ดังนั้น/เพราะ/ซึ่ง”</li>
+<li>ดูคำเชื่อม (Key connectors) เพื่อผูกเหตุ-ผล เช่น “ดังนั้น”, “เพราะฉะนั้น”, “จึง”</li>
+<li>เรียงตามลำดับเหตุการณ์: กว้าง→แคบ, อดีต→ปัจจุบัน, ไกล→ใกล้, เหตุ→ผล</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="acc-item acc-item-dark">
+<button class="acc-trigger-dark group" onclick="toggleAcc(this)">
+<div class="flex items-center gap-4">
+<span class="acc-badge-dark">05</span>
+<span class="font-bold text-white font-kanit text-lg group-hover:text-blue-400">จับใจความ &amp; การใช้ภาษาไทย</span>
+</div>
+<svg class="acc-arrow-dark w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="acc-body px-8 md:px-20 text-slate-300 leading-relaxed space-y-4">
+<div class="pt-6 space-y-2">
+<p><strong class="text-blue-400 font-kanit">อ่านจับใจความ (Main Idea)</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ใจความสำคัญมักอยู่ “ประโยคแรก” หรือ “ประโยคสุดท้าย” ของย่อหน้า</li>
+<li>สังเกตคำใบ้ เช่น “คือ”, “ดังนั้น”, “เพราะฉะนั้น”, “จึงสรุปได้ว่า”, “ฉะนั้น”</li>
+<li>เลือกตัวเลือกที่ “ครอบคลุมที่สุด” ไม่ใช่แค่ส่วนย่อย</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p><strong class="text-blue-400 font-kanit">คำฟุ่มเฟือย &amp; สำนวนต่างประเทศ</strong></p>
+<ul class="text-sm space-y-2 font-sarabun list-disc pl-5">
+<li>ตัดคำซ้ำความหมาย เช่น “มากเกินไป”, “ตรงไปตรงมา…อ้อมค้อม” (ให้เหลือคำที่จำเป็น)</li>
+<li>ระวังคำแปลตรงตัว เช่น “มันเป็นการ…” (ควรตัด “มันเป็น” ทิ้ง)</li>
+<li>การใช้ “ถูก” ต้องเป็นเรื่องไม่ดี (ถูกตี/ถูกดุ) ถ้าเรื่องดีให้ใช้ “ได้รับ”</li>
+<li>ทบทวนคำที่ชอบสะกดผิด/สับสน เช่น กะทัดรัด, กะเพรา, ทะนุถนอม, ขะมักเขม้น</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- STRUCTURE -->
+<div class="section hidden" id="structure">
+<div class="max-w-6xl mx-auto font-kanit">
+<h2 class="text-3xl font-black text-slate-900 mb-12 text-center underline decoration-blue-600 underline-offset-8 uppercase tracking-widest">Topic Structure</h2>
+<div class="org-container shadow-2xl mb-12 text-center">
+<h3 class="text-xl font-bold mb-10 text-blue-400">โครงสร้างวิชาความสามารถทั่วไป</h3>
+<div class="inline-block bg-amber-400 text-slate-900 px-10 py-5 rounded-2xl shadow-lg border-b-4 border-amber-600 font-black mb-2">ความสามารถทั่วไป</div>
+<div class="org-line-v"></div>
+<div class="org-line-h"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div>
+<div class="org-line-v"></div>
+<div class="bg-slate-800 border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-2xl font-bold mb-2">ด้านการคำนวณ</div>
+<ul class="text-xs space-y-2 text-slate-300 font-sarabun mt-4 text-left inline-block">
+<li>● อนุกรมหลายชั้นและข้ามตัว</li>
+<li>● คณิตศาสตร์พื้นฐานและโจทย์ปัญหา</li>
+<li>● การวิเคราะห์ข้อมูลจากตาราง</li>
+<li>● เงื่อนไขสัญลักษณ์และคอลัมน์</li>
+</ul>
+</div>
+<div>
+<div class="org-line-v"></div>
+<div class="bg-slate-800 border-2 border-green-400 text-green-400 px-8 py-4 rounded-2xl font-bold mb-2">ด้านภาษาไทย</div>
+<ul class="text-xs space-y-2 text-slate-300 font-sarabun mt-4 text-left inline-block">
+<li>● อุปมาอุปไมย (Analogy)</li>
+<li>● การเรียงลำดับข้อความ</li>
+<li>● การสะกดคำและความหมาย</li>
+<li>● การใช้ภาษาในประโยค</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- QUIZ -->
+<div class="section hidden" id="quiz">
+<div class="max-w-3xl mx-auto text-center px-4" id="quizMenu">
+<p class="text-slate-500 text-sm font-sarabun mb-1">คลังข้อสอบ <strong class="text-orange-600" id="gaPoolCount">—</strong> ข้อ · แต่ละรอบสุ่มไม่ซ้ำจากคลังนี้</p>
+<p class="text-slate-400 text-xs font-sarabun mb-6">เลือกทำ 10 / 50 หรือ 100 ข้อต่อรอบ (ชุด 100 = สุ่มจากคลังเต็ม)</p>
+<h2 class="text-3xl font-bold font-kanit mb-8 text-slate-900 uppercase italic">General Ability Exam</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<button class="p-7 bg-white rounded-3xl border-2 border-slate-100 shadow-xl hover:border-orange-500 transition-all group text-center" onclick="startQuiz(10)" type="button">
+<div class="text-3xl mb-3 font-black text-orange-600">10</div>
+<h3 class="text-lg font-bold font-kanit text-slate-800">10 ข้อ</h3>
+<p class="text-slate-500 text-xs mt-2 font-sarabun">ทดสอบเร็ว</p>
+</button>
+<button class="p-7 bg-white rounded-3xl border-2 border-slate-100 shadow-xl hover:border-orange-500 transition-all group text-center" onclick="startQuiz(50)" type="button">
+<div class="text-3xl mb-3 font-black text-orange-600">50</div>
+<h3 class="text-lg font-bold font-kanit text-slate-800">50 ข้อ</h3>
+<p class="text-slate-500 text-xs mt-2 font-sarabun">ครึ่งชุด</p>
+</button>
+<button class="p-7 bg-white rounded-3xl border-2 border-slate-100 shadow-xl hover:border-orange-500 transition-all group text-center" onclick="startQuiz(100)" type="button">
+<div class="text-3xl mb-3 font-black text-orange-600">100</div>
+<h3 class="text-lg font-bold font-kanit text-slate-800">100 ข้อ</h3>
+<p class="text-slate-500 text-xs mt-2 font-sarabun">สุ่มจากคลังเต็ม</p>
+</button>
+</div>
+</div>
+<div class="hidden max-w-3xl mx-auto" id="quizPlay">
+<div class="mb-10 font-kanit">
+<div class="flex justify-between items-end mb-3 flex-wrap gap-2 text-[11px] font-black text-slate-400">
+<span class="text-orange-600" id="quizCounter">ข้อ 1</span>
+<div class="flex items-center gap-3">
+<span class="text-slate-500 font-kanit" id="gaTimerDisplay">⏱ 00:00</span>
+<span class="text-slate-700" id="quizScoreDisplay">คะแนน: 0</span>
+</div>
+</div>
+<div class="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full transition-all duration-700" id="quizProgress" style="width: 0%; background:#ea580c"></div>
+</div>
+</div>
+<div class="bg-white rounded-[3rem] border border-slate-100 shadow-2xl p-8 md:p-14 mb-10 relative overflow-hidden">
+<h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-10 leading-relaxed font-kanit tracking-tight" id="quizQuestion"></h2>
+<div class="space-y-3.5" id="quizOptions"></div>
+<div class="mt-10 p-7 bg-slate-50 rounded-[2rem] text-slate-600 text-sm leading-relaxed border-l-8 border-slate-900 hidden" id="quizExplanation"></div>
+</div>
+<div class="flex justify-between items-center px-4">
+<button class="text-slate-400 hover:text-slate-600 font-black text-xs uppercase tracking-widest font-kanit italic" onclick="location.reload()">Abort Mission</button>
+<button class="bg-slate-900 text-white px-10 py-4 rounded-full hover:bg-blue-600 disabled:opacity-20 transition shadow-xl font-kanit font-bold text-sm tracking-wide" disabled="" id="nextBtn" onclick="nextQuestion()">NEXT STEP</button>
+</div>
+</div>
+<div class="hidden py-10 font-kanit max-w-md mx-auto px-4" id="quizResult">
+<h2 class="text-2xl font-black text-slate-900 mb-5 text-center">สรุปผลสอบ</h2>
+<!-- การ์ดผลลัพธ์ -->
+<div class="rounded-[1.75rem] overflow-hidden shadow-2xl border border-orange-200/60 mb-6 text-left ring-1 ring-black/5" id="gaResultCard">
+<div class="h-2 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600"></div>
+<div class="px-6 py-7 text-white bg-gradient-to-br from-slate-900 via-slate-800 to-sky-950">
+<p class="text-[11px] font-kanit tracking-wide text-white/45 uppercase mb-1">SlothMove · OPSD</p>
+<p class="font-kanit font-bold text-base text-white/95 leading-snug mb-5">🧠 ความสามารถทั่วไป (ภาค ก.)</p>
+<div class="flex items-end gap-3 mb-3">
+<span aria-hidden="true" class="text-5xl shrink-0 leading-none" id="gaCardEmoji" role="img">📚</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline gap-0.5 flex-wrap">
+<span class="text-5xl font-black font-kanit tabular-nums leading-none" id="gaCardScore">0</span>
+<span class="text-lg text-white/45 font-kanit font-medium tabular-nums" id="gaCardTotal">/ 0</span>
+</div>
+<p class="text-3xl font-black font-kanit text-orange-400 mt-1 tabular-nums" id="gaCardPct">0%</p>
+</div>
+</div>
+<div class="h-2.5 rounded-full bg-white/10 overflow-hidden mb-3">
+<div class="h-full rounded-full bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-700" id="gaCardBar" style="width: 0%"></div>
+</div>
+<p class="text-sm text-white/55 font-sarabun leading-relaxed" id="gaCardMeta">เวลา —</p>
+</div>
+</div>
+<p aria-hidden="true" class="sr-only" id="resultTimeLine"></p>
+<span aria-hidden="true" class="sr-only" id="correctCount">0</span>
+<span aria-hidden="true" class="sr-only" id="totalCount">0</span>
+<span aria-hidden="true" class="sr-only" id="resultPct">0%</span>
+<div class="hidden mb-5 text-center" id="gaWrongBadge">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-50 border border-red-100 text-red-600 rounded-full text-sm font-kanit font-bold">
+<span id="gaWrongCount"></span>
+</span>
+</div>
+<p class="text-slate-600 font-sarabun text-sm text-center mb-5" id="gaResultMsg"></p>
+<div class="flex flex-col sm:flex-row gap-3 justify-center mb-3">
+<button class="flex-1 py-3 rounded-2xl font-bold border-2 border-orange-200 text-orange-600 hover:bg-orange-50 transition" onclick="location.reload()" type="button">ทำใหม่</button>
+<button class="flex-1 py-3 rounded-2xl font-bold border-2 border-slate-200 text-slate-600 hover:bg-slate-50" onclick="showSection('home')" type="button">กลับหน้าแรก</button>
+</div>
+<button class="hidden w-full py-3 rounded-2xl font-bold bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 transition mb-3" id="gaReviewBtn" onclick="showGaReview()" type="button">📋 ดูข้อที่ทำผิด</button>
+<canvas class="max-w-full h-auto mx-auto" height="1080" id="sharePreview" width="1080"></canvas>
+<button class="w-full py-3 rounded-2xl font-bold border-2 border-slate-200 text-slate-600 hover:bg-slate-50 transition flex items-center justify-center gap-2 mb-2" id="gaShareBtn" onclick="shareGaResult()" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    แชร์ผลคะแนน
+                </button>
+<div class="flex flex-col sm:flex-row flex-wrap gap-3 justify-center mb-4">
+<button class="inline-flex items-center justify-center gap-2 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3.5 rounded-2xl font-bold hover:bg-slate-50 transition shadow-sm w-full sm:w-auto flex-1" id="gaDownloadCardBtn" onclick="downloadGaResultCard()" type="button">
+<svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                        ดาวน์โหลดรูปภาพ
+                    </button>
+<button class="text-white px-8 py-3.5 rounded-2xl font-bold shadow-lg transition hover:opacity-90 w-full sm:w-auto flex-1" id="gaSaveBtn" onclick="openSaveModal()" style="background:#ea580c" type="button">บันทึกขึ้นกระดาน</button>
+<a class="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl font-bold border-2 border-slate-200 text-slate-700 hover:bg-slate-50 w-full sm:w-auto flex-1" href="leaderboard.html">🏅 เปิดกระดาน</a>
+</div>
+<!-- SlothMove Facebook CTA result -->
+<div class="mt-5 pt-5 border-t border-slate-200">
+<p class="font-sarabun text-sm text-slate-600 mb-3 leading-relaxed text-center">อยากได้หน่วยงานไหนเพิ่มเติม inbox บอกในแฟนเพจเลยครับ</p>
+<a class="w-full py-3.5 rounded-2xl font-bold font-kanit text-sm text-white bg-[#1877F2] hover:bg-[#166ADF] transition-all shadow-sm flex items-center justify-center gap-2.5" href="https://www.facebook.com/profile.php?id=61589670089745" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="w-5 h-5 shrink-0" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"></path></svg>
+                        ติดตามข่าวควิซ · Facebook
+                    </a>
+</div>
+</div>
+<div class="hidden max-w-3xl mx-auto px-4 py-8 font-kanit" id="gaReviewPanel">
+<div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-sm" onclick="hideGaReview()" type="button">← ผลคะแนน</button>
+<div class="text-center flex-1 min-w-[200px]">
+<div class="font-black text-lg text-slate-900">ข้อที่ทำผิด</div>
+<div class="text-xs text-slate-500 font-kanit" id="gaReviewHeader"></div>
+</div>
+<button class="px-4 py-2 rounded-xl font-bold text-sm text-white hover:opacity-90 transition" onclick="retryGaWrong()" style="background:#ea580c" type="button">🔄 ลองใหม่</button>
+</div>
+<div class="space-y-4 mb-8" id="gaReviewList"></div>
+<div class="bg-white rounded-2xl border border-slate-200 p-5 text-center shadow-sm">
+<p class="font-sarabun text-slate-600 text-sm mb-4">ทำข้อที่ผิดซ้ำจนกว่าจะผ่าน 💪</p>
+<button class="w-full py-3.5 rounded-2xl font-bold text-sm text-white hover:opacity-90 transition" onclick="retryGaWrong()" style="background:#ea580c" type="button">🔄 ลองใหม่เฉพาะข้อที่ผิด (<span id="gaRetryCount">0</span> ข้อ)</button>
+</div>
+</div>
+</div>
+</main>
+<section class="py-24 bg-slate-900 text-white relative overflow-hidden mt-12" id="donate">
+<div class="max-w-4xl mx-auto px-4 text-center relative z-10 font-kanit">
+<h2 class="text-3xl font-bold mb-4">เลี้ยงกาแฟผมหน่อยครับ</h2>
+<div class="bg-white p-6 rounded-[3.5rem] max-w-[240px] mx-auto shadow-2xl mt-10">
+<img alt="QR พร้อมเพย์สำหรับสนับสนุน SlothMove" class="w-full rounded-[2.5rem] mb-4" src="../../../pic/qr.jpg"/>
+<p class="text-slate-400 text-[10px] font-black uppercase tracking-tighter italic">Scan to Support</p>
+</div>
+</div>
+</section>
+<footer class="bg-white border-t border-slate-200 py-12">
+<div class="max-w-7xl mx-auto px-4 text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em]">
+<p>© 2024 SlothMove OPSD Intelligence Hub</p>
+</div>
+</footer>
+<!-- โหลดคลังข้อสอบที่ดึงจาก files/ความรู้ทั่วไป (รองรับการเปิดแบบ file://) -->
+<script src="general_ability_quiz.questions.js"></script>
+<script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+            document.querySelectorAll('.nav-tab').forEach(t => {
+                t.classList.toggle('active', t.dataset.section === id);
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleAcc(btn) {
+            const item = btn.parentElement;
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+
+        function toggleDrop(btn) {
+            const panel = btn.nextElementSibling;
+            document.querySelectorAll('.drop-panel').forEach(p => { if (p !== panel) p.classList.remove('open'); });
+            panel.classList.toggle('open');
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.relative')) {
+                document.querySelectorAll('.drop-panel').forEach(p => p.classList.remove('open'));
+            }
+        });
+
+        /* ═══ General Ability Quiz (data: GENERAL_KNOWLEDGE_QUESTIONS) ═══ */
+        const GA_SUBJECT = 'ความสามารถทั่วไป (ภาค ก.)';
+        const _supa = window.supabase
+            ? window.supabase.createClient('https://rtedyfalsfqcjsvgjqmx.supabase.co', 'sb_publishable_vn5tbKzxOtHlmuFLlG_BJQ_54Lk-626')
+            : null;
+
+        let _quizList = [], _qi = 0, _qScore = 0, _qAnswered = false;
+        let _quizTimer = null, _quizSec = 0, _quizMode = 0;
+        let _gaSavedScore = null;
+        let wrongAnswers = [];
+        const GA_LETTERS = ['ก', 'ข', 'ค', 'ง'];
+
+        function _fmtGaTime(sec) {
+            if (sec == null || sec < 0) return '—';
+            const m = Math.floor(sec / 60), s = sec % 60;
+            return m > 0 ? `${m} นาที ${s} วินาที` : `${s} วินาที`;
+        }
+        function _startGaTimer() {
+            clearInterval(_quizTimer);
+            _quizSec = 0;
+            _updateGaTimerDisplay();
+            _quizTimer = setInterval(() => { _quizSec++; _updateGaTimerDisplay(); }, 1000);
+        }
+        function _stopGaTimer() { clearInterval(_quizTimer); }
+        function _updateGaTimerDisplay() {
+            const m = String(Math.floor(_quizSec / 60)).padStart(2, '0');
+            const s = String(_quizSec % 60).padStart(2, '0');
+            const el = document.getElementById('gaTimerDisplay');
+            if (el) el.textContent = `⏱ ${m}:${s}`;
+        }
+
+        function refreshGaPoolCount() {
+            const n = _normalizeQuestions().length;
+            const a = document.getElementById('gaPoolCount');
+            const h = document.getElementById('gaHomePool');
+            if (a) a.textContent = String(n);
+            if (h) h.textContent = String(n);
+        }
+
+        function _shuffle(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function _fisherYatesIndices(len) {
+            const idx = Array.from({ length: len }, (_, i) => i);
+            for (let i = len - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [idx[i], idx[j]] = [idx[j], idx[i]];
+            }
+            return idx;
+        }
+        function shouldKeepGaOptionOrder(opts) {
+            return (opts || []).some(t => {
+                const s = String(t);
+                return /ถูกทุกข้อ/.test(s) || (/ถูกทั้ง/i.test(s) && /และ/.test(s));
+            });
+        }
+        function shuffleGaQuestionOptions(raw) {
+            const q = { ...raw, opts: [...raw.opts] };
+            if (shouldKeepGaOptionOrder(q.opts)) return q;
+            const correctText = q.opts[q.ans];
+            q.opts = _shuffle(q.opts);
+            q.ans = q.opts.indexOf(correctText);
+            return q;
+        }
+        function buildGaQuizDeck(source, requestedCount) {
+            const take = Math.min(requestedCount, 100, source.length);
+            const order = _fisherYatesIndices(source.length).slice(0, take);
+            return order.map(i => shuffleGaQuestionOptions({ ...source[i], opts: [...source[i].opts] }));
+        }
+
+        function _normalizeQuestions() {
+            const raw = Array.isArray(window.GENERAL_KNOWLEDGE_QUESTIONS) ? window.GENERAL_KNOWLEDGE_QUESTIONS : [];
+            return raw
+                .filter(q => q && typeof q.q === 'string' && Array.isArray(q.opts) && q.opts.length >= 2 &&
+                    typeof q.ans === 'number' && q.ans >= 0 && q.ans < q.opts.length)
+                .map(q => ({
+                    q: String(q.q).trim(),
+                    opts: q.opts.map(o => String(o)),
+                    ans: q.ans,
+                    exp: (q.exp != null && String(q.exp).trim()) ? String(q.exp).trim() : ''
+                }));
+        }
+
+        /** @param {number} n จำนวนข้อต่อรอบ (10 / 50 / 100) — สุ่มจากคลังทั้งหมด เช่น 256 ข้อ */
+        function startQuiz(n) {
+            const pool = _normalizeQuestions();
+            if (!pool.length) {
+                alert('ยังไม่มีข้อมูลข้อสอบ โปรดโหลดหน้าใหม่หรือตรวจไฟล์ general_ability_quiz.questions.js');
+                return;
+            }
+            _quizList = buildGaQuizDeck(pool, n);
+            _quizMode = _quizList.length;
+            _qi = 0;
+            _qScore = 0;
+            _qAnswered = false;
+            wrongAnswers = [];
+
+            const menu = document.getElementById('quizMenu');
+            const play = document.getElementById('quizPlay');
+            const result = document.getElementById('quizResult');
+            const rev = document.getElementById('gaReviewPanel');
+            if (menu) menu.classList.add('hidden');
+            if (result) result.classList.add('hidden');
+            if (rev) rev.classList.add('hidden');
+            if (play) play.classList.remove('hidden');
+
+            _startGaTimer();
+            renderGaQuestion();
+        }
+
+        function renderGaQuestion() {
+            _qAnswered = false;
+            const Q = _quizList[_qi];
+            const total = _quizList.length;
+            document.getElementById('quizCounter').textContent = `ข้อ ${_qi + 1} / ${total}`;
+            document.getElementById('quizScoreDisplay').textContent = `คะแนน: ${_qScore}`;
+            document.getElementById('quizProgress').style.width = `${((_qi + 1) / total) * 100}%`;
+            document.getElementById('quizQuestion').textContent = Q.q;
+            const ex = document.getElementById('quizExplanation');
+            ex.classList.add('hidden');
+            ex.textContent = '';
+
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.disabled = true;
+            nextBtn.textContent = _qi + 1 >= total ? 'ดูผลคะแนน' : 'ข้อถัดไป →';
+
+            const box = document.getElementById('quizOptions');
+            box.innerHTML = '';
+            const letters = ['ก', 'ข', 'ค', 'ง'];
+            Q.opts.forEach((opt, i) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'quiz-option w-full text-left px-5 py-4 rounded-2xl border-2 border-slate-200 bg-white font-sarabun text-slate-800 text-sm md:text-base hover:border-blue-400 transition-all';
+                b.innerHTML = `<span class="font-kanit font-bold text-blue-600 mr-2">${letters[i] || '.'}</span>${escapeGaHtml(opt)}`;
+                b.onclick = () => pickGaOption(i, b);
+                box.appendChild(b);
+            });
+        }
+
+        function escapeGaHtml(s) {
+            return String(s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function pickGaOption(idx, btn) {
+            if (_qAnswered) return;
+            _qAnswered = true;
+            const Q = _quizList[_qi];
+            document.querySelectorAll('#quizOptions .quiz-option').forEach((b, i) => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+                if (i === Q.ans) b.classList.add('correct');
+                else if (i === idx) b.classList.add('wrong');
+            });
+            if (idx === Q.ans) _qScore++;
+            else wrongAnswers.push({ q: Q, userIdx: idx });
+            document.getElementById('quizScoreDisplay').textContent = `คะแนน: ${_qScore}`;
+
+            const ex = document.getElementById('quizExplanation');
+            ex.classList.remove('hidden');
+            ex.innerHTML = Q.exp
+                ? `<p class="font-kanit font-bold text-slate-800 mb-1">เฉลย</p><p>${escapeGaHtml(Q.exp)}</p>`
+                : '<p class="font-kanit text-slate-600">ตอบถูกแล้ว</p>';
+
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (!_qAnswered) return;
+            _qi++;
+            if (_qi >= _quizList.length) {
+                showGaResult();
+                return;
+            }
+            renderGaQuestion();
+        }
+
+        function showGaResult() {
+            _stopGaTimer();
+            const total = _quizList.length || 1;
+            const pct = Math.round((_qScore / total) * 100);
+            const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '👍' : '📚';
+            document.getElementById('quizPlay').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+
+            const wc = wrongAnswers.length;
+            const wb = document.getElementById('gaWrongBadge');
+            const rv = document.getElementById('gaReviewBtn');
+            if (wb) {
+                if (wc > 0) {
+                    wb.classList.remove('hidden');
+                    const wEl = document.getElementById('gaWrongCount');
+                    if (wEl) wEl.textContent = `ผิด ${wc} ข้อ`;
+                } else wb.classList.add('hidden');
+            }
+            if (rv) {
+                if (wc > 0) {
+                    rv.classList.remove('hidden');
+                    rv.textContent = `📋 ดูข้อที่ทำผิด (${wc} ข้อ)`;
+                } else rv.classList.add('hidden');
+            }
+            const rmsg = document.getElementById('gaResultMsg');
+            if (rmsg) {
+                rmsg.textContent = pct >= 80 ? 'ยอดเยี่ยม! พร้อมสอบแล้ว' : pct >= 60 ? 'ดีมาก! ฝึกเพิ่มอีกหน่อย' : 'อ่านทบทวนเพิ่มอีกนิดนะครับ';
+            }
+
+            const ce = document.getElementById('gaCardEmoji');
+            if (ce) ce.textContent = emoji;
+            const cs = document.getElementById('gaCardScore');
+            if (cs) cs.textContent = String(_qScore);
+            const ct = document.getElementById('gaCardTotal');
+            if (ct) ct.textContent = '/ ' + total;
+            const cp = document.getElementById('gaCardPct');
+            if (cp) cp.textContent = pct + '%';
+            const bar = document.getElementById('gaCardBar');
+            if (bar) bar.style.width = pct + '%';
+
+            const dateStr = new Date().toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: 'numeric' });
+            const timeStr = _fmtGaTime(_quizSec);
+            const meta = document.getElementById('gaCardMeta');
+            if (meta) meta.textContent = `เวลา ${timeStr} · ทำ ${total} ข้อ · ${dateStr}`;
+
+            document.getElementById('resultPct').textContent = pct + '%';
+            document.getElementById('correctCount').textContent = _qScore;
+            document.getElementById('totalCount').textContent = String(total);
+            document.getElementById('resultTimeLine').textContent = `เวลา ${timeStr}`;
+
+            const saveBtn = document.getElementById('gaSaveBtn');
+            if (saveBtn) {
+                saveBtn.innerHTML = 'บันทึกขึ้นกระดาน';
+                saveBtn.disabled = false;
+                saveBtn.style.opacity = '';
+            }
+            const dl = document.getElementById('gaDownloadCardBtn');
+            if (dl) { dl.disabled = false; dl.style.opacity = ''; }
+            const rc = document.getElementById('gaRetryCount');
+            if (rc) rc.textContent = String(wc);
+
+            buildGaSharePreview().catch(() => {});
+        }
+
+        const _GA_ACCENT = '#ea580c';
+        function _gaShadeColor(hex, pct) {
+            const n = parseInt(hex.slice(1), 16), f = pct / 100;
+            const r = Math.max(0, Math.min(255, (n >> 16) + Math.round(255 * f)));
+            const g = Math.max(0, Math.min(255, ((n >> 8) & 0xff) + Math.round(255 * f)));
+            const b = Math.max(0, Math.min(255, (n & 0xff) + Math.round(255 * f)));
+            return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+        }
+        function _gaRrect(ctx, x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath();
+        }
+        function _gaClipText(ctx, txt, maxW) {
+            if (ctx.measureText(txt).width <= maxW) return txt;
+            let t = txt;
+            while (t.length > 0 && ctx.measureText(t + '…').width > maxW) t = t.slice(0, -1);
+            return t + '…';
+        }
+
+        
+        let _gaLogoImg = null;
+        function _loadGaLogo() {
+            return new Promise(resolve => {
+                if (_gaLogoImg) { resolve(_gaLogoImg); return; }
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = () => { _gaLogoImg = img; resolve(img); };
+                img.onerror = () => resolve(null);
+                img.src = '../../../pic/slothmove_mascot.svg';
+            });
+        }
+
+        function _drawGaShareCanvas(sc, total, pct, emojiChar, timeStr, dateStr, logo, _gaLogo) {
+            const W = 1080, H = 1080;
+            const cvs = document.getElementById('sharePreview');
+            if (!cvs) return;
+            cvs.width = W; cvs.height = H;
+            const ctx = cvs.getContext('2d');
+
+            /* ── Background: deep forest green ── */
+            ctx.fillStyle = '#0f1a0f';
+            ctx.fillRect(0, 0, W, H);
+            const vig = ctx.createRadialGradient(W/2,H/2,200,W/2,H/2,780);
+            vig.addColorStop(0,'rgba(0,0,0,0)'); vig.addColorStop(1,'rgba(0,0,0,0.35)');
+            ctx.fillStyle = vig; ctx.fillRect(0, 0, W, H);
+
+            /* ── Top accent line ── */
+            ctx.fillStyle = '#7a9470'; ctx.fillRect(0, 0, W, 6);
+
+            /* ── Logo mascot ── */
+            const LOGO_SIZE = 120, LOGO_X = W/2 - LOGO_SIZE/2, LOGO_Y = 38;
+            if (logo) {
+                ctx.save();
+                ctx.beginPath(); ctx.arc(W/2, LOGO_Y+LOGO_SIZE/2, LOGO_SIZE/2+4, 0, Math.PI*2);
+                ctx.fillStyle = '#1a2a1a'; ctx.fill();
+                ctx.strokeStyle = '#7a9470'; ctx.lineWidth = 2; ctx.stroke();
+                ctx.clip();
+                ctx.drawImage(logo, LOGO_X, LOGO_Y, LOGO_SIZE, LOGO_SIZE);
+                ctx.restore();
+            }
+
+            /* ── Brand name ── */
+            ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.font = '900 52px "Kanit",sans-serif';
+            const brandY = LOGO_Y + LOGO_SIZE + 42;
+            ctx.fillStyle = '#f4f1eb';
+            ctx.fillText('Sloth', W/2 - ctx.measureText('Move').width/2 - 2, brandY);
+            ctx.fillStyle = '#7a9470';
+            ctx.fillText('Move', W/2 + ctx.measureText('Sloth').width/2 - 2, brandY);
+
+            ctx.font = '400 24px "Sarabun",sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.38)';
+            ctx.fillText('SlothMove · OPSD', W/2, brandY + 42);
+
+            /* ── Divider ── */
+            const divY = brandY + 72;
+            ctx.strokeStyle = 'rgba(122,148,112,0.25)'; ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(120, divY); ctx.lineTo(W-120, divY); ctx.stroke();
+
+            /* ── Subject badge ── */
+            ctx.font = 'bold 30px "Kanit","Sarabun",sans-serif';
+            const sub = _gaClipText(ctx, '🧠  ' + GA_SUBJECT, 820);
+            const sW = ctx.measureText(sub).width + 72, sX = (W-sW)/2, sY = divY + 18;
+            ctx.fillStyle = 'rgba(122,148,112,0.12)'; _gaRrect(ctx,sX,sY,sW,58,29); ctx.fill();
+            ctx.strokeStyle = 'rgba(122,148,112,0.45)'; ctx.lineWidth = 1.5; _gaRrect(ctx,sX,sY,sW,58,29); ctx.stroke();
+            ctx.fillStyle = '#ffffff'; ctx.fillText(sub, W/2, sY+29);
+
+            /* ── Score number ── */
+            ctx.textBaseline = 'alphabetic';
+            const BIG = 230, MID = 105;
+            ctx.font = '900 ' + BIG + 'px "Kanit",sans-serif';
+            const numW = ctx.measureText(String(sc)).width;
+            ctx.font = '300 ' + MID + 'px "Kanit",sans-serif';
+            const denStr = ' / ' + total, denW = ctx.measureText(denStr).width;
+            const SCORE_Y = 620, startX = W/2 - (numW+denW)/2;
+            ctx.font = '900 ' + BIG + 'px "Kanit",sans-serif'; ctx.fillStyle = '#ffffff';
+            ctx.fillText(String(sc), startX, SCORE_Y);
+            ctx.font = '300 ' + MID + 'px "Kanit",sans-serif'; ctx.fillStyle = 'rgba(255,255,255,0.38)';
+            ctx.fillText(denStr, startX + numW, SCORE_Y);
+
+            /* ── Percentage ── */
+            ctx.textBaseline = 'middle';
+            ctx.font = 'bold 72px "Kanit",sans-serif'; ctx.fillStyle = '#a8c5a0';
+            ctx.fillText(pct + '%', W/2, 672);
+
+            /* ── Progress bar ── */
+            const bx=110, by=706, bw=W-220, bh=12, br=6;
+            ctx.fillStyle = 'rgba(122,148,112,0.18)'; _gaRrect(ctx,bx,by,bw,bh,br); ctx.fill();
+            const fw = Math.max(br*2, Math.round(bw*pct/100));
+            const fg = ctx.createLinearGradient(bx,0,bx+fw,0);
+            fg.addColorStop(0,'#4a7a50'); fg.addColorStop(1,'#a8c5a0');
+            ctx.fillStyle = fg; _gaRrect(ctx,bx,by,fw,bh,br); ctx.fill();
+
+            ctx.font = '400 24px "Sarabun",sans-serif'; ctx.fillStyle = 'rgba(255,255,255,0.38)';
+            ctx.fillText('ตอบถูก ' + sc + ' จาก ' + total + ' ข้อ', W/2, 742);
+
+            /* ── Bottom separator ── */
+            ctx.strokeStyle = 'rgba(122,148,112,0.18)'; ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(0,772); ctx.lineTo(W,772); ctx.stroke();
+            ctx.fillStyle = 'rgba(0,0,0,0.28)'; ctx.fillRect(0,772,W,H-772);
+
+            /* ── Time & Date ── */
+            ctx.font = '400 26px "Sarabun",sans-serif'; ctx.fillStyle = 'rgba(255,255,255,0.45)';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('⏱ ' + timeStr + '  ·  ' + dateStr, W/2, 870);
+
+            /* ── SlothMove badge ── */
+            ctx.fillStyle = 'rgba(122,148,112,0.15)'; _gaRrect(ctx,90,812,200,48,24); ctx.fill();
+            ctx.strokeStyle = '#7a9470'; ctx.lineWidth = 1.5; _gaRrect(ctx,90,812,200,48,24); ctx.stroke();
+            ctx.font = 'bold 28px "Kanit",sans-serif'; ctx.fillStyle = '#a8c5a0';
+            ctx.textAlign = 'center'; ctx.fillText('SlothMove', 190, 836);
+        }
+
+
+        async function buildGaSharePreview() {
+            const _gaLogo = await _loadGaLogo();
+            if (document.fonts && document.fonts.ready) await document.fonts.ready;
+            const total = _quizList.length || 1;
+            const pct = Math.round((_qScore / total) * 100);
+            const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '👍' : '📚';
+            const timeStr = _fmtGaTime(_quizSec);
+            const dateStr = new Date().toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: 'numeric' });
+            _drawGaShareCanvas(_qScore, total, pct, emoji, timeStr, dateStr, _gaLogo);
+            const el = document.getElementById('sharePreview');
+            if (el) el.style.display = 'block';
+        }
+
+        function setGaShareBtn(btn, label, disabled) {
+            if (!btn) return;
+            btn.innerHTML = label;
+            btn.disabled = !!disabled;
+        }
+        function resetGaShareBtn(btn) {
+            if (!btn) return;
+            btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg> แชร์ผลคะแนน';
+            btn.disabled = false;
+        }
+
+        async function shareGaResult() {
+            const btn = document.getElementById('gaShareBtn');
+            const total = _quizList.length || 1;
+            const pct = Math.round((_qScore / total) * 100);
+            const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '👍' : '😅';
+            const shareText = `${emoji} ฉันทำข้อสอบ "${GA_SUBJECT}" ได้ ${_qScore}/${total} ข้อ (${pct}%)\nลองทำดูที่ SlothMove 👉 slothmove.com`;
+            const pageUrl = window.location.href;
+            const cvs = document.getElementById('sharePreview');
+            async function tryShareWithFile() {
+                return new Promise((res, rej) => {
+                    cvs.toBlob(async blob => {
+                        try {
+                            const file = new File([blob], 'slothmove-ga-result.png', { type: 'image/png' });
+                            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                                await navigator.share({ files: [file], text: shareText });
+                                res('file');
+                            } else rej(new Error('no canShare'));
+                        } catch (e) { rej(e); }
+                    }, 'image/png');
+                });
+            }
+            setGaShareBtn(btn, '⏳ กำลังเตรียม...', true);
+            try {
+                await tryShareWithFile();
+                setGaShareBtn(btn, '✓ แชร์แล้ว!', false);
+                setTimeout(() => resetGaShareBtn(btn), 2500);
+                return;
+            } catch (e1) {
+                if (e1.name === 'AbortError') { resetGaShareBtn(btn); return; }
+                try {
+                    if (navigator.share) {
+                        await navigator.share({ text: shareText, url: pageUrl });
+                        setGaShareBtn(btn, '✓ แชร์แล้ว!', false);
+                        setTimeout(() => resetGaShareBtn(btn), 2500);
+                        return;
+                    }
+                } catch (e2) {
+                    if (e2.name === 'AbortError') { resetGaShareBtn(btn); return; }
+                }
+                try {
+                    await navigator.clipboard.writeText(shareText + '\n' + pageUrl);
+                    setGaShareBtn(btn, '✓ คัดลอกข้อความแล้ว!', false);
+                } catch {
+                    const ta = document.createElement('textarea');
+                    ta.value = shareText + '\n' + pageUrl;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    ta.remove();
+                    setGaShareBtn(btn, '✓ คัดลอกแล้ว!', false);
+                }
+                setTimeout(() => resetGaShareBtn(btn), 2500);
+            }
+        }
+
+        function showGaReview() {
+            const wc = wrongAnswers.length;
+            const h = document.getElementById('gaReviewHeader');
+            if (h) h.textContent = `${wc} ข้อจากทั้งหมด ${_quizList.length} ข้อ`;
+            const list = document.getElementById('gaReviewList');
+            if (!list) return;
+            list.innerHTML = '';
+            wrongAnswers.forEach((item, n) => {
+                const { q, userIdx } = item;
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm';
+                let html = `
+                  <div class="px-5 pt-5 pb-3">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-xs font-black font-kanit">${n + 1}</span>
+                      <span class="text-xs font-bold font-kanit text-red-500 uppercase tracking-wide">ตอบผิด</span>
+                    </div>
+                    <p class="font-sarabun text-slate-800 text-sm leading-relaxed">${escapeGaHtml(q.q)}</p>
+                  </div>
+                  <div class="px-5 pb-5 space-y-2">`;
+                (q.opts || []).forEach((opt, i) => {
+                    let cls = 'border-2 border-slate-100 bg-slate-50 text-slate-600';
+                    let badge = '';
+                    if (i === q.ans) {
+                        cls = 'review-correct border-2';
+                        badge = '<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-green-700 bg-green-100 px-2 py-0.5 rounded-full">✓ เฉลย</span>';
+                    } else if (i === userIdx) {
+                        cls = 'review-wrong border-2';
+                        badge = '<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-red-700 bg-red-100 px-2 py-0.5 rounded-full">✗ คำตอบคุณ</span>';
+                    }
+                    html += `
+                      <div class="flex items-center gap-3 px-4 py-3 rounded-xl ${cls}">
+                        <span class="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center text-xs font-kanit font-bold shrink-0">${GA_LETTERS[i] || '.'}</span>
+                        <span class="font-sarabun text-sm flex-1">${escapeGaHtml(String(opt))}</span>
+                        ${badge}
+                      </div>`;
+                });
+                if (q.exp) {
+                    html += `<div class="mt-3 p-3 rounded-xl text-xs font-sarabun text-slate-600 leading-relaxed" style="background:#fff7ed">💡 ${escapeGaHtml(q.exp)}</div>`;
+                }
+                html += '</div>';
+                card.innerHTML = html;
+                list.appendChild(card);
+            });
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('gaReviewPanel').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function hideGaReview() {
+            document.getElementById('gaReviewPanel').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+        }
+
+        function retryGaWrong() {
+            const pool = wrongAnswers.map(w => shuffleGaQuestionOptions({ ...w.q, opts: [...w.q.opts] }));
+            if (!pool.length) { hideGaReview(); return; }
+            _quizList = _shuffle(pool);
+            _quizMode = _quizList.length;
+            _qi = 0;
+            _qScore = 0;
+            _qAnswered = false;
+            wrongAnswers = [];
+            document.getElementById('gaWrongBadge').classList.add('hidden');
+            document.getElementById('gaReviewBtn').classList.add('hidden');
+            document.getElementById('gaReviewPanel').classList.add('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('quizMenu').classList.add('hidden');
+            document.getElementById('quizPlay').classList.remove('hidden');
+            const sp = document.getElementById('sharePreview');
+            if (sp) sp.style.display = 'none';
+            _startGaTimer();
+            renderGaQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function downloadGaResultCard() {
+            const total = _quizList.length || 1;
+            if (!total) return;
+            const pct = Math.round((_qScore / total) * 100);
+            const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '👍' : '📚';
+            const timeStr = _fmtGaTime(_quizSec);
+            const dateStr = new Date().toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: 'numeric' });
+            const btn = document.getElementById('gaDownloadCardBtn');
+            if (btn) { btn.disabled = true; btn.textContent = 'กำลังสร้างรูป…'; }
+            try {
+                if (document.fonts && document.fonts.ready) await document.fonts.ready;
+                await buildGaSharePreview();
+                const cvs = document.getElementById('sharePreview');
+                if (!cvs || !cvs.width) throw new Error('canvas');
+                const a = document.createElement('a');
+                a.download = 'slothmove-ga-result.png';
+                a.href = cvs.toDataURL('image/png');
+                a.click();
+            } catch (e) {
+                alert('ไม่สามารถดาวน์โหลดได้: ' + (e && e.message ? e.message : e));
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> ดาวน์โหลดรูปภาพ';
+                }
+            }
+        }
+
+        function openSaveModal() {
+            if (!_supa) { alert('ไม่สามารถเชื่อมต่อ Supabase ได้'); return; }
+            _stopGaTimer();
+            const total = _quizList.length || 1;
+            _gaSavedScore = { s: _qScore, t: total, p: Math.round((_qScore / total) * 100) };
+            document.getElementById('saveError').classList.add('hidden');
+            document.getElementById('nicknameInput').value = '';
+            const cbtn = document.getElementById('saveConfirmBtn');
+            if (cbtn) { cbtn.textContent = 'บันทึก'; cbtn.disabled = false; }
+            document.getElementById('saveModal').classList.remove('hidden');
+            setTimeout(() => document.getElementById('nicknameInput').focus(), 100);
+        }
+        function closeSaveModal() {
+            document.getElementById('saveModal').classList.add('hidden');
+        }
+        async function confirmSave() {
+            const nick = document.getElementById('nicknameInput').value.trim();
+            const errEl = document.getElementById('saveError');
+            if (!nick) { errEl.textContent = 'กรุณาใส่ชื่อเล่น'; errEl.classList.remove('hidden'); return; }
+            const btn = document.getElementById('saveConfirmBtn');
+            btn.textContent = 'กำลังบันทึก...'; btn.disabled = true;
+            try {
+                const payload = {
+                    nickname: nick,
+                    dept: 'opsd',
+                    subject: GA_SUBJECT,
+                    score: _gaSavedScore.s,
+                    total: _gaSavedScore.t,
+                    pct: _gaSavedScore.p,
+                    mode: _quizMode,
+                    time_sec: _quizSec
+                };
+                let { error } = await _supa.from('scores').insert(payload);
+                if (error && /dept|schema cache/i.test(error.message)) {
+                    const { dept: _d, ...noDept } = payload;
+                    ({ error } = await _supa.from('scores').insert(noDept));
+                }
+                if (error) throw new Error(error.message);
+                closeSaveModal();
+                const saveBtn = document.getElementById('gaSaveBtn');
+                if (saveBtn) {
+                    saveBtn.innerHTML = '✅ บันทึกแล้ว';
+                    saveBtn.disabled = true;
+                    saveBtn.style.opacity = '0.6';
+                }
+            } catch (e) {
+                errEl.textContent = 'เกิดข้อผิดพลาด: ' + e.message;
+                errEl.classList.remove('hidden');
+                btn.textContent = 'บันทึก'; btn.disabled = false;
+            }
+        }
+
+        refreshGaPoolCount();
+        // Set initial active tab
+        const initTab = document.querySelector('[data-section="home"]');
+        if (initTab) initTab.classList.add('active');
+    </script>
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden" id="saveModal">
+<div class="bg-white rounded-3xl shadow-2xl p-7 w-80 max-w-full mx-4">
+<h3 class="font-kanit font-bold text-lg text-slate-800 mb-1 text-center">🏅 บันทึกขึ้นกระดาน</h3>
+<p class="text-slate-500 font-sarabun text-sm text-center mb-4">ใส่ชื่อเล่นของคุณ (OPSD)</p>
+<input class="w-full border-2 border-slate-200 focus:border-orange-500 rounded-2xl px-4 py-3 font-kanit text-slate-700 outline-none mb-3 text-center text-lg" id="nicknameInput" maxlength="20" placeholder="ชื่อเล่น..." type="text"/>
+<p class="text-red-500 font-sarabun text-xs text-center mb-2 hidden" id="saveError"></p>
+<div class="flex gap-2">
+<button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-sm border-2 border-slate-200 text-slate-500 hover:bg-slate-50" onclick="closeSaveModal()" type="button">ยกเลิก</button>
+<button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-sm text-white hover:opacity-90 transition-all" id="saveConfirmBtn" onclick="confirmSave()" style="background:#ea580c" type="button">บันทึก</button>
+</div>
+</div>
+</div>
+</body>
+</html>

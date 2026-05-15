@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>กระดานคะแนน | SlothMove</title><link href="https://slothmoveth.com/Page/source/Industry/leaderboard.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="article" property="og:type"/><meta content="th_TH" property="og:locale"/><meta content="SlothMove" property="og:site_name"/><meta content="https://slothmoveth.com/Page/source/Industry/leaderboard.html" property="og:url"/><meta content="กระดานคะแนน | SlothMove" property="og:title"/><meta content="กระดานคะแนนผู้เล่นควิซและโหมดซ้อม สายงานสป.อก. (กระทรวงอุตสาหกรรม) — พร้อมเวลาและแท็บรวม" property="og:description"/><meta content="https://slothmoveth.com/pic/logo_OPSDD.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="กระดานคะแนน | SlothMove" name="twitter:title"/><meta content="กระดานคะแนนผู้เล่นควิซและโหมดซ้อม สายงานสป.อก. (กระทรวงอุตสาหกรรม) — พร้อมเวลาและแท็บรวม" name="twitter:description"/><meta content="https://slothmoveth.com/pic/logo_OPSDD.png" name="twitter:image"/><meta content="SlothMove — เตรียมสอบราชการ" property="og:image:alt"/>
+<meta content="กระดานคะแนนผู้เล่นควิซและโหมดซ้อม สายงานสป.อก. (กระทรวงอุตสาหกรรม) — พร้อมเวลาและแท็บรวม" name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Kanit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' rx='22' fill='#0f172a'/&gt;&lt;text y='.9em' font-size='72' x='50%' text-anchor='middle'&gt;🏅&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+  body { font-family:'Sarabun',sans-serif; background:#f1f5f9; }
+  .font-kanit { font-family:'Kanit',sans-serif; }
+  .rank-1 { background:linear-gradient(135deg,#fef9c3,#fde68a); border-color:#fde68a; }
+  .rank-2 { background:linear-gradient(135deg,#f8fafc,#e2e8f0); border-color:#cbd5e1; }
+  .rank-3 { background:linear-gradient(135deg,#fff7ed,#fed7aa); border-color:#fdba74; }
+  .tab-active { background:#0f172a !important; color:#fff !important; }
+  .mode-active { box-shadow:0 0 0 2px currentColor; }
+</style>
+</head>
+<body class="min-h-screen">
+<!-- NAV -->
+<nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-40">
+<div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-amber-500 flex items-center justify-center text-base">🏅</div>
+<span class="font-kanit font-bold text-white text-base">กระดานคะแนน</span>
+</div>
+<div class="flex items-center gap-1.5">
+<a class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-kanit border border-slate-600 transition-all" href="indexindustry.html">หน้าคอร์ส</a>
+</div>
+</div>
+</nav>
+<!-- HEADER -->
+<div class="bg-slate-900 pb-8 pt-6">
+<div class="max-w-2xl mx-auto px-4 text-center">
+<div class="text-5xl mb-3">🏆</div>
+<h1 class="font-kanit font-bold text-2xl text-white mb-1">กระดานคะแนน</h1>
+<p class="text-slate-400 font-sarabun text-sm">สำนักงานปลัดกระทรวงอุตสาหกรรม · นักวิเคราะห์นโยบายและแผน<br/><span class="text-slate-500 text-xs">คะแนนคอร์ส สำนักงานปลัดกระทรวงอุตสาหกรรม เท่านั้น · <a class="text-sky-400 hover:underline font-kanit" href="../OPSD/leaderboard.html">ไปกระดาน สปท.กห. →</a></span></p>
+</div>
+</div>
+<!-- SUBJECT TABS -->
+<div class="max-w-2xl mx-auto px-4 -mt-4 mb-3">
+<div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-1.5 flex gap-1 overflow-x-auto">
+<button class="tab-active flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold transition-all whitespace-nowrap" id="sub-all" onclick="setSubject('all')">ทั้งหมด</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-np" onclick="setSubject('แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13')">📊 แผนพัฒนาฯ</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-sp" onclick="setSubject('การวางแผนเชิงกลยุทธ์')">🎯 แผนกลยุทธ์</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-aa" onclick="setSubject('พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน')">⚖️ บริหารราชการ</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-ia" onclick="setSubject('พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540')">📰 ข้อมูลข่าวสาร</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-gg" onclick="setSubject('พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี พ.ศ. 2546')">🏛️ บ้านเมืองที่ดี</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-ik" onclick="setSubject('ความรู้กระทรวงอุตสาหกรรม และนักวิเคราะห์นโยบายและแผน')">🏭 ความรู้ กห.</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-mock100" onclick="setSubject('ข้อสอบ Mock 100 ข้อ · นักวิเคราะห์นโยบายและแผน (ครบชุด)')">🤝 Mock 100</button>
+<button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-mix150" onclick="setSubject('จำลองสอบรวม สป.อก./Industry · สุ่ม 150 ข้อ (9 วิชา)')">🧩 ผสม 150</button>
+</div>
+</div>
+<!-- MODE TABS -->
+<div class="max-w-2xl mx-auto px-4 mb-4">
+<div class="flex gap-2">
+<button class="flex-1 py-2 rounded-xl font-kanit text-xs font-bold border-2 border-slate-800 text-white transition-all" id="mode-0" onclick="setMode(0)" style="background:#0f172a">ทั้งหมด</button>
+<button class="flex-1 py-2 rounded-xl font-kanit text-xs font-bold border-2 border-slate-200 text-slate-600 hover:border-slate-400 bg-white transition-all" id="mode-10" onclick="setMode(10)">10 ข้อ</button>
+<button class="flex-1 py-2 rounded-xl font-kanit text-xs font-bold border-2 border-slate-200 text-slate-600 hover:border-slate-400 bg-white transition-all" id="mode-50" onclick="setMode(50)">50 ข้อ</button>
+<button class="flex-1 py-2 rounded-xl font-kanit text-xs font-bold border-2 border-slate-200 text-slate-600 hover:border-slate-400 bg-white transition-all" id="mode-100" onclick="setMode(100)">100 ข้อ</button>
+<button class="flex-1 py-2 rounded-xl font-kanit text-xs font-bold border-2 border-slate-200 text-slate-600 hover:border-slate-400 bg-white transition-all whitespace-nowrap" id="mode-150" onclick="setMode(150)">150 ข้อ</button>
+</div>
+</div>
+<!-- STATS ROW -->
+<div class="max-w-2xl mx-auto px-4 mb-4 grid grid-cols-4 gap-2">
+<div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+<div class="text-xl font-kanit font-black text-slate-800" id="statTotal">—</div>
+<div class="text-slate-400 text-xs font-sarabun mt-0.5">ผู้เข้าสอบ</div>
+</div>
+<div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+<div class="text-xl font-kanit font-black text-amber-500" id="statAvg">—</div>
+<div class="text-slate-400 text-xs font-sarabun mt-0.5">เฉลี่ย %</div>
+</div>
+<div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+<div class="text-xl font-kanit font-black text-emerald-500" id="statTop">—</div>
+<div class="text-slate-400 text-xs font-sarabun mt-0.5">สูงสุด %</div>
+</div>
+<div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+<div class="text-xl font-kanit font-black text-blue-500" id="statFast">—</div>
+<div class="text-slate-400 text-xs font-sarabun mt-0.5">เร็วสุด</div>
+</div>
+</div>
+<!-- BOARD LIST -->
+<div class="max-w-2xl mx-auto px-4 pb-10">
+<div class="text-center py-12" id="loadingState">
+<div class="text-3xl animate-pulse mb-2">⏳</div>
+<p class="text-slate-400 font-sarabun text-sm">กำลังโหลด...</p>
+</div>
+<div class="hidden text-center py-12" id="emptyState">
+<div class="text-4xl mb-3">🎯</div>
+<p class="text-slate-500 font-kanit font-bold text-base mb-1">ยังไม่มีผลคะแนน</p>
+<p class="text-slate-400 font-sarabun text-sm">ไปทำข้อสอบแล้วบันทึกขึ้นกระดานได้เลย!</p>
+<a class="inline-block mt-4 px-5 py-2.5 rounded-2xl font-kanit font-bold text-sm text-white bg-slate-800 hover:bg-slate-700 transition-all" href="indexindustry.html">ไปทำข้อสอบ</a>
+</div>
+<div class="space-y-2" id="boardList"></div>
+</div>
+<script>
+const SUPA = window.supabase.createClient(
+  'https://rtedyfalsfqcjsvgjqmx.supabase.co',
+  'sb_publishable_vn5tbKzxOtHlmuFLlG_BJQ_54Lk-626'
+);
+
+let allData = [], activeSub = 'all', activeMode = 0;
+
+const MEDALS = ['🥇','🥈','🥉'];
+const SUBJECT_MAP = {
+  'แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13': { short:'แผนพัฒนาฯ 13', color:'#0d9488' },
+  'การวางแผนเชิงกลยุทธ์':                         { short:'แผนกลยุทธ์',    color:'#7c3aed' },
+  'พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน':            { short:'บริหารราชการ',  color:'#4f46e5' },
+  'พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540':     { short:'ข้อมูลข่าวสาร', color:'#10b981' },
+  'พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี พ.ศ. 2546': { short:'บ้านเมืองที่ดี', color:'#16a34a' },
+  'ความรู้กระทรวงอุตสาหกรรม และนักวิเคราะห์นโยบายและแผน': { short:'ความรู้ กห. & นักวิเคราะห์ฯ', color:'#7c3aed' },
+  'การขับเคลื่อนโครงการจิตอาสากระทรวงอุตสาหกรรม (สรุป data/9.rtf)': { short:'จิตอาสา เก่า (สรุป)', color:'#a21caf' },
+  'จำลองสอบรวม สป.อก./Industry · สุ่ม 150 ข้อ (9 วิชา)': { short:'ผสม 150 ข้อ', color:'#7c3aed' },
+
+/** วิชาที่เป็นของคอร์ส สปท.กห. — ข้อมูลเก่าไม่มี dept จะใช้เรคคอร์ดจาก subject เพื่อแยก */
+const OPSD_ONLY_SUBJECTS = new Set([
+  'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. 2526',
+  'พ.ร.บ. การบริหารทุนหมุนเวียน พ.ศ. 2558',
+  'ประมวลจริยธรรมกระทรวงกลาโหม พ.ศ. 2564',
+  'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการรักษาความปลอดภัยแห่งชาติ'
+]);
+
+const EN_SUBJECT_OPSD = 'ภาษาอังกฤษ (ภาค ก.)';
+
+function belongsIndustryDept(row) {
+  if (row.dept === 'industry') return true;
+  if (row.dept === 'opsd') return false;
+  if (row.subject === 'ความสามารถทั่วไป (ภาค ก.)') return row.dept === 'industry';
+  if (row.subject === EN_SUBJECT_OPSD) return row.dept === 'industry';
+  return !OPSD_ONLY_SUBJECTS.has(row.subject);
+}
+
+function fmtTime(sec) {
+  if (!sec) return '—';
+  const m = Math.floor(sec/60), s = sec%60;
+  return m > 0 ? `${m}น ${s}ว` : `${s}ว`;
+}
+
+async function loadData() {
+  let data = null, error = null;
+  try {
+    const res = await SUPA
+      .from('scores').select('*')
+      .order('pct',      { ascending: false })
+      .order('time_sec', { ascending: true })
+      .order('created_at',{ ascending: false })
+      .limit(500);
+    data = res.data;
+    error = res.error;
+  } catch (e) {
+    error = e;
+  } finally {
+    document.getElementById('loadingState').classList.add('hidden');
+  }
+
+  const empty = document.getElementById('emptyState');
+
+  if (error) {
+    if (empty) {
+      let hint = empty.querySelector('[data-load-err]');
+      if (!hint) {
+        hint = document.createElement('p');
+        hint.setAttribute('data-load-err', '1');
+        hint.className = 'text-amber-600 font-sarabun text-xs mt-2 max-w-xs mx-auto leading-relaxed';
+        empty.appendChild(hint);
+      }
+      hint.textContent = 'โหลดข้อมูลไม่สำเร็จ — ลองรีเฟรช หรือเปิดหน้านี้ผ่านเว็บเซิร์ฟเวอร์ (การเปิดเป็น file:// บางครั้งถูกจำกัด)';
+      empty.classList.remove('hidden');
+    }
+    return;
+  }
+
+  const oldHint = empty && empty.querySelector('[data-load-err]');
+  if (oldHint) oldHint.remove();
+
+  if (!data?.length) {
+    document.getElementById('emptyState').classList.remove('hidden');
+    return;
+  }
+  document.getElementById('emptyState').classList.add('hidden');
+  allData = data.filter(belongsIndustryDept);
+  if (!allData.length) { document.getElementById('emptyState').classList.remove('hidden'); return; }
+  render();
+}
+
+function setSubject(sub) {
+  activeSub = sub;
+  const subMap = { all:'sub-all',
+    'แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13':'sub-np',
+    'การวางแผนเชิงกลยุทธ์':'sub-sp',
+    'พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน':'sub-aa',
+    'พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540':'sub-ia',
+    'พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี พ.ศ. 2546':'sub-gg',
+    'ความรู้กระทรวงอุตสาหกรรม และนักวิเคราะห์นโยบายและแผน':'sub-ik',
+    'ข้อสอบ Mock 100 ข้อ · นักวิเคราะห์นโยบายและแผน (ครบชุด)':'sub-mock100',
+    'จำลองสอบรวม สป.อก./Industry · สุ่ม 150 ข้อ (9 วิชา)':'sub-mix150' };
+  document.querySelectorAll('[id^="sub-"]').forEach(el => {
+    el.classList.remove('tab-active'); el.classList.add('text-slate-500');
+  });
+  const el = document.getElementById(subMap[sub]);
+  if (el) { el.classList.add('tab-active'); el.classList.remove('text-slate-500'); }
+  render();
+}
+
+function setMode(m) {
+  activeMode = m;
+  [0,10,50,100,150].forEach(v => {
+    const el = document.getElementById('mode-'+v);
+    if (!el) return;
+    if (v === m) {
+      el.style.background = '#0f172a'; el.style.borderColor = '#0f172a'; el.style.color = '#fff';
+    } else {
+      el.style.background = '#fff'; el.style.borderColor = '#e2e8f0'; el.style.color = '#475569';
+    }
+  });
+  render();
+}
+
+function render() {
+  let data = allData;
+  if (activeSub !== 'all') data = data.filter(r => r.subject === activeSub);
+  if (activeMode !== 0)    data = data.filter(r => r.mode === activeMode || r.total === activeMode);
+
+  // Stats
+  const statEl = (id, v) => { document.getElementById(id).textContent = v; };
+  if (data.length) {
+    statEl('statTotal', data.length);
+    statEl('statAvg',   Math.round(data.reduce((s,r)=>s+r.pct,0)/data.length)+'%');
+    statEl('statTop',   Math.max(...data.map(r=>r.pct))+'%');
+    const withTime = data.filter(r => r.time_sec > 0);
+    statEl('statFast', withTime.length ? fmtTime(Math.min(...withTime.map(r=>r.time_sec))) : '—');
+  } else {
+    ['statTotal','statAvg','statTop','statFast'].forEach(id => statEl(id,'—'));
+  }
+
+  const list  = document.getElementById('boardList');
+  const empty = document.getElementById('emptyState');
+
+  if (!data.length) { list.innerHTML=''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+
+  list.innerHTML = data.slice(0,100).map((r, i) => {
+    const rank   = i+1;
+    const medal  = rank<=3 ? MEDALS[rank-1] : `<span class="font-kanit font-bold text-slate-400 text-sm w-6 inline-block text-center">${rank}</span>`;
+    const cls    = rank===1?'rank-1':rank===2?'rank-2':rank===3?'rank-3':'bg-white';
+    const sInfo  = SUBJECT_MAP[r.subject] || { short:r.subject, color:'#64748b' };
+    const modeLbl= r.mode||r.total ? `${r.mode||r.total} ข้อ` : '';
+    const timeLbl= r.time_sec > 0 ? `⏱ ${fmtTime(r.time_sec)}` : '';
+    const dt     = new Date(r.created_at).toLocaleDateString('th-TH',{day:'numeric',month:'short'});
+    const pctCls = r.pct>=80?'text-emerald-600':r.pct>=60?'text-amber-500':'text-red-500';
+
+    return `
+    <div class="${cls} rounded-2xl border border-slate-100 shadow-sm px-4 py-3 flex items-center gap-3">
+      <div class="w-9 h-9 flex items-center justify-center text-xl flex-shrink-0">${medal}</div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1.5 flex-wrap mb-1">
+          <span class="font-kanit font-bold text-slate-800 text-sm">${escHtml(r.nickname)}</span>
+          <span class="text-xs px-2 py-0.5 rounded-full font-kanit font-bold text-white" style="background:${sInfo.color}">${sInfo.short}</span>
+          ${modeLbl ? `<span class="text-xs px-2 py-0.5 rounded-full font-kanit font-bold bg-slate-100 text-slate-500">${modeLbl}</span>` : ''}
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="flex-1 bg-slate-100 rounded-full h-1.5 overflow-hidden">
+            <div class="h-full rounded-full" style="width:${r.pct}%;background:${sInfo.color}"></div>
+          </div>
+          <span class="text-xs text-slate-400 font-sarabun flex-shrink-0">${timeLbl ? timeLbl+' · ' : ''}${dt}</span>
+        </div>
+      </div>
+      <div class="text-right flex-shrink-0">
+        <div class="font-kanit font-black text-lg ${pctCls}">${r.pct}%</div>
+        <div class="text-slate-400 font-sarabun text-xs">${r.score}/${r.total}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+loadData();
+setInterval(loadData, 30000);
+</script>
+</body>
+</html>
