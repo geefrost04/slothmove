@@ -1,0 +1,52 @@
+/* ================================================================
+   SlothMove — fonts.css
+   ฟอนต์และ typography ร่วมสำหรับทุกหน้า
+   ================================================================ */
+
+/* — Google Fonts ————————————————————————————————————————————— */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Kanit:wght@400;500;600;700;800;900&display=swap');
+
+/* — Typography ——————————————————————————————————————————————————— */
+body {
+  font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-kanit {
+  font-family: 'Kanit', 'Sarabun', sans-serif;
+}
+
+.font-sarabun {
+  font-family: 'Sarabun', sans-serif;
+}
+
+/* — Heading sizes ————————————————————————————————————————————— */
+h1 { font-size: 2rem; font-weight: 700; }
+h2 { font-size: 1.5rem; font-weight: 600; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+h4 { font-size: 1rem; font-weight: 600; }
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.1rem; }
+}
+
+/* — Text utilities ————————————————————————————————————————————— */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+
+/* — Font weights ————————————————————————————————————————————— */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }

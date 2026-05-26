@@ -1,0 +1,231 @@
+/* ================================================================
+   Quiz PAB Shared CSS — Navy (#1d1d42) + Yellow (#fcec4a)
+   Theme ตรงกับหน้าสรุป admin_act.html
+   ================================================================ */
+
+:root {
+  --ddpm-navy:            #1d1d42;
+  --ddpm-navy-mid:        #262656;
+  --ddpm-navy-light:      #3a3a70;
+  --ddpm-yellow:          #fcec4a;
+  --ddpm-yellow-strong:   #ddcf00;
+  --ddpm-yellow-soft:     #fffbeb;
+  --ddpm-yellow-outline:  rgba(29,29,66,0.18);
+}
+
+/* ── Base ── */
+body { font-family:'Sarabun',sans-serif; background:#f8fafc; }
+.font-kanit { font-family:'Kanit',sans-serif; }
+
+/* ── Screens ── */
+.screen { display:none; }
+.screen.active { display:block; }
+
+/* ── Option buttons ── */
+.opt-btn { transition:all .15s; }
+.opt-btn:hover:not(:disabled) {
+  transform:translateX(3px);
+  border-color:var(--ddpm-yellow) !important;
+  background:var(--ddpm-yellow-soft) !important;
+}
+.opt-correct {
+  background:#dcfce7 !important; border-color:#16a34a !important; color:#15803d !important;
+}
+.opt-wrong {
+  background:#fee2e2 !important; border-color:#dc2626 !important; color:#b91c1c !important;
+}
+.review-correct { background:#dcfce7; border-color:#16a34a; color:#15803d; }
+.review-wrong   { background:#fee2e2; border-color:#dc2626; color:#b91c1c; }
+
+/* ── Mode row / chips ── */
+.mode-row { display:flex; gap:.5rem; }
+.mode-row .mode-chip {
+  flex:1; min-height:4.5rem;
+  border-radius:1.25rem;
+  font-family:'Kanit',sans-serif;
+  font-weight:900;
+  font-size:2rem;
+  border:2px solid;
+  transition:all .15s;
+}
+.mode-row .mode-chip-outline {
+  background:#fff;
+  border-color:var(--ddpm-yellow-outline);
+  color:var(--ddpm-navy);
+}
+.mode-row .mode-chip-outline:hover {
+  background:var(--ddpm-yellow-soft);
+  border-color:var(--ddpm-yellow);
+  color:var(--ddpm-navy);
+}
+.mode-row .mode-chip-outline.active,
+.mode-row .mode-chip-primary-outline {
+  background:var(--ddpm-yellow-soft);
+  border-color:var(--ddpm-yellow);
+  color:var(--ddpm-navy);
+}
+.mode-row .mode-chip-primary {
+  background:var(--ddpm-navy);
+  border-color:var(--ddpm-navy);
+  color:var(--ddpm-yellow);
+  box-shadow:0 6px 20px rgba(29,29,66,.28);
+}
+.mode-row .mode-chip-primary:hover { background:var(--ddpm-navy-mid); }
+.mode-row .mode-chip:focus-visible {
+  outline:2px solid var(--ddpm-yellow); outline-offset:3px;
+}
+
+/* ── Nav strip (yellow band on top) ── */
+.nav-accent-strip {
+  height:4px;
+  background:linear-gradient(90deg, var(--ddpm-yellow) 0%, var(--ddpm-yellow) 28%, var(--ddpm-navy) 28%, var(--ddpm-navy) 100%);
+}
+
+/* ── Cards / banner ── */
+.quiz-card-strip { height:3px; background:var(--ddpm-yellow); }
+.quiz-stat-card {
+  border-radius:1rem;
+  background:var(--ddpm-yellow-soft);
+  border:1px solid rgba(252,236,74,.35);
+}
+.quiz-stat-num {
+  font-family:'Kanit',sans-serif;
+  font-weight:900;
+  font-size:1.25rem;
+  color:var(--ddpm-navy);
+}
+
+/* ── Tag pills ── */
+.quiz-tag {
+  display:inline-block;
+  padding:.25rem .625rem;
+  border-radius:999px;
+  font-size:.75rem;
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  background:var(--ddpm-yellow-soft);
+  color:var(--ddpm-navy);
+  border:1px solid rgba(252,236,74,.45);
+}
+
+/* ── Progress bar ── */
+.progress-bar-fill {
+  background:var(--ddpm-navy);
+  border-radius:999px;
+  transition:width .5s ease;
+}
+
+/* ── Explanation box ── */
+.explanation-box {
+  background:var(--ddpm-yellow-soft);
+  border:1px solid rgba(252,236,74,.45);
+}
+.explanation-title { color:var(--ddpm-navy); }
+
+/* ── Score banner (result) ── */
+.score-banner {
+  background:var(--ddpm-yellow-soft);
+  border:1px solid rgba(252,236,74,.45);
+}
+.score-num { color:var(--ddpm-navy); }
+
+/* ── Next button ── */
+.next-btn {
+  background:var(--ddpm-navy);
+  color:var(--ddpm-yellow);
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  border-radius:1.25rem;
+  padding:.6rem 2rem;
+  transition:opacity .15s;
+}
+.next-btn:hover { opacity:.88; }
+
+/* ── Action buttons ── */
+.btn-restart {
+  border:2px solid var(--ddpm-yellow-outline);
+  color:var(--ddpm-navy);
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  border-radius:1.25rem;
+  background:#fff;
+  transition:all .15s;
+}
+.btn-restart:hover { background:var(--ddpm-yellow-soft); border-color:var(--ddpm-yellow); }
+
+.btn-back-content {
+  background:var(--ddpm-navy);
+  color:var(--ddpm-yellow);
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  border-radius:1.25rem;
+  transition:opacity .15s;
+}
+.btn-back-content:hover { opacity:.88; }
+
+.btn-save-score {
+  background:var(--ddpm-navy);
+  color:var(--ddpm-yellow);
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  border-radius:1.25rem;
+  transition:opacity .15s;
+}
+.btn-save-score:hover { opacity:.88; }
+
+.btn-review {
+  background:#fef2f2;
+  border:1px solid #fecaca;
+  color:#dc2626;
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  border-radius:1.25rem;
+  transition:all .15s;
+}
+.btn-review:hover { background:#fee2e2; }
+
+/* ── Review screen retry ── */
+.btn-retry {
+  background:var(--ddpm-navy);
+  color:var(--ddpm-yellow);
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  border-radius:1.25rem;
+  transition:opacity .15s;
+}
+.btn-retry:hover { opacity:.88; }
+
+/* ── Share preview canvas ── */
+#sharePreview {
+  display:none;
+  border-radius:1.25rem;
+  width:100%; max-width:480px;
+  margin:0 auto .75rem;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+}
+
+/* ── Modal save score ── */
+.save-modal-input:focus {
+  border-color:var(--ddpm-yellow-strong) !important;
+  box-shadow:0 0 0 3px rgba(252,236,74,.25);
+}
+.save-modal-confirm {
+  background:var(--ddpm-yellow-strong);
+  color:var(--ddpm-navy);
+  font-family:'Kanit',sans-serif;
+  font-weight:700;
+  border-radius:1.25rem;
+  transition:opacity .15s;
+}
+.save-modal-confirm:hover { opacity:.88; }
+
+/* ── Footer badge ── */
+.footer-badge {
+  width:1.5rem; height:1.5rem;
+  border-radius:.5rem;
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; font-weight:900;
+  color:var(--ddpm-navy);
+  background:var(--ddpm-yellow);
+  font-family:'Kanit',sans-serif;
+}

@@ -479,6 +479,7 @@ function loadQR() {
 async function buildSharePreview(sc, total, pct, emoji) {
   await document.fonts.ready;
   const qr  = await loadQR();
+  const logo = await loadLogo('../../../pic/Slothmovelogoo.png');
   const cvs = document.getElementById('sharePreview');
   drawCard(cvs, sc, total, pct, emoji, qr, logo);
   cvs.style.display = 'block';
@@ -510,10 +511,13 @@ function loadLogo(relPath) {
   return new Promise(resolve => {
     if (_logoImg) { resolve(_logoImg); return; }
     const img = new Image();
-    img.crossOrigin = 'anonymous';
     img.onload = () => { _logoImg = img; resolve(img); };
     img.onerror = () => resolve(null);
-    img.src = relPath;
+    // ใช้ fetch+blob เพื่อให้ทำงานได้ทั้ง file:// และ https://
+    fetch(relPath)
+      .then(r => r.blob())
+      .then(blob => { img.src = URL.createObjectURL(blob); })
+      .catch(() => { img.src = relPath; }); // fallback
   });
 }
 
@@ -522,11 +526,9 @@ function drawCard(cvs, sc, total, pct, emoji, qr, logo) {
   cvs.width=W; cvs.height=H;
   const ctx=cvs.getContext('2d');
 
-  /* ── Background: deep forest green ── */
+  /* ── Background ── */
   ctx.fillStyle='#0f1a0f';
   ctx.fillRect(0,0,W,H);
-
-  /* subtle inner vignette */
   const vig=ctx.createRadialGradient(W/2,H/2,200,W/2,H/2,780);
   vig.addColorStop(0,'rgba(0,0,0,0)');
   vig.addColorStop(1,'rgba(0,0,0,0.35)');
@@ -536,11 +538,12 @@ function drawCard(cvs, sc, total, pct, emoji, qr, logo) {
   ctx.fillStyle='#7a9470';
   ctx.fillRect(0,0,W,6);
 
-  /* ── Logo mascot (top-center) ── */
-  const LOGO_SIZE=120, LOGO_X=W/2-LOGO_SIZE/2, LOGO_Y=38;
+  /* ── Logo (top-center) ── */
+  const LOGO_SIZE=150, LOGO_X=W/2-LOGO_SIZE/2, LOGO_Y=40;
   if(logo){
     ctx.save();
-    ctx.beginPath(); ctx.arc(W/2, LOGO_Y+LOGO_SIZE/2, LOGO_SIZE/2+4, 0, Math.PI*2);
+    ctx.beginPath();
+    ctx.arc(W/2, LOGO_Y+LOGO_SIZE/2, LOGO_SIZE/2+6, 0, Math.PI*2);
     ctx.fillStyle='#1a2a1a'; ctx.fill();
     ctx.strokeStyle='#7a9470'; ctx.lineWidth=2; ctx.stroke();
     ctx.clip();
@@ -548,82 +551,87 @@ function drawCard(cvs, sc, total, pct, emoji, qr, logo) {
     ctx.restore();
   }
 
-  /* ── Brand name ── */
+  /* ── Brand name (แสดงเสมอ ไม่ว่าโลโก้จะโหลดได้หรือไม่) ── */
+  const brandY = LOGO_Y + LOGO_SIZE + 44;
   ctx.textAlign='center'; ctx.textBaseline='middle';
-  ctx.font='900 52px "Kanit",sans-serif';
+  ctx.font='900 48px "Kanit",sans-serif';
+  const slothW = ctx.measureText('Sloth').width;
+  const moveW  = ctx.measureText('Move').width;
   ctx.fillStyle='#f4f1eb';
-  const brandY = LOGO_Y + LOGO_SIZE + 42;
-  ctx.fillText('Sloth', W/2 - ctx.measureText('Move').width/2 - 2, brandY);
+  ctx.fillText('Sloth', W/2 - moveW/2, brandY);
   ctx.fillStyle='#7a9470';
-  ctx.fillText('Move', W/2 + ctx.measureText('Sloth').width/2 - 2, brandY);
+  ctx.fillText('Move',  W/2 + slothW/2, brandY);
 
-  /* ── Subtitle (org name) ── */
-  ctx.font='400 24px "Sarabun",sans-serif';
+  /* ── Subtitle ── */
+  ctx.font='400 22px "Sarabun",sans-serif';
   ctx.fillStyle='rgba(255,255,255,0.38)';
-  ctx.fillText('SlothMove · Industry', W/2, brandY+42);
+  const subtitle = typeof ORG_SUBTITLE!=='undefined' ? ORG_SUBTITLE : 'SlothMove';
+  ctx.fillText(subtitle, W/2, brandY+36);
 
   /* ── Divider ── */
-  const divY=brandY+72;
+  const divY = brandY + 64;
   ctx.strokeStyle='rgba(122,148,112,0.25)'; ctx.lineWidth=1;
   ctx.beginPath(); ctx.moveTo(120,divY); ctx.lineTo(W-120,divY); ctx.stroke();
 
   /* ── Subject badge ── */
-  ctx.font='bold 30px "Kanit","Sarabun",sans-serif';
-  const sub=clipText(ctx, '📊'+'  '+SUBJECT, 820);
-  const sW=ctx.measureText(sub).width+72, sX=(W-sW)/2, sY=divY+18;
-  ctx.fillStyle='rgba(122,148,112,0.12)'; rrect(ctx,sX,sY,sW,58,29); ctx.fill();
-  ctx.strokeStyle='rgba(122,148,112,0.45)'; ctx.lineWidth=1.5; rrect(ctx,sX,sY,sW,58,29); ctx.stroke();
-  ctx.fillStyle='#ffffff'; ctx.fillText(sub, W/2, sY+29);
+  ctx.font='bold 28px "Kanit","Sarabun",sans-serif';
+  const subjectStr = typeof SUBJECT!=='undefined' ? SUBJECT : (typeof EN_SUBJECT!=='undefined' ? EN_SUBJECT : '');
+  const sub = clipText(ctx, emoji+'  '+subjectStr, 820);
+  const sW=ctx.measureText(sub).width+72, sX=(W-sW)/2, sY=divY+16;
+  ctx.fillStyle='rgba(122,148,112,0.12)'; rrect(ctx,sX,sY,sW,54,27); ctx.fill();
+  ctx.strokeStyle='rgba(122,148,112,0.45)'; ctx.lineWidth=1.5; rrect(ctx,sX,sY,sW,54,27); ctx.stroke();
+  ctx.fillStyle='#ffffff'; ctx.fillText(sub, W/2, sY+27);
 
   /* ── Score number ── */
   ctx.textBaseline='alphabetic';
-  const BIG=230, MID=105;
-  ctx.font='900 '+BIG+'px "Kanit",sans-serif';
+  const BIG_SIZE=220, MID_SIZE=100;
+  ctx.font='900 '+BIG_SIZE+'px "Kanit",sans-serif';
   const numW=ctx.measureText(''+sc).width;
-  ctx.font='300 '+MID+'px "Kanit",sans-serif';
+  ctx.font='300 '+MID_SIZE+'px "Kanit",sans-serif';
   const denStr=' / '+total, denW=ctx.measureText(denStr).width;
-  const SCORE_Y=620, startX=W/2-(numW+denW)/2;
-  ctx.font='900 '+BIG+'px "Kanit",sans-serif'; ctx.fillStyle='#ffffff';
-  ctx.fillText(''+sc, startX, SCORE_Y);
-  ctx.font='300 '+MID+'px "Kanit",sans-serif'; ctx.fillStyle='rgba(255,255,255,0.38)';
-  ctx.fillText(denStr, startX+numW, SCORE_Y);
+  const SCORE_Y=660, scoreStartX=W/2-(numW+denW)/2;
+  ctx.font='900 '+BIG_SIZE+'px "Kanit",sans-serif';
+  ctx.fillStyle='#ffffff'; ctx.textAlign='left';
+  ctx.fillText(''+sc, scoreStartX, SCORE_Y);
+  ctx.font='300 '+MID_SIZE+'px "Kanit",sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.45)';
+  ctx.fillText(denStr, scoreStartX+numW, SCORE_Y);
 
   /* ── Percentage ── */
-  ctx.textBaseline='middle';
-  ctx.font='bold 72px "Kanit",sans-serif'; ctx.fillStyle='#a8c5a0';
-  ctx.fillText(pct+'%', W/2, 672);
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.font='bold 66px "Kanit",sans-serif'; ctx.fillStyle='#a8c5a0';
+  ctx.fillText(pct+'%', W/2, SCORE_Y+54);
 
   /* ── Progress bar ── */
-  const bx=110,by=706,bw=W-220,bh=12,br=6;
+  const bx=110, by=SCORE_Y+84, bw=W-220, bh=12, br=6;
   ctx.fillStyle='rgba(122,148,112,0.18)'; rrect(ctx,bx,by,bw,bh,br); ctx.fill();
-  const fw=Math.max(br*2,Math.round(bw*pct/100));
+  const fw=Math.max(br*2, Math.round(bw*pct/100));
   const fg=ctx.createLinearGradient(bx,0,bx+fw,0);
   fg.addColorStop(0,'#4a7a50'); fg.addColorStop(1,'#a8c5a0');
   ctx.fillStyle=fg; rrect(ctx,bx,by,fw,bh,br); ctx.fill();
-
-  /* ── Sub-score text ── */
-  ctx.font='400 24px "Sarabun",sans-serif'; ctx.fillStyle='rgba(255,255,255,0.38)';
-  ctx.fillText('ตอบถูก '+sc+' จาก '+total+' ข้อ', W/2, 742);
+  ctx.font='400 22px "Sarabun",sans-serif'; ctx.fillStyle='rgba(255,255,255,0.38)';
+  ctx.fillText('ตอบถูก '+sc+' จาก '+total+' ข้อ', W/2, by+30);
 
   /* ── Bottom separator ── */
+  const sepY=by+58;
   ctx.strokeStyle='rgba(122,148,112,0.18)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(0,772); ctx.lineTo(W,772); ctx.stroke();
-  ctx.fillStyle='rgba(0,0,0,0.28)'; ctx.fillRect(0,772,W,H-772);
+  ctx.beginPath(); ctx.moveTo(0,sepY); ctx.lineTo(W,sepY); ctx.stroke();
+  ctx.fillStyle='rgba(0,0,0,0.28)'; ctx.fillRect(0,sepY,W,H-sepY);
 
   /* ── QR code ── */
   if(qr){
-    const QS=180, QX=W-90-QS, QY=808;
-    ctx.fillStyle='#ffffff'; rrect(ctx,QX-8,QY-8,QS+16,QS+16,12); ctx.fill();
+    const QS=170, QX=W-90-QS, QY=sepY+22;
+    ctx.fillStyle='#ffffff'; rrect(ctx,QX-8,QY-8,QS+16,QS+16,10); ctx.fill();
     ctx.drawImage(qr,QX,QY,QS,QS);
-    ctx.font='400 18px "Sarabun",sans-serif'; ctx.fillStyle='rgba(255,255,255,0.30)';
-    ctx.fillText('สแกนเพื่อลองทำ', QX+QS/2, QY+QS+20);
+    ctx.font='400 16px "Sarabun",sans-serif'; ctx.fillStyle='rgba(255,255,255,0.30)';
+    ctx.fillText('สแกนเพื่อลองทำ', QX+QS/2, QY+QS+18);
   }
 
   /* ── SlothMove badge (bottom-left) ── */
-  ctx.fillStyle='rgba(122,148,112,0.15)'; rrect(ctx,90,812,200,48,24); ctx.fill();
-  ctx.strokeStyle='#7a9470'; ctx.lineWidth=1.5; rrect(ctx,90,812,200,48,24); ctx.stroke();
-  ctx.font='bold 28px "Kanit",sans-serif'; ctx.fillStyle='#a8c5a0';
-  ctx.textAlign='center'; ctx.fillText('SlothMove', 190, 836);
+  ctx.fillStyle='rgba(122,148,112,0.15)'; rrect(ctx,90,sepY+26,190,44,22); ctx.fill();
+  ctx.strokeStyle='#7a9470'; ctx.lineWidth=1.5; rrect(ctx,90,sepY+26,190,44,22); ctx.stroke();
+  ctx.font='bold 26px "Kanit",sans-serif'; ctx.fillStyle='#a8c5a0';
+  ctx.textAlign='center'; ctx.fillText('SlothMove', 185, sepY+48);
 }
 
 

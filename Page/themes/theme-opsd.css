@@ -1,0 +1,66 @@
+/* ================================================================
+   SlothMove — Theme: OPSD (กรมประกอบฯ)
+   ใช้กับ: OPSD/
+   ================================================================ */
+
+:root {
+  /* Primary colors - แดงเข้ม + ขาว */
+  --primary: #e11d48;
+  --primary-mid: #be123c;
+  --accent: #f43f5e;
+  --accent-strong: #fb7185;
+  --accent-soft: #fff1f2;
+  
+  /* Background colors */
+  --bg-page: #f8fafc;
+  --bg-card: #fefdfb;
+  
+  /* Text colors */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-inverse: #ffffff;
+  
+  /* Border */
+  --border: #e2e8f0;
+  --border-accent: rgba(225, 29, 72, 0.4);
+  
+  /* Status colors */
+  --success: #16a34a;
+  --error: #dc2626;
+  --warning: #f59e0b;
+}
+
+/* — Brand specific ———————————————————————————————————————————————————— */
+.brand-bg {
+  background: var(--primary);
+}
+
+.brand-text {
+  color: var(--accent);
+}
+
+/* — Quiz option hover ———————————————————————————————————————————————————— */
+.opt-btn:hover:not(:disabled) {
+  border-color: var(--primary) !important;
+  background: var(--accent-soft) !important;
+}
+
+/* — Course card hover ———————————————————————————————————————————————————— */
+.course-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.12);
+}
+
+/* — Buttons ———————————————————————————————————————————————————————————— */
+.btn-primary {
+  background: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-mid);
+}
+
+/* — Q number badge ———————————————————————————————————————————————————— */
+.q-num {
+  background: var(--primary);
+}

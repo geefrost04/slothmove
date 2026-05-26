@@ -1,0 +1,5 @@
+# SlothMove — https://slothmoveth.com
+User-agent: *
+Allow: /
+
+Sitemap: https://slothmoveth.com/sitemap.xml

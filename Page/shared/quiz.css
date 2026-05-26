@@ -1,0 +1,153 @@
+/* ================================================================
+   SlothMove — quiz.css
+   Quiz-specific styles
+   ================================================================ */
+
+/* — Quiz options ———————————————————————————————————————————————————— */
+.opt-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.opt-btn:hover:not(:disabled) {
+  transform: translateX(4px);
+  border-color: var(--primary, #1e293b);
+  background: var(--accent-soft, #f8fafc);
+}
+
+.opt-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* — Option states ———————————————————————————————————————————————————— */
+.opt-correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #15803d !important;
+}
+
+.opt-wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #b91c1c !important;
+}
+
+/* — Review states ———————————————————————————————————————————————————— */
+.review-correct {
+  background: #dcfce7;
+  border-color: #16a34a;
+  color: #15803d;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid;
+  margin-bottom: 12px;
+}
+
+.review-wrong {
+  background: #fee2e2;
+  border-color: #dc2626;
+  color: #b91c1c;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid;
+  margin-bottom: 12px;
+}
+
+/* — Question number badge ————————————————————————————————————————— */
+.q-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  background: var(--primary, #1e293b);
+  color: white;
+}
+
+/* — Quiz progress ———————————————————————————————————————————————————— */
+.quiz-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.quiz-progress-text {
+  font-family: 'Kanit', sans-serif;
+  font-size: 14px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* — Quiz result ———————————————————————————————————————————————————— */
+.result-score {
+  text-align: center;
+  padding: 32px;
+  background: white;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 24px;
+}
+
+.result-score-number {
+  font-family: 'Kanit', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--primary, #1e293b);
+  line-height: 1;
+}
+
+.result-score-label {
+  font-size: 1rem;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+.result-score-detail {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* — Quiz header ———————————————————————————————————————————————————— */
+.quiz-header {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.quiz-timer {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary, #1e293b);
+}
+
+/* — Quiz navigation ———————————————————————————————————————————————————— */
+.quiz-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.quiz-nav .btn {
+  flex: 1;
+}

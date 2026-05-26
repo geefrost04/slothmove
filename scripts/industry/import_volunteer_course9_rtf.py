@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""Build industry_volunteer.questions.js from data/9.rtf (lesson summary — synthetic 4-choice recall)."""
+
+from __future__ import annotations
+
+import json
+import random
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+RTF_PATH = ROOT / "data" / "9.rtf"
+OUT_PATH = ROOT / "industry_volunteer.questions.js"
+
+OMIT_SUBSTR = (
+    "Times-Roman",
+    "listtext",
+    "📌 Note",
+)
+
+
+def decode_rtf_text(fragment: str) -> str:
+    fragment = fragment.replace("\\uc0", "")
+    chars: list[str] = []
+    i = 0
+    high: int | None = None
+    while i < len(fragment):
+        mu = re.match(r"\\u(-?\d+)\s?", fragment[i:])
+        if mu:
+            v = int(mu.group(1))
+            if v < 0:
+                v += 65536
+            if 0xD800 <= v <= 0xDBFF:
+                high = v
+                i += len(mu.group(0))
+                continue
+            if high is not None and 0xDC00 <= v <= 0xDFFF:
+                cp = ((high - 0xD800) << 10) + (v - 0xDC00) + 0x10000
+                chars.append(chr(cp))
+                high = None
+                i += len(mu.group(0))
+                continue
+            if high is not None:
+                chars.append(chr(high))
+                high = None
+            chars.append(chr(v))
+            i += len(mu.group(0))
+            continue
+        if high is not None and fragment[i] != "\\":
+            chars.append(chr(high))
+            high = None
+        if fragment[i] == "\\" and i + 1 < len(fragment):
+            if fragment[i + 1] in "{}":
+                chars.append(fragment[i + 1])
+                i += 2
+                continue
+            cw = re.match(r"\\([a-zA-Z]+)(?:-?\d+)? ?", fragment[i:])
+            if cw:
+                i += len(cw.group(0))
+                continue
+        chars.append(fragment[i])
+        i += 1
+    if high is not None:
+        chars.append(chr(high))
+    return "".join(chars)
+
+
+def normalize_fact(s: str) -> str:
+    s = s.replace("\\", " ")
+    s = re.sub(r"\s+", " ", s).strip()
+    s = s.lstrip("}").strip()
+    s = re.sub(r"\s*\{\s*◦\s*\}\s*", " ", s)
+    s = re.sub(r"[{\t}]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    for cut in ("\u200d",):  # ZWJ combos
+        s = s.replace(cut, "")
+    if "🤝" in s:
+        s = s.split("🤝")[0].strip()
+    if "📌" in s:
+        s = s.split("📌")[0].strip()
+    return s
+
+
+def shorten(s: str, n: int = 172) -> str:
+    s = re.sub(r"\s+", " ", s).strip()
+    return s if len(s) <= n else s[: n - 1] + "…"
+
+
+EXTRA_FACTS = [
+    # จากส่วนโครงสร้าง ก.–ค. — ครบจากต้นทาง RTF
+    "ศูนย์อำนวยการจิตอาสากระทรวงอุตสาหกรรม: ดูแลส่วนกลาง ริเริ่มโครงการ กำหนดนโยบายภาพรวม และสั่งการ",
+    "เครือข่ายจิตอาสาภาครัฐ: บูรณาการร่วมกับศูนย์อำนวยการใหญ่จิตอาสาพระราชทาน เพื่อสนับสนุนกิจกรรมระดับชาติ",
+    "หน่วยงานในสังกัดและรัฐวิสาหกิจ: ดำเนินการในส่วนภูมิภาคโดยสำนักงานอุตสาหกรรมจังหวัดทั้ง 76 จังหวัด "
+    "ร่วมกับเครือข่ายเอกชนและประชาชน",
+    # ประเภทความเห็นจาก Note ท้ายเอกสาร
+]
+
+
+def harvest_facts(decoded_spaces: str) -> list[str]:
+    raw = decoded_spaces
+    chunks = [normalize_fact(c) for c in re.split(r"\s+[•◦]\s+", raw)]
+    out: list[str] = []
+    seen: set[str] = set()
+    for c in chunks + [normalize_fact(x) for x in EXTRA_FACTS]:
+        if any(b in c for b in OMIT_SUBSTR):
+            continue
+        if len(c) < 48:
+            continue
+        key = c[:72]
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(c)
+    return out
+
+
+def build_bank(facts: list[str], rng: random.Random) -> list[dict]:
+    bank: list[dict] = []
+    stems = (
+        "ข้อความใดจากสรุปจิตอาสา กห. สอดคล้องกับประเด็นนี้มากที่สุด?",
+        "จากสรุปการขับเคลื่อนโครงการจิตอาสา ข้อความใดถูกต้องที่สุด?",
+    )
+    for fi, fact in enumerate(facts):
+        for tix in range(2):
+            parts = fact.split(":", 1)
+            if len(parts) == 2 and len(parts[0].strip()) > 10:
+                stem, body = parts[0].strip(), parts[1].strip()
+                q = shorten(stem, 110) + " — " + stems[tix]
+            else:
+                body = fact
+                q = stems[tix] + " (" + shorten(fact, 90) + ")"
+            body = shorten(body, 190)
+            wrong_pool = [shorten(facts[j], 190) for j in range(len(facts)) if j != fi]
+            rng.shuffle(wrong_pool)
+            wrong = wrong_pool[:3]
+            opts = [body] + wrong
+            rng.shuffle(opts)
+            a = opts.index(body)
+            bank.append({"q": shorten(q, 280), "o": [shorten(o, 190) for o in opts], "a": a})
+    return bank
+
+
+def main() -> None:
+    raw = RTF_PATH.read_text(encoding="utf-8", errors="replace")
+    plain = decode_rtf_text(raw)
+    plain = plain.replace("\\", " ")
+    plain = re.sub(r"\s+", " ", plain)
+    facts = harvest_facts(plain)
+    rng = random.Random(9)
+    rng.shuffle(facts)
+    bank = build_bank(facts, rng)
+    preamble = (
+        "// Auto-generated by import_volunteer_course9_rtf.py from data/9.rtf\n"
+        f"// {len(bank)} items (2 templates × lesson facts); options shuffled with seed 9\n"
+    )
+    OUT_PATH.write_text(
+        preamble
+        + "const industryVolunteerQuestions = "
+        + json.dumps(bank, ensure_ascii=False, indent=2)
+        + ";\n",
+        encoding="utf-8",
+    )
+    print("Wrote", OUT_PATH.name, "-", len(bank), "questions from", len(facts), "facts")
+
+
+if __name__ == "__main__":
+    main()

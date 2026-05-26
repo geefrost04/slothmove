@@ -1,0 +1,61 @@
+/* ================================================================
+   SlothMove — Theme: Industry (กรมอุตสาหกรรมฯ)
+   ใช้กับ: Industry/
+   ================================================================ */
+
+:root {
+  /* Primary colors - เขียวเข้ม + ฟ้าอ่อน */
+  --primary: #059669;
+  --primary-mid: #047857;
+  --accent: #10b981;
+  --accent-strong: #34d399;
+  --accent-soft: #ecfdf5;
+  
+  /* Background colors */
+  --bg-page: #f8fafc;
+  --bg-card: #fefdfb;
+  
+  /* Text colors */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-inverse: #ffffff;
+  
+  /* Border */
+  --border: #e2e8f0;
+  --border-accent: rgba(5, 150, 105, 0.4);
+  
+  /* Status colors */
+  --success: #16a34a;
+  --error: #dc2626;
+  --warning: #f59e0b;
+}
+
+.brand-bg {
+  background: var(--primary);
+}
+
+.brand-text {
+  color: var(--accent);
+}
+
+.opt-btn:hover:not(:disabled) {
+  border-color: var(--primary) !important;
+  background: var(--accent-soft) !important;
+}
+
+.course-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.12);
+}
+
+.btn-primary {
+  background: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-mid);
+}
+
+.q-num {
+  background: var(--primary);
+}

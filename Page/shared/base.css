@@ -1,0 +1,135 @@
+/* ================================================================
+   SlothMove — base.css
+   Layout และ structure พื้นฐาน
+   ================================================================ */
+
+/* — Layout ————————————————————————————————————————————————————————— */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.container-sm {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.container-xs {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* — Page structure ———————————————————————————————————————————————— */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px 0;
+}
+
+/* — Nav ———————————————————————————————————————————————————————————— */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #1e293b;
+  text-decoration: none;
+}
+
+.nav-brand img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* — Sections ——————————————————————————————————————————————————————————— */
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+/* — Screens (for multi-screen apps like quiz) ———————————————— */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* — Dividers ————————————————————————————————————————————————————————— */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  margin: 24px 0;
+}
+
+/* — Page header ————————————————————————————————————————————————————— */
+.page-header {
+  padding: 32px 0;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+/* — Responsive ————————————————————————————————————————————————————————— */
+@media (max-width: 768px) {
+  .container,
+  .container-sm,
+  .container-xs {
+    padding: 0 12px;
+  }
+  
+  .main-content {
+    padding: 16px 0;
+  }
+  
+  .page-header {
+    padding: 24px 0;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+  }
+}

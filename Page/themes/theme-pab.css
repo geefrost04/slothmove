@@ -1,0 +1,93 @@
+/* ================================================================
+   SlothMove — Theme: PAB (กรมป้องกันและบรรเทาสาธารณภัย)
+   ใช้กับ: PAB/
+   ================================================================ */
+
+:root {
+  /* Primary colors - น้ำเงินเข้ม + เหลือง */
+  --primary: #1d1d42;
+  --primary-mid: #262656;
+  --accent: #fcec4a;
+  --accent-strong: #ddcf00;
+  --accent-soft: #fffbeb;
+  
+  /* Background colors */
+  --bg-page: #f8fafc;
+  --bg-card: #fefdfb;
+  
+  /* Text colors */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-inverse: #ffffff;
+  
+  /* Border */
+  --border: #e2e8f0;
+  --border-accent: rgba(221, 207, 0, 0.4);
+  
+  /* Status colors */
+  --success: #16a34a;
+  --error: #dc2626;
+  --warning: #f59e0b;
+}
+
+/* — Brand specific ———————————————————————————————————————————————————— */
+.brand-bg {
+  background: var(--primary);
+}
+
+.brand-text {
+  color: var(--accent-strong);
+}
+
+.brand-strip {
+  height: 5px;
+  background: linear-gradient(90deg, 
+    var(--accent) 0%, var(--accent) 26%, 
+    var(--primary) 26%, var(--primary) 100%
+  );
+}
+
+/* — Nav accent ———————————————————————————————————————————————————— */
+.nav-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.nav-tab:hover {
+  color: var(--accent-soft);
+}
+
+/* — Quiz option hover ———————————————————————————————————————————————————— */
+.opt-btn:hover:not(:disabled) {
+  border-color: var(--accent-strong) !important;
+  background: var(--accent-soft) !important;
+}
+
+/* — Course card hover ———————————————————————————————————————————————————— */
+.course-card:hover {
+  border-color: var(--accent-strong);
+  box-shadow: 0 8px 24px rgba(29, 29, 66, 0.1);
+}
+
+/* — Buttons ———————————————————————————————————————————————————————————— */
+.btn-primary {
+  background: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-mid);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.btn-accent:hover {
+  background: var(--accent-strong);
+}
+
+/* — Q number badge ———————————————————————————————————————————————————— */
+.q-num {
+  background: var(--primary);
+}

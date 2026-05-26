@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>warning_regulation | SlothMove PAB.</title>
+<meta content="" name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Kanit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+  :root {
+    --ddpm-navy:#1d1d42; --ddpm-navy-mid:#262656;
+    --ddpm-yellow:#fcec4a; --ddpm-yellow-strong:#ddcf00;
+    --ddpm-yellow-soft:#fffbeb; --ddpm-page:#f8fafc;
+    --ddpm-chip:#f8f6e8;
+  }
+  body { color:#1e293b; }
+  .theme-accent { background:var(--ddpm-navy); color:#fff; }
+  .ddpm-strip { height:4px; background:linear-gradient(90deg,var(--ddpm-yellow) 0%,var(--ddpm-yellow) 28%,var(--ddpm-navy) 28%,var(--ddpm-navy) 100%); }
+  .summary-shell {
+    background: linear-gradient(180deg, #eef2f6 0%, #f8fafc 14%, #ffffff 100%);
+    border-top: 1px solid #e2e8f0;
+  }
+  .summary-acc-card { transition: box-shadow .2s; }
+  .summary-acc-card:hover { box-shadow: 0 4px 12px rgba(15,23,42,.08); }
+  .mem-quick-row { display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:1.1rem; }
+  .mem-q {
+    display:inline-flex; align-items:center; padding:.28rem .65rem;
+    border-radius:9999px; font-family:'Kanit',sans-serif;
+    font-size:11px; font-weight:600; border:1px solid transparent;
+  }
+  .mem-q--navy { background:#e0e7ff; color:#1e3a8a; border-color:#c7d2fe; }
+  .mem-q--amber { background:#fffbeb; color:#92400e; border-color:#fde68a; }
+  .mem-q--teal { background:#ccfbf1; color:#115e59; border-color:#99f6e4; }
+  .mem-q--rose { background:#ffe4e6; color:#9f1239; border-color:#fecdd3; }
+  .summary-body-rich { padding-top:.05rem; }
+  .summary-body-rich .key-point { border-radius:.875rem; border:1px solid #e2e8f0; background:linear-gradient(120deg,#f8fafc 0%,#fff 45%,#fffbeb 100%); padding:.95rem 1.1rem; margin-bottom:1rem; font-size:.98rem; line-height:1.82; color:#475569; box-shadow:0 1px 3px rgba(15,23,42,.05); }
+  .summary-body-rich .key-point-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.9rem; color:#92400e; margin-bottom:.45rem; }
+  .summary-body-rich .key-point-text { font-family:'Sarabun',sans-serif; line-height:1.8; }
+  .summary-body-rich .key-point-text strong { color:#1e293b; font-weight:700; }
+  .summary-body-rich .key-point-text em { color:#475569; }
+  .summary-rich-list { list-style:none; padding:0; margin:0; }
+  .summary-rich-list.readable { gap:.8rem; }
+  .summary-rich-list.readable > li { border-width:1px; border-style:solid; border-right-color:#e8ecf1; border-top-color:#e8ecf1; border-bottom-color:#e8ecf1; border-radius:.75rem; padding:1rem 1.05rem 1rem 1.15rem; border-left-width:4px; }
+  .summary-rich-list.readable > li:nth-child(4n+1) { border-left-color:#2563eb; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 52%); }
+  .summary-rich-list.readable > li:nth-child(4n+2) { border-left-color:#0d9488; background:linear-gradient(135deg,#f0fdfa 0%,#ffffff 52%); }
+  .summary-rich-list.readable > li:nth-child(4n+3) { border-left-color:#c026d3; background:linear-gradient(135deg,#fdf4ff 0%,#ffffff 52%); }
+  .summary-rich-list.readable > li:nth-child(4n+4) { border-left-color:#d97706; background:linear-gradient(135deg,#fffbeb 0%,#ffffff 52%); }
+  .pab-rich-acc .acc-body .sub-item:nth-child(4n+1),
+  .pab-rich-acc .summary-body-rich .sub-item:nth-child(4n+1) { border-left:4px solid #2563eb!important; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 55%)!important; box-shadow:0 1px 3px rgba(15,23,42,.05); }
+  .pab-rich-acc .acc-body .sub-item:nth-child(4n+2),
+  .pab-rich-acc .summary-body-rich .sub-item:nth-child(4n+2) { border-left:4px solid #0d9488!important; background:linear-gradient(135deg,#f0fdfa 0%,#ffffff 55%)!important; box-shadow:0 1px 3px rgba(15,23,42,.05); }
+  .pab-rich-acc .acc-body .sub-item:nth-child(4n+3),
+  .pab-rich-acc .summary-body-rich .sub-item:nth-child(4n+3) { border-left:4px solid #c026d3!important; background:linear-gradient(135deg,#fdf4ff 0%,#ffffff 55%)!important; box-shadow:0 1px 3px rgba(15,23,42,.05); }
+  .pab-rich-acc .acc-body .sub-item:nth-child(4n+4),
+  .pab-rich-acc .summary-body-rich .sub-item:nth-child(4n+4) { border-left:4px solid #d97706!important; background:linear-gradient(135deg,#fffbeb 0%,#ffffff 55%)!important; box-shadow:0 1px 3px rgba(15,23,42,.05); }
+  .sub-item {
+    display:flex; gap:.6rem; padding:.7rem .9rem; border-radius:.75rem;
+    border:1px solid #e8ecf1; margin-bottom:.6rem; align-items:flex-start;
+  }
+  .sub-num {
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:2rem; height:2rem; border-radius:.5rem;
+    font-family:'Kanit',sans-serif; font-weight:700; font-size:.8rem;
+    color:#1e293b; background:#f1f5f9; flex-shrink:0;
+  }
+  .sub-num-1 { background:#dbeafe; color:#1e40af; }
+  .sub-num-2 { background:#fef3c7; color:#92400e; }
+  .sub-num-3 { background:#d1fae5; color:#065f46; }
+  .sub-num-4 { background:#fee2e2; color:#991b1b; }
+  .sub-text { font-family:'Sarabun',sans-serif; font-size:.9rem; color:#1e293b; line-height:1.7; }
+  .sub-text strong { color:#0f172a; font-weight:700; }
+  .acc-body { display:none; }
+  .acc-body.open { display:block; }
+  .acc-arr { transition:transform .25s; }
+  .acc-arr.open { transform:rotate(180deg); }
+  .sum-lead-box { border-radius:.875rem; border:1px solid #e2e8f0; background:linear-gradient(120deg,#f8fafc 0%,#fff 45%,#fffbeb 100%); padding:.95rem 1.1rem; margin-bottom:1rem; font-size:.98rem; line-height:1.82; color:#475569; box-shadow:0 1px 3px rgba(15,23,42,.05); }
+  .num-chip { display:inline-flex; align-items:center; justify-content:center; padding:.15rem .55rem; border-radius:.4rem; font-family:'Kanit',sans-serif; font-weight:700; font-size:.8rem; background:#1d1d42; color:#fff; }
+  .outline-card { transition:all .2s; }
+  .outline-card:hover { border-color:#1d1d42; transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,23,42,.1); }
+  .sec-break { display:flex; align-items:center; gap:.75rem; margin-bottom:1.5rem; }
+  .sec-break::before, .sec-break::after { content:''; flex:1; height:1px; background:#e2e8f0; }
+  .sec-break-label { font-family:'Kanit',sans-serif; font-size:.75rem; font-weight:600; color:#94a3b8; letter-spacing:.05em; background:#f8fafc; padding:.2rem .75rem; border-radius:9999px; border:1px solid #e2e8f0; white-space:nowrap; }
+  .nav-tab { position:relative; transition:all .2s; color:#94a3b8; }
+  .nav-tab:hover { color:#ffffff; }
+  .nav-tab::after { content:''; position:absolute; bottom:0; left:50%; right:50%; height:2px; background:#fcec4a; border-radius:2px; transition:all .2s; }
+  .nav-tab.active { color:#fcec4a; font-weight:700; }
+  .nav-tab.active::after { left:0; right:0; }
+  .drop-panel { display:none; }
+  .drop-panel.open { display:block; }
+
+  /* User-customized classes for admin_act.html */
+  .ch-item-wrap { margin-bottom: 0.75rem; }
+  .acc-body-inner { padding: 0.8rem 1.2rem 1.2rem; }
+  .chapter-acc-body { display:none; }
+  .chapter-acc-body.open { display:block; }
+  .ch-p { font-family:'Sarabun',sans-serif; font-size:.9rem; color:#475569; line-height:1.8; margin-bottom:.75rem; }
+  .ch-subheading { font-family:'Kanit',sans-serif; font-weight:700; font-size:.9rem; color:#1e293b; margin-top:1.2rem; margin-bottom:.5rem; padding-bottom:.4rem; border-bottom:1px solid #e2e8f0; }
+  .ch-list { list-style:none; padding:0; margin:0 0 .75rem; }
+  .ch-list li { display:flex; gap:.5rem; padding:.4rem 0; font-family:'Sarabun',sans-serif; font-size:.88rem; color:#475569; border-bottom:1px dashed #f1f5f9; }
+  .ch-list li:last-child { border-bottom:none; }
+  .ch-table { width:100%; border-collapse:collapse; margin-bottom:.75rem; font-family:'Sarabun',sans-serif; font-size:.88rem; }
+  .ch-table td { padding:.5rem .6rem; border-bottom:1px solid #f1f5f9; vertical-align:top; }
+  .ch-table td:first-child { font-family:'Kanit',sans-serif; font-weight:700; font-size:.8rem; color:#1e293b; white-space:nowrap; }
+  .ch-list-v2 { list-style:none; padding:0; margin:0 0 .75rem; }
+  .ch-list-v2 li { position:relative; padding:.4rem 0 .4rem 1.5rem; font-family:'Sarabun',sans-serif; font-size:.88rem; color:#475569; border-bottom:1px dashed #f1f5f9; }
+  .ch-list-v2 li::before { content:'→'; position:absolute; left:0; top:.4rem; color:#1d1d42; font-weight:700; font-size:.75rem; }
+  .ch-list-v2 li:last-child { border-bottom:none; }
+  .ch-p-r { background:#fff; border-radius:.75rem; padding:.875rem 1rem; border:1px solid #e2e8f0; box-shadow:0 1px 2px rgba(0,0,0,.02); font-family:'Sarabun',sans-serif; font-size:.9rem; color:#475569; line-height:1.8; margin-bottom:.75rem; }
+  .key-point-navy { background:linear-gradient(135deg,#1d1d42 0%,#262656 100%); border-radius:1rem; padding:1rem 1.25rem; margin-bottom:1rem; color:#fff; }
+  .key-point-navy .kp-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.9rem; color:#fcec4a; margin-bottom:.5rem; display:flex; align-items:center; gap:.5rem; }
+  .key-point-navy .kp-text { font-family:'Sarabun',sans-serif; font-size:.9rem; color:#e2e8f0; line-height:1.7; }
+  .key-point-navy .kp-text strong { color:#fcec4a; font-weight:600; }
+  .kw { background:#fef9c3; border-radius:3px; padding:0 4px; font-weight:600; color:#92400e; }
+  .kw-forbidden { background:#fee2e2; border-radius:3px; padding:0 4px; font-weight:600; color:#991b1b; }
+  .kw-penalty { background:#fef3c7; border-radius:3px; padding:0 4px; font-weight:600; color:#92400e; }
+  .kw-required { background:#dbeafe; border-radius:3px; padding:0 4px; font-weight:600; color:#1e40af; }
+  .kw-except { background:#f0fdf4; border-radius:3px; padding:0 4px; font-weight:600; color:#065f46; }
+  .kw-warning { background:#fdf4ff; border-radius:3px; padding:0 4px; font-weight:600; color:#7c3aed; }
+  .kw-time { background:#fef9c3; border-radius:3px; padding:0 4px; font-weight:600; color:#92400e; }
+  .kw-money { background:#d1fae5; border-radius:3px; padding:0 4px; font-weight:600; color:#065f46; }
+  .kw-important { background:#fee2e2; border-radius:3px; padding:0 4px; font-weight:600; color:#dc2626; }
+  .ch-box-navy { border-radius:.875rem; padding:1rem 1.1rem; margin-bottom:1rem; background:linear-gradient(135deg,#1d1d42 0%,#262656 100%); }
+  .ch-box-navy .ch-box-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.88rem; color:#fcec4a; margin-bottom:.5rem; }
+  .ch-box-navy .ch-list-v2 li { color:#e2e8f0; border-bottom-color:rgba(255,255,255,.1); }
+  .ch-box-navy .ch-list-v2 li::before { color:#fcec4a; }
+  .ch-box-amber .ch-box-title.amber { color:#92400e; }
+  .section-tag { display:inline-flex; align-items:center; gap:.35rem; font-family:'Kanit',sans-serif; font-size:.7rem; font-weight:700; padding:.2rem .6rem; border-radius:9999px; margin-bottom:.75rem; }
+  .section-tag.navy { background:#1d1d42; color:#fcec4a; }
+  .section-tag.amber { background:#fef3c7; color:#92400e; border:1px solid #fde68a; }
+  .ch-box-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.88rem; margin-bottom:.5rem; }
+  .ch-box.purple .ch-box-title { color:#7c3aed; }
+  .ch-box.blue .ch-box-title { color:#1e40af; }
+  .ch-box.green .ch-box-title { color:#065f46; }
+  .ch-box.amber .ch-box-title { color:#92400e; }
+  .ch-box.rose .ch-box-title { color:#9f1239; }
+  .ch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.75rem; margin-bottom:.75rem; }
+  .ch-grid-item { border-radius:.75rem; padding:.75rem; border:1px solid #e2e8f0; }
+  .ch-grid-item-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.8rem; margin-bottom:.3rem; }
+  .ch-grid-item.blue { background:#eff6ff; border-color:#bfdbfe; }
+  .ch-grid-item.blue .ch-grid-item-title { color:#1e40af; }
+  .ch-grid-item.green { background:#f0fdf4; border-color:#bbf7d0; }
+  .ch-grid-item.green .ch-grid-item-title { color:#065f46; }
+  .ch-grid-item.purple { background:#faf5ff; border-color:#e9d5ff; }
+  .ch-grid-item.purple .ch-grid-item-title { color:#7c3aed; }
+  .ch-grid-item.amber { background:#fffbeb; border-color:#fde68a; }
+  .ch-grid-item.amber .ch-grid-item-title { color:#92400e; }
+  .ch-grid-item.rose { background:#fff1f2; border-color:#fecdd3; }
+  .ch-grid-item.rose .ch-grid-item-title { color:#9f1239; }
+
+  /* Organization Chart */
+  .org-chart-wrap { display:flex; flex-direction:column; align-items:center; gap:0; margin:1.5rem 0; }
+  .org-node { display:flex; flex-direction:column; align-items:center; }
+  .org-node-top { background:var(--ddpm-navy); color:#fff; border-radius:1rem; padding:.75rem 1.25rem; text-align:center; min-width:200px; box-shadow:0 4px 12px rgba(29,29,66,.25); }
+  .org-node-top .org-node-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.85rem; }
+  .org-node-top .org-node-sub { font-family:'Sarabun',sans-serif; font-size:.7rem; color:#c8d5e8; margin-top:.2rem; }
+  .org-vline { width:2px; height:24px; background:var(--ddpm-yellow); }
+  .org-hline { height:2px; width:60%; background:var(--ddpm-yellow); }
+  .org-cards { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .org-card { background:#fff; border:1px solid #e2e8f0; border-radius:.875rem; padding:.75rem 1rem; text-align:center; min-width:140px; flex:1; }
+  .org-card-label { font-family:'Kanit',sans-serif; font-size:.7rem; font-weight:700; color:var(--ddpm-navy); text-transform:uppercase; letter-spacing:.05em; }
+  .org-card-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.8rem; color:#1e293b; margin-top:.25rem; }
+  .org-card-sub { font-family:'Sarabun',sans-serif; font-size:.7rem; color:#64748b; }
+  .org-desc-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.75rem; margin-top:1rem; }
+  .org-desc-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:.875rem; padding:.875rem; }
+  .org-desc-card-title { font-family:'Kanit',sans-serif; font-weight:700; font-size:.85rem; color:var(--ddpm-navy); margin-bottom:.4rem; }
+  .org-desc-card ul { list-style:none; padding:0; margin:0; }
+  .org-desc-card li { font-family:'Sarabun',sans-serif; font-size:.8rem; color:#475569; padding:.25rem 0; display:flex; gap:.4rem; }
+  .org-desc-card li::before { content:'●'; color:var(--ddpm-yellow-strong); font-size:.6rem; }
+
+  /* Glossary grid cards */
+  .glossary-item { background:white; border:1px solid #e2e8f0; border-radius:1rem; padding:1rem; transition:all .2s; }
+  .glossary-item:hover { border-color:var(--ddpm-navy); box-shadow:0 4px 12px rgba(29,29,66,.1); transform:translateY(-1px); }
+  .glossary-term { font-family:'Kanit',sans-serif; font-weight:700; color:var(--ddpm-navy); display:block; margin-bottom:.25rem; }
+  .glossary-meaning { font-family:'Sarabun',sans-serif; font-size:.85rem; color:#475569; line-height:1.6; }
+  #glossarySearch { width:100%; max-width:360px; padding:.65rem 1rem; border-radius:.875rem; border:2px solid #e2e8f0; font-size:.9rem; outline:none; transition:border-color .2s; }
+  #glossarySearch:focus { border-color:var(--ddpm-navy); }
+  #glossaryList { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:.75rem; }
+
+
+  /* Chapter accordion */
+  .chapter-acc { border-radius:12px; overflow:hidden; }
+  .chapter-acc-header { cursor:pointer; padding:16px; display:flex; align-items:center; gap:10px; background:white; transition:background .2s; }
+  .chapter-acc-header:hover { background:#f1f5f9; }
+  .chapter-acc-num { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:14px; flex-shrink:0; }
+  .chapter-acc-emoji { font-size:20px; }
+  .chapter-acc-title { flex:1; font-weight:600; color:#1e293b; font-size:15px; }
+  .chapter-acc-arrow { width:20px; height:20px; color:#94a3b8; transition:transform .25s; }
+  .chapter-acc-arrow.open { transform:rotate(180deg); }
+  .chapter-acc-body { display:none; padding:0 16px 16px 16px; }
+  .chapter-acc-body.open { display:block; }
+
+  /* Dark Theme Accordion */
+  .dark-content { background-color: #0f172a; color: #e2e8f0; border-radius: 3rem; padding: 3rem 2rem; border: 1px solid #1e293b; }
+  .acc-item-dark { background-color: #1e293b; border: 1px solid #334155; border-radius: 2rem; margin-bottom: 1rem; overflow: hidden; }
+  .acc-trigger-dark { width: 100%; padding: 1.5rem; text-align: left; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
+  .acc-trigger-dark:hover { background-color: #334155; }
+  .acc-item.open .acc-trigger-dark { background-color: #334155; border-bottom: 1px solid #475569; }
+  .acc-badge-dark { width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem; background-color: #0f172a; color: #3b82f6; font-weight: bold; margin-right: 1rem; }
+  .acc-item.open .acc-badge-dark { background-color: #3b82f6; color: white; }
+  .acc-arrow-dark { transition: transform 0.3s; color: #64748b; }
+  .acc-item.open .acc-arrow-dark { transform: rotate(180deg); color: #3b82f6; }
+  .acc-body { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); max-height: 0; opacity: 0; overflow: hidden; }
+  .acc-item.open .acc-body { max-height: 2000px; opacity: 1; padding-bottom: 2rem; }
+
+</style></style>
+</head>
+<body class="min-h-screen">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-slate-900 border-b border-slate-700">
+<div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-between gap-y-2 h-auto sm:h-14 py-2 sm:py-0">
+<div class="flex items-center gap-3 shrink-0 min-w-0">
+  <img alt="" class="h-8 w-8 object-contain shrink-0 rounded-lg border border-slate-700" height="32" loading="lazy" src="../../../pic/logo ปภ.png" width="32" onerror="this.style.visibility='hidden'"/>
+  <span id="nav-title" class="font-bold text-white font-kanit text-xs sm:text-sm hidden sm:inline max-w-[11rem] md:max-w-none truncate leading-tight">พ.ร.บ.ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534</span>
+</div>
+<div class="flex items-center gap-0 sm:gap-1 flex-1 min-w-0 justify-center order-3 sm:order-none w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0 -mx-1 px-1 sm:mx-0 sm:px-0">
+  <button class="nav-tab active px-3 sm:px-6 py-2 text-[11px] sm:text-xs font-kanit rounded-lg whitespace-nowrap shrink-0" data-section="content" onclick="showSection('content')" type="button">📖 สรุปเนื้อหา</button>
+  <button class="nav-tab px-3 sm:px-6 py-2 text-[11px] sm:text-xs font-kanit rounded-lg whitespace-nowrap shrink-0" data-section="quiz" onclick="showSection('quiz')" type="button">✏️ ทำข้อสอบ</button>
+</div>
+<div class="flex items-center gap-2 shrink-0 ml-auto sm:ml-0">
+  <a id="course-back-link" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-[color:var(--ddpm-navy)] text-slate-300 hover:text-white text-xs font-kanit border border-slate-600 hover:border-amber-500/60 transition-all whitespace-nowrap" href="indexPAB.html">← คอร์ส</a>
+  <div class="relative">
+    <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-kanit border border-slate-600 hover:border-slate-400 transition-all" onclick="toggleDrop('courses')" type="button">
+      วิชาอื่นๆ <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+    </button>
+    <div class="drop-panel absolute right-0 mt-1 w-72 max-h-[min(70vh,28rem)] overflow-y-auto rounded-xl border border-slate-600 bg-slate-800 shadow-2xl z-50" id="drop-courses">
+      <div class="p-2 border-b border-slate-700"><p class="text-slate-400 text-xs font-kanit px-2 py-1">ความรู้เฉพาะตำแหน่ง ปภ.</p></div>
+      <div id="course-list">
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="admin_act.html"><span>⚖️</span><span class="text-white text-xs font-sarabun">พ.ร.บ.ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 bg-[color:var(--ddpm-navy)]/80 border-l-[3px] border-[color:var(--ddpm-yellow-strong)]" href="ministry_act.html"><span>🏛️</span><span class="text-amber-100 text-xs font-sarabun font-bold">พ.ร.บ.ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545 (อยู่ที่นี่)</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="info_act.html"><span>📄</span><span class="text-white text-xs font-sarabun">พ.ร.บ.ข้อมูลข่าวสารของราชการ พ.ศ. 2540</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="civil_service_act.html"><span>👤</span><span class="text-white text-xs font-sarabun">พ.ร.บ.ระเบียบข้าราชการพลเรือน พ.ศ. 2551</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="saraban_regulation.html"><span>📋</span><span class="text-white text-xs font-sarabun">ระเบียบงานสารบรรณ พ.ศ. 2526</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="warning_regulation.html"><span>🚨</span><span class="text-white text-xs font-sarabun">ระเบียบระบบเตือนภัยพิบัติแห่งชาติ</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="road_safety_regulation.html"><span>🚗</span><span class="text-white text-xs font-sarabun">ระเบียบป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="national_accident_regulation.html"><span>🔥</span><span class="text-white text-xs font-sarabun">ระเบียบป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2564</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="volunteer_regulation.html"><span>🤝</span><span class="text-white text-xs font-sarabun">ระเบียบกิจการ อปพร. พ.ศ. 2553</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="national_disaster_plan.html"><span>🗺️</span><span class="text-white text-xs font-sarabun">แผนป้องกันและบรรเทาสาธารณภัยแห่งชาติ</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="national_plan.html"><span>📈</span><span class="text-white text-xs font-sarabun">แผนพัฒนาฯ · ยุทธศาสตร์ชาติ</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="budget_knowledge.html"><span>💰</span><span class="text-white text-xs font-sarabun">ความรู้เกี่ยวกับการงบประมาณ</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="disaster_situation.html"><span>🌍</span><span class="text-white text-xs font-sarabun">สถานการณ์สาธารณภัยของประเทศไทยและของโลก</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="pab_knowledge.html"><span>🛡️</span><span class="text-white text-xs font-sarabun">ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="english_reading.html"><span>🌐</span><span class="text-white text-xs font-sarabun">ความรู้ทางด้านภาษาอังกฤษ</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="disaster_act.html"><span>🛡️</span><span class="text-white text-xs font-sarabun">พ.ร.บ.ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="policy_analysis.html"><span>🎯</span><span class="text-white text-xs font-sarabun">การวิเคราะห์นโยบาย การวางแผน และการบริหารเชิงกลยุทธ์</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="budget_act.html"><span>💵</span><span class="text-white text-xs font-sarabun">พ.ร.บ.วิธีการงบประมาณ พ.ศ. 2561</span></a>
+        <a class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 border-b border-slate-700" href="emergency_fund_regulation.html"><span>💳</span><span class="text-white text-xs font-sarabun">ระเบียบว่าด้วยเงินทดรองราชการเพื่อช่วยเหลือผู้ประสบภัย</span></a>
+      </div>
+      <div class="p-2 border-t border-slate-700"><a class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-white text-xs font-kanit transition-colors" href="indexPAB.html">← กลับหน้าคอร์สทั้งหมด</a></div>
+    </div>
+  </div>
+</div>
+</div>
+</nav>
+
+<!-- HOME -->
+<div id="home-hero">
+<div style="background:linear-gradient(160deg,#f8fafc 0%,#ffffff 55%,#f1f5f9 100%);min-height:calc(100vh - 3.5rem)" class="px-4 py-14">
+<div class="max-w-xl mx-auto text-center">
+
+  <!-- Logo + badge -->
+  <div class="flex flex-col items-center gap-3 mb-8">
+    <img alt="ตรา ปภ." class="h-16 w-auto object-contain drop-shadow-sm" src="../../../pic/logo ปภ.png" onerror="this.style.display='none'"/>
+    <span class="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-kanit font-bold border" style="background:var(--ddpm-yellow-soft);color:var(--ddpm-navy);border-color:#e2e8f0">
+      📄 ความรู้เฉพาะตำแหน่ง ปภ. · ฟรีทั้งหมด
+    </span>
+  </div>
+
+  <!-- Title -->
+  <h1 id="home-title" class="font-black font-kanit leading-tight mb-5" style="font-size:clamp(2rem,5vw,3rem);color:#0f172a">
+    ระเบียบ<span style="color:var(--ddpm-navy);text-decoration:underline;text-decoration-color:#fcec4a;text-underline-offset:6px;text-decoration-thickness:4px">ระบบเตือนภัย</span><br>
+    <span style="color:var(--ddpm-navy)">พิบัติแห่งชาติ</span>
+    <span class="text-slate-400"> พ.ศ. 2552</span>
+  </h1>
+
+  <!-- Org tag -->
+  <p class="font-sarabun text-slate-500 text-sm mb-8">
+    กรมป้องกันและบรรเทาสาธารณภัย
+    <span class="mx-2 text-slate-300">·</span>
+    <span class="font-semibold" style="color:var(--ddpm-navy)">สรุป · ศัพท์ · ข้อสอบ</span>
+  </p>
+
+  <!-- Stats pills -->
+  <div class="flex flex-wrap justify-center gap-2 mb-10">
+    <span class="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-kanit font-bold shadow-sm" style="background:var(--ddpm-navy);color:#fcec4a">
+      📖 5 หัวข้อสรุป
+    </span>
+    <span class="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-kanit font-bold shadow-sm border" style="background:#fff;color:var(--ddpm-navy);border-color:#e2e8f0">
+      📚 2 หมวดศัพท์
+    </span>
+    <span class="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-kanit font-bold shadow-sm" style="background:var(--ddpm-yellow-soft);color:#92400e;border:1px solid #e2e8f0">
+      ✅ เฉลยหลังตอบทุกข้อ
+    </span>
+  </div>
+
+  <!-- 4 Feature cards (centered) -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+    <button onclick="showSection('content')" type="button"
+      class="bg-white rounded-2xl p-5 text-center border border-slate-100 shadow-sm hover:shadow-lg hover:border-slate-300 hover:-translate-y-0.5 transition-all duration-200">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl" style="background:#fffbeb">📖</div>
+      <div class="font-kanit font-bold text-slate-800 text-xs">สรุปเนื้อหา</div>
+      <div class="text-slate-400 text-[10px] mt-1 font-sarabun">5 บท</div>
+    </button>
+    <button onclick="showSection('structure')" type="button"
+      class="bg-white rounded-2xl p-5 text-center border border-slate-100 shadow-sm hover:shadow-lg hover:border-slate-300 hover:-translate-y-0.5 transition-all duration-200">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl" style="background:#eff6ff">🏛️</div>
+      <div class="font-kanit font-bold text-slate-800 text-xs">โครงสร้าง</div>
+      <div class="text-slate-400 text-[10px] mt-1 font-sarabun">แผนผัง</div>
+    </button>
+    <button onclick="showSection('glossary')" type="button"
+      class="bg-white rounded-2xl p-5 text-center border border-slate-100 shadow-sm hover:shadow-lg hover:border-slate-300 hover:-translate-y-0.5 transition-all duration-200">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl" style="background:#f0fdf4">📚</div>
+      <div class="font-kanit font-bold text-slate-800 text-xs">คำศัพท์</div>
+      <div class="text-slate-400 text-[10px] mt-1 font-sarabun">2 หมวด</div>
+    </button>
+    <a id="quiz-link-btn" href="Quiz_warning_regulation.html"
+      class="rounded-2xl p-5 text-center shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 block"
+      style="background:linear-gradient(135deg,var(--ddpm-navy) 0%,#262656 100%)">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl" style="background:rgba(252,236,74,.15)">✏️</div>
+      <div class="font-kanit font-bold text-white text-xs">ทำข้อสอบ</div>
+      <div class="text-[10px] mt-1 font-sarabun" style="color:#fcec4a">สุ่มตัวเลือก</div>
+    </a>
+  </div>
+
+  <!-- CTA buttons -->
+  <div class="flex flex-col sm:flex-row gap-3">
+    <button onclick="showSection('content')"
+      class="flex-1 inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-kanit font-bold text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+      style="background:var(--ddpm-navy);color:#fff">
+      <span>📖</span> เข้าสู่บทเรียน
+    </button>
+    <a href="Quiz_warning_regulation.html"
+      class="flex-1 inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-kanit font-bold text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+      style="background:var(--ddpm-yellow);color:var(--ddpm-navy)">
+      <span>✏️</span> ทำข้อสอบทันที
+    </a>
+  </div>
+
+  <p class="text-center mt-8">
+    <a class="inline-flex items-center gap-1.5 text-slate-400 hover:text-slate-600 text-xs font-sarabun transition-colors" href="#donate">☕ สนับสนุน SlothMove</a>
+  </p>
+</div>
+</div>
+</div>
+
+<!-- CONTENT -->
+<section class="scroll-mt-16 bg-white pb-16 active" id="content">
+<div class="max-w-4xl mx-auto px-4 py-10 pb-12 summary-shell readable-wrap border-t border-slate-100 pab-rich-acc" id="summaries-start">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+  <div>
+    <p class="text-[10px] font-kanit text-slate-400 uppercase tracking-widest mb-1.5">ส่วนที่ 1</p>
+    <h2 id="content-title" class="font-kanit font-black text-2xl text-slate-900 mb-2">สรุปเนื้อหา</h2>
+    <p id="content-desc" class="text-slate-500 font-sarabun text-sm">หัวข้อหลัก 5 บท เรียบเรียงจากชุดฝึกในระบบ</p>
+  </div>
+  <button class="px-5 py-2.5 text-white text-xs font-bold font-kanit rounded-xl border transition shrink-0 shadow-sm hover:opacity-[0.93]" onclick="expandAll()" type="button" style="background:var(--ddpm-navy);border-color:#0f1030">ขยายทั้งหมด</button>
+</div>
+
+<div id="accordionList">
+<!-- Rendered by JS -->
+</div>
+</div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="scroll-mt-16 bg-slate-50 pb-16 active" id="structure">
+<div class="max-w-5xl mx-auto px-4 py-10 font-kanit">
+<div class="sec-break"><span class="sec-break-label" id="sec-break-structure">ส่วนที่ 1 · โครงสร้าง</span></div>
+<h2 class="font-kanit font-black text-2xl text-slate-900 mb-2 text-center">โครงสร้างหัวข้อ</h2>
+<p class="text-center text-slate-500 font-sarabun text-sm mb-10 max-w-2xl mx-auto">แตะการ์ดเพื่อเปิดหัวข้อในส่วนสรุปเนื้อหา</p>
+<div id="structure-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Rendered by JS -->
+</div>
+
+<!-- Org Chart -->
+<div id="org-chart-wrap" class="org-chart-wrap mt-8">
+  <div class="org-node">
+    <div class="org-node-top">
+      <div class="org-node-title">🚨 ระเบียบระบบเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552</div>
+      <div class="org-node-sub">5 หมวด · กภช. · ปภ.</div>
+    </div>
+    <div class="org-vline"></div>
+    <div class="org-hline"></div>
+    <div class="org-cards">
+      <div class="org-card">
+        <div class="org-card-label">ประธาน กภช.</div>
+        <div class="org-card-title">นายกรัฐมนตรี</div>
+        <div class="org-card-sub">หรือรองนายกฯ ที่นายกฯ มอบ</div>
+      </div>
+      <div class="org-card">
+        <div class="org-card-label">รองประธาน กภช. 1</div>
+        <div class="org-card-title">รมว.มหาดไทย</div>
+        <div class="org-card-sub">ผู้รักษาการ</div>
+      </div>
+      <div class="org-card">
+        <div class="org-card-label">รองประธาน กภช. 2</div>
+        <div class="org-card-title">รมว.ดิจิทัลฯ</div>
+        <div class="org-card-sub">เทคโนโลยีสารสนเทศ</div>
+      </div>
+      <div class="org-card">
+        <div class="org-card-label">เลขานุการ</div>
+        <div class="org-card-title">อธิบดี ปภ.</div>
+        <div class="org-card-sub">สำนักงานเลขานุการ กภช.</div>
+      </div>
+    </div>
+    <div style="height:24px"></div>
+    <div style="display:flex; justify-content:center;"><div class="org-vline" style="height:20px"></div></div>
+    <div style="display:flex; justify-content:center;"><div class="org-hline" style="width:50%"></div></div>
+    <div class="org-cards" style="margin-top:0">
+      <div class="org-card">
+        <div class="org-card-label">หน่วยงานราชการ</div>
+        <div class="org-card-title">ส่วนราชการต่างๆ</div>
+        <div class="org-card-sub">ปลัดกระทรวง · อธิบดี · ผบ.ทบ. · ผบ.ตร.</div>
+      </div>
+      <div class="org-card">
+        <div class="org-card-label">หน่วยงานเดิม</div>
+        <div class="org-card-title">ศูนย์เตือนภัยฯ (ศภช.)</div>
+        <div class="org-card-sub">เดิมสังกัด ICT → โอนมา ปภ. 2559</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="org-desc-cards">
+  <div class="org-desc-card">
+    <div class="org-desc-card-title">🏛️ กภช. — คณะกรรมการบริหารระบบเตือนภัยฯ</div>
+    <ul>
+      <li>ประธาน: นายกฯ หรือรองนายกฯ ที่นายกฯ มอบหมาย</li>
+      <li>รองประธาน 1: รมว.มหาดไทย (ผู้รักษาการ)</li>
+      <li>รองประธาน 2: รมว.ดิจิทัลเพื่อเศรษฐกิจฯ</li>
+      <li>รองประธาน 3: ผู้ทรงคุณวุฒิ (ไม่เกิน 9 คน)</li>
+    </ul>
+  </div>
+  <div class="org-desc-card">
+    <div class="org-desc-card-title">📋 ผู้รักษาการ &amp; สำนักงานเลขานุการ</div>
+    <ul>
+      <li>ผู้รักษาการ: รมว.มหาดไทย (เดิม: รมว.ICT)</li>
+      <li>สำนักงานเลขานุการ: กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</li>
+      <li>ผู้ช่วยเลขานุการ: ข้าราชการใน ปภ. ไม่เกิน 2 คน</li>
+    </ul>
+  </div>
+  <div class="org-desc-card">
+    <div class="org-desc-card-title">⚖️ องค์ประชุม &amp; การลงมติ</div>
+    <ul>
+      <li>องค์ประชุม: ≥ 1/3 ของกรรมการทั้งหมด</li>
+      <li>มติ: เสียงข้างมาก | เท่ากัน → ประธานชี้ขาด</li>
+      <li>วาระ: 4 ปี | ไม่เกิน 2 วาระติดต่อกัน</li>
+    </ul>
+  </div>
+</div>
+<div class="mt-10 rounded-2xl border/70 bg-[color:var(--ddpm-yellow-soft)] p-5 sm:p-6">
+  <p class="font-kanit text-sm font-bold text-[color:var(--ddpm-navy)] mb-2">💡 ทิปทบทวน</p>
+  <p id="tip-text" class="font-sarabun text-slate-800 text-[15px] leading-relaxed">อ่านตามลำดับทีละหัวข้อ แล้วทดลองทำข้อสอบดู — ข้อสอบมักถามทั้งนิยาม ขั้นตอน และบทบาทของหน่วยงาน จำให้ดีว่า ศภช. โอนจาก ICT → ปภ. และผู้รักษาการเปลี่ยนจาก รมว.ICT → รมว.มหาดไทย</p>
+</div>
+</div>
+</section>
+
+<!-- GLOSSARY -->
+<section class="bg-white active" id="glossary">
+<div class="max-w-4xl mx-auto px-4 py-10">
+<div class="sec-break"><span class="sec-break-label" id="sec-break-glossary">ส่วนที่ 2 · คำศัพท์และตัวเลขน่ารู้</span></div>
+<h2 class="font-kanit font-black text-2xl text-slate-900 mb-2">คลังคำศัพท์</h2>
+<p class="text-slate-500 font-sarabun text-sm mb-6">ศัพท์เชิงกฎหมาย ระเบียบ และคำศัพท์ทางราชการ</p>
+
+<!-- ตัวเลขน่ารู้ -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-4">
+  <span class="text-xl">🔢</span>
+  <h3 class="font-kanit font-bold text-lg text-[color:var(--ddpm-navy)]">ตัวเลขน่ารู้</h3>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+  <div class="bg-[color:var(--ddpm-yellow-soft)] border rounded-xl p-4 text-center hover:shadow-md transition-all">
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">2552</div>
+    <div class="text-xs font-sarabun text-slate-600 mt-1">ปีที่ประกาศใช้</div>
+  </div>
+  <div class="bg-[color:var(--ddpm-yellow-soft)] border rounded-xl p-4 text-center hover:shadow-md transition-all">
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">2562</div>
+    <div class="text-xs font-sarabun text-slate-600 mt-1">ฉบับแก้ไข (ที่ 2)</div>
+  </div>
+  <div class="bg-[color:var(--ddpm-yellow-soft)] border rounded-xl p-4 text-center hover:shadow-md transition-all">
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">5</div>
+    <div class="text-xs font-sarabun text-slate-600 mt-1">หมวด</div>
+  </div>
+  <div class="bg-[color:var(--ddpm-yellow-soft)] border rounded-xl p-4 text-center hover:shadow-md transition-all">
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">4</div>
+    <div class="text-xs font-sarabun text-slate-600 mt-1">ปี วาระกรรมการ</div>
+  </div>
+  <div class="bg-[color:var(--ddpm-yellow-soft)] border rounded-xl p-4 text-center hover:shadow-md transition-all">
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">6</div>
+    <div class="text-xs font-sarabun text-slate-600 mt-1">เดือน ช่วยปฏิบัติงาน</div>
+  </div>
+</div>
+</div>
+
+<div id="glossary-container">
+  <div class="mb-5"><input id="glossarySearch" oninput="filterGloss()" placeholder="🔍 ค้นหาคำศัพท์..." type="text" class="w-full md:w-80 px-6 py-3 rounded-2xl border-2 border-slate-200 bg-white text-sm font-sarabun shadow-sm focus:border-[color:var(--ddpm-yellow-strong)] focus:outline-none"/></div>
+  <div id="glossaryList"></div>
+  <div id="glossaryEmpty" style="display:none">
+    <div class="bg-amber-50 border border-amber-100 rounded-2xl p-6 text-center">
+      <p class="text-amber-700 font-sarabun text-sm">📚 คำศัพท์จะเพิ่มในภายหลัง</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+<div class="min-h-[70vh] flex items-center justify-center px-4 py-20" style="background:linear-gradient(135deg,var(--ddpm-navy) 0%,#262656 50%,#1a1a3e 100%)">
+<div class="text-center max-w-lg">
+  <div id="quiz-emoji" class="w-20 h-20 rounded-3xl bg-[color:var(--ddpm-yellow)] flex items-center justify-center text-4xl mx-auto mb-8 shadow-2xl">🚨</div>
+  <h2 class="font-kanit font-black text-3xl text-white mb-3">ทำข้อสอบ</h2>
+  <p id="quiz-subtitle" class="font-sarabun text-slate-300 text-base mb-2 leading-relaxed">ระเบียบสำนักนายกรัฐมนตรี ว่าด้วยการบริหารระบบการเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552</p>
+  <p id="quiz-desc" class="font-sarabun text-slate-400 text-sm mb-10">50 ข้อ · สุ่มตัวเลือก · เฉลยหลังตอบ · บันทึกคะแนน</p>
+  <a id="quiz-link" href="#" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-kanit font-black text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-100" style="background:var(--ddpm-yellow);color:var(--ddpm-navy)">
+    เริ่มทำข้อสอบ <span class="text-xl">→</span>
+  </a>
+  <p class="mt-8 text-slate-500 font-sarabun text-sm"><a href="indexPAB.html" class="hover:text-slate-300 transition-colors">← กลับหน้าคอร์ส</a></p>
+</div>
+</div>
+</section>
+
+<!-- DONATE -->
+<div class="scroll-mt-16 relative overflow-hidden bg-slate-900 py-16 px-4 text-center text-white" id="donate">
+<div class="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full blur-3xl -mr-20 -mt-20" style="background:rgba(252,236,74,0.14)"></div>
+<div class="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full blur-3xl -ml-20 -mb-20" style="background:rgba(29,29,66,0.35)"></div>
+<div class="relative z-10 mx-auto max-w-lg">
+  <h2 class="mb-3 font-kanit text-2xl font-bold">เลี้ยงกาแฟ ☕</h2>
+  <p class="mb-10 font-sarabun text-sm text-slate-400">หากเนื้อหามีประโยชน์ สนับสนุนได้ตามกำลังศรัทธา</p>
+  <div class="mx-auto max-w-[220px] rounded-[2rem] bg-white p-5 shadow-2xl">
+    <img alt="QR พร้อมเพย์สำหรับสนับสนุน SlothMove" class="mb-3 w-full rounded-xl border border-slate-100" height="200" src="../../../pic/qr.jpg" width="200"/>
+    <p class="italic text-[10px] text-slate-500">สแกนผ่านแอปธนาคาร</p>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 border-t border-slate-700 py-8">
+<div class="max-w-4xl mx-auto px-4 text-center">
+  <p class="text-slate-400 font-sarabun text-sm">SlothMove · E-Learning ฟรีตลอดชีพ · <a class="text-amber-300 hover:text-[color:var(--ddpm-yellow)] transition-colors font-medium" href="indexPAB.html">กลับหน้าคอร์ส →</a></p>
+</div>
+</footer>
+
+
+<script>
+var CONTENT = {
+  topic: "warning_regulation",
+  title: "ระเบียบสำนักนายกรัฐมนตรี ว่าด้วยการบริหารระบบการเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552 และที่แก้ไขเพิ่มเติม (ฉบับที่ 2) พ.ศ. 2562",
+  titleShort: "ระเบียบระบบเตือนภัยพิบัติแห่งชาติ",
+  emoji: "🚨",
+  year: "2552",
+  stats: {
+    chapters: 5,
+    amendments: 2,
+    vocabGroups: 2,
+    quizCount: 50,
+    sectionNumber: "2",
+    sectionLabel: "ส่วนที่ 2 — ฟรี"
+  },
+  subtitle: "โครงสร้าง กภช. · องค์ประกอบและวาระ · การโอนย้ายอำนาจ · สิทธิหน้าที่ของหน่วยงาน",
+
+  chapters: [
+    {
+      num: 1,
+      title: "การโอนย้ายอำนาจหน้าที่และผู้รักษาการ",
+      emoji: "🔄",
+      body: [
+        { type: "heading", text: "การโอนย้ายหน่วยงาน" },
+        { type: "list", items: [
+          "<strong>ศูนย์เตือนภัยพิบัติแห่งชาติ (ศภช.)</strong> โอนจากกระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร (ICT) → <strong>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</strong> กระทรวงมหาดไทย",
+          "การโอนย้ายนี้เป็นไปตามพระราชบัญญัติปรับปรุงกระทรวง ทบวง กรม (ฉบับที่ 17) พ.ศ. 2559"
+        ]},
+        { type: "heading", text: "ผู้รักษาการ" },
+        { type: "list", items: [
+          "<strong>เดิม (2552):</strong> รัฐมนตรีว่าการกระทรวง ICT",
+          "<strong>ปัจจุบัน (2562):</strong> รัฐมนตรีว่าการกระทรวงมหาดไทย เป็นผู้รักษาการตามระเบียบ"
+        ]},
+        { type: "keypoint", title: "⚠️ จุดสอบบ่อย", text: "ผู้รักษาการ = <strong>รัฐมนตรีว่าการกระทรวงมหาดไทย</strong> (เปลี่ยนจาก ICT ในฉบับที่ 2 พ.ศ. 2562)" }
+      ]
+    },
+    {
+      num: 2,
+      title: "คณะกรรมการบริหารระบบการเตือนภัยพิบัติแห่งชาติ (กภช.) — โครงสร้าง",
+      emoji: "👥",
+      body: [
+        { type: "heading", text: "องค์ประกอบ กภช." },
+        { type: "list", items: [
+          "<strong>ประธานกรรมการ:</strong> นายกรัฐมนตรี หรือรองนายกรัฐมนตรีที่นายกฯ มอบหมาย",
+          "<strong>รองประธานคนที่ 1:</strong> รมว.มหาดไทย",
+          "<strong>รองประธานคนที่ 2:</strong> รมว.ดิจิทัลเพื่อเศรษฐกิจและสังคม",
+          "<strong>รองประธานคนที่ 3:</strong> ผู้ทรงคุณวุฒิที่นายกฯ แต่งตั้ง (ไม่เกิน 9 คน)",
+          "<strong>เลขานุการ:</strong> อธิบดีกรมป้องกันและบรรเทาสาธารณภัย",
+          "<strong>ผู้ช่วยเลขานุการ:</strong> ข้าราชการใน ปภ. ไม่เกิน 2 คน",
+          "<strong>กรรมการโดยตำแหน่ง:</strong> ปลัดกระทรวงที่เกี่ยวข้อง, อธิบดีกรมที่เกี่ยวข้อง, ผู้บัญชาการทหารสูงสุด/บก/เรือ/อากาศ, ผู้บัญชาการตำรวจแห่งชาติ, เลขาธิการ กสทช., เลขาธิการทรัพยากรน้ำแห่งชาติ"
+        ]},
+        { type: "heading", text: "วาระการดำรงตำแหน่ง" },
+        { type: "list", items: [
+          "กรรมการผู้ทรงคุณวุฒิ: <strong>4 ปี</strong> (เดิม 2 ปี ก่อนแก้ไข 2562)",
+          "ดำรงตำแหน่งได้ไม่เกิน <strong>2 วาระติดต่อกัน</strong>",
+          "ผู้ที่ได้รับแต่งตั้งแทนจะอยู่ได้เท่ากับ <strong>วาระที่เหลืออยู่ของผู้เดิม</strong>"
+        ]},
+        { type: "keypoint", title: "⚠️ จุดสอบบ่อย", text: "รองประธาน กภช. คนที่ 2 = <strong>รมว.ดิจิทัลเพื่อเศรษฐกิจและสังคม</strong> (เพราะระบบเตือนภัยต้องใช้เทคโนโลยีสารสนเทศ)" }
+      ]
+    },
+    {
+      num: 3,
+      title: "องค์ประชุม กภช. — ลำดับประธาน การลงมติ การพ้นจากตำแหน่ง",
+      emoji: "🗳️",
+      body: [
+        { type: "heading", text: "องค์ประชุม" },
+        { type: "list", items: [
+          "ต้องมีกรรมการมาไม่น้อยกว่า <strong>1 ใน 3 ของกรรมการทั้งหมด</strong> (แก้ไขจากเดิม 1/2 โดยฉบับที่ 2 พ.ศ. 2562)"
+        ]},
+        { type: "heading", text: "ลำดับประธานในที่ประชุม" },
+        { type: "list", items: [
+          "ประธานกรรมการ → รองประธานที่ 1 → 2 → 3",
+          "หากประธานและรองประธานทุกคนไม่อยู่ → ให้กรรมการที่มาประชุม<strong>เลือกกรรมการคนหนึ่ง</strong>เป็นประธานชั่วคราว"
+        ]},
+        { type: "heading", text: "การลงมติ" },
+        { type: "list", items: [
+          "ถือ<strong>เสียงข้างมาก</strong> — กรรมการหนึ่งคนหนึ่งเสียง",
+          "หากคะแนนเท่ากัน → ประธานในที่ประชุมออกเสียงเพิ่มอีกหนึ่งเสียงเป็น<strong>เสียงชี้ขาด (Casting Vote)</strong>"
+        ]},
+        { type: "heading", text: "เหตุที่กรรมการผู้ทรงคุณวุฒิพ้นจากตำแหน่งก่อนวาระ" },
+        { type: "list", items: [
+          "<strong>ตาย</strong>",
+          "<strong>ลาออก</strong> โดยยื่นหนังสือต่อประธานกรรมการ",
+          "<strong>นายกฯ ให้ออก</strong>",
+          "<strong>ล้มละลายทุจริต</strong>",
+          "<strong>เป็นคนไร้ความสามารถหรือเสมือนไร้ความสามารถ</strong>",
+          "<strong>จำคุกโดยคำพิพากษาถึงที่สุด</strong> (ยกเว้นโทษจำคุกไม่เกิน 1 ปี, ความผิดลหุโทษ, รอการลงอาญา)"
+        ]},
+        { type: "keypoint", title: "💡 จำ", text: "การย้ายไปดำรงตำแหน่งในจังหวัดอื่น <strong>ไม่ใช่</strong>เหตุให้พ้นจากตำแหน่ง" }
+      ]
+    },
+    {
+      num: 4,
+      title: "สำนักงานเลขานุการ กภช. และอำนาจหน้าที่",
+      emoji: "📋",
+      body: [
+        { type: "heading", text: "สำนักงานเลขานุการ" },
+        { type: "list", items: [
+          "<strong>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</strong> ทำหน้าที่เป็นสำนักงานเลขานุการของ กภช.",
+          "เดิมเคยเป็นศูนย์เตือนภัยพิบัติแห่งชาติ (ศภช.) ก่อนการโอนย้าย"
+        ]},
+        { type: "heading", text: "หน้าที่ของสำนักงานเลขานุการ กภช." },
+        { type: "list", items: [
+          "<strong>งานธุรการ งานประชุม งานวิชาการ</strong> ของ กภช.",
+          "<strong>ศึกษา วิเคราะห์</strong> และจัดทำข้อเสนอนโยบาย มาตรการ แผนการบริหารระบบเตือนภัยพิบัติเสนอต่อ กภช.",
+          "<strong>ประสานงานกับหน่วยราชการ</strong> เพื่อวิจัยปัญหาและอุปสรรคในการเตือนภัย",
+          "<strong>ติดตามความก้าวหน้า วิเคราะห์ ประเมินผล</strong> การบริหารระบบเตือนภัยเสนอต่อ กภช.",
+          "<strong>ทบทวนค่าใช้สอยและทรัพยากร</strong> การบริหารโครงการตามแผนงานเป็นประจำตามควรแก่กรณี"
+        ]},
+        { type: "heading", text: "อำนาจหน้าที่ กภช. ในการเสนอต่อ ครม." },
+        { type: "list", items: [
+          "เสนอแนวทาง นโยบาย มาตรการ และ<strong>แผนการบริหารระบบเตือนภัยพิบัติแห่งชาติ</strong>",
+          "<strong>กรณีเร่งด่วน</strong> เสนอขอจัดสรรงบประมาณเป็นกรณีพิเศษ"
+        ]},
+        { type: "keypoint", title: "⚠️ จุดสอบ", text: "สำนักงานเลขานุการ กภช. = <strong>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</strong> | ศภช. = ศูนย์เตือนภัยพิบัติแห่งชาติ (เดิมสังกัด ICT)" }
+      ]
+    },
+    {
+      num: 5,
+      title: "การบริหารบุคลากร งบประมาณ และความร่วมมือระหว่างหน่วยงาน",
+      emoji: "💰",
+      body: [
+        { type: "heading", text: "การช่วยปฏิบัติราชการ" },
+        { type: "list", items: [
+          "นายกรัฐมนตรีมีอำนาจสั่งให้ข้าราชการ ลูกจ้าง หรือพนักงานรัฐวิสาหกิจ <strong>มาช่วยปฏิบัติงานที่ ปภ. ได้คราวละไม่เกิน 6 เดือน</strong>",
+          "การมาช่วยปฏิบัติงานให้ถือเป็น<strong>การปฏิบัติราชการตามปกติ</strong>"
+        ]},
+        { type: "heading", text: "งบประมาณ" },
+        { type: "list", items: [
+          "<strong>กรณีปกติ:</strong> ปภ. ทำความตกลงกับหน่วยงานที่เกี่ยวข้องเพื่อขอสนับสนุนเงินงบประมาณ เงินกู้ หรือเงินช่วยเหลือต่างประเทศ",
+          "<strong>กรณีเร่งด่วน:</strong> กภช. เสนอ ครม. ขอจัดสรรงบประมาณเป็นกรณีพิเศษ"
+        ]},
+        { type: "heading", text: "ความร่วมมือระหว่างหน่วยงาน" },
+        { type: "list", items: [
+          "หาก กภช. เชื่อว่าจะเกิดภัยพิบัติ หน่วยราชการอื่น<strong>ต้อง</strong>ให้ความร่วมมือส่งผู้เชี่ยวชาญหรือเจ้าหน้าที่ทางเทคนิคมาปฏิบัติงานร่วมกับ ปภ.",
+          "หน่วยราชการที่ไม่เห็นด้วยกับมติของ กภช. ต้อง<strong>รายงานปัญหาและเสนอความเห็นให้ กภช. ทราบเพื่อหาข้อยุติ</strong>",
+          "หากไม่เห็นด้วยกับมติข้อยุติของ กภช. ให้<strong>นายกรัฐมนตรีเป็นผู้วินิจฉัยชี้ขาด</strong>"
+        ]},
+        { type: "keypoint", title: "⚠️ จุดสอบ", text: "นายกฯ สั่งให้ข้าราชการมาช่วย ปภ. ได้ไม่เกิน <strong>6 เดือน</strong> | นายกฯ เป็นผู้วินิจฉัยชี้ขาดเมื่อหน่วยงานไม่เห็นด้วยกับมติ กภช." }
+      ]
+    }
+  ],
+
+  outline: [
+    { num: 1, title: "การโอนย้าย ศภช. → ปภ. + ผู้รักษาการ", emoji: "🔄" },
+    { num: 2, title: "โครงสร้าง กภช. — ประธาน รองประธาน เลขานุการ วาระ 4 ปี", emoji: "👥" },
+    { num: 3, title: "องค์ประชุม ลำดับประธาน การลงมติ การพ้นจากตำแหน่ง", emoji: "🗳️" },
+    { num: 4, title: "สำนักงานเลขานุการ กภช. (ปภ.) + อำนาจหน้าที่ กภช.", emoji: "📋" },
+    { num: 5, title: "บุคลากร งบประมาณ ความร่วมมือหน่วยงาน", emoji: "💰" }
+  ],
+
+  glossary: [
+    { icon:'🚨', term:'กภช.', thai:'คณะกรรมการบริหารระบบการเตือนภัยพิบัติแห่งชาติ', def:'OPDC: คณะกรรมการระดับนโยบาย ประธาน = นายกฯ/รองนายกฯ | รองประธาน 3 คน | เลขานุการ = อธิบดี ปภ.', tag:'องค์กร' },
+    { icon:'🏛️', term:'ปภ.', thai:'กรมป้องกันและบรรเทาสาธารณภัย', def:'สังกัดกระทรวงมหาดไทย ทำหน้าที่เป็นสำนักงานเลขานุการ กภช. และเป็นผู้รักษาการตามระเบียบ', tag:'องค์กร' },
+    { icon:'🔄', term:'ศภช.', thai:'ศูนย์เตือนภัยพิบัติแห่งชาติ', def:'หน่วยงานเดิมสังกัดกระทรวง ICT ถูกโอนมาสังกัด ปภ. ตาม พ.ร.บ.ปรับปรุงกระทรวงฯ ฉบับที่ 17 (2559)', tag:'การโอนย้าย' },
+    { icon:'🗳️', term:'องค์ประชุม', thai:'Quorum', def:'ต้องมีกรรมการไม่น้อยกว่า 1 ใน 3 (แก้ไขจาก 1/2 ในฉบับที่ 2 พ.ศ. 2562)', tag:'กภช.' },
+    { icon:'⚖️', term:'Casting Vote', thai:'เสียงชี้ขาด', def:'เมื่อคะแนนเท่ากัน ประธานในที่ประชุมออกเสียงเพิ่มอีกหนึ่งเสียงเป็นเสียงชี้ขาด', tag:'การลงมติ' },
+    { icon:'👑', term:'นายกฯ วินิจฉัยชี้ขาด', thai:'PM Final Decision', def:'เมื่อหน่วยราชการไม่เห็นด้วยกับมติข้อยุติของ กภช. นายกฯ เป็นผู้วินิจฉัยชี้ขาด', tag:'อำนาจหน้าที่' },
+    { icon:'🔢', term:'ตัวเลขสำคัญ', thai:'Key Numbers', def:'วาระ 4 ปี | ไม่เกิน 2 วาระติดต่อกัน | ไม่เกิน 6 เดือน (ช่วยปฏิบัติงาน) | ไม่เกิน 2 คน (ผู้ช่วยเลขานุการ) | ไม่เกิน 9 คน (ผู้ทรงคุณวุฒิ)', tag:'ตัวเลข' },
+    { icon:'📅', term:'การพ้นจากตำแหน่งก่อนวาระ', thai:'Premature Departure', def:'ตาย | ลาออก | นายกฯ ให้ออก | ล้มละลายทุจริต | ไร้ความสามารถ | จำคุก (ยกเว้น 1 ปี/ลหุโทษ/รอลงอาญา)', tag:'กภช.' }
+  ],
+
+  tips: [
+    "ระเบียบใช้บังคับ <strong>ตั้งแต่วันถัดจากวันประกาศ</strong>ในราชกิจจานุเบกษา (เช่นเดียวกับ พ.ร.บ.บริหารราชการแผ่นดิน)",
+    "ผู้รักษาการ: <strong>เดิม = รมว.ICT → ปัจจุบัน = รมว.มหาดไทย</strong> (เปลี่ยนตามฉบับที่ 2 พ.ศ. 2562)",
+    "รองประธาน กภช. คนที่ 1 = <strong>รมว.มหาดไทย</strong> | คนที่ 2 = <strong>รมว.ดิจิทัลฯ</strong> | คนที่ 3 = ผู้ทรงคุณวุฒิที่นายกฯ แต่งตั้ง",
+    "องค์ประชุม: <strong>≥ 1/3</strong> (เดิม 1/2) | มติ: <strong>เสียงข้างมาก</strong> | เสียงเท่ากัน → ประธานชี้ขาด",
+    "การโอน ศภช. มาสังกัด ปภ. ตาม <strong>พ.ร.บ.ปรับปรุงกระทรวงฯ ฉบับที่ 17 (2559)</strong>"
+  ],
+
+  quizFile: "Quiz_warning_regulation.html"
+};;
+function showSection(id) {
+  document.querySelectorAll('section').forEach(function(s){s.classList.remove('active');});
+  document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.toggle('active',t.getAttribute('data-section')===id);});
+  var target = document.getElementById(id);
+  if (target) target.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function toggleDrop(id) {
+  var panel = document.getElementById('drop-' + id);
+  if (panel) panel.classList.toggle('open');
+}
+function filterGloss() {
+  var q = document.getElementById('glossarySearch').value.toLowerCase();
+  var cards = document.querySelectorAll('.glossary-item');
+  cards.forEach(function(card) {
+    var term = card.querySelector('.glossary-term');
+    var meaning = card.querySelector('.glossary-meaning');
+    var text = (term ? term.textContent : '') + ' ' + (meaning ? meaning.textContent : '');
+    card.style.display = text.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+function toggleAcc(idx) {
+  var body = document.getElementById('body' + idx);
+  var arr = document.getElementById('arr' + idx);
+  if (!body) return;
+  var isOpen = body.classList.contains('open');
+  document.querySelectorAll('.chapter-acc-body').forEach(function(b){b.classList.remove('open');});
+  document.querySelectorAll('.chapter-acc-arrow').forEach(function(a){a.classList.remove('open');});
+  if (!isOpen) {
+    body.classList.add('open');
+    if (arr) arr.classList.add('open');
+  }
+}
+function expandAll() {
+  document.querySelectorAll('.chapter-acc-body').forEach(function(b){b.classList.add('open');});
+  document.querySelectorAll('.chapter-acc-arrow').forEach(function(a){a.classList.add('open');});
+}
+function highlightKeywords(text) {
+  if (!text) return text;
+  var rules = [
+    { regex: /(ห้าม|ต้องห้าม|ไม่ให้|เด็ดขาด)/g, cls: 'kw-forbidden' },
+    { regex: /(โทษปรับ|ปรับ|จำคุก|ลงโทษ|กระทำความผิด)/g, cls: 'kw-penalty' },
+    { regex: /(ต้อง|บังคับ|จำเป็นต้อง|มีหน้าที่ต้อง)/g, cls: 'kw-required' },
+    { regex: /(ยกเว้น|ได้รับยกเว้น|ไม่ต้อง|กรณีพิเศษ)/g, cls: 'kw-except' },
+    { regex: /(ระวัง|ควรระวัง|อันตราย|เสี่ยง|สำคัญ)/g, cls: 'kw-warning' },
+    { regex: /(\d+\s*วัน|\d+\s*ปี|ภายใน\s*\d+|กำหนดเวลา|ครบกำหนด)/g, cls: 'kw-time' },
+    { regex: /(\d+\s*บาท|เงิน\d+|ค่าปรับ\d+)/g, cls: 'kw-money' },
+    { regex: /(เด็ดขาด|สำคัญมาก|จำเป็นต้องรู้|ข้อสอบบ่อย)/g, cls: 'kw-important' }
+  ];
+  var result = text;
+  rules.forEach(function(r) { result = result.replace(r.regex, '<span class="' + r.cls + '">$1</span>'); });
+  return result;
+}
+function renderContent(data) {
+  Object.assign(CONTENT, data);
+  document.title = data.title + ' | SlothMove PAB.';
+  var navTitle = document.getElementById('nav-title');
+  if (navTitle) navTitle.textContent = data.titleShort;
+  var homeTitle = document.getElementById('home-title');
+  if (homeTitle) homeTitle.textContent = data.title;
+  var quizLink = document.getElementById('quiz-link');
+  if (quizLink) quizLink.href = data.quizFile;
+  var quizLinkBtn = document.getElementById('quiz-link-btn');
+  if (quizLinkBtn) quizLinkBtn.href = data.quizFile;
+  var contentTitle = document.getElementById('content-title');
+  if (contentTitle) contentTitle.textContent = data.title;
+  var accList = document.getElementById('accordionList');
+  if (!accList) return;
+  var html = '';
+  var chapterColors = ['#4f46e5','#7c3aed','#0891b2','#059669','#d97706','#db2777','#0d9488','#c026d3'];
+  data.chapters.forEach(function(ch, i) {
+    var color = chapterColors[i % chapterColors.length];
+    var isNavy = color === '#1d1d42';
+    var tagClass = isNavy ? 'navy' : 'amber';
+    var tagText = isNavy ? 'หมวดหลัก' : 'รายละเอียด';
+    html += '<div class="chapter-acc rounded-2xl overflow-hidden shadow-sm" id="acc' + i + '" style="border:1px solid #e2e8f0">';
+    html += '<div class="chapter-acc-header" style="border-left:4px solid ' + color + '" onclick="toggleAcc(' + i + ')">';
+    html += '<div class="chapter-acc-num" style="background:' + color + ';color:' + (isNavy ? '#fcec4a' : '#fff') + '">' + ch.num + '</div>';
+    html += '<span class="chapter-acc-emoji">' + ch.emoji + '</span>';
+    html += '<span class="chapter-acc-title">' + ch.title + '</span>';
+    html += '<svg class="chapter-acc-arrow" id="arr' + i + '" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg>';
+    html += '</div>';
+    html += '<div class="chapter-acc-body" id="body' + i + '" style="background:#f8fafc"><div class="acc-body-inner">';
+    html += '<div class="section-tag ' + tagClass + '"><span>' + (isNavy ? '📘' : '📝') + '</span>' + tagText + '</div>';
+    ch.body.forEach(function(item) {
+      html += '<div class="ch-item-wrap">';
+      if (item.type === 'p') {
+        html += '<p class="ch-p-r">' + highlightKeywords(item.text) + '</p>';
+      } else if (item.type === 'heading') {
+        html += '<p class="ch-subheading" style="color:' + color + ';border-color:' + color + '30">' + highlightKeywords(item.text) + '</p>';
+      } else if (item.type === 'list') {
+        html += '<ul class="ch-list-v2">';
+        item.items.forEach(function(it) { html += '<li>' + highlightKeywords(it) + '</li>'; });
+        html += '</ul>';
+      } else if (item.type === 'table') {
+        html += '<div style="border-radius:.75rem;overflow:hidden;border:1px solid #e2e8f0;margin-bottom:1rem">';
+        html += '<table class="ch-table" style="margin:0;background:#fff">';
+        item.rows.forEach(function(row, ri) { 
+          html += '<tr style="background:' + (ri % 2 === 0 ? '#fff' : '#f8fafc') + '"><td style="background:' + color + '10;color:' + color + ';font-weight:700">' + row[0] + '</td><td>' + row[1] + '</td></tr>'; 
+        });
+        html += '</table></div>';
+      } else if (item.type === 'box') {
+        html += '<div class="ch-box ch-box-' + (isNavy ? 'navy' : 'amber') + '">';
+        html += '<div class="ch-box-title ' + (isNavy ? 'navy' : 'amber') + '">' + highlightKeywords(item.title) + '</div>';
+        html += '<ul class="ch-list-v2" style="margin:0">';
+        item.items.forEach(function(it) { html += '<li style="padding:.35rem 0 .35rem 1.25rem;font-size:.85rem">' + highlightKeywords(it) + '</li>'; });
+        html += '</ul></div>';
+      } else if (item.type === 'keypoint') {
+        html += '<div class="key-point-navy">';
+        html += '<div class="kp-title"><span>⚠️</span>' + highlightKeywords(item.title) + '</div>';
+        html += '<div class="kp-text">' + highlightKeywords(item.text) + '</div></div>';
+      } else if (item.type === 'grid') {
+        html += '<div class="ch-grid">';
+        item.items.forEach(function(it) {
+          html += '<div class="ch-grid-item ' + it.color + '"><div class="ch-grid-item-title">' + it.title + '</div><div class="ch-grid-item-text">' + it.text + '</div></div>';
+        });
+        html += '</div>';
+      }
+      html += '</div>'; // close ch-item-wrap
+    });
+    html += '</div></div></div>'; // close acc-body-inner + chapter-acc-body + chapter-acc
+  });
+  accList.innerHTML = html;
+  var glossList = document.getElementById('glossaryList');
+  var glossEmpty = document.getElementById('glossaryEmpty');
+  if (data.glossary && data.glossary.length > 0) {
+    var ghtml = '<div class="mb-5"><input id="glossarySearch" oninput="filterGloss()" placeholder="ค้นหาคำศัพท์..." type="text"/></div>';
+    ghtml += '<div id="glossaryList" class="grid grid-cols-1 md:grid-cols-2 gap-4">';
+    data.glossary.forEach(function(item) {
+      ghtml += '<div class="glossary-item bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-[color:var(--ddpm-yellow-strong)] transition-all">';
+      ghtml += '<div class="font-kanit font-bold text-slate-800 text-sm mb-1">' + (item.icon || '') + ' ' + item.term + '</div>';
+      ghtml += '<div class="font-sarabun text-slate-600 text-xs leading-relaxed">' + (item.def || item.meaning || '') + '</div>';
+      if (item.thai) ghtml += '<div class="font-sarabun text-slate-400 text-xs mt-1">(' + item.thai + ')</div>';
+      if (item.tag) ghtml += '<div class="mt-2"><span class="text-[10px] font-bold text-[color:var(--ddpm-navy)] bg-[color:var(--ddpm-yellow-soft)] px-2 py-0.5 rounded-full">' + item.tag + '</span></div>';
+      ghtml += '</div>';
+    });
+    ghtml += '</div>';
+    ghtml += '<div id="glossaryEmpty" class="bg-amber-50 border border-amber-100 rounded-2xl p-6 text-center" style="display:none"><p class="text-amber-700 font-sarabun text-sm">📚 คำศัพท์จะเพิ่มในภายหลัง</p></div>';
+    glossList.innerHTML = ghtml;
+    glossEmpty.style.display = 'none';
+  } else {
+    if (glossList) glossList.innerHTML = '';
+    if (glossEmpty) glossEmpty.style.display = 'block';
+  }
+}
+document.addEventListener('DOMContentLoaded', function() { renderContent(CONTENT); });
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('#drop-courses') && !e.target.closest('[onclick*="toggleDrop"]')) {
+    var panel = document.getElementById('drop-courses');
+    if (panel) panel.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
