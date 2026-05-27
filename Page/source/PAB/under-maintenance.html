@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กำลังอัพเดต | SlothMove ปภ.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../../pic/slothmove_mascot.png">
+    <style>
+        :root {
+            --cream: #faf8f4;
+            --cream-warm: #f5f0e8;
+            --white: #ffffff;
+            --text: #1a1a2e;
+            --text-muted: #7a756d;
+            --text-light: #a09a8c;
+            --border: #e5e0d8;
+            --border-light: #f0ebe4;
+            --yellow: #fcec4a;
+            --yellow-strong: #ddcf00;
+            --yellow-soft: #fffdf0;
+            --accent: #c97d3a;
+            --accent-warm: #e8a87c;
+            --accent-bg: #fdf3e8;
+            --navy: #1a1a2e;
+            --shadow-md: 0 4px 16px rgba(26,26,46,0.08), 0 2px 6px rgba(26,26,46,0.04);
+            --shadow-lg: 0 12px 40px rgba(26,26,46,0.10), 0 4px 12px rgba(26,26,46,0.05);
+            --font-display: 'Kanit', sans-serif;
+            --font-body: 'Sarabun', sans-serif;
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        [data-theme="dark"] {
+            --cream: #141420;
+            --cream-warm: #1a1a2e;
+            --white: #1e1e32;
+            --text: #f0ece4;
+            --text-muted: #9a9587;
+            --text-light: #7a756d;
+            --border: #2d2d4a;
+            --border-light: #252540;
+            --accent-bg: #252535;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --cream: #141420;
+                --cream-warm: #1a1a2e;
+                --white: #1e1e32;
+                --text: #f0ece4;
+                --text-muted: #9a9587;
+                --text-light: #7a756d;
+                --border: #2d2d4a;
+                --border-light: #252540;
+                --accent-bg: #252535;
+            }
+        }
+        *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--yellow); color: var(--navy); }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 560px;
+        }
+
+        .mascot {
+            width: 120px;
+            height: 120px;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 8px;
+            box-shadow: var(--shadow-lg), 0 0 0 4px var(--yellow-soft);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+        .mascot img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .update-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            background: var(--accent-bg);
+            border: 1px solid rgba(201,125,58,0.25);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+        .update-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 1.8s ease infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--text);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+        h1 .accent { color: var(--yellow-strong); }
+
+        .desc {
+            font-family: var(--font-body);
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            border: 1.5px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-sub {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--navy);
+            background: var(--yellow);
+            padding: 12px 28px;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: all 0.15s var(--ease-bounce);
+            box-shadow: 0 2px 8px rgba(220,207,0,0.25);
+        }
+        .btn-back:hover {
+            background: var(--yellow-strong);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(220,207,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mascot">
+            <img src="../../../pic/slothmove_mascot.png" alt="SlothMove Mascot" decoding="async">
+        </div>
+        <div class="update-badge">
+            <span class="update-badge-dot"></span>
+            กำลังปรับปรุงเนื้อหา
+        </div>
+        <h1>กำลัง<span class="accent">อัพเดต</span><br>ครับ!</h1>
+        <p class="desc">
+            ขออภัยครับ หน้านี้กำลังอยู่ระหว่างปรับปรุงเนื้อหา<br>
+            กรุณากลับมาใหม่ในอีกไม่ช้านะครับ 🙏
+        </p>
+        <div class="card">
+            <p class="card-title">☕ หากได้รับประโยชน์จาก SlothMove</p>
+            <p class="card-sub">สามารถสนับสนุนเลี้ยงกาแฟผมได้ที่ QR ในหน้าหลักครับ</p>
+            <a href="indexPAB.html" class="btn-back">
+                ← กลับหน้าหลัก
+            </a>
+        </div>
+    </div>
+</body>
+</html>

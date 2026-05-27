@@ -86,17 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </section>
 
-                <section class="content-section" id="section-s1" style="scroll-margin-top: 72px;">
-                    <div class="section-header">
-                        <div class="section-part-icon yellow">1</div>
-                        <div class="section-header-info">
-                            <div class="section-header-chip">ส่วนที่ 1 · กฎหมาย</div>
-                            <h2 class="section-header-title">สรุปเนื้อหา พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545</h2>
-                            <p class="section-header-sub">7 บท · เรียบเรียงจากชุดฝึกในระบบ</p>
-                        </div>
-                        <div class="section-header-count">7 บท</div>
-                    </div>
-                    <div class="container" style="padding-top: var(--space-lg); padding-bottom: var(--space-xl);">
+                <section class="org-chart-section" id="section-s1" style="scroll-margin-top: 72px;">
+                    <div class="container">
+                        <div class="sec-break"><span class="sec-break-label">ส่วนที่ 1 · สรุปเนื้อหา</span></div>
+                        <h2 style="font-family:var(--font-display); font-weight:900; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--text); text-align:center; margin-bottom:var(--space-xl);">สรุปเนื้อหา พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545</h2>
                         <div style="display:flex; justify-content:flex-end; margin-bottom:var(--space-md);">
                             <button onclick="expandAll()" class="btn-secondary" style="font-size:0.8rem; padding:8px 20px;">
                                 ขยายทั้งหมด
