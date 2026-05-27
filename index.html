@@ -111,15 +111,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
-    <!-- Google tag (gtag.js) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231a1a2e'/><text x='16' y='22' font-size='13' font-weight='700' text-anchor='middle' fill='white' font-family='system-ui,sans-serif'>SM</text></svg>">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W60TF5WHSB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-W60TF5WHSB');
-    </script><rect width='32' height='32' rx='8' fill='%231a1a2e'/><text x='16' y='22' font-size='13' font-weight='700' text-anchor='middle' fill='white' font-family='system-ui,sans-serif'>SM</text></svg>">
+    </script>
     <style>
         /* ============================================================
            THEME SYSTEM — SlothMove Editorial Warm
@@ -1341,71 +1340,223 @@
             justify-content: center;
         }
 
+        .why-section .section-title { margin-bottom: var(--space-lg); }
+
         .why-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-sm);
-            margin-top: var(--space-sm);
+            gap: var(--space-md);
+            margin-top: var(--space-md);
         }
 
         @media (max-width: 768px) {
-            .why-grid { grid-template-columns: 1fr; gap: var(--space-xs); }
+            .why-grid { grid-template-columns: 1fr; gap: var(--space-sm); }
         }
 
         .why-card {
             background: var(--color-surface);
-            border: 1px solid var(--color-border-light);
-            border-radius: var(--radius-lg);
-            padding: var(--space-md);
+            border: 1.5px solid var(--color-border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
             text-align: left;
             position: relative;
             overflow: hidden;
             transition: all var(--duration-normal) var(--ease-smooth);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .why-card::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(201,125,58,0.07) 0%, transparent 70%);
+            pointer-events: none;
+            transition: transform var(--duration-slow) var(--ease-smooth);
+        }
+
+        .why-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+            border-color: rgba(201,125,58,0.3);
+        }
+
+        .why-card:hover::after {
+            transform: scale(1.5);
+        }
+
+        .why-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--color-amber-bg), rgba(201,125,58,0.08));
+            border: 1.5px solid rgba(201,125,58,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            transition: transform var(--duration-normal) var(--ease-bounce);
+        }
+
+        .why-card:hover .why-icon-wrap {
+            transform: scale(1.1) rotate(-3deg);
+        }
+
+        .why-accent-line {
+            position: absolute;
+            top: 0;
+            left: 24px;
+            right: 24px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-accent-warm));
+            border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+            opacity: 0;
+            transition: opacity var(--duration-normal) var(--ease-smooth);
+        }
+
+        .why-card:hover .why-accent-line {
+            opacity: 1;
+        }
+
+        .why-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+        }
+
+        .why-number {
+            position: absolute;
+            bottom: var(--space-md);
+            right: var(--space-lg);
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 3.5rem;
+            color: var(--color-border-light);
+            line-height: 1;
+            pointer-events: none;
+            transition: color var(--duration-normal) var(--ease-smooth);
+        }
+
+        .why-card:hover .why-number {
+            color: rgba(201,125,58,0.12);
         }
 
         .why-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--color-accent), var(--color-accent-warm));
+            inset: 0;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, rgba(201,125,58,0.03) 0%, transparent 60%);
             opacity: 0;
             transition: opacity var(--duration-normal) var(--ease-smooth);
-        }
-
-        .why-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-            border-color: transparent;
+            pointer-events: none;
         }
 
         .why-card:hover::before {
             opacity: 1;
         }
 
-        .why-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-md);
-            display: block;
-        }
+        .why-card-content { display: flex; flex-direction: column; gap: 8px; }
 
         .why-title {
             font-family: var(--font-display);
-            font-weight: 800;
+            font-weight: 900;
             font-size: 1.15rem;
             color: var(--color-text);
-            margin-bottom: var(--space-sm);
+            line-height: 1.2;
         }
 
         .why-desc {
             font-family: var(--font-body);
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--color-text-muted);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
+        .why-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-accent);
+            background: var(--color-amber-bg);
+            border: 1px solid rgba(201,125,58,0.2);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        /* Dark mode overrides */
+        [data-theme="dark"] .why-card {
+            background: var(--color-surface-warm);
+            border-color: var(--color-border);
+        }
+        [data-theme="dark"] .why-card:hover {
+            border-color: rgba(201,125,58,0.4);
+        }
+        [data-theme="dark"] .why-icon-wrap {
+            background: rgba(201,125,58,0.12);
+            border-color: rgba(201,125,58,0.25);
+        }
+        [data-theme="dark"] .article-card {
+            background: var(--color-surface-warm);
+            border-color: var(--color-border);
+        }
+        [data-theme="dark"] .stat-box {
+            background: var(--color-surface-warm);
+            border-color: var(--color-border);
+        }
+        [data-theme="dark"] .stat-number { color: var(--color-text); }
+        [data-theme="dark"] .stat-number.accent { color: var(--color-accent); }
+        [data-theme="dark"] .articles-header a {
+            background: rgba(201,125,58,0.1);
+            border-color: rgba(201,125,58,0.25);
+        }
+
+        /* Dark mode button overrides */
+        [data-theme="dark"] .btn-primary {
+            background: #4a5a8a;
+            color: #f0ece4;
+            box-shadow: var(--shadow-md);
+        }
+        [data-theme="dark"] .btn-primary:hover {
+            background: #5a6a9a;
+        }
+        [data-theme="dark"] .btn-secondary {
+            background: var(--color-surface-warm);
+            border-color: var(--color-border);
+            color: var(--color-text);
+        }
+        [data-theme="dark"] .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        [data-theme="dark"] .nav-cta {
+            background: #4a5a8a;
+            color: #f0ece4;
+        }
+        [data-theme="dark"] .nav-cta:hover {
+            background: #5a6a9a;
+        }
+        [data-theme="dark"] .course-card {
+            background: var(--color-surface-warm);
+            border-color: var(--color-border);
+        }
+        [data-theme="dark"] .course-card .card-btn {
+            color: #fff;
+        }
         /* ============================================================
            FAQ SECTION
            ============================================================ */
@@ -1486,62 +1637,34 @@
         }
 
         /* ============================================================
-           DONATE SECTION
+           DONATE SECTION — Theme-aware
            ============================================================ */
         .donate-section {
             position: relative;
-            background: var(--color-primary);
-            color: #fff;
-            padding: var(--space-lg) 0;
+            background: var(--color-bg-warm);
+            color: var(--color-text);
+            padding: var(--space-xl) 0 var(--space-lg);
             overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
-
         .donate-section::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(201,125,58,0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 50%, rgba(201,125,58,0.1) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 30% 50%, rgba(201,125,58,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 50%, rgba(201,125,58,0.06) 0%, transparent 60%);
             pointer-events: none;
         }
-
-        /* Decorative circles */
-        .donate-section .deco-1 {
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.06);
-            pointer-events: none;
-        }
-
-        .donate-section .deco-2 {
-            position: absolute;
-            top: -120px;
-            right: -40px;
-            width: 240px;
-            height: 240px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.04);
-            pointer-events: none;
-        }
-
+        .donate-section .deco-1,
+        .donate-section .deco-2,
         .donate-section .deco-3 {
             position: absolute;
-            bottom: -100px;
-            left: -60px;
-            width: 280px;
-            height: 280px;
             border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid var(--color-border-light);
             pointer-events: none;
         }
+        .donate-section .deco-1 { top: -80px; right: -80px; width: 300px; height: 300px; }
+        .donate-section .deco-2 { top: -120px; right: -40px; width: 240px; height: 240px; }
+        .donate-section .deco-3 { bottom: -100px; left: -60px; width: 280px; height: 280px; }
 
         .donate-inner {
             position: relative;
@@ -1550,7 +1673,6 @@
             max-width: 560px;
             margin: 0 auto;
         }
-
         .donate-label {
             display: inline-block;
             font-family: var(--font-display);
@@ -1559,58 +1681,54 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: var(--color-accent-warm);
-            background: rgba(201,125,58,0.15);
-            border: 1px solid rgba(201,125,58,0.25);
+            background: rgba(201,125,58,0.1);
+            border: 1px solid rgba(201,125,58,0.2);
             padding: 5px 16px;
             border-radius: var(--radius-full);
             margin-bottom: var(--space-lg);
         }
-
         .donate-title {
             font-family: var(--font-display);
             font-weight: 900;
-            font-size: clamp(1.75rem, 4vw, 3rem);
-            line-height: 1.1;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            line-height: 1.15;
             letter-spacing: -0.02em;
             margin-bottom: var(--space-md);
+            color: var(--color-text);
         }
-
         .donate-title .highlight {
             color: var(--color-accent-warm);
         }
-
         .donate-desc {
             font-family: var(--font-body);
             font-size: 1rem;
-            color: rgba(255,255,255,0.6);
+            color: var(--color-text-muted);
             line-height: 1.75;
             margin-bottom: var(--space-xl);
         }
 
         /* QR Card */
         .qr-card {
-            background: #fff;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
             border-radius: var(--radius-xl);
             padding: var(--space-lg);
             max-width: 260px;
             margin: 0 auto;
-            box-shadow: var(--shadow-xl);
+            box-shadow: var(--shadow-lg);
         }
-
         .qr-card img {
             width: 100%;
             border-radius: var(--radius-lg);
             margin-bottom: var(--space-md);
             border: 1px solid var(--color-border-light);
         }
-
         .qr-card .promptpay {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 6px;
         }
-
         .qr-card .promptpay img {
             height: 28px;
             width: auto;
@@ -1618,25 +1736,131 @@
             margin: 0;
             padding: 0;
         }
-
         .qr-card .qr-note {
             font-family: var(--font-body);
             font-size: 0.72rem;
             color: var(--color-text-light);
             text-align: center;
         }
+        .donate-fb-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: var(--space-lg);
+            padding: 12px 28px;
+            border-radius: var(--radius-full);
+            background: #1877F2;
+            color: #fff;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all var(--duration-fast) var(--ease-bounce);
+            box-shadow: var(--shadow-md);
+        }
+        .donate-fb-btn:hover {
+            background: #166fe5;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ─── Donate Popup ─── */
+        .donate-popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+        .donate-popup-overlay.active { display: flex; }
+        .donate-popup {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl) var(--space-lg);
+            max-width: 360px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            animation: popupIn 0.3s ease;
+        }
+        @keyframes popupIn {
+            from { opacity: 0; transform: scale(0.92) translateY(16px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .donate-popup-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--color-text-light);
+            line-height: 1;
+            padding: 4px;
+            transition: color var(--duration-fast);
+        }
+        .donate-popup-close:hover { color: var(--color-text); }
+        .donate-popup-icon { font-size: 2.5rem; margin-bottom: var(--space-sm); }
+        .donate-popup-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+        .donate-popup-desc {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+        .donate-popup .qr-card {
+            max-width: 200px;
+            padding: var(--space-md);
+        }
+        .donate-popup .donate-fb-btn {
+            margin-top: var(--space-md);
+            font-size: 0.82rem;
+            padding: 10px 22px;
+        }
+        .donate-popup-close-btn {
+            display: block;
+            margin: var(--space-md) auto 0;
+            padding: 8px 24px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text-muted);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+        .donate-popup-close-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-text);
+        }
 
         /* ============================================================
-           FOOTER — Clean minimal dark footer
+           FOOTER
            ============================================================ */
         .footer {
-            background: var(--color-primary);
-            color: rgba(255,255,255,0.85);
+            background: var(--color-bg);
+            color: var(--color-text);
             padding: 0;
             position: relative;
             overflow: hidden;
+            border-top: 1px solid var(--color-border-light);
         }
-
         .footer::before {
             content: '';
             position: absolute;
@@ -1646,25 +1870,11 @@
             height: 2px;
             background: linear-gradient(90deg, transparent 0%, var(--color-accent) 30%, var(--color-accent-warm) 50%, var(--color-accent) 70%, transparent 100%);
         }
-
-        .footer::after {
-            content: '';
-            position: absolute;
-            top: -60px;
-            right: -60px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.05);
-            pointer-events: none;
-        }
-
         .footer-inner {
             position: relative;
             z-index: 1;
             padding: var(--space-xl) 0 var(--space-lg);
         }
-
         .footer-top {
             display: flex;
             align-items: flex-start;
@@ -1672,20 +1882,17 @@
             gap: var(--space-xl);
             margin-bottom: var(--space-xl);
             padding-bottom: var(--space-xl);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid var(--color-border-light);
         }
-
         @media (max-width: 640px) {
             .footer-top { flex-direction: column; align-items: center; text-align: center; }
         }
-
         .footer-brand-col {
             display: flex;
             flex-direction: column;
             gap: var(--space-sm);
             max-width: 280px;
         }
-
         .footer-brand-logo {
             display: flex;
             align-items: center;
@@ -1693,33 +1900,28 @@
             font-family: var(--font-display);
             font-weight: 800;
             font-size: 1.25rem;
-            color: #fff;
+            color: var(--color-text);
             text-decoration: none;
             transition: opacity var(--duration-fast) var(--ease-smooth);
         }
-
         .footer-brand-logo:hover { opacity: 0.85; }
         .footer-brand-logo .accent { color: var(--color-accent-warm); }
-
         .footer-brand-logo img {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-
         .footer-brand-desc {
             font-family: var(--font-body);
             font-size: 0.82rem;
-            color: rgba(255,255,255,0.4);
+            color: var(--color-text-muted);
             line-height: 1.7;
         }
-
         .footer-social {
             display: flex;
             gap: var(--space-sm);
             margin-top: var(--space-sm);
         }
-
         .footer-social a {
             display: flex;
             align-items: center;
@@ -1727,25 +1929,23 @@
             width: 38px;
             height: 38px;
             border-radius: var(--radius-md);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: rgba(255,255,255,0.55);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-light);
+            background: var(--color-surface);
             transition: all var(--duration-fast) var(--ease-bounce);
         }
-
         .footer-social a:hover {
             border-color: var(--color-accent);
             color: var(--color-accent-warm);
-            background: rgba(201,125,58,0.1);
+            background: var(--color-surface-warm);
             transform: translateY(-2px);
         }
-
         .footer-subscribe {
             display: flex;
             flex-direction: column;
             gap: var(--space-sm);
             max-width: 280px;
         }
-
         .footer-subscribe-title {
             font-family: var(--font-display);
             font-weight: 800;
@@ -1754,39 +1954,34 @@
             letter-spacing: 0.12em;
             color: var(--color-accent-warm);
         }
-
         .footer-subscribe p {
             font-family: var(--font-body);
             font-size: 0.82rem;
-            color: rgba(255,255,255,0.4);
+            color: var(--color-text-muted);
             line-height: 1.6;
         }
-
         .footer-subscribe-form {
             display: flex;
             gap: var(--space-xs);
         }
-
         .footer-subscribe-form input {
             flex: 1;
             padding: 10px 14px;
             border-radius: var(--radius-md);
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255,255,255,0.06);
-            color: #fff;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text);
             font-family: var(--font-body);
             font-size: 0.82rem;
             outline: none;
             transition: border-color var(--duration-fast) var(--ease-smooth), background var(--duration-fast);
             min-width: 0;
         }
-
-        .footer-subscribe-form input::placeholder { color: rgba(255,255,255,0.3); }
+        .footer-subscribe-form input::placeholder { color: var(--color-text-light); }
         .footer-subscribe-form input:focus {
             border-color: var(--color-accent);
-            background: rgba(255,255,255,0.1);
+            background: var(--color-surface-warm);
         }
-
         .footer-subscribe-form button {
             padding: 10px 18px;
             border-radius: var(--radius-md);
@@ -1800,32 +1995,26 @@
             cursor: pointer;
             border: none;
         }
-
         .footer-subscribe-form button:hover:not(:disabled) {
             background: var(--color-accent-warm);
             transform: translateY(-1px);
         }
-
         .footer-subscribe-form button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
         }
-
         .footer-subscribe-form button.loading {
             animation: spin 1s linear infinite;
         }
-
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
         @media (max-width: 640px) {
             .footer-subscribe { width: 100%; }
             .footer-subscribe-form { flex-direction: column; }
         }
-
         .footer-bottom {
             display: flex;
             align-items: center;
@@ -1833,112 +2022,91 @@
             flex-wrap: wrap;
             gap: var(--space-md);
         }
-
         .footer-copy {
             font-family: var(--font-body);
             font-size: 0.78rem;
-            color: rgba(255,255,255,0.3);
+            color: var(--color-text-light);
             display: flex;
             align-items: center;
             gap: 6px;
         }
-
         .footer-copy .heart {
             color: var(--color-accent);
             display: inline-block;
             animation: heartbeat 2s ease infinite;
         }
-
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.15); }
         }
-
         .footer-bottom-links {
             display: flex;
             align-items: center;
             gap: var(--space-md);
         }
-
         .footer-bottom-links a {
             font-family: var(--font-body);
             font-size: 0.75rem;
-            color: rgba(255,255,255,0.3);
+            color: var(--color-text-light);
             transition: color var(--duration-fast) var(--ease-smooth);
         }
-
         .footer-bottom-links a:hover {
             color: var(--color-accent-warm);
         }
-
         .footer-bottom-links .separator {
-            color: rgba(255,255,255,0.12);
+            color: var(--color-border);
             font-size: 0.7rem;
         }
 
         /* ============================================================
            THEME TOGGLE
            ============================================================ */
-        /* Toggle Switch — iOS-style */
+        /* Toggle Switch — iOS-style knob (same as indexPAB) */
         .theme-toggle {
-            width: 56px;
-            height: 32px;
-            background-color: var(--color-border);
-            border-radius: 9999px;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 60px;
+            height: 34px;
+            background: var(--color-border);
             border: none;
+            border-radius: 17px;
             cursor: pointer;
             padding: 0;
-            box-shadow: inset 0 0 0 2px rgba(0,0,0,0.1);
-            transition: background-color var(--duration-normal) var(--ease-smooth);
             display: flex;
             align-items: center;
             justify-content: space-between;
             overflow: hidden;
-            flex-shrink: 0;
+            box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(0,0,0,0.08);
+            transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-tap-highlight-color: transparent;
         }
-
-        .toggle-icon {
-            font-size: 14px;
-            width: 24px;
-            text-align: center;
-            line-height: 1;
-            transition: opacity var(--duration-normal), transform var(--duration-normal);
-        }
-
-        .toggle-icon.sun {
-            opacity: 1;
-            transform: scale(1);
-            margin-left: 4px;
-        }
-
-        .toggle-icon.moon {
-            opacity: 0;
-            transform: scale(0.5);
-            margin-right: 4px;
-        }
-
         .theme-toggle.dark-mode {
-            background-color: var(--color-primary);
-            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.15);
+            background: #1e1e4a;
+            box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(255,255,255,0.15);
         }
-
-        .theme-toggle.dark-mode .toggle-icon.sun {
-            opacity: 0;
-            transform: scale(0.5);
+        .toggle-knob {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 26px;
+            height: 26px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.12);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .theme-toggle.dark-mode .toggle-icon.moon {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
+        .toggle-icon { font-size: 14px; }
+        .toggle-icon.sun { color: #fcec4a; position: absolute; left: 8px; }
+        .toggle-icon.moon { color: #a0a0c0; position: absolute; right: 8px; }
+        .theme-toggle:not(.dark-mode) .toggle-knob { transform: translateX(0); }
+        .theme-toggle.dark-mode .toggle-knob { transform: translateX(30px); }
+        .theme-toggle:hover { transform: scale(1.05); }
+        .theme-toggle:active { transform: scale(0.96); }
 
         /* ============================================================
            SCROLL ANIMATIONS
@@ -1990,7 +2158,7 @@
                 <button class="nav-hamburger" id="mobileMenuBtn" aria-label="เปิดเมนู">
                     <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
-                <a href="#donate" class="nav-cta">☕ เลี้ยงกาแฟ</a>
+                <button type="button" class="nav-cta" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>
             </div>
         </div>
         <!-- Mobile menu -->
@@ -2002,7 +2170,7 @@
             <a href="Page/source/Industry/leaderboard.html">🏅 กระดานคะแนน · สปอ.</a>
             <a href="Page/source/PAB/leaderboard.html">🏅 กระดานคะแนน · ปภ.</a>
             <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="#donate" class="mobile-cta">☕ เลี้ยงกาแฟ</a>
+            <button type="button" class="mobile-cta" onclick="showDonatePopup(); document.getElementById('mobileMenu').classList.remove('active');">☕ เลี้ยงกาแฟ</button>
         </div>
     </div>
 
@@ -2194,68 +2362,52 @@
             <div class="articles-grid">
 
                 <!-- Article 1 -->
-                <a href="#" class="article-card">
-                    <div class="article-image" style="background: linear-gradient(135deg, #ede8fc, #e0d4f7);">
-                        <img src="pic/logo_OPSDD.png" alt="บทความ" onerror="this.parentElement.style.background='linear-gradient(135deg, #ede8fc, #e0d4f7)'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="placeholder" style="background: linear-gradient(135deg, #ede8fc, #e0d4f7); display:none;">📘</div>
+                <div class="article-card" style="cursor:default;pointer-events:none;opacity:0.6;">
+                    <div class="article-image">
+                        <div class="placeholder" style="background: linear-gradient(135deg, #e8eef5, #d4dce8);">�</div>
                     </div>
                     <div class="article-body">
                         <div class="article-meta">
-                            <span class="article-tag">เคล็ดลับ</span>
-                            <span class="article-time">3 นาที</span>
+                            <span class="article-tag" style="background:var(--color-bg-warm);color:var(--color-text-light);">เร็วๆ นี้</span>
                         </div>
-                        <h3 class="article-title">5 วิธีเตรียมตัวสอบ OPSD ให้ได้คะแนนดี</h3>
+                        <h3 class="article-title" style="color:var(--color-text-light);">อัพเดตเร็วๆ นี้</h3>
                         <div class="article-footer">
-                            <div class="article-date">
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                15 พ.ค. 2568
-                            </div>
-                            <span class="article-link">อ่าน →</span>
+                            <div class="article-date" style="color:var(--color-text-light);">กำลังเตรียมเนื้อหา</div>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Article 2 -->
-                <a href="#" class="article-card">
+                <div class="article-card" style="cursor:default;pointer-events:none;opacity:0.6;">
                     <div class="article-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg, #fde8d8, #fcd9c4);">📋</div>
+                        <div class="placeholder" style="background: linear-gradient(135deg, #e8eef5, #d4dce8);">�</div>
                     </div>
                     <div class="article-body">
                         <div class="article-meta">
-                            <span class="article-tag">สารบรรณ</span>
-                            <span class="article-time">5 นาที</span>
+                            <span class="article-tag" style="background:var(--color-bg-warm);color:var(--color-text-light);">เร็วๆ นี้</span>
                         </div>
-                        <h3 class="article-title">รวมระเบียบสารบรรณที่ต้องรู้ก่อนสอบ</h3>
+                        <h3 class="article-title" style="color:var(--color-text-light);">อัพเดตเร็วๆ นี้</h3>
                         <div class="article-footer">
-                            <div class="article-date">
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                10 พ.ค. 2568
-                            </div>
-                            <span class="article-link">อ่าน →</span>
+                            <div class="article-date" style="color:var(--color-text-light);">กำลังเตรียมเนื้อหา</div>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Article 3 -->
-                <a href="#" class="article-card">
+                <div class="article-card" style="cursor:default;pointer-events:none;opacity:0.6;">
                     <div class="article-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg, #fdeec8, #fce4a8);">💡</div>
+                        <div class="placeholder" style="background: linear-gradient(135deg, #e8eef5, #d4dce8);">�</div>
                     </div>
                     <div class="article-body">
                         <div class="article-meta">
-                            <span class="article-tag">แนะนำ</span>
-                            <span class="article-time">4 นาที</span>
+                            <span class="article-tag" style="background:var(--color-bg-warm);color:var(--color-text-light);">เร็วๆ นี้</span>
                         </div>
-                        <h3 class="article-title">นักวิเคราะห์นโยบายและแผน ทำหน้าที่อะไร?</h3>
+                        <h3 class="article-title" style="color:var(--color-text-light);">อัพเดตเร็วๆ นี้</h3>
                         <div class="article-footer">
-                            <div class="article-date">
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                5 พ.ค. 2568
-                            </div>
-                            <span class="article-link">อ่าน →</span>
+                            <div class="article-date" style="color:var(--color-text-light);">กำลังเตรียมเนื้อหา</div>
                         </div>
                     </div>
-                </a>
+                </div>
 
             </div>
         </div>
@@ -2264,23 +2416,50 @@
     <!-- ===== WHY ===== -->
     <section class="why-section">
         <div class="container">
-            <div class="section-label" style="justify-content:center">ทำไมต้อง SlothMove?</div>
-            <h2 class="section-title" style="text-align:center; margin-bottom: var(--space-sm);">เราเชื่อว่าทุกคนมีสิทธิ์เข้าถึง<br>ข้อมูลดีๆ โดยไม่มีข้อกีดกัน</h2>
+            <div style="text-align:center; margin-bottom: var(--space-lg);">
+                <div class="section-label" style="justify-content:center">ทำไมต้อง SlothMove?</div>
+                <h2 class="section-title">เราเชื่อว่าทุกคนมีสิทธิ์<br>เข้าถึงความรู้ดีๆ ฟรี</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">ไม่มีค่าใช้จ่าย ไม่มีเงื่อนไข เรียนได้ทุกที่ทุกเวลา</p>
+            </div>
+
             <div class="why-grid">
                 <div class="why-card" data-animate>
-                    <span class="why-icon">🎯</span>
-                    <h3 class="why-title">เนื้อหาตรงประเด็น</h3>
-                    <p class="why-desc">สรุปเฉพาะส่วนที่มักออกสอบ ไม่เสียเวลากับข้อมูลที่ไม่จำเป็น ตรงที่สุดเพื่อให้คุณโฟกัสได้เร็วที่สุด</p>
+                    <div class="why-accent-line"></div>
+                    <div class="why-icon-wrap">🎯</div>
+                    <div class="why-card-content">
+                        <h3 class="why-title">เนื้อหาตรงประเด็น</h3>
+                        <p class="why-desc">สรุปเฉพาะส่วนที่มักออกสอบ คัดกรองแล้วว่าสำคัญจริง ไม่เสียเวลากับข้อมูลที่ไม่จำเป็น โฟกัสได้เร็ว ทบทวนได้ทันที</p>
+                        <div class="why-tags">
+                            <span class="why-tag">✓ สรุปครบ ทุกวิชา</span>
+                        </div>
+                    </div>
+                    <div class="why-number">01</div>
                 </div>
+
                 <div class="why-card" data-animate>
-                    <span class="why-icon">✏️</span>
-                    <h3 class="why-title">ข้อสอบพร้อมเฉลย</h3>
-                    <p class="why-desc">คลังข้อสอบ 1,000+ ข้อ พร้อมเฉลยและคำอธิบายละเอียดทุกข้อ เข้าใจได้ด้วยตัวเองไม่ต้องพึ่งติวเตอร์</p>
+                    <div class="why-accent-line"></div>
+                    <div class="why-icon-wrap">✏️</div>
+                    <div class="why-card-content">
+                        <h3 class="why-title">ข้อสอบพร้อมเฉลย</h3>
+                        <p class="why-desc">คลังข้อสอบ 1,000+ ข้อ พร้อมเฉลยและคำอธิบายละเอียดทุกข้อ ซ้อมได้ไม่จำกัด เข้าใจได้ด้วยตัวเองโดยไม่ต้องพึ่งติวเตอร์</p>
+                        <div class="why-tags">
+                            <span class="why-tag">✓ เฉลยละเอียด ทุกข้อ</span>
+                        </div>
+                    </div>
+                    <div class="why-number">02</div>
                 </div>
+
                 <div class="why-card" data-animate>
-                    <span class="why-icon">💸</span>
-                    <h3 class="why-title">ฟรี 100%</h3>
-                    <p class="why-desc">ไม่มีค่าสมัคร ไม่มีล็อกเนื้อหา เปิดให้เรียนได้ทันทีไม่มีหมดอายุ เริ่มต้นได้เลยตอนนี้</p>
+                    <div class="why-accent-line"></div>
+                    <div class="why-icon-wrap">💸</div>
+                    <div class="why-card-content">
+                        <h3 class="why-title">ฟรี 100% ไม่มีเงื่อนไข</h3>
+                        <p class="why-desc">ไม่มีค่าสมัคร ไม่ล็อกเนื้อหา ไม่มีหมดอายุ เปิดให้เรียนได้ทันทีไม่ต้องรอ เพราะเราเชื่อว่าการศึกษาควรเข้าถึงได้ทุกคน</p>
+                        <div class="why-tags">
+                            <span class="why-tag">✓ ฟรีตลอด ไม่มีหมดอายุ</span>
+                        </div>
+                    </div>
+                    <div class="why-number">03</div>
                 </div>
             </div>
         </div>
@@ -2375,41 +2554,48 @@
                     </div>
                     <p class="qr-note">*สแกนจ่ายได้ทุกแอปธนาคาร</p>
                 </div>
+
+                <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" class="donate-fb-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    ติดตาม SlothMove
+                </a>
+            </div>
         </div>
+    </section>
 
-        <!-- Footer merged inside donate section -->
-        <footer class="footer" id="footer" style="background: transparent; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px;">
-            <div class="container">
-                <div class="footer-inner">
-                    <div class="footer-top">
-                        <div class="footer-brand-col">
-                            <a href="#" class="footer-brand-logo">
-                                <img src="pic/slothmove_mascot.png" alt="SlothMove" width="40" height="40" style="object-fit:contain">
-                                Sloth<span class="accent">Move</span>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand-col">
+                        <a href="#" class="footer-brand-logo">
+                            <img src="pic/slothmove_mascot.png" alt="SlothMove" width="40" height="40" style="object-fit:contain">
+                            Sloth<span class="accent">Move</span>
+                        </a>
+                        <p class="footer-brand-desc">Being Better with little move — แพลตฟอร์มเรียนฟรีเตรียมสอบราชการ สำหรับนักวิเคราะห์นโยบายและแผน</p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                             </a>
-                            <p class="footer-brand-desc">Being Better with little move — แพลตฟอร์มเรียนฟรีเตรียมสอบราชการ สำหรับนักวิเคราะห์นโยบายและแผน</p>
-                            <div class="footer-social">
-                                <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                                </a>
-                                <a href="#donate" aria-label="เลี้ยงกาแฟ">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="footer-subscribe">
-                            <div class="footer-subscribe-title">ติดตามอัปเดต</div>
-                            <p>รับข่าวสารคอร์สใหม่และเคล็ดลับเตรียมสอบก่อนใคร</p>
-                            <form class="footer-subscribe-form" id="subscribeForm" novalidate>
-                                <input type="email" id="subscribeEmail" placeholder="อีเมลของคุณ..." required>
-                                <button type="submit" id="subscribeBtn">ติดตาม</button>
-                            </form>
-                            <p id="subscribeMsg" style="display:none; font-size:0.78rem; margin-top:8px;"></p>
+                            <button type="button" onclick="showDonatePopup()" aria-label="เลี้ยงกาแฟ" style="background:none;cursor:pointer;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                            </button>
                         </div>
                     </div>
 
-                    <div class="footer-bottom">
+                    <div class="footer-subscribe">
+                        <div class="footer-subscribe-title">ติดตามอัปเดต</div>
+                        <p>รับข่าวสารคอร์สใหม่และเคล็ดลับเตรียมสอบก่อนใคร</p>
+                        <form class="footer-subscribe-form" id="subscribeForm" novalidate>
+                            <input type="email" id="subscribeEmail" placeholder="อีเมลของคุณ..." required>
+                            <button type="submit" id="subscribeBtn">ติดตาม</button>
+                        </form>
+                        <p id="subscribeMsg" style="display:none; font-size:0.78rem; margin-top:8px;"></p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
                     <p class="footer-copy">
                         © 2025 SlothMove
                         <span class="heart">❤</span>
@@ -2420,20 +2606,71 @@
                         <span class="separator">·</span>
                         <a href="#">เงื่อนไขการใช้งาน</a>
                         <span class="separator">·</span>
-                        <a href="#footer">↑ กลับด้านบน</a>
+                        <a href="#">↑ กลับด้านบน</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Donate Popup -->
+    <div class="donate-popup-overlay" id="donatePopup">
+        <div class="donate-popup">
+            <button class="donate-popup-close" onclick="closeDonatePopup()">&times;</button>
+            <div class="donate-popup-icon">☕</div>
+            <div class="donate-popup-title">เลี้ยงกาแฟผมหน่อยครับ</div>
+            <p class="donate-popup-desc">SlothMove ตั้งใจทำให้ทุกคนเรียนฟรี<br>ร่วมสนับสนุนได้ตามกำลังครับ</p>
+            <div class="qr-card">
+                <img src="pic/qr.jpg" alt="QR พร้อมเพย์" loading="lazy" decoding="async">
+                <div class="promptpay">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/PromptPay-logo.png" alt="PromptPay">
+                </div>
+                <p class="qr-note">*สแกนจ่ายได้ทุกแอปธนาคาร</p>
+            </div>
+            <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" class="donate-fb-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                ติดตาม SlothMove
+            </a>
+            <button class="donate-popup-close-btn" onclick="closeDonatePopup()">ปิด</button>
+        </div>
+    </div>
+
     <!-- Theme toggle (floating, bottom-right) -->
-    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดมืด/สว่าง" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดมืด/สว่าง" role="switch" aria-checked="false">
         <span class="toggle-icon sun">☀️</span>
         <span class="toggle-icon moon">🌙</span>
+        <span class="toggle-knob"></span>
     </button>
+    <script>
+        // ===== Theme toggle =====
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function applyTheme(dark) {
+            html.setAttribute('data-theme', dark ? 'dark' : 'light');
+            toggle.classList.toggle('dark-mode', dark);
+            toggle.setAttribute('aria-checked', dark);
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        }
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(saved === 'dark' || (!saved && prefersDark));
+        toggle.addEventListener('click', () => applyTheme(html.getAttribute('data-theme') !== 'dark'));
+    </script>
 
     <script>
+        // ===== Donate popup =====
+        function showDonatePopup() {
+            document.getElementById('donatePopup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDonatePopup() {
+            document.getElementById('donatePopup').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('donatePopup').addEventListener('click', function(e) {
+            if (e.target === this) closeDonatePopup();
+        });
+
         // ===== Mobile menu toggle =====
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -2451,25 +2688,18 @@
         });
 
         // ===== Theme toggle =====
-        const themeToggle = document.getElementById('themeToggle');
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function applyTheme(dark) {
+            html.setAttribute('data-theme', dark ? 'dark' : 'light');
+            toggle.classList.toggle('dark-mode', dark);
+            toggle.setAttribute('aria-checked', dark);
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        }
         const saved = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = saved ? saved === 'dark' : (prefersDark && !saved);
-
-        if (saved) {
-            document.documentElement.setAttribute('data-theme', saved);
-        } else if (!prefersDark) {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-        themeToggle.classList.toggle('dark-mode', isDark);
-
-        themeToggle.addEventListener('click', () => {
-            const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const next = nowDark ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            themeToggle.classList.toggle('dark-mode', !nowDark);
-        });
+        applyTheme(saved === 'dark' || (!saved && prefersDark));
+        toggle.addEventListener('click', () => applyTheme(html.getAttribute('data-theme') !== 'dark'));
 
         // ===== Scroll animations (IntersectionObserver) =====
         const animatedEls = document.querySelectorAll('[data-animate]');
@@ -2561,5 +2791,6 @@
             btn.textContent = 'ติดตาม';
         });
 
+    </script>
 </body>
 </html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เตรียมสอบกรมป้องกันและบรรเทาสาธารณภัย (ปภ.) | SlothMove</title>
+    <meta name="description" content="สรุปเนื้อหาและข้อสอบสำหรับสอบกรมป้องกันและบรรเทาสาธารณภัย — ครบทุกวิชา">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="_system/styles.css">
+    <style>
+        .hub-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: var(--cream);
+            position: relative;
+        }
+        .hub-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 0%, var(--cream-warm) 100%);
+            pointer-events: none;
+        }
+        .hub-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .hub-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .subject-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            border: 1.5px solid var(--border-light);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .subject-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--yellow-strong);
+        }
+        .subject-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        .subject-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .subject-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .subject-stats {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .subject-stat {
+            background: var(--cream-warm);
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: var(--text-muted);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 40px 20px 0;
+            color: var(--text);
+        }
+
+        /* ─── DONATE SECTION ─── */
+        .donate-section {
+            background: var(--cream-warm);
+            padding: clamp(3rem, 8vw, 6rem) var(--space-md);
+            position: relative;
+            overflow: hidden;
+        }
+        .donate-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(220,207,0,0.08) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .donate-top-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-strong) 50%, var(--accent) 100%);
+            margin-bottom: clamp(2rem, 5vw, 3.5rem);
+        }
+        .donate-inner {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+        .donate-mascot-wrap {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 6px;
+            box-shadow: var(--shadow-lg), 0 0 0 4px var(--yellow-soft);
+            margin: 0 auto clamp(1.5rem, 4vw, 2rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .donate-mascot { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+        .donate-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: var(--text);
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+        }
+        .donate-title .accent { color: var(--yellow-strong); }
+        .donate-desc {
+            font-family: var(--font-body);
+            font-size: clamp(0.88rem, 2vw, 1rem);
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        .donate-qr-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-md);
+            max-width: 200px;
+            margin: 0 auto clamp(1rem, 3vw, 1.5rem);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+            transition: all var(--duration-normal) var(--ease-bounce);
+        }
+        .donate-qr-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: var(--shadow-xl), 0 0 0 3px rgba(220,207,0,0.2);
+        }
+        .donate-qr-card img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-sm);
+            border: 1px solid var(--border-light);
+        }
+        .donate-qr-note {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+        .donate-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--navy);
+            background: var(--yellow);
+            text-decoration: none;
+            transition: all var(--duration-fast) var(--ease-bounce);
+            box-shadow: 0 4px 20px rgba(220,207,0,0.3);
+        }
+        .donate-cta:hover {
+            background: var(--yellow-strong);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(220,207,0,0.4);
+        }
+        .footer-section {
+            background: var(--navy);
+            color: var(--cream);
+            padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 5vw, 2rem);
+            position: relative;
+        }
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-strong) 50%, var(--accent) 100%);
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .footer-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: var(--white);
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .footer-brand-text { display: flex; flex-direction: column; gap: 3px; }
+        .footer-brand-name { font-family: var(--font-display); font-weight: 900; font-size: 1.1rem; color: #faf8f4; letter-spacing: -0.01em; }
+        .footer-brand-name .accent { color: var(--yellow); }
+        .footer-brand-tagline { font-family: var(--font-body); font-size: 0.75rem; color: rgba(253,247,233,0.5); }
+        .footer-actions { display: flex; align-items: center; gap: var(--space-md); }
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: rgba(253,247,233,0.6);
+            text-decoration: none;
+            transition: all var(--duration-fast) var(--ease-smooth);
+            padding: 6px 0;
+            position: relative;
+        }
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 1.5px;
+            background: var(--yellow-strong);
+            transform: scaleX(0);
+            transition: transform var(--duration-fast) var(--ease-bounce);
+        }
+        .footer-link:hover { color: var(--yellow-strong); }
+        .footer-link:hover::after { transform: scaleX(1); }
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-left: var(--space-md);
+            padding-left: var(--space-md);
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            border: 1.5px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--duration-fast) var(--ease-bounce);
+            color: rgba(253,247,233,0.6);
+        }
+        .footer-social-link:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+            color: #faf8f4;
+        }
+        .footer-social-link svg { width: 16px; height: 16px; }
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: rgba(253,247,233,0.35); text-align: center; }
+        .footer-copy .heart { color: #fc8181; }
+        .footer-copy a { color: rgba(253,247,233,0.5); text-decoration: none; transition: color var(--duration-fast) ease; }
+        .footer-copy a:hover { color: var(--yellow-strong); }
+
+        @media (max-width: 700px) {
+            .footer-inner { flex-direction: column; gap: var(--space-lg); text-align: center; }
+            .footer-brand { justify-content: center; }
+            .footer-actions { flex-direction: column; gap: var(--space-sm); }
+            .footer-social { margin-left: 0; padding-left: 0; border-left: none; margin-top: var(--space-sm); }
+        }
+
+        /* Theme toggle — iOS-style */
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 60px;
+            height: 34px;
+            background: var(--border);
+            border: none;
+            border-radius: 17px;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(0,0,0,0.08);
+            transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .theme-toggle.dark-mode {
+            background: var(--navy);
+            box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(255,255,255,0.15);
+        }
+        .toggle-knob {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.12);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .toggle-icon { font-size: 14px; }
+        .toggle-icon.sun { color: #fcec4a; position: absolute; left: 8px; }
+        .toggle-icon.moon { color: #a0a0c0; position: absolute; right: 8px; }
+        .theme-toggle:not(.dark-mode) .toggle-knob { transform: translateX(0); }
+        .theme-toggle.dark-mode .toggle-knob { transform: translateX(26px); }
+        .theme-toggle:hover { transform: scale(1.05); }
+        .theme-toggle:active { transform: scale(0.96); }
+
+        [data-theme="dark"] .footer-brand-name { color: #faf8f4; }
+        [data-theme="dark"] .footer-brand-name .accent { color: var(--yellow); }
+        [data-theme="dark"] .footer-logo { background: var(--white); }
+        [data-theme="dark"] .hub-hero { background: var(--cream); }
+        [data-theme="dark"] .subject-card { background: var(--white); border-color: var(--border); }
+        [data-theme="dark"] .section-title { color: var(--text); }
+        [data-theme="dark"] .donate-section { background: var(--cream-warm); }
+        [data-theme="dark"] .donate-title { color: var(--text); }
+        [data-theme="dark"] .donate-qr-card { background: var(--white); border-color: var(--border); }
+        [data-theme="dark"] .donate-cta { color: var(--navy); }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="../../../index.html" class="nav-logo">
+                <img src="../../../pic/slothmove_mascot.png" alt="SlothMove" style="width:36px;height:36px;border-radius:50%;">
+                Sloth<span class="logo-accent">Move</span>
+                <span class="logo-sep">|</span>
+                <span class="logo-sub">ปภ.</span>
+            </a>
+        </div>
+    </nav>
+    
+    <section class="hub-hero">
+        <div>
+            <h1>📚 คอร์สเตรียมสอบ ปภ.</h1>
+            <p>สรุปเนื้อหาและข้อสอบสำหรับสอบกรมป้องกันและบรรเทาสาธารณภัย — ฟรีทั้งหมด</p>
+        </div>
+    </section>
+    
+    <h2 class="section-title">🎯 เลือกวิชาที่ต้องการเรียน</h2>
+    
+    <div class="subjects-grid">
+        <a href="ministry_act/ministry_act.html" class="subject-card">
+            <div class="subject-emoji">🏢</div>
+            <div class="subject-title">พ.ร.บ. ปรับปรุงกระทรวงฯ</div>
+            <div class="subject-desc">โครงสร้างและหน้าที่ของกระทรวง ทบวง กรม พ.ศ. 2545</div>
+            <div class="subject-stats">
+                <span class="subject-stat">6 บท</span>
+                <span class="subject-stat">12 ศัพท์</span>
+                <span class="subject-stat">50 ข้อ</span>
+            </div>
+        </a>
+        
+        <a href="admin_act/admin_act.html" class="subject-card">
+            <div class="subject-emoji">🏛️</div>
+            <div class="subject-title">พ.ร.บ. ระเบียบบริหารฯ</div>
+            <div class="subject-desc">ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534</div>
+            <div class="subject-stats">
+                <span class="subject-stat">7 บท</span>
+                <span class="subject-stat">15 ศัพท์</span>
+                <span class="subject-stat">50 ข้อ</span>
+            </div>
+        </a>
+        
+        <a href="civil_service_act/civil_service_act.html" class="subject-card">
+            <div class="subject-emoji">👔</div>
+            <div class="subject-title">พ.ร.บ. ระเบียบข้าราชการฯ</div>
+            <div class="subject-desc">ระเบียบข้าราชการพลเรือน พ.ศ. 2551</div>
+            <div class="subject-stats">
+                <span class="subject-stat">8 บท</span>
+                <span class="subject-stat">20 ศัพท์</span>
+                <span class="subject-stat">50 ข้อ</span>
+            </div>
+        </a>
+        
+        <a href="disaster_act/disaster_act.html" class="subject-card">
+            <div class="subject-emoji">🌪️</div>
+            <div class="subject-title">พ.ร.บ. จัดการสาธารณภัยฯ</div>
+            <div class="subject-desc">การจัดการสาธารณภัย พ.ศ. 2550</div>
+            <div class="subject-stats">
+                <span class="subject-stat">5 บท</span>
+                <span class="subject-stat">12 ศัพท์</span>
+                <span class="subject-stat">50 ข้อ</span>
+            </div>
+        </a>
+        
+        <a href="budget_act/budget_act.html" class="subject-card">
+            <div class="subject-emoji">💰</div>
+            <div class="subject-title">พ.ร.บ. งบประมาณฯ</div>
+            <div class="subject-desc">วิธีการงบประมาณ พ.ศ. 2561</div>
+            <div class="subject-stats">
+                <span class="subject-stat">6 บท</span>
+                <span class="subject-stat">10 ศัพท์</span>
+                <span class="subject-stat">50 ข้อ</span>
+            </div>
+        </a>
+        
+        <a href="info_act/info_act.html" class="subject-card">
+            <div class="subject-emoji">📋</div>
+            <div class="subject-title">พ.ร.บ. ข้อมูลข่าวสารฯ</div>
+            <div class="subject-desc">ข้อมูลข่าวสารของราชการ พ.ศ. 2540</div>
+            <div class="subject-stats">
+                <span class="subject-stat">4 บท</span>
+                <span class="subject-stat">8 ศัพท์</span>
+                <span class="subject-stat">50 ข้อ</span>
+            </div>
+        </a>
+</div>
+
+    <!-- Donate Section -->
+    <section class="donate-section">
+        <div class="donate-top-bar"></div>
+        <div class="donate-inner">
+            <div class="donate-mascot-wrap">
+                <img src="../../../pic/slothmove_mascot.png" alt="SlothMove Mascot" class="donate-mascot">
+            </div>
+            <h2 class="donate-title">เลี้ยงกาแฟผมหน่อยครับ <span class="accent">☕</span></h2>
+            <p class="donate-desc">หากเนื้อหามีประโยชน์ สนับสนุนได้ตามกำลังครับ<br>เราตั้งใจทำให้ทุกคนเรียนฟรีตลอดไป</p>
+            <div class="donate-qr-card">
+                <img src="../../../pic/qr.jpg" alt="QR พร้อมเพย์" loading="lazy">
+                <p class="donate-qr-note">* สแกนผ่านแอปธนาคารทุกแห่ง</p>
+            </div>
+            <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" class="donate-cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                ติดตาม Facebook
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="../../../pic/slothmove_mascot.png" alt="SlothMove" class="footer-logo">
+                <div class="footer-brand-text">
+                    <span class="footer-brand-name">Sloth<span class="accent">Move</span></span>
+                    <span class="footer-brand-tagline">สาระครบ จบในที่เดียว</span>
+                </div>
+            </div>
+            <div class="footer-actions">
+                <a href="../../../index.html" class="footer-link">🏠 หน้าหลัก</a>
+                <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2026 SlothMove <span class="heart">❤</span> · <a href="../../../index.html">เตรียมสอบราชการ</a></p>
+        </div>
+    </footer>
+
+    <!-- Theme toggle — iOS-style -->
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดมืด/สว่าง" role="switch" aria-checked="false">
+        <span class="toggle-icon sun">☀️</span>
+        <span class="toggle-icon moon">🌙</span>
+        <span class="toggle-knob"></span>
+    </button>
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function applyTheme(dark) {
+            html.setAttribute('data-theme', dark ? 'dark' : 'light');
+            toggle.classList.toggle('dark-mode', dark);
+            toggle.setAttribute('aria-checked', dark);
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        }
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(saved === 'dark' || (!saved && prefersDark));
+        toggle.addEventListener('click', () => applyTheme(html.getAttribute('data-theme') !== 'dark'));
+    </script>
+</body>
+</html>
