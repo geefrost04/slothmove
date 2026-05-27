@@ -10,12 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="../content/emergency_fund_regulation.json.js"></script>
+    <script src="../system/loader.js"></script>
     <script>
         window.PAGE_TYPE = 'lesson';
         window.BASE_PATH = '../system/';
-        window.LESSON_DATA = window.EMERGENCY_FUND_REGULATION_DATA;
+        // Force set LESSON_DATA after loader.js loads
+        if (window.EMERGENCY_FUND_REGULATION_DATA) {
+            window.LESSON_DATA = window.EMERGENCY_FUND_REGULATION_DATA;
+            console.log('✅ Data set to emergency_fund_regulation:', window.LESSON_DATA.title);
+        } else {
+            console.error('❌ EMERGENCY_FUND_REGULATION_DATA not found!');
+        }
     </script>
-    <script src="../system/loader.js"></script>
 </head>
 <body></body>
 </html>
