@@ -1067,8 +1067,6 @@ window.MINISTRY_ACT_QUESTIONS = window.QUESTIONS = [
     "answer": 1,
     "explanation": "กรมประมง สังกัดกระทรวงเกษตรและสหกรณ์ (มาตรา 23 วรรค 2)"
   }
-];,
-  }
   {
     "question": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.) สังกัดกระทรวงใด",
     "choices": [
