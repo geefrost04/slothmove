@@ -790,6 +790,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background: radial-gradient(ellipse, rgba(220,207,0,0.06) 0%, transparent 70%);
     pointer-events: none;
 }
+.org-chart-wrapper { text-align: center; }
+.org-chart-desc { text-align:center; font-family:var(--font-body); font-size:0.82rem; color:rgba(255,255,255,0.45); margin-bottom:var(--space-lg); letter-spacing:0.3px; }
+.org-level-box { transition: all var(--duration-fast) var(--ease-smooth); }
+.org-level-box:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.org-arrow { animation: pulseDown 1.5s ease-in-out infinite; }
+@keyframes pulseDown { 0%,100% { opacity: 0.5; transform: translateY(0); } 50% { opacity: 1; transform: translateY(3px); } }
 .org-line-v { width: 2px; height: 24px; background: linear-gradient(to bottom, var(--yellow-strong), rgba(220,207,0,0.2)); margin: 0 auto; }
 .org-line-h { height: 2px; background: var(--yellow-strong); width: 60%; margin: 0 auto var(--space-md); opacity: 0.3; }
 .org-box {
@@ -821,6 +827,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 [data-theme="light"] .org-info-card { background: var(--white); border-color: var(--border); }
 [data-theme="light"] .org-info-card li { color: var(--text-muted); }
 [data-theme="light"] .org-info-card:hover { border-color: var(--yellow-strong); background: var(--yellow-soft); }
+[data-theme="light"] .org-level-box { box-shadow: var(--shadow-md); }
+[data-theme="light"] .org-level-box:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+[data-theme="light"] .org-arrow { color: var(--yellow-strong); opacity: 0.6; }
 
 /* ============================================
    GLOSSARY

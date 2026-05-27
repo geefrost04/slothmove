@@ -269,26 +269,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let html = '';
 
-        // Org Chart
+        // Org Chart (dynamic)
         if (s2.orgChart) {
             const chart = s2.orgChart;
-            html += `
-                <div class="org-container" style="margin-bottom:var(--space-xl); text-align:center;">
-                    <h3 style="font-family:var(--font-display); font-weight:900; font-size:1.1rem; color:var(--yellow-strong); margin-bottom:var(--space-lg);">🏛️ โครงสร้างการบริหารราชการส่วนกลาง</h3>
-                    <div style="display:inline-block; background:var(--yellow-strong); color:var(--navy); padding:var(--space-md) clamp(1.5rem,4vw,2.5rem); border-radius:var(--radius-lg); font-family:var(--font-display); font-weight:900; font-size:1rem; margin-bottom:var(--space-sm); box-shadow:var(--shadow-md);">
-                        นายกรัฐมนตรี + ครม.
-                        <p style="font-size:0.65rem; font-weight:500; color:var(--navy); margin-top:4px; opacity:0.7;">ผู้รักษาการตาม พ.ร.บ. · กำหนดนโยบายและบริหารส่วนกลาง</p>
+            const levels = chart.levels || [];
+            const cols = levels.length <= 2 ? 1 : levels.length <= 4 ? 2 : 3;
+            html += `<div class="org-chart-wrapper" style="margin-bottom:var(--space-xl);">`;
+            if (chart.description) {
+                html += `<p class="org-chart-desc" style="text-align:center;font-family:var(--font-body);font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:var(--space-lg);">${chart.description}</p>`;
+            }
+            html += `<div class="org-chart-flow" style="display:flex;flex-direction:column;align-items:center;gap:0;">`;
+            levels.forEach((lvl, idx) => {
+                const isTop = idx === 0;
+                const bg = isTop ? 'var(--yellow-strong)' : 'var(--card-bg)';
+                const color = isTop ? 'var(--navy)' : 'var(--text)';
+                const border = isTop ? 'none' : '1px solid var(--border)';
+                const minW = Math.max(160, 280 - idx * 30);
+                html += `<div style="display:flex;flex-direction:column;align-items:center;margin-bottom:var(--space-sm);">
+                    <div class="org-level-box" style="
+                        background:${bg};
+                        color:${color};
+                        border:${border};
+                        border-radius:var(--radius-md);
+                        padding:var(--space-md) clamp(1rem,3vw,1.75rem);
+                        text-align:center;
+                        min-width:${minW}px;
+                        max-width:320px;
+                        width:100%;
+                        box-shadow:${isTop ? 'var(--shadow-lg)' : 'var(--shadow-sm)'};
+                        position:relative;
+                        font-family:var(--font-display);
+                    ">
+                        <div style="font-weight:${isTop ? 900 : 700};font-size:${isTop ? '0.95rem' : '0.82rem'};line-height:1.3;">${lvl.name}</div>
+                        <div style="font-size:0.68rem;font-weight:${isTop ? 600 : 500};opacity:${isTop ? 0.7 : 0.6};margin-top:4px;">${lvl.head}</div>
+                        ${lvl.example ? `<div style="font-size:0.62rem;font-weight:400;opacity:0.55;margin-top:4px;font-style:italic;">${lvl.example}</div>` : ''}
                     </div>
-                    <div class="org-line-v" style="margin:var(--space-sm) auto;"></div>
-                    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:var(--space-md); margin-bottom:var(--space-md);">
-                        <div><div class="org-line-v" style="margin:0 auto var(--space-xs);"></div><div class="org-box" style="min-width:200px;">สำนักนายกรัฐมนตรี<p class="org-box-label">มีฐานะเป็นกระทรวง · มาตรา 5(1)</p></div></div>
-                        <div><div class="org-line-v" style="margin:0 auto var(--space-xs);"></div><div class="org-box" style="min-width:200px;">20 กระทรวง<p class="org-box-label">มาตรา 5(2)–(21) · มีรัฐมนตรีเป็นผู้บังคับบัญชา</p></div></div>
-                        <div><div class="org-line-v" style="margin:0 auto var(--space-xs);"></div><div class="org-box" style="min-width:200px; border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.6);">ส่วนราชการไม่สังกัดกระทรวง<p class="org-box-label">มาตรา 46 · ขึ้นตรงนายกรัฐมนตรี</p></div></div>
-                    </div>
-                    <div class="org-line-h" style="margin:var(--space-md) auto;"></div>
-                    <p style="font-family:var(--font-body); font-size:0.7rem; color:rgba(255,255,255,0.3); margin-top:var(--space-sm);">ล่าสุด: ฉบับที่ 20 (พ.ศ. 2564) — จัดตั้ง สคทช. · ฉบับที่ 19 (พ.ศ. 2562) — จัดตั้ง อว.</p>
-                </div>
-            `;
+                </div>`;
+                if (idx < levels.length - 1) {
+                    html += `<div class="org-arrow" style="color:var(--yellow-strong);font-size:1.2rem;line-height:1;margin:var(--space-xs) 0;">▼</div>`;
+                }
+            });
+            html += `</div></div>`;
         }
 
         // Info Cards
