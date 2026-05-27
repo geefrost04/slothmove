@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <section class="org-chart-section" id="section-s1" style="scroll-margin-top: 72px;">
                     <div class="container">
-                        <div class="sec-break"><span class="sec-break-label">ส่วนที่ 1 · สรุปเนื้อหา</span></div>
-                        <h2 style="font-family:var(--font-display); font-weight:900; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--text); text-align:center; margin-bottom:var(--space-xl);">สรุปเนื้อหา พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545</h2>
+                        <div class="sec-break"><span class="sec-break-label">สรุปเนื้อหา</span></div>
+                        <h2 id="s1-heading" style="font-family:var(--font-display); font-weight:900; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--text); text-align:center; margin-bottom:var(--space-xl);">สรุปเนื้อหา</h2>
                         <div style="display:flex; justify-content:flex-end; margin-bottom:var(--space-md);">
                             <button onclick="expandAll()" class="btn-secondary" style="font-size:0.8rem; padding:8px 20px;">
                                 ขยายทั้งหมด
@@ -201,27 +201,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderS1() {
-        const s1 = window.LESSON_DATA.sections.find(s => s.id === 's1');
-        if (!s1 || !s1.chapters) return;
-
+        const data = window.LESSON_DATA;
         const container = document.getElementById('s1-content');
         if (!container) return;
 
+        // Gather ALL sections that have chapters (not just id='s1')
+        const chapterSections = data.sections.filter(s => s.chapters && s.chapters.length > 0);
+        if (chapterSections.length === 0) return;
+
         let html = '';
-        s1.chapters.forEach((ch, idx) => {
-            html += `
-                <div class="chapter-acc" id="acc${idx}">
-                    <div class="chapter-acc-header" onclick="toggleAcc(${idx})">
-                        <div class="chapter-acc-num">${ch.num}</div>
-                        <span class="chapter-acc-emoji">${ch.emoji}</span>
-                        <span class="chapter-acc-title">${ch.title}</span>
-                        <svg class="chapter-acc-arrow" id="arr${idx}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg>
+        let globalIdx = 0;
+
+        chapterSections.forEach((section) => {
+            // Section heading
+            html += `<div class="sec-break" style="margin-top:var(--space-xl);"><span class="sec-break-label">${section.icon || ''} ${section.title}</span></div>`;
+
+            section.chapters.forEach((ch) => {
+                const idx = globalIdx++;
+                html += `
+                    <div class="chapter-acc" id="acc${idx}">
+                        <div class="chapter-acc-header" onclick="toggleAcc(${idx})">
+                            <div class="chapter-acc-num">${ch.num}</div>
+                            <span class="chapter-acc-emoji">${ch.emoji}</span>
+                            <span class="chapter-acc-title">${ch.title}</span>
+                            <svg class="chapter-acc-arrow" id="arr${idx}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg>
+                        </div>
+                        <div class="chapter-acc-body" id="body${idx}"><div class="acc-body-inner">
+                            ${renderBodyItems(ch.body)}
+                        </div></div>
                     </div>
-                    <div class="chapter-acc-body" id="body${idx}"><div class="acc-body-inner">
-                        ${renderBodyItems(ch.body)}
-                    </div></div>
-                </div>
-            `;
+                `;
+            });
         });
         container.innerHTML = html;
     }
@@ -311,11 +321,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderS3() {
-        const s3 = window.LESSON_DATA.sections.find(s => s.id === 's3');
-        if (!s3) return;
-
+        const data = window.LESSON_DATA;
         const container = document.getElementById('s3-content');
         if (!container) return;
+
+        // Find numberCards and glossary from ANY section
+        const s3 = data.sections.find(s => s.numberCards || s.glossary)
+                 || data.sections.find(s => s.id === 's3');
+        if (!s3) return;
+
+        // Also check other sections for numberCards/glossary if not in the first match
+        const numberCardsSection = data.sections.find(s => s.numberCards);
+        const glossarySection = data.sections.find(s => s.glossary);
+        if (numberCardsSection) s3.numberCards = numberCardsSection.numberCards;
+        if (glossarySection) s3.glossary = glossarySection.glossary;
 
         let html = '';
 
@@ -384,18 +403,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.toggleAcc = toggleAcc;
 
     function expandAll() {
-        var data = window.LESSON_DATA;
-        if (!data) return;
-        var s1 = data.sections.find(s => s.id === 's1');
-        if (!s1 || !s1.chapters) return;
-        s1.chapters.forEach(function(ch, i) {
-            var body = document.getElementById('body' + i);
-            var arr = document.getElementById('arr' + i);
-            if (body) body.classList.add('open');
-            if (arr) arr.classList.add('open');
-            var acc = document.getElementById('acc' + i);
-            if (acc) acc.classList.add('open');
-        });
+        document.querySelectorAll('.chapter-acc-body').forEach(function(b){ b.classList.add('open'); });
+        document.querySelectorAll('.chapter-acc-arrow').forEach(function(a){ a.classList.add('open'); });
+        document.querySelectorAll('.chapter-acc').forEach(function(c){ c.classList.add('open'); });
     }
 
     window.expandAll = expandAll;
@@ -1202,9 +1212,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderLessonData(data) {
-        // Update hero
-        document.getElementById('hero-title-short').textContent = data.titleShort || 'ทบวง กรม';
-        document.title = data.title + ' | SlothMove ปภ.';
+        // Update hero title and badge from data
+        var heroShort = document.getElementById('hero-title-short');
+        if (heroShort) heroShort.textContent = data.titleShort || data.title || '';
+
+        var heroLabel = document.getElementById('hero-section-label');
+        if (heroLabel) heroLabel.textContent = data.titleShort || data.title || '';
+
+        // Update hero h1 main content
+        var heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+            heroTitle.innerHTML =
+                '<span class="hl-sub">' + (data.title || '') + '</span>' +
+                (data.emoji || '') + ' ' + (data.titleShort || data.title || '') +
+                '<br><span class="hl-yellow">' + (data.subtitle || '') + '</span>';
+        }
+
+        // Update s1 heading
+        var s1Heading = document.getElementById('s1-heading');
+        if (s1Heading) s1Heading.textContent = 'สรุปเนื้อหา ' + (data.titleShort || data.title || '');
+
+        // Update page title
+        document.title = (data.title || 'บทเรียน') + ' | SlothMove ปภ.';
         window.LESSON_DATA = data;
     }
 
