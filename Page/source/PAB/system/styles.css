@@ -1395,8 +1395,139 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================
-   RESPONSIVE
+   DARK MODE — Knowledge Page Blocks
    ============================================ */
+[data-theme="dark"] .kb-highlight {
+    background: var(--cream-warm) !important;
+    border-color: var(--yellow-strong) !important;
+}
+[data-theme="dark"] .kb-highlight .kb-hb-title {
+    color: var(--yellow-strong) !important;
+}
+[data-theme="dark"] .kb-highlight .kb-hb-content {
+    color: var(--text) !important;
+}
+
+/* amber highlight → dark amber bg */
+[data-theme="dark"] .kb-hb-amber {
+    background: #2a1f00 !important;
+    border-color: #f59e0b !important;
+}
+[data-theme="dark"] .kb-hb-amber .kb-hb-title { color: #fbbf24 !important; }
+[data-theme="dark"] .kb-hb-amber .kb-hb-content { color: #fde68a !important; }
+
+/* blue highlight → dark blue */
+[data-theme="dark"] .kb-hb-blue {
+    background: #0c1a2e !important;
+    border-color: #3b82f6 !important;
+}
+[data-theme="dark"] .kb-hb-blue .kb-hb-title { color: #60a5fa !important; }
+[data-theme="dark"] .kb-hb-blue .kb-hb-content { color: #bfdbfe !important; }
+
+/* green highlight → dark green */
+[data-theme="dark"] .kb-hb-green {
+    background: #0a1f10 !important;
+    border-color: #22c55e !important;
+}
+[data-theme="dark"] .kb-hb-green .kb-hb-title { color: #4ade80 !important; }
+[data-theme="dark"] .kb-hb-green .kb-hb-content { color: #bbf7d0 !important; }
+
+/* rose highlight → dark rose (warning/risk) */
+[data-theme="dark"] .kb-hb-rose {
+    background: #1f0c10 !important;
+    border-color: #f43f5e !important;
+}
+[data-theme="dark"] .kb-hb-rose .kb-hb-title { color: #fb7185 !important; }
+[data-theme="dark"] .kb-hb-rose .kb-hb-content { color: #fecdd3 !important; }
+
+/* purple highlight → dark purple */
+[data-theme="dark"] .kb-hb-purple {
+    background: #140f1f !important;
+    border-color: #a855f7 !important;
+}
+[data-theme="dark"] .kb-hb-purple .kb-hb-title { color: #c084fc !important; }
+[data-theme="dark"] .kb-hb-purple .kb-hb-content { color: #e9d5ff !important; }
+
+/* teal highlight → dark teal */
+[data-theme="dark"] .kb-hb-teal {
+    background: #0a1412 !important;
+    border-color: #14b8a6 !important;
+}
+[data-theme="dark"] .kb-hb-teal .kb-hb-title { color: #2dd4bf !important; }
+[data-theme="dark"] .kb-hb-teal .kb-hb-content { color: #99f6e4 !important; }
+
+/* cards in dark mode */
+[data-theme="dark"] .kb-card {
+    background: var(--cream-warm) !important;
+    border-color: var(--border) !important;
+}
+[data-theme="dark"] .kb-card .kb-card-title {
+    color: var(--text) !important;
+}
+[data-theme="dark"] .kb-card .kb-card-content {
+    color: var(--text-muted) !important;
+}
+
+/* number badges — ensure visible in dark */
+[data-theme="dark"] .kb-number-badge {
+    background: var(--cream-warm) !important;
+    border-color: var(--border) !important;
+}
+[data-theme="dark"] .kb-number-badge .kb-number-badge-num {
+    color: var(--yellow-strong) !important;
+}
+
+/* key-summary in dark — already dark bg, ensure border visible */
+[data-theme="dark"] .kb-key-summary {
+    border-color: rgba(252,236,74,0.3) !important;
+}
+
+/* vocab term cards in dark mode */
+[data-theme="dark"] .vocab-term-card {
+    background: var(--cream-warm) !important;
+    border-color: var(--border) !important;
+}
+
+/* vocab group title pill — ensure readable in dark */
+[data-theme="dark"] .vocab-group-title {
+    background: var(--yellow-strong) !important;
+    color: var(--navy) !important;
+}
+
+/* numbered-list items in dark */
+[data-theme="dark"] .kb-numbered-item {
+    background: var(--cream-warm) !important;
+    border-color: var(--border) !important;
+}
+
+/* persons-grid dark mode */
+[data-theme="dark"] .kb-person-card {
+    background: var(--cream-warm) !important;
+    border-color: var(--border) !important;
+}
+[data-theme="dark"] .kb-person-card .kb-person-name {
+    color: var(--text) !important;
+}
+[data-theme="dark"] .kb-person-card .kb-person-role {
+    color: var(--text-muted) !important;
+}
+[data-theme="dark"] .kb-person-card-main {
+    background: var(--navy) !important;
+    border-color: var(--yellow-strong) !important;
+}
+
+/* nav-tab hover in dark mode */
+[data-theme="dark"] .nav-tab:hover {
+    background: var(--cream-warm);
+    color: var(--text);
+}
+
+[data-theme="dark"] .sec-break-label {
+    background: var(--cream-warm);
+    color: var(--text-muted);
+    border-color: var(--border);
+}
+
 @media (max-width: 768px) {
     .nav-tabs { display: none; }
     .hero { min-height: auto; padding-top: 80px; }

@@ -1381,7 +1381,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let mobileHtml = `<a href="#section-home">🏠 หน้าแรก</a>`;
             (kd.knowledgeSections || []).forEach((sec, i) => {
                 const id = 'k' + (i + 1);
-                tabHtml += `<a href="#section-${id}" class="nav-tab" data-section="${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
+                tabHtml += `<a href="#section-${id}" class="nav-tab" data-section="${id}">${sec.navIcon || '📌'} ${i + 1}</a>`;
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
             });
             tabHtml += `<a href="#section-vocab" class="nav-tab" data-section="vocab">📚 คำศัพท์</a>`;
@@ -1427,12 +1427,12 @@ document.addEventListener('DOMContentLoaded', function() {
             (kd.vocabulary || []).forEach(group => {
                 html += `<div style="margin-bottom:var(--space-xl);">`;
                 if (group.groupTitle) {
-                    html += `<h3 style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--navy);background:var(--yellow);display:inline-block;padding:4px 16px;border-radius:20px;margin-bottom:var(--space-md);">${group.groupTitle}</h3>`;
+                    html += `<h3 class="vocab-group-title" style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--navy);background:var(--yellow);display:inline-block;padding:4px 16px;border-radius:20px;margin-bottom:var(--space-md);">${group.groupTitle}</h3>`;
                 }
                 html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">`;
                 (group.terms || []).forEach(term => {
                     html += `
-                    <div style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
+                    <div class="vocab-term-card" style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
                         <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--text);">${term.term}</div>
                         ${term.eng ? `<div style="font-size:0.75rem;color:var(--yellow-strong);font-weight:600;">${term.eng}</div>` : ''}
                         <div style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-muted);line-height:1.6;">${term.def}</div>
@@ -1467,9 +1467,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     };
                     const p = PALETTE[block.color] || PALETTE.amber;
                     const isNavy = block.color === 'navy';
-                    html += `<div style="background:${p.bg};border-left:4px solid ${p.border};padding:18px 20px;border-radius:12px;margin:20px 0;">
-                        <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:${p.title};margin-bottom:10px;">${block.title || ''}</div>
-                        <div style="font-family:var(--font-body);font-size:0.9rem;color:${isNavy ? '#e2e8f0' : 'var(--text)'};line-height:1.8;">${block.content || ''}</div>
+                    html += `<div class="kb-highlight kb-hb-${block.color}" style="background:${p.bg};border-left:4px solid ${p.border};padding:18px 20px;border-radius:12px;margin:20px 0;">
+                        <div class="kb-hb-title" style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:${p.title};margin-bottom:10px;">${block.title || ''}</div>
+                        <div class="kb-hb-content" style="font-family:var(--font-body);font-size:0.9rem;color:${isNavy ? '#e2e8f0' : 'var(--text)'};line-height:1.8;">${block.content || ''}</div>
                     </div>`;
                     break;
                 }
@@ -1487,10 +1487,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         };
                         const p = PALETTE[card.color] || { bg: 'var(--card-bg)', border: 'var(--border)', title: 'var(--text)' };
                         const isNavy = card.color === 'navy';
-                        html += `<div style="background:${p.bg};border:1.5px solid ${p.border};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px;">
+                        html += `<div class="kb-card kb-card-${card.color}" style="background:${p.bg};border:1.5px solid ${p.border};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px;">
                             <div style="font-size:1.4rem;">${card.icon || ''}</div>
-                            <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:${p.title};">${card.title}</div>
-                            <div style="font-family:var(--font-body);font-size:0.83rem;color:${isNavy ? '#cbd5e1' : 'var(--text-muted)'};line-height:1.7;">${card.content}</div>
+                            <div class="kb-card-title" style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:${p.title};">${card.title}</div>
+                            <div class="kb-card-content" style="font-family:var(--font-body);font-size:0.83rem;color:${isNavy ? '#cbd5e1' : 'var(--text-muted)'};line-height:1.7;">${card.content}</div>
                         </div>`;
                     });
                     html += `</div>`;
@@ -1501,7 +1501,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (block.title) html += `<div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--text);margin-bottom:12px;">${block.title}</div>`;
                     html += `<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">`;
                     (block.items || []).forEach((item, idx) => {
-                        html += `<li style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:10px;">
+                        html += `<li class="kb-numbered-item" style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:10px;">
                             <span style="background:var(--yellow);color:var(--navy);font-family:var(--font-display);font-weight:900;font-size:0.82rem;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${idx + 1}</span>
                             <span style="font-family:var(--font-body);font-size:0.88rem;color:var(--text);line-height:1.7;">${item}</span>
                         </li>`;
@@ -1528,9 +1528,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">`;
                     (block.persons || []).forEach(p => {
                         const isMain = p.isMain;
-                        html += `<div style="background:${isMain ? 'var(--navy)' : 'var(--white)'};border:${isMain ? '2px solid var(--yellow)' : '1px solid var(--border)'};border-radius:12px;padding:14px 16px;">
-                            <div style="font-family:var(--font-display);font-weight:${isMain ? 900 : 700};font-size:${isMain ? '0.95rem' : '0.87rem'};color:${isMain ? 'var(--yellow)' : 'var(--text)'};">${p.name}</div>
-                            <div style="font-family:var(--font-body);font-size:0.78rem;color:${isMain ? '#cbd5e1' : 'var(--text-muted)'};margin-top:4px;line-height:1.5;">${p.role}</div>
+                        html += `<div class="kb-person-card${isMain ? ' kb-person-card-main' : ''}" style="background:${isMain ? 'var(--navy)' : 'var(--white)'};border:${isMain ? '2px solid var(--yellow)' : '1px solid var(--border)'};border-radius:12px;padding:14px 16px;">
+                            <div class="kb-person-name" style="font-family:var(--font-display);font-weight:${isMain ? 900 : 700};font-size:${isMain ? '0.95rem' : '0.87rem'};color:${isMain ? 'var(--yellow)' : 'var(--text)'};">${p.name}</div>
+                            <div class="kb-person-role" style="font-family:var(--font-body);font-size:0.78rem;color:${isMain ? '#cbd5e1' : 'var(--text-muted)'};margin-top:4px;line-height:1.5;">${p.role}</div>
                             ${p.party ? `<div style="display:inline-block;margin-top:8px;font-size:0.68rem;font-weight:700;background:${isMain ? 'rgba(252,236,74,0.15)' : 'var(--cream)'};color:${isMain ? 'var(--yellow)' : 'var(--text-muted)'};padding:2px 10px;border-radius:20px;">${p.party}</div>` : ''}
                         </div>`;
                     });
@@ -1540,8 +1540,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'number-badges': {
                     html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:20px 0;">`;
                     (block.items || []).forEach(item => {
-                        html += `<div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:0 1px 3px rgba(26,26,46,0.06);">
-                            <div style="font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:var(--navy);">${item.num}</div>
+                        html += `<div class="kb-number-badge" style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:0 1px 3px rgba(26,26,46,0.06);">
+                            <div class="kb-number-badge-num" style="font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:var(--navy);">${item.num}</div>
                             <div style="font-family:var(--font-body);font-size:0.75rem;color:var(--text-muted);margin-top:4px;line-height:1.5;">${item.label}</div>
                         </div>`;
                     });
@@ -1549,7 +1549,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
                 }
                 case 'key-summary': {
-                    html += `<div style="background:var(--navy);color:#fff;border-radius:16px;padding:20px 24px;margin:24px 0;display:flex;gap:14px;align-items:flex-start;border:1px solid rgba(252,236,74,0.2);">
+                    html += `<div class="kb-key-summary" style="background:var(--navy);color:#fff;border-radius:16px;padding:20px 24px;margin:24px 0;display:flex;gap:14px;align-items:flex-start;border:1px solid rgba(252,236,74,0.2);">
                         <span style="font-size:1.3rem;flex-shrink:0;filter:saturate(0) brightness(1.3);">✅</span>
                         <div>
                             <div style="font-family:var(--font-display);font-weight:800;font-size:0.9rem;margin-bottom:6px;color:var(--yellow);">${block.title || 'สรุปจำ'}</div>
