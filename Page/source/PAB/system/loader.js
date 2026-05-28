@@ -1302,20 +1302,20 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                             <h1 class="hero-title">
                                 <span class="hl-sub">${kd.emoji || '🏛️'} ${kd.titleShort || kd.title || ''}</span>
-                                <br><span class="hl-yellow hero-subtitle">ยุทธศาสตร์ชาติ 20 ปี (2561–2580)<br>แผนพัฒนาฯ ฉ.13 (2566–2570)<br>ครม.อนุทิน 2</span>
+                                <br><span class="hl-yellow hero-subtitle">ยุทธศาสตร์ชาติ 20 ปี (2561–2580) · แผนพัฒนาฯ ฉ.13 (2566–2570) · ครม.อนุทิน 2</span>
                             </h1>
-                            <div class="hero-stats" id="hero-stats" style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-top:var(--space-lg);"></div>
-                            <div class="hero-actions" style="margin-top:var(--space-lg);">
+                            <div class="hero-actions" style="margin-top:var(--space-sm);">
                                 <a href="#section-k1" class="btn-primary">
                                     📖 เริ่มอ่านเนื้อหา
                                     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                                 </a>
                                 <a href="#section-vocab" class="btn-secondary">📚 ดูคำศัพท์</a>
                             </div>
+                            <div class="hero-stats" id="hero-stats" style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-top:var(--space-lg);"></div>
                         </div>
                         <div class="hero-visual">
                             <div class="hero-mascot">
-                                <img src="../../../../pic/logo ปภ.png" alt="ปภ." style="width:120px;height:120px;object-contain;">
+                                <img src="../../../../pic/logo ปภ.png" alt="ปภ." style="width:100px;height:100px;object-contain;">
                             </div>
                         </div>
                     </div>
