@@ -1293,30 +1293,28 @@ document.addEventListener('DOMContentLoaded', function() {
             </nav>
 
             <main class="page-content">
-                <section class="hero" id="section-home" style="scroll-margin-top:72px;">
-                    <div class="hero-inner">
-                        <div class="hero-content">
-                            <div class="hero-badge">
-                                <span class="hero-badge-dot"></span>
-                                <span id="hero-section-label">${kd.badgeLabel || 'ความรู้ทั่วไป'}</span>
-                            </div>
-                            <h1 class="hero-title">
-                                <span class="hl-sub">${kd.emoji || '🏛️'} ${kd.titleShort || kd.title || ''}</span>
-                                <br><span class="hl-yellow hero-subtitle">ยุทธศาสตร์ชาติ 20 ปี (2561–2580) · แผนพัฒนาฯ ฉ.13 (2566–2570) · ครม.อนุทิน 2</span>
-                            </h1>
-                            <div class="hero-actions" style="margin-top:var(--space-sm);">
-                                <a href="#section-k1" class="btn-primary">
-                                    📖 เริ่มอ่านเนื้อหา
-                                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                                </a>
-                                <a href="#section-vocab" class="btn-secondary">📚 ดูคำศัพท์</a>
-                            </div>
-                            <div class="hero-stats" id="hero-stats" style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-top:var(--space-lg);"></div>
+                <section class="kb-home" id="section-home">
+                    <div class="kb-home-inner">
+                        <div class="kb-home-badge">
+                            <span class="kb-home-badge-dot"></span>
+                            <span id="hero-section-label">${kd.badgeLabel || 'ความรู้ทั่วไป'}</span>
                         </div>
-                        <div class="hero-visual">
-                            <div class="hero-mascot">
-                                <img src="../../../../pic/logo ปภ.png" alt="ปภ." style="width:100px;height:100px;object-contain;">
-                            </div>
+                        <div class="kb-home-logo">
+                            <img src="../../../../pic/logo ปภ.png" alt="ปภ.">
+                        </div>
+                        <h1 class="kb-home-title">
+                            ${kd.emoji || '🏛️'} ${kd.titleShort || kd.title || ''}
+                        </h1>
+                        <p class="kb-home-sub">
+                            ยุทธศาสตร์ชาติ 20 ปี (2561–2580) · แผนพัฒนาฯ ฉ.13 (2566–2570) · ครม.อนุทิน 2
+                        </p>
+                        <div class="kb-home-stats" id="hero-stats"></div>
+                        <div class="kb-home-actions">
+                            <a href="#section-k1" class="kb-btn-primary">
+                                📖 เริ่มอ่านเนื้อหา
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                            </a>
+                            <a href="#section-vocab" class="kb-btn-secondary">📚 ดูคำศัพท์</a>
                         </div>
                     </div>
                 </section>
@@ -1394,9 +1392,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const statsEl = document.getElementById('hero-stats');
         if (statsEl && kd.heroStats) {
             statsEl.innerHTML = kd.heroStats.map(s => `
-                <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 20px;text-align:center;min-width:100px;">
-                    <div style="font-family:var(--font-display);font-weight:900;font-size:1.5rem;color:var(--yellow-strong);">${s.value}</div>
-                    <div style="font-family:var(--font-body);font-size:0.75rem;color:var(--text-muted);margin-top:2px;">${s.label}</div>
+                <div class="kb-stat-card">
+                    <div class="kb-stat-value">${s.value}</div>
+                    <div class="kb-stat-label">${s.label}</div>
                 </div>
             `).join('');
         }

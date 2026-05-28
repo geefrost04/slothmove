@@ -235,6 +235,151 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================
+   KNOWLEDGE PAGE HOME — Lesson-Style
+   ============================================ */
+.kb-home {
+    background: var(--cream);
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border-light);
+}
+.kb-home-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-md);
+}
+.kb-home-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-bg);
+    border: 1px solid rgba(201,125,58,0.2);
+    padding: 5px 16px;
+    border-radius: var(--radius-full);
+}
+.kb-home-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+.kb-home-logo {
+    margin: var(--space-sm) 0;
+}
+.kb-home-logo img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+.kb-home-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+.kb-home-sub {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+}
+.kb-home-stats {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+.kb-stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px 24px;
+    text-align: center;
+    min-width: 90px;
+    box-shadow: var(--shadow-sm);
+}
+.kb-stat-value {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: var(--navy);
+    line-height: 1;
+}
+.kb-stat-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.kb-home-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+.kb-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--navy);
+    background: var(--yellow);
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--yellow);
+    transition: all var(--duration-fast) var(--ease-smooth);
+    box-shadow: 0 2px 8px rgba(220,207,0,0.25);
+}
+.kb-btn-primary:hover {
+    background: var(--yellow-strong);
+    border-color: var(--yellow-strong);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(220,207,0,0.3);
+}
+.kb-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    background: var(--white);
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--border);
+    transition: all var(--duration-fast) var(--ease-smooth);
+}
+.kb-btn-secondary:hover {
+    border-color: var(--yellow-strong);
+    color: var(--text);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
    HERO — Knowledge Page Compact
    ============================================ */
 .hero {
