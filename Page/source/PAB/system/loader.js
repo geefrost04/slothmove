@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
         loadLessonPage();
     } else if (PAGE_TYPE === 'quiz') {
         loadQuizPage();
+    } else if (PAGE_TYPE === 'knowledge') {
+        loadKnowledgePage();
     }
 
     function loadLessonPage() {
@@ -1256,6 +1258,309 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update page title
         document.title = (data.title || 'บทเรียน') + ' | SlothMove ปภ.';
         window.LESSON_DATA = data;
+    }
+
+    // ===== KNOWLEDGE PAGE =====
+    function loadKnowledgePage() {
+        let kd = window.LESSON_DATA;
+        if (!kd) {
+            const dataKey = Object.keys(window).find(k => k.endsWith('_DATA') && window[k]?.knowledgeSections);
+            kd = dataKey ? window[dataKey] : null;
+        }
+        if (!kd) return;
+        window.LESSON_DATA = kd;
+
+        document.title = (kd.title || 'ความรู้ทั่วไป') + ' | SlothMove ปภ.';
+
+        document.body.innerHTML = `
+            <nav class="nav" id="navbar">
+                <div class="nav-inner">
+                    <a href="../indexPAB.html" class="nav-logo">
+                        <img src="../../../../pic/slothmove_mascot.png" alt="SlothMove">
+                        Sloth<span class="logo-accent">Move</span>
+                        <span class="logo-sep">|</span>
+                    </a>
+                    <div class="nav-center" id="knav-tabs"></div>
+                    <div class="nav-actions">
+                        <a href="../indexPAB.html" class="nav-btn">🏠 หน้าหลัก</a>
+                        <button class="nav-btn-accent" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>
+                    </div>
+                    <button class="nav-hamburger" id="mobileMenuBtn" aria-label="เปิดเมนู">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+                <div class="mobile-menu" id="mobileMenu" id="knav-mobile"></div>
+            </nav>
+
+            <main class="page-content">
+                <section class="hero" id="section-home" style="scroll-margin-top:72px;">
+                    <div class="hero-inner">
+                        <div class="hero-content">
+                            <div class="hero-badge">
+                                <span class="hero-badge-dot"></span>
+                                <span id="hero-section-label">${kd.badgeLabel || 'ความรู้ทั่วไป'}</span>
+                            </div>
+                            <h1 class="hero-title">
+                                <span class="hl-sub">${kd.emoji || '🏛️'} ${kd.titleShort || kd.title || ''}</span>
+                                <br><span class="hl-yellow" style="font-size:clamp(0.95rem,2vw,1.2rem);font-weight:600;">${kd.subtitle || ''}</span>
+                            </h1>
+                            <div class="hero-stats" id="hero-stats" style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-top:var(--space-lg);"></div>
+                            <div class="hero-actions" style="margin-top:var(--space-lg);">
+                                <a href="#section-k1" class="btn-primary">📖 เริ่มอ่านเนื้อหา
+                                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                                </a>
+                                <button class="btn-dark" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>
+                            </div>
+                        </div>
+                        <div class="hero-visual">
+                            <div class="hero-mascot">
+                                <img src="../../../../pic/logo ปภ.png" alt="ปภ.">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="knowledge-sections"></div>
+
+                <section class="glossary-section" id="section-vocab" style="scroll-margin-top:72px;">
+                    <div class="container">
+                        <div class="sec-break"><span class="sec-break-label">📚 คำศัพท์สำคัญ</span></div>
+                        <h2 style="font-family:var(--font-display);font-weight:900;font-size:clamp(1.4rem,3vw,2rem);color:var(--text);text-align:center;margin-bottom:var(--space-sm);">คำศัพท์และคำย่อที่ออกสอบ</h2>
+                        <p style="text-align:center;font-family:var(--font-body);font-size:0.88rem;color:var(--text-muted);margin-bottom:var(--space-xl);">รวมศัพท์เฉพาะ ย่อ และคำสำคัญที่ควรรู้</p>
+                        <div id="vocab-content"></div>
+                    </div>
+                </section>
+            </main>
+
+            <div class="donate-popup-overlay" id="donatePopup" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(26,26,46,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:var(--space-lg);">
+                <div style="background:var(--white);border-radius:var(--radius-xl);max-width:380px;width:100%;padding:var(--space-xl);text-align:center;box-shadow:var(--shadow-xl);position:relative;">
+                    <button onclick="closeDonatePopup()" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:none;background:var(--cream);color:var(--text-muted);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+                    <div style="width:72px;height:72px;background:var(--yellow);border-radius:var(--radius-xl);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto var(--space-md);box-shadow:var(--shadow-md);">☕</div>
+                    <h2 style="font-family:var(--font-display);font-weight:900;font-size:1.4rem;color:var(--text);margin-bottom:var(--space-sm);">เลี้ยงกาแฟผมหน่อยครับ</h2>
+                    <p style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:var(--space-lg);">เราตั้งใจทำเนื้อหาให้ทุกคนเรียนฟรีตลอดไป<br>หากได้รับประโยชน์ สามารถสนับสนุนได้ตามกำลังศรัทธา</p>
+                    <div style="background:var(--cream-warm);border-radius:var(--radius-lg);padding:var(--space-md);margin-bottom:var(--space-md);">
+                        <img src="../../../../pic/qr.jpg" alt="QR พร้อมเพย์" style="width:100%;border-radius:var(--radius-md);border:1px solid var(--border-light);">
+                    </div>
+                    <button onclick="closeDonatePopup()" style="width:100%;padding:10px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);font-family:var(--font-display);font-weight:700;font-size:0.82rem;color:var(--text-muted);cursor:pointer;">ปิด</button>
+                </div>
+            </div>
+
+            <footer class="footer-section">
+                <div class="footer-inner">
+                    <div class="footer-brand">
+                        <img src="../../../../pic/slothmove_mascot.png" alt="SlothMove" class="footer-logo">
+                        <div class="footer-brand-text">
+                            <span class="footer-brand-name">Sloth<span class="accent">Move</span></span>
+                            <span class="footer-brand-tagline">สาระครบ จบในที่เดียว</span>
+                        </div>
+                    </div>
+                    <div class="footer-actions">
+                        <a href="https://www.facebook.com/profile.php?id=61589670089745" target="_blank" rel="noopener noreferrer" class="footer-fb-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            Facebook
+                        </a>
+                        <a href="../indexPAB.html" class="footer-back-btn">กลับหน้าคอร์ส →</a>
+                    </div>
+                </div>
+                <div class="footer-bottom"><p class="footer-copy">© 2026 SlothMove <span class="heart">❤</span></p></div>
+            </footer>
+
+            <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดมืด/สว่าง">
+                <span class="toggle-icon sun">☀️</span>
+                <span class="toggle-icon moon">🌙</span>
+                <span class="toggle-knob"></span>
+            </button>
+        `;
+
+        // Build nav tabs from knowledgeSections
+        const tabs = document.getElementById('knav-tabs');
+        const mobileMenu = document.getElementById('knav-mobile');
+        if (tabs) {
+            let tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">🏠 หน้าแรก</a>`;
+            let mobileHtml = `<a href="#section-home">🏠 หน้าแรก</a>`;
+            (kd.knowledgeSections || []).forEach((sec, i) => {
+                const id = 'k' + (i + 1);
+                tabHtml += `<a href="#section-${id}" class="nav-tab" data-section="${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
+                mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
+            });
+            tabHtml += `<a href="#section-vocab" class="nav-tab" data-section="vocab">📚 คำศัพท์</a>`;
+            mobileHtml += `<a href="#section-vocab">📚 คำศัพท์</a>`;
+            mobileHtml += `<button class="mobile-cta" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>`;
+            tabs.innerHTML = tabHtml;
+            if (mobileMenu) mobileMenu.innerHTML = mobileHtml;
+        }
+
+        // Render hero stats
+        const statsEl = document.getElementById('hero-stats');
+        if (statsEl && kd.heroStats) {
+            statsEl.innerHTML = kd.heroStats.map(s => `
+                <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 20px;text-align:center;min-width:100px;">
+                    <div style="font-family:var(--font-display);font-weight:900;font-size:1.5rem;color:var(--yellow-strong);">${s.value}</div>
+                    <div style="font-family:var(--font-body);font-size:0.75rem;color:var(--text-muted);margin-top:2px;">${s.label}</div>
+                </div>
+            `).join('');
+        }
+
+        // Render knowledge sections
+        const sectionsEl = document.getElementById('knowledge-sections');
+        if (sectionsEl) {
+            let html = '';
+            (kd.knowledgeSections || []).forEach((sec, i) => {
+                const id = 'k' + (i + 1);
+                html += `
+                <section class="org-chart-section" id="section-${id}" style="scroll-margin-top:72px;">
+                    <div class="container">
+                        <div class="sec-break"><span class="sec-break-label">${sec.icon || ''} ${sec.title}</span></div>
+                        <p style="text-align:center;font-family:var(--font-body);font-size:0.88rem;color:var(--text-muted);margin-bottom:var(--space-xl);">${sec.description || ''}</p>
+                        ${renderKnowledgeSectionBody(sec)}
+                    </div>
+                </section>`;
+            });
+            sectionsEl.innerHTML = html;
+        }
+
+        // Render vocabulary
+        const vocabEl = document.getElementById('vocab-content');
+        if (vocabEl && kd.vocabulary) {
+            let html = '';
+            (kd.vocabulary || []).forEach(group => {
+                html += `<div style="margin-bottom:var(--space-xl);">`;
+                if (group.groupTitle) {
+                    html += `<h3 style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--navy);background:var(--yellow);display:inline-block;padding:4px 16px;border-radius:20px;margin-bottom:var(--space-md);">${group.groupTitle}</h3>`;
+                }
+                html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">`;
+                (group.terms || []).forEach(term => {
+                    html += `
+                    <div style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
+                        <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--text);">${term.term}</div>
+                        ${term.eng ? `<div style="font-size:0.75rem;color:var(--yellow-strong);font-weight:600;">${term.eng}</div>` : ''}
+                        <div style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-muted);line-height:1.6;">${term.def}</div>
+                    </div>`;
+                });
+                html += `</div></div>`;
+            });
+            vocabEl.innerHTML = html;
+        }
+
+        setupThemeToggle();
+        setupMobileMenu();
+        setupNavbarScroll();
+        setupDonatePopup();
+        setupScrollSpy();
+        console.log('✅ Knowledge page rendered:', kd.title);
+    }
+
+    function renderKnowledgeSectionBody(sec) {
+        let html = '';
+        (sec.blocks || []).forEach(block => {
+            switch (block.type) {
+                case 'highlight-box': {
+                    const clr = {amber:'#fef3e8',blue:'#e8f4fd',green:'#e8f5ef',purple:'#f3e8fd',rose:'#fde8e8',teal:'#e8fdf5'};
+                    const brdr = {amber:'#f59e0b',blue:'#3b82f6',green:'#22c55e',purple:'#8b5cf6',rose:'#f43f5e',teal:'#14b8a6'};
+                    const bg = clr[block.color] || clr.amber;
+                    const bd = brdr[block.color] || brdr.amber;
+                    html += `<div style="background:${bg};border-left:4px solid ${bd};padding:18px 20px;border-radius:10px;margin:20px 0;">
+                        <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--navy);margin-bottom:8px;">${block.title || ''}</div>
+                        <div style="font-family:var(--font-body);font-size:0.9rem;color:var(--text);line-height:1.8;">${block.content || ''}</div>
+                    </div>`;
+                    break;
+                }
+                case 'cards': {
+                    html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:20px 0;">`;
+                    (block.cards || []).forEach(card => {
+                        const clr = {amber:'#fef3e8',blue:'#e8f4fd',green:'#e8f5ef',purple:'#f3e8fd',rose:'#fde8e8',teal:'#e8fdf5'};
+                        const brdr = {amber:'#f59e0b',blue:'#3b82f6',green:'#22c55e',purple:'#8b5cf6',rose:'#f43f5e',teal:'#14b8a6'};
+                        const bg = clr[card.color] || 'var(--card-bg)';
+                        const bd = brdr[card.color] || 'var(--border)';
+                        html += `<div style="background:${bg};border:1.5px solid ${bd};border-radius:var(--radius-lg);padding:18px;display:flex;flex-direction:column;gap:6px;">
+                            <div style="font-size:1.6rem;">${card.icon || ''}</div>
+                            <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--navy);">${card.title}</div>
+                            <div style="font-family:var(--font-body);font-size:0.83rem;color:var(--text-muted);line-height:1.7;">${card.content}</div>
+                        </div>`;
+                    });
+                    html += `</div>`;
+                    break;
+                }
+                case 'numbered-list': {
+                    html += `<div style="margin:20px 0;">`;
+                    if (block.title) html += `<div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--text);margin-bottom:12px;">${block.title}</div>`;
+                    html += `<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">`;
+                    (block.items || []).forEach((item, idx) => {
+                        html += `<li style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:10px;">
+                            <span style="background:var(--yellow);color:var(--navy);font-family:var(--font-display);font-weight:900;font-size:0.82rem;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${idx + 1}</span>
+                            <span style="font-family:var(--font-body);font-size:0.88rem;color:var(--text);line-height:1.7;">${item}</span>
+                        </li>`;
+                    });
+                    html += `</ol></div>`;
+                    break;
+                }
+                case 'bullet-list': {
+                    html += `<div style="margin:20px 0;">`;
+                    if (block.title) html += `<div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--text);margin-bottom:12px;">${block.title}</div>`;
+                    html += `<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">`;
+                    (block.items || []).forEach(item => {
+                        html += `<li style="display:flex;gap:10px;align-items:flex-start;font-family:var(--font-body);font-size:0.88rem;color:var(--text);line-height:1.7;">
+                            <span style="color:var(--yellow-strong);font-size:1rem;margin-top:1px;">▸</span>
+                            <span>${item}</span>
+                        </li>`;
+                    });
+                    html += `</ul></div>`;
+                    break;
+                }
+                case 'persons-grid': {
+                    html += `<div style="margin:20px 0;">`;
+                    if (block.title) html += `<div style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--text);margin-bottom:16px;">${block.title}</div>`;
+                    html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">`;
+                    (block.persons || []).forEach(p => {
+                        const isMain = p.isMain;
+                        html += `<div style="background:${isMain ? 'var(--yellow)' : 'var(--card-bg)'};border:${isMain ? '2px solid var(--yellow-strong)' : '1px solid var(--border-light)'};border-radius:var(--radius-md);padding:14px 16px;">
+                            <div style="font-family:var(--font-display);font-weight:${isMain ? 900 : 700};font-size:${isMain ? '0.95rem' : '0.87rem'};color:${isMain ? 'var(--navy)' : 'var(--text)'};">${p.name}</div>
+                            <div style="font-family:var(--font-body);font-size:0.78rem;color:${isMain ? 'var(--navy)' : 'var(--text-muted)'};margin-top:4px;line-height:1.5;">${p.role}</div>
+                            ${p.party ? `<div style="display:inline-block;margin-top:6px;font-size:0.68rem;font-weight:700;background:${isMain ? 'rgba(0,0,0,0.12)' : 'var(--cream)'};color:${isMain ? 'var(--navy)' : 'var(--text-muted)'};padding:2px 8px;border-radius:20px;">${p.party}</div>` : ''}
+                        </div>`;
+                    });
+                    html += `</div></div>`;
+                    break;
+                }
+                case 'number-badges': {
+                    html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:20px 0;">`;
+                    (block.items || []).forEach(item => {
+                        html += `<div style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px;text-align:center;">
+                            <div style="font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:var(--yellow-strong);">${item.num}</div>
+                            <div style="font-family:var(--font-body);font-size:0.75rem;color:var(--text-muted);margin-top:4px;line-height:1.5;">${item.label}</div>
+                        </div>`;
+                    });
+                    html += `</div>`;
+                    break;
+                }
+                case 'key-summary': {
+                    html += `<div style="background:var(--navy);color:#fff;border-radius:var(--radius-lg);padding:20px 24px;margin:24px 0;display:flex;gap:14px;align-items:flex-start;">
+                        <span style="font-size:1.4rem;flex-shrink:0;">✅</span>
+                        <div>
+                            <div style="font-family:var(--font-display);font-weight:800;font-size:0.9rem;margin-bottom:6px;color:var(--yellow);">${block.title || 'สรุปจำ'}</div>
+                            <div style="font-family:var(--font-body);font-size:0.87rem;line-height:1.8;">${block.content}</div>
+                        </div>
+                    </div>`;
+                    break;
+                }
+                case 'table': {
+                    html += `<div style="overflow-x:auto;margin:20px 0;">`;
+                    if (block.title) html += `<div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--text);margin-bottom:12px;">${block.title}</div>`;
+                    html += `<table style="width:100%;border-collapse:collapse;font-size:0.85rem;">`;
+                    (block.rows || []).forEach((row, i) => {
+                        html += `<tr style="${i === 0 ? 'background:var(--navy);color:#fff;font-family:var(--font-display);font-weight:700;' : 'border-bottom:1px solid var(--border-light);'}">`;
+                        row.forEach(cell => {
+                            html += `<td style="padding:10px 12px;border:1px solid var(--border-light);">${cell}</td>`;
+                        });
+                        html += `</tr>`;
+                    });
+                    html += `</table></div>`;
+                    break;
+                }
+                default: break;
+            }
+        });
+        return html;
     }
 
     function getDefaultData() {
