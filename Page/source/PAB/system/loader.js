@@ -1301,11 +1301,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span id="hero-section-label">${kd.badgeLabel || 'ความรู้ทั่วไป'}</span>
                             </div>
                             <h1 class="hero-title">
-                                <span class="hl-sub">${kd.emoji || '🏛️'} ${kd.titleShort || kd.title || ''}</span>
+                                <span class="hl-sub">${kd.titleShort || kd.title || ''}</span>
+                                ${kd.emoji || ''} ${kd.titleShort || kd.title || ''}
+                                <br><span class="hl-yellow">${kd.subtitle || ''}</span>
                             </h1>
-                            <p class="hero-desc">
-                                ยุทธศาสตร์ชาติ 20 ปี (2561–2580) · แผนพัฒนาฯ ฉ.13 (2566–2570) · ครม.อนุทิน 2
-                            </p>
                             <div class="hero-actions">
                                 <a href="#section-k1" class="btn-primary">
                                     📖 เริ่มอ่านเนื้อหา
