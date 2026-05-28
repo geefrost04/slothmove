@@ -1319,11 +1319,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
                     </div>
-                    <div class="hero-bottom-bar">
-                        <div class="hero-bottom-inner">
-                            <div class="hero-stats" id="hero-stats"></div>
-                        </div>
-                    </div>
                 </section>
 
                 <div id="knowledge-sections"></div>
