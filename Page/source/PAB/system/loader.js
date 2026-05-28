@@ -1386,6 +1386,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
             });
             tabHtml += `<a href="#section-vocab" class="nav-tab" data-section="vocab">📚 คำศัพท์</a>`;
+            tabHtml += `<a href="quiz.html" class="nav-tab" data-section="quiz" target="_blank" rel="noopener noreferrer">✏️ ทำข้อสอบ</a>`;
             mobileHtml += `<a href="#section-vocab">📚 คำศัพท์</a>`;
             mobileHtml += `<button class="mobile-cta" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>`;
             tabs.innerHTML = tabHtml;
