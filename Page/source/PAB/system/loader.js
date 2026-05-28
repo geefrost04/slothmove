@@ -1293,7 +1293,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </nav>
 
             <main class="page-content">
-                <section class="hero" id="section-home" style="scroll-margin-top:72px; background:linear-gradient(160deg,#f8fafc 0%,#eef2f7 40%,#f8fafc 100%);">
+                <section class="hero" id="section-home" style="scroll-margin-top:72px;">
                     <div class="hero-inner">
                         <div class="hero-content">
                             <div class="hero-badge">
@@ -1302,7 +1302,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                             <h1 class="hero-title">
                                 <span class="hl-sub">${kd.emoji || '🏛️'} ${kd.titleShort || kd.title || ''}</span>
-                                <br><span class="hl-yellow">${kd.subtitle || ''}</span>
+                                <br><span class="hl-yellow hero-subtitle">ยุทธศาสตร์ชาติ 20 ปี (2561–2580)<br>แผนพัฒนาฯ ฉ.13 (2566–2570)<br>ครม.อนุทิน 2</span>
                             </h1>
                             <div class="hero-stats" id="hero-stats" style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-top:var(--space-lg);"></div>
                             <div class="hero-actions" style="margin-top:var(--space-lg);">
