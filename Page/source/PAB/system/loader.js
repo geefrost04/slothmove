@@ -1381,7 +1381,6 @@ document.addEventListener('DOMContentLoaded', function() {
             let mobileHtml = `<a href="#section-home">🏠 หน้าแรก</a>`;
             (kd.knowledgeSections || []).forEach((sec, i) => {
                 const id = 'k' + (i + 1);
-                tabHtml += `<a href="#section-${id}" class="nav-tab" data-section="${id}">${sec.navIcon || '📌'} ${i + 1}</a>`;
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
             });
             tabHtml += `<a href="#section-vocab" class="nav-tab" data-section="vocab">📚 คำศัพท์</a>`;
