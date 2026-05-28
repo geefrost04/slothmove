@@ -1,4 +1,4 @@
-const QUESTIONS = [
+var QUESTIONS = [
   {
     "question": "การวิเคราะห์นโยบายสาธารณะ (Public Policy Analysis) ในขั้นตอน \"การกำหนดปัญหา\" มีความสำคัญ",
     "choices": [
