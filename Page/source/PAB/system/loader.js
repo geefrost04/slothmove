@@ -1306,7 +1306,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="hero-desc">
                                 ยุทธศาสตร์ชาติ 20 ปี (2561–2580) · แผนพัฒนาฯ ฉ.13 (2566–2570) · ครม.อนุทิน 2
                             </p>
-                            <div class="hero-stats" id="hero-stats"></div>
                             <div class="hero-actions">
                                 <a href="#section-k1" class="btn-primary">
                                     📖 เริ่มอ่านเนื้อหา
@@ -1319,6 +1318,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="hero-mascot">
                                 <img src="../../../../pic/logo ปภ.png" alt="ปภ.">
                             </div>
+                        </div>
+                    </div>
+                    <div class="hero-bottom-bar">
+                        <div class="hero-bottom-inner">
+                            <div class="hero-stats" id="hero-stats"></div>
                         </div>
                     </div>
                 </section>
