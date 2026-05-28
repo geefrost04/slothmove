@@ -1377,8 +1377,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const tabs = document.getElementById('knav-tabs');
         const mobileMenu = document.getElementById('knav-mobile');
         if (tabs) {
-            let tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">🏠 หน้าแรก</a>`;
-            let mobileHtml = `<a href="#section-home">🏠 หน้าแรก</a>`;
+            let tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">📖 เนื้อหาสรุป</a>`;
+            let mobileHtml = `<a href="#section-home">📖 เนื้อหาสรุป</a>`;
             (kd.knowledgeSections || []).forEach((sec, i) => {
                 const id = 'k' + (i + 1);
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
