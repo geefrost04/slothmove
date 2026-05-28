@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function setupScrollSpy() {
-        var sections = ['home', 's1', 's2', 's3'];
+        var sections = ['home', 'k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8', 'vocab'];
         window.addEventListener('scroll', function() {
             var scrollY = window.scrollY + 120;
             var activeId = 'home';
@@ -1310,7 +1310,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                     📖 เริ่มอ่านเนื้อหา
                                     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                                 </a>
-                                <a href="#section-vocab" class="btn-secondary">📚 ดูคำศัพท์</a>
+                                <a href="quiz.html" class="btn-dark" target="_blank" rel="noopener noreferrer">
+                                    ✏️ ทำข้อสอบ
+                                </a>
                             </div>
                         </div>
                         <div class="hero-visual">
