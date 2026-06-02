@@ -457,7 +457,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function setupScrollSpy() {
-        var sections = ['home', 'k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8', 'vocab'];
+        var sections = ['home'];
+        // Dynamically discover sections from the DOM (supports knowledge + additionalSections)
+        document.querySelectorAll('section[id^="section-"]').forEach(function(sec) {
+            var id = sec.id.replace('section-', '');
+            if (id && sections.indexOf(id) === -1) sections.push(id);
+        });
+        if (sections.indexOf('k3') === -1) sections.push('k3');
         window.addEventListener('scroll', function() {
             var scrollY = window.scrollY + 120;
             var activeId = 'home';
@@ -791,7 +797,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function _buildDeck(source, n) {
-        var take = Math.min(n, 100, source.length);
+        var take = (n === 0) ? source.length : Math.min(n, source.length);
         var order = _fisherYatesIndices(source.length).slice(0, take);
         return order.map(function(i) { return _shuffleOptions({q: source[i].q, o: source[i].o.slice(), a: source[i].a, exp: source[i].exp || ''}); });
     }
@@ -1289,7 +1295,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                     </button>
                 </div>
-                <div class="mobile-menu" id="mobileMenu" id="knav-mobile"></div>
+                <div class="mobile-menu" id="mobileMenu"></div>
             </nav>
 
             <main class="page-content">
@@ -1324,15 +1330,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </section>
 
                 <div id="knowledge-sections"></div>
-
-                <section class="glossary-section" id="section-vocab" style="scroll-margin-top:72px;">
-                    <div class="container">
-                        <div class="sec-break"><span class="sec-break-label">📚 คำศัพท์สำคัญ</span></div>
-                        <h2 style="font-family:var(--font-display);font-weight:900;font-size:clamp(1.4rem,3vw,2rem);color:var(--text);text-align:center;margin-bottom:var(--space-sm);">คำศัพท์และคำย่อที่ออกสอบ</h2>
-                        <p style="text-align:center;font-family:var(--font-body);font-size:0.88rem;color:var(--text-muted);margin-bottom:var(--space-xl);">รวมศัพท์เฉพาะ ย่อ และคำสำคัญที่ควรรู้</p>
-                        <div id="vocab-content"></div>
-                    </div>
-                </section>
             </main>
 
             <div class="donate-popup-overlay" id="donatePopup" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(26,26,46,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:var(--space-lg);">
@@ -1377,7 +1374,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Build nav tabs from knowledgeSections
         const tabs = document.getElementById('knav-tabs');
-        const mobileMenu = document.getElementById('knav-mobile');
+        const mobileMenu = document.getElementById('mobileMenu');
         if (tabs) {
             let tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">📖 เนื้อหาสรุป</a>`;
             let mobileHtml = `<a href="#section-home">📖 เนื้อหาสรุป</a>`;
@@ -1385,9 +1382,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const id = 'k' + (i + 1);
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
             });
-            tabHtml += `<a href="#section-vocab" class="nav-tab" data-section="vocab">📚 คำศัพท์</a>`;
+            tabHtml += `<a href="#section-k3" class="nav-tab" data-section="vocab">📚 คำศัพท์</a>`;
             tabHtml += `<a href="quiz.html" class="nav-tab" data-section="quiz" target="_blank" rel="noopener noreferrer">✏️ ทำข้อสอบ</a>`;
-            mobileHtml += `<a href="#section-vocab">📚 คำศัพท์</a>`;
+            mobileHtml += `<a href="#section-k3">📚 คำศัพท์</a>`;
+            (kd.additionalSections || []).forEach((sec, i) => {
+                const id = 'add' + (i + 1);
+                mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
+            });
             mobileHtml += `<button class="mobile-cta" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>`;
             tabs.innerHTML = tabHtml;
             if (mobileMenu) mobileMenu.innerHTML = mobileHtml;
@@ -1404,8 +1405,14 @@ document.addEventListener('DOMContentLoaded', function() {
             `).join('');
         }
 
-        // Render knowledge sections
+        // Render knowledge sections + additionalSections
         const sectionsEl = document.getElementById('knowledge-sections');
+        console.log('📦 Knowledge data loaded:', {
+            title: kd.title,
+            knowledgeSections: (kd.knowledgeSections || []).length,
+            additionalSections: (kd.additionalSections || []).length,
+            vocabulary: (kd.vocabulary || []).length
+        });
         if (sectionsEl) {
             let html = '';
             (kd.knowledgeSections || []).forEach((sec, i) => {
@@ -1419,29 +1426,72 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </section>`;
             });
+            // Render additionalSections
+            (kd.additionalSections || []).forEach((sec, i) => {
+                const id = 'add' + (i + 1);
+                let secHtml = `
+                <section class="org-chart-section" id="section-${id}" style="scroll-margin-top:72px;">
+                    <div class="container">
+                        <div class="sec-break"><span class="sec-break-label">${sec.icon || ''} ${sec.title}</span></div>
+                        <p style="text-align:center;font-family:var(--font-body);font-size:0.88rem;color:var(--text-muted);margin-bottom:var(--space-xl);">${sec.description || ''}</p>`;
+                // Handle numberCards for additionalSections
+                if (sec.numberCards && sec.numberCards.length > 0) {
+                    secHtml += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;">`;
+                    sec.numberCards.forEach(card => {
+                        secHtml += `<div style="background:var(--white);border:1.5px solid var(--yellow-strong);border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(252,236,74,0.15);">
+                            <div style="font-family:var(--font-display);font-weight:900;font-size:1.8rem;color:var(--navy);">${card.num}</div>
+                            <div style="font-family:var(--font-body);font-size:0.78rem;color:var(--text-muted);margin-top:6px;line-height:1.5;">${card.label}</div>
+                        </div>`;
+                    });
+                    secHtml += `</div>`;
+                }
+                // Render blocks if any
+                if (sec.blocks && sec.blocks.length > 0) {
+                    secHtml += renderKnowledgeSectionBody(sec);
+                }
+                secHtml += `</div></section>`;
+                html += secHtml;
+            });
             sectionsEl.innerHTML = html;
         }
 
-        // Render vocabulary
+        // Render vocabulary (support flat array or grouped format)
         const vocabEl = document.getElementById('vocab-content');
-        if (vocabEl && kd.vocabulary) {
+        if (vocabEl && kd.vocabulary && kd.vocabulary.length > 0) {
             let html = '';
-            (kd.vocabulary || []).forEach(group => {
-                html += `<div style="margin-bottom:var(--space-xl);">`;
-                if (group.groupTitle) {
-                    html += `<h3 class="vocab-group-title" style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--navy);background:var(--yellow);display:inline-block;padding:4px 16px;border-radius:20px;margin-bottom:var(--space-md);">${group.groupTitle}</h3>`;
-                }
+            // Check if grouped format or flat
+            if (kd.vocabulary[0]?.groupTitle) {
+                kd.vocabulary.forEach(group => {
+                    html += `<div style="margin-bottom:var(--space-xl);">`;
+                    if (group.groupTitle) {
+                        html += `<h3 style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--navy);background:var(--yellow);display:inline-block;padding:4px 16px;border-radius:20px;margin-bottom:var(--space-md);">${group.groupTitle}</h3>`;
+                    }
+                    html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">`;
+                    (group.terms || []).forEach(term => {
+                        html += `<div style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
+                            <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--text);">${term.term}</div>
+                            ${term.eng ? `<div style="font-size:0.75rem;color:var(--yellow-strong);font-weight:600;">${term.eng}</div>` : ''}
+                            <div style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-muted);line-height:1.6;">${term.def}</div>
+                        </div>`;
+                    });
+                    html += `</div></div>`;
+                });
+            } else {
+                // Flat array format: render directly with icon, term, meaning
                 html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">`;
-                (group.terms || []).forEach(term => {
-                    html += `
-                    <div class="vocab-term-card" style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
-                        <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--text);">${term.term}</div>
-                        ${term.eng ? `<div style="font-size:0.75rem;color:var(--yellow-strong);font-weight:600;">${term.eng}</div>` : ''}
-                        <div style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-muted);line-height:1.6;">${term.def}</div>
+                kd.vocabulary.forEach(v => {
+                    html += `<div style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
+                        <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--text);">
+                            <span>${v.icon || '📝'}</span>
+                            <span>${v.term}</span>
+                        </div>
+                        ${v.thai ? `<div style="font-size:0.72rem;color:var(--yellow-strong);font-weight:600;">${v.thai}</div>` : ''}
+                        <div style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-muted);line-height:1.6;">${v.meaning}</div>
+                        ${v.tag ? `<div style="margin-top:4px;"><span style="font-size:0.68rem;font-weight:600;background:var(--cream);color:var(--text-muted);padding:2px 8px;border-radius:10px;">${v.tag}</span></div>` : ''}
                     </div>`;
                 });
-                html += `</div></div>`;
-            });
+                html += `</div>`;
+            }
             vocabEl.innerHTML = html;
         }
 
@@ -1459,19 +1509,19 @@ document.addEventListener('DOMContentLoaded', function() {
             switch (block.type) {
                 case 'highlight-box': {
                     const PALETTE = {
-                        amber:  { bg: '#fffbeb', border: '#f59e0b', title: '#92400e' },
-                        blue:   { bg: '#eff6ff', border: '#3b82f6', title: '#1e40af' },
-                        navy:   { bg: '#1d1d42', border: '#fcec4a', title: '#fcec4a' },
-                        green:  { bg: '#f0fdf4', border: '#22c55e', title: '#166534' },
-                        rose:   { bg: '#fff1f2', border: '#f43f5e', title: '#9f1239' },
-                        purple: { bg: '#faf5ff', border: '#a855f7', title: '#7e22ce' },
-                        teal:   { bg: '#f0fdfa', border: '#14b8a6', title: '#115e59' }
+                        amber:  { bg: '#fffbeb', border: '#f59e0b', title: '#92400e', titleDark: '#92400e', content: 'var(--text)', contentDark: 'var(--text)' },
+                        blue:   { bg: '#eff6ff', border: '#3b82f6', title: '#1e40af', titleDark: '#3b82f6', content: 'var(--text)', contentDark: 'var(--text)' },
+                        navy:   { bg: '#1a1a2e', border: '#fcec4a', title: '#ffffff', titleDark: '#ffffff', content: '#c8d0e0', contentDark: 'var(--text)' },
+                        green:  { bg: '#f0fdf4', border: '#22c55e', title: '#166534', titleDark: '#16a34a', content: 'var(--text)', contentDark: 'var(--text)' },
+                        rose:   { bg: '#fff1f2', border: '#f43f5e', title: '#9f1239', titleDark: '#e11d48', content: 'var(--text)', contentDark: 'var(--text)' },
+                        purple: { bg: '#faf5ff', border: '#a855f7', title: '#7e22ce', titleDark: '#9333ea', content: 'var(--text)', contentDark: 'var(--text)' },
+                        teal:   { bg: '#f0fdfa', border: '#14b8a6', title: '#115e59', titleDark: '#0d9488', content: 'var(--text)', contentDark: 'var(--text)' }
                     };
                     const p = PALETTE[block.color] || PALETTE.amber;
                     const isNavy = block.color === 'navy';
                     html += `<div class="kb-highlight kb-hb-${block.color}" style="background:${p.bg};border-left:4px solid ${p.border};padding:18px 20px;border-radius:12px;margin:20px 0;">
                         <div class="kb-hb-title" style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:${p.title};margin-bottom:10px;">${block.title || ''}</div>
-                        <div class="kb-hb-content" style="font-family:var(--font-body);font-size:0.9rem;color:${isNavy ? '#e2e8f0' : 'var(--text)'};line-height:1.8;">${block.content || ''}</div>
+                        <div class="kb-hb-content" style="font-family:var(--font-body);font-size:0.9rem;color:${isNavy ? p.content : p.content};line-height:1.8;">${block.content || ''}</div>
                     </div>`;
                     break;
                 }
@@ -1481,7 +1531,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const PALETTE = {
                             amber:  { bg: '#fffbeb', border: '#f59e0b', title: '#92400e' },
                             blue:   { bg: '#eff6ff', border: '#3b82f6', title: '#1e40af' },
-                            navy:   { bg: '#1d1d42', border: '#fcec4a', title: '#fcec4a' },
+                            navy:   { bg: '#1a1a2e', border: '#fcec4a', title: '#ffffff' },
                             green:  { bg: '#f0fdf4', border: '#22c55e', title: '#166534' },
                             rose:   { bg: '#fff1f2', border: '#f43f5e', title: '#9f1239' },
                             purple: { bg: '#faf5ff', border: '#a855f7', title: '#7e22ce' },
@@ -1492,7 +1542,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         html += `<div class="kb-card kb-card-${card.color}" style="background:${p.bg};border:1.5px solid ${p.border};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px;">
                             <div style="font-size:1.4rem;">${card.icon || ''}</div>
                             <div class="kb-card-title" style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:${p.title};">${card.title}</div>
-                            <div class="kb-card-content" style="font-family:var(--font-body);font-size:0.83rem;color:${isNavy ? '#cbd5e1' : 'var(--text-muted)'};line-height:1.7;">${card.content}</div>
+                            <div class="kb-card-content" style="font-family:var(--font-body);font-size:0.83rem;color:${isNavy ? '#a8b2c8' : 'var(--text-muted)'};line-height:1.7;">${card.content}</div>
                         </div>`;
                     });
                     html += `</div>`;
@@ -1572,6 +1622,126 @@ document.addEventListener('DOMContentLoaded', function() {
                         html += `</tr>`;
                     });
                     html += `</table></div>`;
+                    break;
+                }
+                case 'number-cards': {
+                    // For additionalSections with numberCards data
+                    if (block.numberCards) {
+                        html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:20px 0;">`;
+                        block.numberCards.forEach(card => {
+                            html += `<div style="background:var(--white);border:1.5px solid var(--yellow-strong);border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(252,236,74,0.15);">
+                                <div style="font-family:var(--font-display);font-weight:900;font-size:1.8rem;color:var(--navy);">${card.num}</div>
+                                <div style="font-family:var(--font-body);font-size:0.78rem;color:var(--text-muted);margin-top:6px;line-height:1.5;">${card.label}</div>
+                            </div>`;
+                        });
+                        html += `</div>`;
+                    }
+                    break;
+                }
+                case 'number-cards': {
+                    html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:20px 0;">`;
+                    (block.numberCards || []).forEach(card => {
+                        html += `<div style="background:var(--white);border:1.5px solid var(--yellow-strong);border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(252,236,74,0.15);">
+                            <div style="font-family:var(--font-display);font-weight:900;font-size:1.8rem;color:var(--navy);">${card.num}</div>
+                            <div style="font-family:var(--font-body);font-size:0.78rem;color:var(--text-muted);margin-top:6px;line-height:1.5;">${card.label}</div>
+                        </div>`;
+                    });
+                    html += `</div>`;
+                    break;
+                }
+                case 'vocab-grid': {
+                    // New vocabulary section with search + accordion
+                    const groups = block.groups || [];
+                    const groupId = 'vg-' + Math.random().toString(36).substr(2, 6);
+                    html += `
+                    <div class="vocab-section" data-vocab-group="${groupId}">
+                        <div class="vocab-search-wrap" style="margin-bottom:var(--space-lg);">
+                            <input class="vocab-search-input" id="vs-${groupId}" oninput="filterVocab('${groupId}')"
+                                placeholder="🔍 ค้นหาคำศัพท์..." type="text"
+                                style="width:100%;padding:12px 18px;border:1.5px solid var(--border);border-radius:var(--radius-full);font-family:var(--font-body);font-size:0.95rem;color:var(--text);background:var(--white);outline:none;transition:border-color 0.2s;">
+                            <div class="vocab-count" id="vc-${groupId}" style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);margin-top:8px;text-align:right;"></div>
+                        </div>
+                        <div class="vocab-categories" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--space-lg);">`;
+                    const cats = ['ทั้งหมด','กระทรวง','องค์กร','ศัพท์กฎหมาย'];
+                    const catColors = { 'ทั้งหมด': 'navy', 'กระทรวง': 'blue', 'องค์กร': 'green', 'ศัพท์กฎหมาย': 'amber' };
+                    cats.forEach((cat, ci) => {
+                        const col = catColors[cat] || 'blue';
+                        html += `<button class="vocab-cat-btn vocab-cat-active" data-cat="${cat}" onclick="filterVocabCat('${groupId}','${cat}',this)"
+                            style="padding:6px 16px;border-radius:var(--radius-full);font-family:var(--font-display);font-weight:700;font-size:0.8rem;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text-muted);transition:all 0.15s;">${cat}</button>`;
+                    });
+                    html += `</div><div class="vocab-accordion">`;
+                    groups.forEach((grp, gi) => {
+                        const grpId = groupId + '-g' + gi;
+                        html += `<div class="vocab-group" data-vocab-cat="${grp.category || 'ทั้งหมด'}" style="margin-bottom:var(--space-md);">
+                            <div class="vocab-group-header" onclick="toggleVocabGroup('${grpId}')"
+                                style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-md);cursor:pointer;user-select:none;transition:all 0.15s;margin-bottom:12px;">
+                                <div style="display:flex;align-items:center;gap:10px;">
+                                    <span style="font-size:1.1rem;">${grp.icon || '📁'}</span>
+                                    <span style="font-family:var(--font-display);font-weight:700;font-size:0.92rem;color:var(--text);">${grp.groupTitle}</span>
+                                    <span class="vocab-count-badge" style="background:var(--cream);color:var(--text-muted);font-family:var(--font-body);font-size:0.72rem;font-weight:600;padding:2px 8px;border-radius:99px;">${(grp.terms || []).length}</span>
+                                </div>
+                                <svg class="vocab-group-arrow" id="va-${grpId}" style="width:18px;height:18px;color:var(--text-muted);transition:transform 0.2s;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="vocab-group-body" id="vb-${grpId}" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;padding-left:2px;">
+                            ${(grp.terms || []).map(term => `
+                                <div class="vocab-card" data-vocab-text="${(term.term + ' ' + (term.def || '') + ' ' + (term.eng || '')).toLowerCase().replace(/<[^>]*>/g,'')}"
+                                    style="background:var(--white);border:1.5px solid var(--border-light);border-radius:12px;padding:14px 16px;transition:all 0.15s;cursor:default;">
+                                    <div style="display:flex;align-items:flex-start;gap:10px;">
+                                        <div style="flex:1;min-width:0;">
+                                            <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--text);margin-bottom:2px;">${term.term}</div>
+                                            ${term.eng ? `<div style="font-family:var(--font-body);font-size:0.72rem;color:var(--accent);font-weight:600;margin-bottom:6px;">${term.eng}</div>` : ''}
+                                            <div style="font-family:var(--font-body);font-size:0.83rem;color:var(--text-muted);line-height:1.65;">${term.def}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                            </div>
+                        </div>`;
+                    });
+                    html += `</div></div>`;
+                    // Add script for this vocab section
+                    html += `<script>
+                    function filterVocab(gid) {
+                        var q = document.getElementById('vs-' + gid).value.toLowerCase();
+                        var visible = 0;
+                        document.querySelectorAll('[data-vocab-group="' + gid + '"] .vocab-card').forEach(function(c) {
+                            var show = c.getAttribute('data-vocab-text').includes(q);
+                            c.style.display = show ? '' : 'none';
+                            if (show) visible++;
+                        });
+                        var countEl = document.getElementById('vc-' + gid);
+                        if (countEl) countEl.textContent = q ? visible + ' / ' + (document.querySelectorAll('[data-vocab-group="' + gid + '"] .vocab-card').length) + ' คำ' : '';
+                    }
+                    function filterVocabCat(gid, cat, btn) {
+                        document.querySelectorAll('[data-vocab-group="' + gid + '"] .vocab-cat-btn').forEach(function(b){b.classList.remove('vocab-cat-active');b.style.background='var(--white)';b.style.color='var(--text-muted)';b.style.borderColor='var(--border)';});
+                        btn.classList.add('vocab-cat-active');
+                        btn.style.background = 'var(--navy)';
+                        btn.style.color = '#fff';
+                        btn.style.borderColor = 'var(--navy)';
+                        document.querySelectorAll('[data-vocab-group="' + gid + '"] .vocab-group').forEach(function(g) {
+                            g.style.display = (cat === 'ทั้งหมด' || g.getAttribute('data-vocab-cat') === cat) ? '' : 'none';
+                        });
+                    }
+                    function toggleVocabGroup(gid) {
+                        var body = document.getElementById('vb-' + gid);
+                        var arrow = document.getElementById('va-' + gid);
+                        if (!body) return;
+                        var isOpen = body.style.display !== 'none';
+                        body.style.display = isOpen ? 'none' : '';
+                        if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+                    }
+                    // Init first group open
+                    document.querySelectorAll('[data-vocab-group="' + gid + '"] .vocab-group').forEach(function(g, i) {
+                        if (i > 0) {
+                            var gid2 = g.querySelector('.vocab-group-body');
+                            if (gid2) gid2.style.display = 'none';
+                        }
+                    });
+                    // Init cat button style
+                    document.querySelectorAll('[data-vocab-group="' + gid + '"] .vocab-cat-active').forEach(function(b){
+                        b.style.background='var(--navy)';b.style.color='#fff';b.style.borderColor='var(--navy)';
+                    });
+                    </script>`;
                     break;
                 }
                 default: break;

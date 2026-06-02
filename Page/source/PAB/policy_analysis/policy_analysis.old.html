@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>pab_knowledge | SlothMove PAB.</title>
+<title>policy_analysis | SlothMove PAB.</title>
 <meta content="" name="description"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Kanit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -341,24 +341,24 @@
 </div>
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
   <div class="bg-[color:var(--ddpm-yellow-soft)] border border-amber-200 rounded-xl p-4 text-center hover:shadow-md transition-all">
-    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">2550</div>
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">2566</div>
     <div class="text-xs font-sarabun text-slate-600 mt-1">ปีที่ประกาศใช้</div>
   </div>
   <div class="bg-[color:var(--ddpm-yellow-soft)] border border-amber-200 rounded-xl p-4 text-center hover:shadow-md transition-all">
-    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">6</div>
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">8</div>
     <div class="text-xs font-sarabun text-slate-600 mt-1">จำนวนหัวข้อ</div>
-  </div>
-  <div class="bg-[color:var(--ddpm-yellow-soft)] border border-amber-200 rounded-xl p-4 text-center hover:shadow-md transition-all">
-    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">18</div>
-    <div class="text-xs font-sarabun text-slate-600 mt-1">ศูนย์เขต</div>
   </div>
   <div class="bg-[color:var(--ddpm-yellow-soft)] border border-amber-200 rounded-xl p-4 text-center hover:shadow-md transition-all">
     <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">100</div>
     <div class="text-xs font-sarabun text-slate-600 mt-1">ข้อสอบ</div>
   </div>
   <div class="bg-[color:var(--ddpm-yellow-soft)] border border-amber-200 rounded-xl p-4 text-center hover:shadow-md transition-all">
-    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">2550</div>
-    <div class="text-xs font-sarabun text-slate-600 mt-1">ปี พ.ร.บ.</div>
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">3</div>
+    <div class="text-xs font-sarabun text-slate-600 mt-1">ระดับ</div>
+  </div>
+  <div class="bg-[color:var(--ddpm-yellow-soft)] border border-amber-200 rounded-xl p-4 text-center hover:shadow-md transition-all">
+    <div class="text-2xl font-black font-kanit text-[color:var(--ddpm-navy)]">4</div>
+    <div class="text-xs font-sarabun text-slate-600 mt-1">ทักษะ</div>
   </div>
 </div>
 </div>
@@ -377,9 +377,9 @@
 <section id="quiz">
 <div class="min-h-[70vh] flex items-center justify-center px-4 py-20" style="background:linear-gradient(135deg,var(--ddpm-navy) 0%,#262656 50%,#1a1a3e 100%)">
 <div class="text-center max-w-lg">
-  <div id="quiz-emoji" class="w-20 h-20 rounded-3xl bg-[color:var(--ddpm-yellow)] flex items-center justify-center text-4xl mx-auto mb-8 shadow-2xl">🚨</div>
+  <div id="quiz-emoji" class="w-20 h-20 rounded-3xl bg-[color:var(--ddpm-yellow)] flex items-center justify-center text-4xl mx-auto mb-8 shadow-2xl">📊</div>
   <h2 class="font-kanit font-black text-3xl text-white mb-3">ทำข้อสอบ</h2>
-  <p id="quiz-subtitle" class="font-sarabun text-slate-300 text-base mb-2 leading-relaxed">ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</p>
+  <p id="quiz-subtitle" class="font-sarabun text-slate-300 text-base mb-2 leading-relaxed">นักวิเคราะห์นโยบายและแผนปฏิบัติการ</p>
   <p id="quiz-desc" class="font-sarabun text-slate-400 text-sm mb-10">50 ข้อ · สุ่มตัวเลือก · เฉลยหลังตอบ · บันทึกคะแนน</p>
   <a id="quiz-link" href="#" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-kanit font-black text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-100" style="background:var(--ddpm-yellow);color:var(--ddpm-navy)">
     เริ่มทำข้อสอบ <span class="text-xl">→</span>
@@ -413,126 +413,121 @@
 
 <script>
 var CONTENT = {
-  topic: "pab_knowledge",
-  title: "ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
-  titleShort: "ความรู้ ปภ.",
-  emoji: "🚨",
-  year: "2565",
+  topic: "policy_analysis",
+  title: "นักวิเคราะห์นโยบายและแผนปฏิบัติการ",
+  titleShort: "วิเคราะห์นโยบายฯ",
+  emoji: "📊",
+  year: "",
   stats: {
-    chapters: 3,
+    chapters: 4,
     amendments: 0,
     vocabGroups: 0,
     quizCount: 100,
     sectionNumber: "4",
     sectionLabel: "ส่วนที่ 4"
   },
-  subtitle: "สรุปความรู้เกี่ยวกับ ปภ. กระทรวงมหาดไทย — โครงสร้าง ภารกิจ ค่านิยม ยุทธศาสตร์",
+  subtitle: "บทบาท ภารกิจ ทักษะ และสมรรถนะของนักวิเคราะห์นโยบายและแผนในราชการไทย",
   chapters: [
     {
       num: 1,
-      title: "โครงสร้างและภารกิจ ปภ.",
+      title: "บทบาทและภารกิจหลัก",
       emoji: "🏛️",
       body: [
-        { type: "p", text: "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.) สังกัด<strong>กระทรวงมหาดไทย</strong> จัดตั้งขึ้นเพื่อเป็นหน่วยงานหลักในการบริหารจัดการสาธารณภัยอย่างเป็นระบบ" },
-        { type: "heading", text: "โครงสร้างส่วนกลาง (18 หน่วยงาน)" },
+        { type: "p", text: "นักวิเคราะห์นโยบายและแผน คือ ตำแหน่งในส่วนราชการไทยที่มีบทบาทสำคัญในการขับเคลื่อนนโยบายภาครัฐ โดยทำงานในระดับกระทรวง ทบวง กรม หรือหน่วยงานของรัฐ" },
+        { type: "heading", text: "3 ภารกิจหลัก" },
         { type: "list", items: [
-          "สำนักผู้ตรวจราชการกรม",
-          "สำนักงานเลขานุการกรม",
-          "กองนโยบายป้องกันและบรรเทาสาธารณภัย",
-          "กองมาตรการป้องกันและบรรเทาสาธารณภัย",
-          "กองส่งเสริมการป้องกันสาธารณภัย",
-          "ศูนย์อำนวยการบรรเทาสาธารณภัย",
-          "ศูนย์เตือนภัยพิบัติแห่งชาติ",
-          "สำนักช่วยเหลือผู้ประสบภัย",
-          "สำนักวิจัยและความร่วมมือระหว่างประเทศ / กองบูรณาการความปลอดภัยทางถนน",
-          "กองการเจ้าหน้าที่ / กองคลัง / กองกฎหมาย / กองเผยแพร่ฯ",
-          "ศูนย์เทคโนโลยีสารสนเทศฯ / กลุ่มตรวจสอบฯ / กลุ่มพัฒนาระบบฯ / กลุ่มงานจริยธรรม",
-          "สถาบันพัฒนาบุคลากรด้านการป้องกันและบรรเทาสาธารณภัย"
-        ]},
-        { type: "heading", text: "ศูนย์ ปภ. เขต (ส่วนภูมิภาค) — 18 เขต" },
-        { type: "list", items: [
-          "<strong>เขต 1:</strong> ปทุมธานี | <strong>เขต 2:</strong> สุพรรณบุรี | <strong>เขต 3:</strong> ปราจีนบุรี | <strong>เขต 4:</strong> ประจวบคีรีขันธ์",
-          "<strong>เขต 5:</strong> นครราชสีมา | <strong>เขต 6:</strong> ขอนแก่น | <strong>เขต 7:</strong> อุบลราชธานี | <strong>เขต 8:</strong> กำแพงเพชร",
-          "<strong>เขต 9:</strong> พิษณุโลก | <strong>เขต 10:</strong> ลำปาง | <strong>เขต 11:</strong> สุราษฎร์ธานี | <strong>เขต 12:</strong> สงขลา",
-          "<strong>เขต 13:</strong> อุบลราชธานี | <strong>เขต 14:</strong> อุดรธานี | <strong>เขต 15:</strong> เชียงราย | <strong>เขต 16:</strong> ชัยนาท",
-          "<strong>เขต 17:</strong> จันทบุรี | <strong>เขต 18:</strong> ภูเก็ต"
-        ]},
-        { type: "heading", text: "ช่องทางการแจ้งเหตุ ปภ." },
-        { type: "list", items: [
-          "<strong>สายด่วน 199</strong>",
-          "<strong>Line ID:</strong> @DDPM_NEWS"
+          "<strong>การวิเคราะห์นโยบายสาธารณะ:</strong> ศึกษา วิจัย ประเมินผลกระทบ วิเคราะห์ข้อดีข้อเสีย จัดทำรายงาน",
+          "<strong>การวางแผนและจัดทำโครงการ:</strong> จัดทำแผนยุทธศาสตร์ แผนปฏิบัติการ ออกแบบโครงการ กำหนดตัวชี้วัด",
+          "<strong>การประสานงาน:</strong> ประสานหน่วยงานภาครัฐ/เอกชน สื่อสารนโยบายให้ประชาชนเข้าใจ"
         ]}
       ]
     },
     {
       num: 2,
-      title: "ค่านิยมองค์กร DDPM — DDPM SPIRIT",
-      emoji: "💡",
+      title: "ทักษะที่จำเป็น",
+      emoji: "🛠️",
       body: [
-        { type: "heading", text: "ค่านิยม 7 ตัวอักษร" },
+        { type: "heading", text: "ทักษะวิชาการ" },
         { type: "list", items: [
-          "<strong>S</strong> — SMART | <strong>D</strong> — Devote | <strong>D</strong> — Direct",
-          "<strong>M</strong> — Moral | <strong>P</strong> — Professional | <strong>I</strong> — Integrity",
-          "<strong>R</strong> — Responsibility | <strong>T</strong> — Teamwork"
+          "<strong>การวิเคราะห์ข้อมูล</strong> — ใช้สถิติและเครื่องมือวิเคราะห์",
+          "<strong>การเขียนรายงาน</strong> — เขียนเอกสารเชิงนโยบาย",
+          "<strong>การวิจัย</strong> — ออกแบบและดำเนินการวิจัย",
+          "<strong>การคิดเชิงวิเคราะห์</strong> — วิเคราะห์ปัญหาซับซ้อน"
         ]},
-        { type: "heading", text: "รายละเอียดค่านิยม" },
+        { type: "heading", text: "ทักษะการทำงาน" },
         { type: "list", items: [
-          "<strong>Professional:</strong> ทำงานอย่างมืออาชีพ เป็นระบบ พัฒนาตนเองต่อเนื่อง",
-          "<strong>Moral:</strong> มีธรรมาภิบาล ซื่อสัตย์ สุจริต",
-          "<strong>Integrity:</strong> มีความซื่อตรง ยึดมั่นในความถูกต้อง",
-          "<strong>Devote:</strong> อุทิศตนเพื่อประโยชน์ส่วนรวม"
+          "<strong>การจัดการโครงการ</strong> — วางแผนและควบคุมโครงการ",
+          "<strong>การประชุมและนำเสนอ</strong> — นำเสนอข้อมูลต่อผู้บริหาร",
+          "<strong>การใช้เทคโนโลยี</strong> — ใช้โปรแกรมวิเคราะห์ข้อมูล",
+          "<strong>การทำงานเป็นทีม</strong> — ประสานงานข้ามหน่วยงาน"
         ]}
       ]
     },
     {
       num: 3,
-      title: "ยุทธศาสตร์ ปภ. พ.ศ. 2565-2570",
-      emoji: "📋",
+      title: "สมรรถนะหลัก (Competencies)",
+      emoji: "💡",
       body: [
-        { type: "heading", text: "10 ประเด็นขับเคลื่อนงาน ปภ. ปีงบประมาณ 2565" },
         { type: "list", items: [
-          "การทบทวนปรับปรุงแผนการป้องกันและบรรเทาสาธารณภัยแห่งชาติและจังหวัด",
-          "การเสริมศักยภาพชุมชน (ระดับจังหวัด/อำเภอ)",
-          "การพัฒนาระบบงานดิจิทัล",
-          "การบูรณาการแผนงานและงบประมาณ",
-          "การสร้างเครือข่ายประชาคมอาเซียน"
+          "<strong>การคิดเชิงระบบ</strong> — มองภาพรวมและความเชื่อมโยง",
+          "<strong>การวิเคราะห์เชิงลึก</strong> — เจาะลึกปัญหาและหาสาเหตุที่แท้จริง",
+          "<strong>การวางแผนเชิงกลยุทธ์</strong> — วางแผนระยะยาวสอดคล้องนโยบาย",
+          "<strong>การสื่อสาร</strong> — สื่อสารข้อมูลซับซ้อนให้เข้าใจง่าย",
+          "<strong>การแก้ปัญหา</strong> — หาทางออกที่เหมาะสม"
+        ]}
+      ]
+    },
+    {
+      num: 4,
+      title: "ความท้าทายและเส้นทางความก้าวหน้า",
+      emoji: "📈",
+      body: [
+        { type: "heading", text: "ความท้าทายในการทำงาน" },
+        { type: "list", items: [
+          "<strong>ข้อมูลไม่ครบ</strong> — บางครั้งต้องตัดสินใจด้วยข้อมูลจำกัด",
+          "<strong>ความขัดแย้งของผลประโยชน์</strong> — Balance ระหว่างฝ่ายต่างๆ",
+          "<strong>การเปลี่ยนแปลงนโยบาย</strong> — นโยบายรัฐเปลี่ยนบ่อย ต้องปรับตัว",
+          "<strong>ความเร่งด่วน</strong> — งานบางอย่างต้องทำภายในเวลาจำกัด",
+          "<strong>การเข้าถึงข้อมูล</strong> — บางข้อมูลอยู่หลายหน่วยงาน"
         ]},
-        { type: "heading", text: "ยุทธศาสตร์หลัก 3 ยุทธศาสตร์" },
+        { type: "heading", text: "เส้นทางความก้าวหน้า" },
         { type: "list", items: [
-          "<strong>ยุทธศาสตร์ที่ 1:</strong> พัฒนาระบบบริหารจัดการที่มีประสิทธิภาพ",
-          "<strong>ยุทธศาสตร์ที่ 2:</strong> พัฒนาระบบงานดิจิทัลและเทคโนโลยี",
-          "<strong>ยุทธศาสตร์ที่ 3:</strong> เสริมสร้างความเข้มแข็งหน่วยงานระดับพื้นที่ (จังหวัด/อำเภอ/อปท.)"
+          "นักวิเคราะห์นโยบายและแผน (ระดับ 5)",
+          "→ เจ้าหน้าที่วิเคราะห์นโยบายอาวุโส (ระดับ 6)",
+          "→ ผู้อำนวยการกอง/ศูนย์ (ระดับ 7)",
+          "→ รองหัวหน้าส่วนราชการ (ระดับ 8)",
+          "→ หัวหน้าส่วนราชการ/ผู้บริหารระดับสูง"
         ]}
       ]
     }
   ],
 
   outline: [
-    { num: 1, title: "โครงสร้างและภารกิจ ปภ.", emoji: "🏛️" },
-    { num: 2, title: "ค่านิยม DDPM SPIRIT", emoji: "💡" },
-    { num: 3, title: "ยุทธศาสตร์ ปภ. 2565-2570", emoji: "📋" }
+    { num: 1, title: "บทบาทและภารกิจหลัก", emoji: "🏛️" },
+    { num: 2, title: "ทักษะที่จำเป็น", emoji: "🛠️" },
+    { num: 3, title: "สมรรถนะหลัก", emoji: "💡" },
+    { num: 4, title: "ความท้าทายและเส้นทางความก้าวหน้า", emoji: "📈" }
   ],
 
   glossary: [
-    { icon:'🚨', term:'ปภ. (DDPM)', thai:'กรมป้องกันและบรรเทาสาธารณภัย', def:'หน่วยงานหลักในการจัดการสาธารณภัย สังกัดกระทรวงมหาดไทย', tag:'องค์กร' },
-    { icon:'🏛️', term:'ศูนย์ ปภ. เขต', thai:'ศูนย์ป้องกันและบรรเทาสาธารณภัยเขต', def:'หน่วยงานในส่วนภูมิภาค 18 เขตทั่วประเทศ', tag:'โครงสร้าง' },
-    { icon:'📋', term:'DDPM SPIRIT', thai:'ค่านิยม 7 ตัวอักษร', def:'S=Smart, D=Devote, D=Direct, M=Moral, P=Professional, I=Integrity, R=Responsibility, T=Teamwork', tag:'ค่านิยม' },
-    { icon:'📞', term:'สายด่วน 199', thai:'หมายเลขแจ้งเหตุ ปภ.', def:'สายด่วนสำหรับแจ้งเหตุและสื่อสารข้อมูล ปภ.', tag:'ช่องทาง' },
-    { icon:'💻', term:'@DDPM_NEWS', thai:'Line ID ปภ.', def:'ช่องทาง Line สำหรับรับข่าวสารและแจ้งเหตุ', tag:'ช่องทาง' }
+    { icon:'📊', term:'Policy Analysis', thai:'การวิเคราะห์นโยบาย', def:'การศึกษา วิจัย และประเมินผลนโยบายเพื่อสนับสนุนการตัดสินใจ', tag:'งานหลัก' },
+    { icon:'📋', term:'แผนยุทธศาสตร์', thai:'ยุทธศาสตร์องค์กร', def:'แผนระยะยาวที่กำหนดทิศทางและเป้าหมายของหน่วยงาน', tag:'งานหลัก' },
+    { icon:'📈', term:'แผนปฏิบัติการ', thai:'แผนปฏิบัติการประจำปี', def:'แผนที่แปลงนโยบายเป็นแผนปฏิบัติรายปี', tag:'งานหลัก' },
+    { icon:'🎯', term:'ตัวชี้วัด', thai:'Key Performance Indicators', def:'มาตรฐานวัดผลสำเร็จของโครงการหรือนโยบาย', tag:'งานหลัก' },
+    { icon:'💡', term:'การคิดเชิงระบบ', thai:'Systems Thinking', def:'การมองภาพรวมและความเชื่อมโยงของปัจจัยต่างๆ', tag:'ทักษะ' },
+    { icon:'🔄', term:'การประเมินผล', thai:'Policy Evaluation', def:'การวัดผลสำเร็จและผลกระทบของนโยบาย', tag:'งานหลัก' }
   ],
 
   tips: [
-    "<strong>ปภ.</strong> สังกัด <strong>กระทรวงมหาดไทย</strong>",
-    "<strong>18 ศูนย์เขต</strong> — เขต 1 ปทุมธานี | เขต 18 ภูเก็ต",
-    "<strong>สายด่วน ปภ.</strong> = <strong>199</strong>",
-    "<strong>Line ID</strong> = <strong>@DDPM_NEWS</strong>",
-    "<strong>DDPM SPIRIT</strong> = S D D M P I R T (7 ตัวอักษร)",
-    "<strong>ยุทธศาสตร์ ปภ. 3 ยุทธศาสตร์</strong> → บริหารจัดการ | ดิจิทัล | พื้นที่",
-    "<strong>เขต 18 ภูเก็ต</strong> เป็นเขตสุดท้าย",
-    "<strong>ศูนย์เตือนภัยพิบัติแห่งชาติ</strong> สังกัด ปภ."
+    "<strong>นักวิเคราะห์นโยบาย</strong> = สมองขององค์กรราชการ",
+    "<strong>3 ภารกิจหลัก:</strong> วิเคราะห์นโยบาย | วางแผน/โครงการ | ประสานงาน",
+    "<strong>สมรรถนะ 5 ด้าน:</strong> คิดเชิงระบบ | วิเคราะห์เชิงลึก | วางแผนกลยุทธ์ | สื่อสาร | แก้ปัญหา",
+    "<strong>ทักษะหลัก:</strong> วิเคราะห์ข้อมูล | เขียนรายงาน | ใช้เทคโนโลยี | ทำงานเป็นทีม",
+    "<strong>ความท้าทาย:</strong> ข้อมูลไม่ครบ | ผลประโยชน์ขัดแย้ง | นโยบายเปลี่ยนบ่อย",
+    "<strong>เส้นทางความก้าวหน้า:</strong> นักวิเคราะห์ → อาวุโส → ผอ.กอง → รองหัวหน้า → ผู้บริหารสูง"
   ],
 
-  quizFile: "Quiz_pab_knowledge.html"
+  quizFile: "Quiz_policy_analysis.html"
 };;
 function showSection(id) {
   document.querySelectorAll('section').forEach(function(s){s.classList.remove('active');});

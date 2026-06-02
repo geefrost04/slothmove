@@ -1,4 +1,4 @@
-const QUESTIONS = [
+var QUESTIONS = [
   {
     "question": "พระราชบัญญัติระเบียบข้าราชการพลเรือน พ.ศ. 2551 ให้ไว้ ณ วันที่เท่าใด",
     "choices": [

@@ -13,10 +13,8 @@
     <style>
         /* ============================================================
            THEME — Warm PAB Editorial
-           Warm editorial palette + PAB Yellow identity
            ============================================================ */
         :root {
-            /* Warm editorial palette */
             --cream: #faf8f4;
             --cream-warm: #f5f0e8;
             --white: #ffffff;
@@ -25,35 +23,24 @@
             --text-light: #a09a8c;
             --border: #e5e0d8;
             --border-light: #f0ebe4;
-
-            /* PAB Yellow — primary identity */
             --yellow: #fcec4a;
             --yellow-strong: #ddcf00;
             --yellow-soft: #fffdf0;
-
-            /* Warm accent (editorial amber) */
             --accent: #c97d3a;
             --accent-warm: #e8a87c;
             --accent-deep: #8b5e3c;
             --accent-bg: #fdf3e8;
             --success: #3d8c6c;
             --success-bg: #e8f5ef;
-
-            /* Navy for dark elements */
             --navy: #1a1a2e;
             --navy-mid: #2d2d4a;
-
-            /* Shadows */
+            --footer-bg: #1a1a2e;
             --shadow-sm: 0 1px 3px rgba(26,26,46,0.06), 0 1px 2px rgba(26,26,46,0.04);
             --shadow-md: 0 4px 16px rgba(26,26,46,0.08), 0 2px 6px rgba(26,26,46,0.04);
             --shadow-lg: 0 12px 40px rgba(26,26,46,0.10), 0 4px 12px rgba(26,26,46,0.05);
             --shadow-xl: 0 24px 64px rgba(26,26,46,0.12), 0 8px 24px rgba(26,26,46,0.06);
-
-            /* Typography */
             --font-display: 'Kanit', sans-serif;
             --font-body: 'Sarabun', sans-serif;
-
-            /* Motion */
             --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
             --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -61,16 +48,12 @@
             --duration-normal: 300ms;
             --duration-slow: 600ms;
             --duration-slower: 900ms;
-
-            /* Spacing scale */
             --space-xs: 4px;
             --space-sm: 8px;
             --space-md: 16px;
             --space-lg: 32px;
             --space-xl: 64px;
             --space-2xl: 128px;
-
-            /* Border radius */
             --radius-sm: 4px;
             --radius-md: 8px;
             --radius-lg: 16px;
@@ -87,6 +70,7 @@
             --border: #2d2d4a;
             --border-light: #252540;
             --accent-bg: #252535;
+            --footer-bg: #0a0a14;
         }
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
@@ -99,11 +83,11 @@
                 --border: #2d2d4a;
                 --border-light: #252540;
                 --accent-bg: #252535;
+                --footer-bg: #0a0a14;
             }
         }
         *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-body);
             background: var(--cream);
@@ -120,26 +104,20 @@
         img { max-width: 100%; display: block; }
         a { color: inherit; text-decoration: none; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+        @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
+        @media (max-width: 768px) { .container { padding: 0 var(--space-md); } }
 
         /* ============================================================
-           CONTAINER
-           ============================================================ */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-        @media (max-width: 768px) {
-            .container { padding: 0 var(--space-md); }
-        }
-
-        /* ============================================================
-           NAVIGATION — PAB Edition
+           NAVIGATION
            ============================================================ */
         .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             background: var(--white);
             border-bottom: 1px solid var(--border-light);
             backdrop-filter: blur(20px);
@@ -148,24 +126,15 @@
         }
         .nav.scrolled { box-shadow: var(--shadow-md); }
         .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-            height: 68px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--space-lg);
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 var(--space-lg); height: 68px;
+            display: flex; align-items: center;
+            justify-content: space-between; gap: var(--space-lg);
         }
         .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--text);
-            letter-spacing: -0.02em;
+            display: flex; align-items: center; gap: var(--space-sm);
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1.2rem; color: var(--text); letter-spacing: -0.02em;
             transition: opacity var(--duration-fast) var(--ease-smooth);
         }
         .nav-logo:hover { opacity: 0.8; }
@@ -175,42 +144,29 @@
         .nav-logo .logo-sub { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
         .nav-actions { display: flex; align-items: center; gap: var(--space-xs); }
         .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: var(--radius-full);
-            border: 1.5px solid var(--border);
-            background: var(--white);
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 0.82rem; color: var(--text-muted);
+            padding: 8px 16px; border-radius: var(--radius-full);
+            border: 1.5px solid var(--border); background: var(--white);
             transition: all var(--duration-fast) var(--ease-smooth);
         }
         .nav-btn:hover { border-color: var(--accent); color: var(--text); background: var(--accent-bg); transform: translateY(-1px); }
         .nav-btn-accent {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.82rem;
-            color: var(--navy);
-            background: var(--yellow);
-            padding: 8px 18px;
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 0.82rem; color: var(--navy);
+            background: var(--yellow); padding: 8px 18px;
             border-radius: var(--radius-full);
             transition: all var(--duration-fast) var(--ease-bounce);
             box-shadow: 0 2px 8px rgba(220,207,0,0.3);
         }
         .nav-btn-accent:hover { background: var(--yellow-strong); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(220,207,0,0.35); }
         .nav-fb {
-            width: 38px; height: 38px;
-            border-radius: var(--radius-md);
+            width: 38px; height: 38px; border-radius: var(--radius-md);
             border: 1.5px solid var(--border);
             display: flex; align-items: center; justify-content: center;
-            color: #1877F2;
-            background: var(--white);
+            color: #1877F2; background: var(--white);
             transition: all var(--duration-fast) var(--ease-smooth);
         }
         .nav-fb:hover { border-color: #1877F2; background: #e7f0fe; transform: translateY(-1px); }
@@ -218,7 +174,6 @@
         .nav-hamburger:hover { background: var(--cream-warm); }
         .mobile-menu { display: none; background: var(--white); border-top: 1px solid var(--border-light); padding: var(--space-md); }
         .mobile-menu.active { display: block; animation: slideDown var(--duration-normal) var(--ease-out); }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
         .mobile-menu a { display: block; padding: 12px 16px; font-family: var(--font-display); font-weight: 500; font-size: 0.9rem; color: var(--text-muted); border-radius: var(--radius-md); }
         .mobile-menu a:hover { background: var(--cream-warm); color: var(--text); }
         .mobile-menu .mobile-cta { display: block; text-align: center; margin-top: var(--space-sm); padding: 14px; background: var(--navy); color: #fff; font-weight: 700; border-radius: var(--radius-lg); font-family: var(--font-display); }
@@ -229,42 +184,30 @@
         }
 
         /* ============================================================
-           HERO SECTION — Warm Editorial PAB
+           HERO
            ============================================================ */
         .hero {
             position: relative;
             min-height: 92vh;
-            display: flex;
-            align-items: center;
+            display: flex; align-items: center;
             overflow: hidden;
             background: var(--cream);
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
             scroll-margin-top: 72px;
         }
-
-        /* Warm background atmosphere */
         .hero::before {
             content: '';
-            position: absolute;
-            top: -15%;
-            right: -8%;
-            width: 550px;
-            height: 550px;
+            position: absolute; top: -15%; right: -8%;
+            width: 550px; height: 550px;
             background: radial-gradient(ellipse, rgba(220,207,0,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
         .hero::after {
             content: '';
-            position: absolute;
-            bottom: -8%;
-            left: -4%;
-            width: 380px;
-            height: 380px;
+            position: absolute; bottom: -8%; left: -4%;
+            width: 380px; height: 380px;
             background: radial-gradient(ellipse, rgba(201,125,58,0.06) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .hero-inner {
             display: grid;
             grid-template-columns: 1fr auto;
@@ -273,103 +216,65 @@
             padding: var(--space-2xl) 0;
             width: 100%;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Staggered entrance */
+        .hero-content { position: relative; z-index: 1; }
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 0.68rem;
-            text-transform: uppercase;
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-display); font-weight: 600;
+            font-size: 0.68rem; text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--accent);
-            background: var(--accent-bg);
+            color: var(--accent); background: var(--accent-bg);
             border: 1px solid rgba(201,125,58,0.2);
-            padding: 6px 14px;
-            border-radius: var(--radius-full);
+            padding: 6px 14px; border-radius: var(--radius-full);
             margin-bottom: var(--space-lg);
             animation: fadeUp var(--duration-slower) var(--ease-out) 0ms both;
         }
         .hero-badge-dot {
             width: 6px; height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
+            background: var(--accent); border-radius: 50%;
             animation: pulse 2s ease infinite;
         }
-        @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .hero-title {
-            font-family: var(--font-display);
-            font-weight: 900;
+            font-family: var(--font-display); font-weight: 900;
             font-size: clamp(2.2rem, 5.5vw, 4.2rem);
-            line-height: 1.08;
-            letter-spacing: -0.03em;
+            line-height: 1.08; letter-spacing: -0.03em;
             color: var(--text);
             margin-bottom: var(--space-md);
             animation: fadeUp var(--duration-slower) var(--ease-out) 100ms both;
         }
-        .hero-title .hl-yellow {
-            color: var(--yellow-strong);
-            position: relative;
-        }
+        .hero-title .hl-yellow { color: var(--yellow-strong); position: relative; }
         .hero-title .hl-yellow::after {
-            content: '';
-            position: absolute;
+            content: ''; position: absolute;
             left: 0; bottom: 2px;
             width: 100%; height: 5px;
             background: linear-gradient(90deg, rgba(220,207,0,0.35), transparent);
             border-radius: 2px;
         }
         .hero-title .hl-sub {
-            display: block;
-            font-size: 0.42em;
-            font-weight: 600;
-            letter-spacing: 0.02em;
+            display: block; font-size: 0.42em;
+            font-weight: 600; letter-spacing: 0.02em;
             color: var(--text-muted);
             margin-bottom: 8px;
         }
         .hero-desc {
             font-family: var(--font-body);
             font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-            color: var(--text-muted);
-            line-height: 1.75;
+            color: var(--text-muted); line-height: 1.75;
             max-width: 500px;
             margin: 0 auto var(--space-xl);
             animation: fadeUp var(--duration-slower) var(--ease-out) 200ms both;
         }
         .hero-desc strong { color: var(--text); font-weight: 600; }
-
-        /* CTA buttons */
         .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md);
+            display: flex; flex-wrap: wrap; gap: var(--space-md);
             margin-bottom: var(--space-xl);
             animation: fadeUp var(--duration-slower) var(--ease-out) 300ms both;
         }
         .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--navy);
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 1rem; color: var(--navy);
             background: var(--yellow);
-            padding: 16px 36px;
-            border-radius: var(--radius-full);
+            padding: 16px 36px; border-radius: var(--radius-full);
             transition: all var(--duration-fast) var(--ease-bounce);
             box-shadow: var(--shadow-md);
             letter-spacing: 0.01em;
@@ -379,36 +284,20 @@
             box-shadow: var(--shadow-lg);
             background: var(--yellow-strong);
         }
-        .btn-primary:active {
-            transform: translateY(-1px) scale(0.98);
-            box-shadow: var(--shadow-sm);
-        }
+        .btn-primary:active { transform: translateY(-1px) scale(0.98); box-shadow: var(--shadow-sm); }
         .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--text);
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 1rem; color: var(--text);
             background: var(--white);
-            padding: 16px 36px;
-            border-radius: var(--radius-full);
+            padding: 16px 36px; border-radius: var(--radius-full);
             border: 1.5px solid var(--border);
             transition: all var(--duration-fast) var(--ease-bounce);
         }
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
         .btn-secondary:active { transform: translateY(0); }
-
-        /* Stats */
         .hero-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md);
+            display: flex; flex-wrap: wrap; gap: var(--space-md);
             animation: fadeUp var(--duration-slower) var(--ease-out) 400ms both;
         }
         .hero-stat {
@@ -421,28 +310,20 @@
         }
         .hero-stat:hover { border-color: var(--yellow-strong); transform: translateY(-2px); box-shadow: var(--shadow-md); }
         .hero-stat-num {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--text);
-            line-height: 1;
-            margin-bottom: 4px;
+            font-family: var(--font-display); font-weight: 900;
+            font-size: 1.5rem; color: var(--text);
+            line-height: 1; margin-bottom: 4px;
         }
         .hero-stat-num.yellow { color: var(--yellow-strong); }
         .hero-stat-num.white { color: var(--text); }
         .hero-stat-label {
             font-family: var(--font-body);
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+            font-size: 0.65rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.08em;
             color: var(--text-light);
         }
-
-        /* Mascot / logo area */
         .hero-mascot {
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
             animation: fadeUp var(--duration-slower) var(--ease-out) 200ms both;
         }
         .hero-mascot img {
@@ -452,8 +333,6 @@
             transition: transform var(--duration-slow) var(--ease-bounce);
         }
         .hero-mascot img:hover { transform: translateY(-8px) scale(1.03); }
-
-        /* Decorative accent ring */
         .hero-mascot::before {
             content: '';
             position: absolute;
@@ -463,34 +342,24 @@
             border-radius: 50%;
             opacity: 0.2;
         }
-
-        /* Scroll indicator */
         .hero-scroll {
             position: absolute;
-            bottom: 28px;
-            left: 50%;
+            bottom: 28px; left: 50%;
             transform: translateX(-50%);
             z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 8px;
             color: var(--text-light);
             font-family: var(--font-display);
-            font-size: 0.6rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+            font-size: 0.6rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.12em;
             animation: fadeUp var(--duration-slower) var(--ease-out) 600ms both;
         }
         .hero-scroll-line {
-            width: 1px;
-            height: 36px;
+            width: 1px; height: 36px;
             background: linear-gradient(to bottom, var(--yellow-strong), transparent);
             animation: scrollLine 2.5s ease infinite;
         }
-        @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
-
         @media (max-width: 900px) {
             .hero-inner {
                 grid-template-columns: 1fr !important;
@@ -500,10 +369,9 @@
             }
             .hero-desc { margin: 0 auto var(--space-lg); }
             .hero-actions { justify-content: center; flex-wrap: wrap; }
-            .hero-stats { justify-content: center; }
+            .hero-stats { justify-content: center; flex-wrap: wrap; }
             .hero-mascot { order: -1; margin-bottom: var(--space-md); }
             .hero-mascot img { width: 180px; margin: 0 auto; }
-            .hero-stats { flex-wrap: wrap; }
         }
 
         /* ============================================================
@@ -511,43 +379,30 @@
            ============================================================ */
         .course-section {
             background: var(--cream);
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
             scroll-margin-top: 72px;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             position: relative;
         }
-
-        /* Section header */
         .section-header {
             padding: var(--space-lg) var(--space-lg) var(--space-md);
-            display: flex;
-            align-items: center;
-            gap: 14px;
+            display: flex; align-items: center; gap: 14px;
             background: var(--white);
             border-bottom: 1px solid var(--border-light);
-            flex-shrink: 0;
-            position: relative;
+            flex-shrink: 0; position: relative;
         }
         .section-header::after {
             content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
+            position: absolute; bottom: 0; left: 0; right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--yellow-strong), transparent);
             opacity: 0.4;
         }
         .section-part-icon {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             border-radius: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-weight: 900;
             font-size: 1.4rem;
             flex-shrink: 0;
             box-shadow: var(--shadow-sm);
@@ -556,89 +411,55 @@
         .section-part-icon.part2 { background: var(--navy); color: var(--yellow-strong); }
         .section-header-info { flex: 1; }
         .section-header-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            display: inline-flex; align-items: center; gap: 6px;
             font-family: var(--font-display);
-            font-size: 0.6rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            background: var(--accent-bg);
+            font-size: 0.6rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--accent); background: var(--accent-bg);
             border: 1px solid rgba(201,125,58,0.3);
-            padding: 3px 10px;
-            border-radius: var(--radius-full);
+            padding: 3px 10px; border-radius: var(--radius-full);
             margin-bottom: 5px;
         }
         .section-header-title {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.05rem;
-            color: var(--text);
-            line-height: 1.25;
-            margin-bottom: 3px;
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1.05rem; color: var(--text);
+            line-height: 1.25; margin-bottom: 3px;
         }
         .section-header-sub {
             font-family: var(--font-body);
-            font-size: 0.75rem;
-            color: var(--text-muted);
+            font-size: 0.75rem; color: var(--text-muted);
             line-height: 1.4;
         }
         .section-header-count {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.68rem;
-            color: var(--text-light);
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 0.68rem; color: var(--text-light);
             background: var(--cream);
             border: 1px solid var(--border);
-            padding: 5px 12px;
-            border-radius: var(--radius-full);
-            white-space: nowrap;
-            flex-shrink: 0;
+            padding: 5px 12px; border-radius: var(--radius-full);
+            white-space: nowrap; flex-shrink: 0;
         }
-
-        /* Category filters */
         .category-filters {
             padding: 10px var(--space-lg);
-            display: flex;
-            gap: var(--space-sm);
+            display: flex; gap: var(--space-sm);
             background: var(--white);
             border-bottom: 1px solid var(--border-light);
-            flex-shrink: 0;
-            flex-wrap: wrap;
+            flex-shrink: 0; flex-wrap: wrap;
         }
         .filter-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.72rem;
-            color: var(--text-muted);
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 0.72rem; color: var(--text-muted);
             background: var(--cream);
             border: 1.5px solid var(--border);
-            padding: 6px 14px;
-            border-radius: var(--radius-full);
+            padding: 6px 14px; border-radius: var(--radius-full);
             cursor: pointer;
             transition: all var(--duration-fast) var(--ease-smooth);
         }
         .filter-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
         .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-        .filter-btn .filter-count {
-            font-size: 0.6rem;
-            font-weight: 600;
-            background: var(--cream-warm);
-            padding: 2px 6px;
-            border-radius: var(--radius-full);
-        }
+        .filter-btn .filter-count { font-size: 0.6rem; font-weight: 600; background: var(--cream-warm); padding: 2px 6px; border-radius: var(--radius-full); }
         .filter-btn.active .filter-count { background: rgba(255,255,255,0.2); }
-
-        /* Course grid */
-        .course-grid-wrap {
-            padding: var(--space-md) var(--space-lg);
-            flex: 1;
-        }
+        .course-grid-wrap { padding: var(--space-md) var(--space-lg); flex: 1; }
         .course-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -647,25 +468,21 @@
         @media (max-width: 1100px) { .course-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 700px) { .course-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .course-grid { grid-template-columns: 1fr; } }
-
-        /* Course card */
         .course-card {
             width: 100%;
             background: var(--white);
-            border-radius: var(--radius-lg);
-            border: 1.5px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
+            border-radius: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all var(--duration-normal) var(--ease-bounce);
-            cursor: pointer;
-            text-decoration: none;
+            display: flex; flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; text-decoration: none;
         }
         .course-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(220,207,0,0.4);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: transparent;
         }
         .course-card-top {
             height: 3px;
@@ -674,8 +491,7 @@
         .course-card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
         .course-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
         .course-card-icon {
-            width: 36px; height: 36px;
-            border-radius: var(--radius-md);
+            width: 36px; height: 36px; border-radius: var(--radius-md);
             background: var(--cream-warm);
             display: flex; align-items: center; justify-content: center;
             font-size: 1rem;
@@ -685,117 +501,75 @@
         .course-card:hover .course-card-icon { background: var(--yellow); }
         .course-card-cat {
             font-family: var(--font-display);
-            font-size: 0.52rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            background: var(--accent-bg);
-            color: var(--accent);
+            font-size: 0.52rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            background: var(--accent-bg); color: var(--accent);
             border: 1px solid rgba(201,125,58,0.3);
-            padding: 2px 6px;
-            border-radius: var(--radius-full);
+            padding: 2px 6px; border-radius: var(--radius-full);
             flex-shrink: 0;
         }
         .course-card-title {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 0.78rem;
-            color: var(--text);
-            line-height: 1.3;
-            margin-bottom: 3px;
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 0.78rem; color: var(--text);
+            line-height: 1.3; margin-bottom: 3px;
         }
         .course-card-desc {
             font-family: var(--font-body);
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            flex: 1;
-            margin-bottom: 8px;
+            font-size: 0.68rem; color: var(--text-muted);
+            line-height: 1.4; flex: 1; margin-bottom: 8px;
         }
         .course-card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 8px;
-            border-top: 1px solid var(--border-light);
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 8px; border-top: 1px solid var(--border-light);
         }
         .course-card-free {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.62rem;
-            color: var(--success);
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 0.62rem; color: var(--success);
+            display: flex; align-items: center; gap: 4px;
         }
         .course-card-cta {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.65rem;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 0.65rem; color: var(--accent);
+            display: flex; align-items: center; gap: 4px;
             transition: all 0.15s var(--ease-bounce);
         }
         .course-card:hover .course-card-cta { color: var(--yellow-strong); gap: 5px; }
 
-
         /* ============================================================
-           DONATE + FOOTER COMBINED SECTION
+           DONATE + FOOTER
            ============================================================ */
-        .donate-footer-section {
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
+        .donate-section {
             scroll-margin-top: 72px;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             background: var(--cream-warm);
             position: relative;
         }
-
-        /* --- Donate area --- */
-        .df-donate {
-            flex: 1;
-            display: flex;
-            align-items: stretch;
-        }
-        .df-donate-inner {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
+        .df-donate { flex: 1; display: flex; align-items: stretch; }
+        .df-donate-inner { flex: 1; display: flex; flex-direction: column; }
         .df-top-bar {
             height: 3px;
             background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-strong) 50%, var(--accent) 100%);
         }
         .df-donate-content {
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
             padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 5vw, 2rem);
-            text-align: center;
-            position: relative;
+            text-align: center; position: relative;
         }
         .df-mascot-wrap {
-            width: 72px;
-            height: 72px;
+            width: 72px; height: 72px;
             background: var(--white);
             border-radius: 50%;
             padding: 6px;
             box-shadow: var(--shadow-md), 0 0 0 3px var(--yellow-soft);
             margin-bottom: var(--space-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
         .df-mascot { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
         .df-title {
-            font-family: var(--font-display);
-            font-weight: 900;
+            font-family: var(--font-display); font-weight: 900;
             font-size: clamp(1.4rem, 4vw, 2.4rem);
             color: var(--text);
             margin-bottom: var(--space-sm);
@@ -805,8 +579,7 @@
         .df-desc {
             font-family: var(--font-body);
             font-size: clamp(0.85rem, 2vw, 1rem);
-            color: var(--text-muted);
-            line-height: 1.7;
+            color: var(--text-muted); line-height: 1.7;
             margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
             max-width: 480px;
         }
@@ -832,14 +605,11 @@
         }
         .qr-note {
             font-family: var(--font-body);
-            font-size: 0.68rem;
-            color: var(--text-light);
+            font-size: 0.68rem; color: var(--text-light);
             text-align: center;
         }
-
-        /* --- Footer --- */
         .df-footer {
-            background: var(--navy);
+            background: var(--footer-bg);
             color: var(--cream);
             padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 5vw, 2.5rem);
             position: relative;
@@ -860,17 +630,13 @@
             margin: 0 auto;
         }
         .df-footer-brand {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-md);
         }
         .df-logo { width: 36px; height: 36px; border-radius: var(--radius-md); object-fit: contain; }
         .df-brand-text { display: flex; flex-direction: column; gap: 2px; }
         .df-brand-name {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1rem;
-            color: var(--cream);
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1rem; color: var(--cream);
         }
         .df-brand-name .accent { color: var(--yellow-strong); }
         .df-brand-tagline {
@@ -879,23 +645,16 @@
             color: rgba(253,247,233,0.5);
         }
         .df-footer-actions {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
+            display: flex; align-items: center; gap: var(--space-sm);
             flex-wrap: wrap;
         }
         .df-fb-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.75rem;
-            color: var(--cream);
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: 0.75rem; color: var(--cream);
             background: rgba(255,255,255,0.08);
             border: 1.5px solid rgba(255,255,255,0.15);
-            padding: 8px 16px;
-            border-radius: var(--radius-full);
+            padding: 8px 16px; border-radius: var(--radius-full);
             transition: all var(--duration-fast) var(--ease-smooth);
             text-decoration: none;
         }
@@ -906,11 +665,8 @@
         }
         .df-fb-btn svg { color: #1877F2; }
         .df-back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-family: var(--font-display);
-            font-weight: 700;
+            display: inline-flex; align-items: center; gap: 5px;
+            font-family: var(--font-display); font-weight: 700;
             font-size: 0.75rem;
             color: rgba(253,247,233,0.6);
             text-decoration: none;
@@ -919,16 +675,13 @@
         }
         .df-back-btn:hover { color: var(--yellow-strong); gap: 7px; }
         .df-footer-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
             gap: var(--space-md);
             margin-top: var(--space-md);
             padding-top: var(--space-md);
             border-top: 1px solid rgba(255,255,255,0.08);
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: auto; margin-right: auto;
         }
         .df-copy {
             font-family: var(--font-body);
@@ -942,43 +695,26 @@
         }
 
         /* ============================================================
-           THEME TOGGLE — iOS-style Switch
+           THEME TOGGLE
            ============================================================ */
         .theme-toggle {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 9999;
-            width: 60px;
-            height: 34px;
-            background: var(--border);
-            border: none;
-            border-radius: 17px;
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+            width: 60px; height: 34px;
+            background: var(--border); border: none;
+            border-radius: 17px; cursor: pointer; padding: 0;
+            display: flex; align-items: center; justify-content: space-between;
             overflow: hidden;
             box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(0,0,0,0.08);
             transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             -webkit-tap-highlight-color: transparent;
         }
-        .theme-toggle.dark-mode {
-            background: var(--navy);
-            box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(255,255,255,0.15);
-        }
+        .theme-toggle.dark-mode { background: var(--navy); box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(255,255,255,0.15); }
         .toggle-knob {
-            position: absolute;
-            width: 26px;
-            height: 26px;
-            background: #fff;
-            border-radius: 50%;
+            position: absolute; width: 26px; height: 26px;
+            background: #fff; border-radius: 50%;
             box-shadow: 0 1px 4px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.12);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
         .toggle-icon { font-size: 14px; }
         .toggle-icon.sun { color: #fcec4a; position: absolute; left: 8px; }
@@ -1050,24 +786,7 @@
                             ☕ สนับสนุนโปรเจกต์
                         </a>
                     </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <div class="hero-stat-num">2</div>
-                            <div class="hero-stat-label">ส่วน</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-num white">20</div>
-                            <div class="hero-stat-label">วิชา</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-num yellow">1,500+</div>
-                            <div class="hero-stat-label">ข้อสอบ</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-num yellow">ฟรี</div>
-                            <div class="hero-stat-label">ตลอดชีพ</div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="hero-mascot">
                     <img src="../../../pic/logo ปภ.png" alt="ตรากรมป้องกันและบรรเทาสาธารณภัย" width="320" height="320" decoding="async">
@@ -1099,10 +818,10 @@
                     <a href="ministry_act/ministry_act.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🏢</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545</h3><p class="course-card-desc">พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545 และที่แก้ไขเพิ่มเติม การจัดโครงสร้างกระทรวงมหาดไทยและกรมป้องกันและบรรเทาสาธารณภัย</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="info_act/info_act.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">📋</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540</h3><p class="course-card-desc">พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540 สิทธิการรับรู้ข้อมูลข่าวสารของราชการ ข้อมูลที่เปิดเผยได้ ข้อมูลลับ และการคุ้มครองข้อมูลส่วนบุคคล</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="civil_service_act/civil_service_act.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">👔</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551</h3><p class="course-card-desc">พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551 และที่แก้ไขเพิ่มเติม การบรรจุแต่งตั้ง วินัย การออกจากราชการ และสิทธิประโยชน์</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">📁</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบงานสารบรรณ พ.ศ. 2526</h3><p class="course-card-desc">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. 2526 และที่แก้ไขเพิ่มเติม การจัดทำ รับ ส่ง และเก็บรักษาหนังสือราชการ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="saraban_regulation/saraban_regulation.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">📁</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบงานสารบรรณ พ.ศ. 2526</h3><p class="course-card-desc">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. 2526 และที่แก้ไขเพิ่มเติม การจัดทำ รับ ส่ง และเก็บรักษาหนังสือราชการ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="warning_regulation/warning_regulation.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🚨</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการบริหารระบบการเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552</h3><p class="course-card-desc">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการบริหารระบบการเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552 และที่แก้ไขเพิ่มเติม กระบวนการแจ้งเตือนและการสื่อสาร</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🛣️</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554</h3><p class="course-card-desc">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554 มาตรการลดอุบัติเหตุทางถนน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">⚠️</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2564</h3><p class="course-card-desc">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2564 การบัญชาเหตุการณ์ การประสานงาน และแผนฉุกเฉิน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="road_safety_regulation/road_safety_regulation.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🛣️</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554</h3><p class="course-card-desc">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554 มาตรการลดอุบัติเหตุทางถนน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="national_accident_regulation/national_accident_regulation.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">⚠️</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2564</h3><p class="course-card-desc">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2564 การบัญชาเหตุการณ์ การประสานงาน และแผนฉุกเฉิน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="volunteer_regulation/volunteer_regulation.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🤝</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">ระเบียบกระทรวงมหาดไทยว่าด้วยกิจการ อปพร. พ.ศ. 2553</h3><p class="course-card-desc">ระเบียบกระทรวงมหาดไทยว่าด้วยกิจการอาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร.) พ.ศ. 2553 และที่แก้ไขเพิ่มเติม โครงสร้าง อำนาจหน้าที่ และการฝึกอบรม</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="national_disaster_plan/national_disaster_plan.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🛡️</div><span class="course-card-cat">กฎหมาย</span></div><h3 class="course-card-title">แผนป้องกันและบรรเทาสาธารณภัยแห่งชาติ พ.ศ. 2564 – 2570</h3><p class="course-card-desc">แผนการป้องกันและบรรเทาสาธารณภัยแห่งชาติ พ.ศ. 2564 – 2570 แนวทางการป้องกันและบรรเทาสาธารณภัยของประเทศไทยในระยะ 7 ปี</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                 </div>
@@ -1122,11 +841,11 @@
             </div>
             <div class="course-grid-wrap">
                 <div class="course-grid" id="grid-p1-general">
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">💰</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ความรู้เกี่ยวกับการงบประมาณ</h3><p class="course-card-desc">ความรู้เกี่ยวกับการงบประมาณและการบริหารงบประมาณของรัฐ กระบวนการจัดทำงบประมาณ และการควบคุมการใช้จ่าย</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🌊</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">สถานการณ์สาธารณภัย การบริหารจัดการสาธารณภัยของประเทศไทยและของโลก</h3><p class="course-card-desc">สถานการณ์สาธารณภัยของประเทศไทยและของโลก ประเภทภัย แนวโน้ม และสถิติที่สำคัญ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🏛️</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ความรู้เกี่ยวกับการเมือง เศรษฐกิจและสังคม</h3><p class="course-card-desc">ความรู้พื้นฐานเกี่ยวกับการเมือง เศรษฐกิจ และสังคม ที่จำเป็นสำหรับการปฏิบัติงานราชการ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🇬🇧</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ความรู้ทางด้านภาษาอังกฤษ</h3><p class="course-card-desc">ความรู้ทางด้านภาษาอังกฤษสำหรับการสอบและการปฏิบัติงานราชการ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🏢</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย</h3><p class="course-card-desc">ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย ภารกิจ อำนาจหน้าที่ โครงสร้างองค์กร และการปฏิบัติงาน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="budget_knowledge/budget_knowledge.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">💰</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ความรู้เกี่ยวกับการงบประมาณ</h3><p class="course-card-desc">ความรู้เกี่ยวกับการงบประมาณและการบริหารงบประมาณของรัฐ กระบวนการจัดทำงบประมาณ การควบคุมการใช้จ่าย และระบบ GFMIS</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="disaster_situation/disaster_situation.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🌊</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">สถานการณ์สาธารณภัย การบริหารจัดการสาธารณภัยของประเทศไทยและของโลก</h3><p class="course-card-desc">สถานการณ์สาธารณภัยของประเทศไทยและของโลก ประเภทภัย แนวโน้ม และสถิติที่สำคัญ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="political_economy/political_economy.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🏛️</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ความรู้เกี่ยวกับการเมือง เศรษฐกิจและสังคม</h3><p class="course-card-desc">ความรู้พื้นฐานเกี่ยวกับการเมือง เศรษฐกิจ และสังคม ที่จำเป็นสำหรับการปฏิบัติงานราชการ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="english/english.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🌍</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ภาษาอังกฤษ — สรุป + ข้อสอบ 100 ข้อ</h3><p class="course-card-desc">Conversation สำนวน · Grammar ไวยากรณ์ · Reading อ่านจับใจความ · Vocabulary คำศัพท์ — พร้อมแนวข้อสอบ 500+ ข้อจากชุดเตรียมสอบ ก. กทม. / ภาค ก ปภ.</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="disaster_department/disaster_department.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🏢</div><span class="course-card-cat">ทั่วไป</span></div><h3 class="course-card-title">ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย</h3><p class="course-card-desc">ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย ภารกิจ อำนาจหน้าที่ โครงสร้างองค์กร และการปฏิบัติงาน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                 </div>
             </div>
         </section>
@@ -1138,13 +857,13 @@
                 <div class="section-header-info">
                     <div class="section-header-chip">ส่วนที่ 2</div>
                     <div class="section-header-title">ความรู้เฉพาะทางและเครื่องมือในการปฏิบัติงาน</div>
-                    <div class="section-header-sub">แผนพัฒนาฯ ยุทธศาสตร์ชาติ กฎหมายเฉพาะทาง และความรู้เฉพาะสายงาน ปภ. — 5 วิชา</div>
+                    <div class="section-header-sub">แผนพัฒนาฯ ยุทธศาสตร์ชาติ กฎหมายเฉพาะทาง และความรู้เฉพาะสายงาน ปภ. — 6 วิชา</div>
                 </div>
-                <div class="section-header-count">5 วิชา</div>
+                <div class="section-header-count">6 วิชา</div>
             </div>
             <div class="course-grid-wrap">
                 <div class="course-grid" id="grid-p2">
-                    <a href="under-maintenance.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🔧</div><span class="course-card-cat">วิชาเฉพาะ</span></div><h3 class="course-card-title">ความรู้เฉพาะทางและเครื่องมือในการปฏิบัติงาน</h3><p class="course-card-desc">ความรู้เฉพาะทางและเครื่องมือในการปฏิบัติงานด้านป้องกันและบรรเทาสาธารณภัย อุปกรณ์ เทคโนโลยี และระบบที่ใช้ในการปฏิบัติงาน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
+                    <a href="policy_analysis/policy_analysis.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">📊</div><span class="course-card-cat">วิชาเฉพาะ</span></div><h3 class="course-card-title">ความรู้เกี่ยวกับการวิเคราะห์นโยบายสาธารณะ</h3><p class="course-card-desc">การวิเคราะห์นโยบาย · การวางแผนโครงการ · การติดตามและประเมินผล · การบริหารเชิงกลยุทธ์และความเสี่ยง — สำหรับเตรียมสอบภาค ข. ปภ.</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="national_plan/national_plan.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">📊</div><span class="course-card-cat">วิชาเฉพาะ</span></div><h3 class="course-card-title">แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ นโยบายรัฐบาล และยุทธศาสตร์ชาติ</h3><p class="course-card-desc">แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13 ยุทธศาสตร์ชาติ 20 ปี หลัก BCG + SEP + SDGs</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="budget_act/budget_act.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">📑</div><span class="course-card-cat">วิชาเฉพาะ</span></div><h3 class="course-card-title">พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561</h3><p class="course-card-desc">พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561 กระบวนการจัดทำงบประมาณ การอนุมัติ การโอน และการใช้จ่ายเงินงบประมาณ</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
                     <a href="disaster_act/disaster_act.html" class="course-card"><div class="course-card-top"></div><div class="course-card-body"><div class="course-card-header"><div class="course-card-icon">🔥</div><span class="course-card-cat">วิชาเฉพาะ</span></div><h3 class="course-card-title">พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550</h3><p class="course-card-desc">พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550 บทบาทอำนาจหน้าที่ ปภ. ระบบบัญชาการ และการจัดการในภาวะฉุกเฉิน</p><div class="course-card-footer"><span class="course-card-free">✓ ฟรี</span><span class="course-card-cta">เข้าสู่บทเรียน →</span></div></div></a>
@@ -1153,10 +872,8 @@
             </div>
         </section>
 
-        <!-- Snap Section: Donate + Footer (final snap) -->
+        <!-- ===== Donate + Footer combined ===== -->
         <section class="donate-footer-section" id="donate-section">
-
-            <!-- DONATE -->
             <div class="df-donate">
                 <div class="df-donate-inner">
                     <div class="df-top-bar"></div>
@@ -1173,8 +890,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- FOOTER -->
             <footer class="df-footer">
                 <div class="df-footer-inner">
                     <div class="df-footer-brand">
@@ -1196,7 +911,6 @@
                     <p class="df-copy">© 2026 SlothMove <span class="heart">❤</span></p>
                 </div>
             </footer>
-
         </section>
     </main>
 
@@ -1242,7 +956,6 @@
                 document.body.style.overflow = '';
             }
         }
-        // Close on overlay click
         var donatePopup = document.getElementById('donatePopup');
         if (donatePopup) {
             donatePopup.addEventListener('click', function(e) {
@@ -1282,6 +995,5 @@
             if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 10);
         });
     </script>
-
 </body>
 </html>

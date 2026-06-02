@@ -240,13 +240,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
             -webkit-text-size-adjust: 100%;
-        }
-
-        section {
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
         }
 
         body {
@@ -284,6 +278,14 @@
            ============================================================ */
         .font-display { font-family: var(--font-display); }
         .font-body { font-family: var(--font-body); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
 
         /* ============================================================
            LAYOUT UTILITIES
@@ -705,15 +707,20 @@
             animation: fadeUp var(--duration-slower) var(--ease-out) 200ms both;
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
         .hero-mascot img {
             width: clamp(240px, 28vw, 360px);
             height: auto;
             filter: drop-shadow(0 20px 60px rgba(26,26,46,0.15));
-            transition: transform var(--duration-slow) var(--ease-bounce);
+            animation: float 4s ease-in-out infinite;
         }
 
         .hero-mascot img:hover {
-            transform: translateY(-8px) scale(1.03);
+            animation-play-state: paused;
         }
 
         /* Decorative quote mark */
@@ -833,6 +840,7 @@
             background: var(--color-amber-bg);
             transition: all var(--duration-fast) var(--ease-smooth);
             white-space: nowrap;
+            cursor: pointer;
         }
 
         .courses-header a:hover {
@@ -844,8 +852,12 @@
 
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+        }
+
+        @media (max-width: 1100px) {
+            .courses-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 900px) {
@@ -857,23 +869,24 @@
             .courses-grid { grid-template-columns: 1fr; }
         }
 
-        /* Course Card */
+        /* Course Card - Premium Redesign */
         .course-card {
             position: relative;
             background: var(--color-surface);
-            border-radius: var(--radius-xl);
+            border-radius: 24px;
             overflow: hidden;
-            border: 1px solid var(--color-border-light);
-            box-shadow: var(--shadow-sm);
-            transition: all var(--duration-normal) var(--ease-smooth);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .course-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
             border-color: transparent;
         }
 
@@ -903,11 +916,12 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background: var(--color-surface-alt);
         }
 
         .course-card .card-image img {
-            width: 120px;
-            height: 120px;
+            width: 64px;
+            height: 64px;
             object-fit: contain;
             transition: transform var(--duration-slow) var(--ease-bounce);
         }
@@ -950,7 +964,7 @@
 
         /* Card body */
         .course-card .card-body {
-            padding: var(--space-lg);
+            padding: var(--space-md);
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -986,7 +1000,7 @@
         .course-card .card-title {
             font-family: var(--font-display);
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--color-text);
             line-height: 1.3;
             margin-bottom: 6px;
@@ -1008,35 +1022,6 @@
             line-height: 1.65;
             flex: 1;
             margin-bottom: var(--space-md);
-        }
-
-        /* Subject pills */
-        .course-card .card-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: var(--space-md);
-        }
-
-        .course-card .pill {
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 0.65rem;
-            padding: 3px 10px;
-            border-radius: var(--radius-full);
-            transition: all var(--duration-fast) var(--ease-smooth);
-        }
-
-        .course-card .pill.active {
-            background: var(--color-amber-bg);
-            color: var(--color-accent);
-            border: 1px solid rgba(201,125,58,0.2);
-        }
-
-        .course-card .pill.more {
-            background: var(--color-bg-warm);
-            color: var(--color-text-light);
-            border: 1px solid var(--color-border);
         }
 
         /* Card footer */
@@ -1551,11 +1536,21 @@
             background: #5a6a9a;
         }
         [data-theme="dark"] .course-card {
-            background: var(--color-surface-warm);
-            border-color: var(--color-border);
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        [data-theme="dark"] .course-card .card-image {
+            background: linear-gradient(135deg, #1e1e32, #252545) !important;
         }
         [data-theme="dark"] .course-card .card-btn {
             color: #fff;
+        }
+        [data-theme="dark"] .course-card .card-bar {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        [data-theme="dark"] .course-card .card-badge {
+            opacity: 0.8;
         }
         /* ============================================================
            FAQ SECTION
@@ -2199,20 +2194,6 @@
                             ☕ ร่วมสนับสนุน
                         </a>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat-box">
-                            <div class="stat-number">ฟรี</div>
-                            <div class="stat-label">ทุกคอร์ส</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number accent">1,000+</div>
-                            <div class="stat-label">ข้อสอบ</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number">เฉลย</div>
-                            <div class="stat-label">ละเอียดทุกข้อ</div>
-                        </div>
-                    </div>
                 </div>
                 <div class="hero-mascot">
                     <img src="pic/slothmove_mascot.png" alt="ตัวนำโชค SlothMove" width="360" height="360" decoding="async">
@@ -2235,112 +2216,10 @@
                     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
             </div>
-            <div class="courses-grid">
-
-                <!-- PAB Card -->
-                <a href="Page/source/PAB/indexPAB.html" class="course-card">
-                    <div class="card-bar pab"></div>
-                    <div class="card-image" style="background: linear-gradient(135deg, #fef3ec, #fde8d8);">
-                        <img src="pic/logo ปภ.png" alt="กรมป้องกันและบรรเทาสาธารณภัย" onerror="this.onerror=null;this.src='Page/source/PAB/pic/logo ปภ.png';">
-                        <span class="card-badge pab">กระทรวงมหาดไทย</span>
-                        <span class="card-date">อัพเดต 23/05/26</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-type pab">
-                            ข้าราชการพลเรือนสามัญ
-                            <span class="free-tag">✓ ฟรี</span>
-                        </div>
-                        <h3 class="card-title">นักวิเคราะห์นโยบายและแผน<br><span class="card-subtitle">กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</span></h3>
-                        <p class="card-desc">เนื้อหาสรุปครบ 20 วิชา · กฎหมายที่เกี่ยวข้อง · ความรู้เฉพาะตำแหน่ง · คลังข้อสอบพร้อมเฉลย</p>
-                        <div class="card-pills">
-                            <span class="pill active">พ.ร.บ. ป้องกันภัย</span>
-                            <span class="pill active">สาธารณภัย</span>
-                            <span class="pill active">งบประมาณ</span>
-                            <span class="pill more">+17 วิชา</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-free">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                เรียนฟรี ไม่มีหมดอายุ
-                            </div>
-                            <span class="card-btn pab">
-                                เข้าคอร์ส
-                                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Industry Card -->
-                <a href="Page/source/Industry/indexindustry.html" class="course-card">
-                    <div class="card-bar industry"></div>
-                    <div class="card-image" style="background: linear-gradient(135deg, #f5f0ff, #ede8fc);">
-                        <img src="pic/logo_industry.png" alt="กระทรวงอุตสาหกรรม">
-                        <span class="card-badge industry">กระทรวงอุตสาหกรรม</span>
-                        <span class="card-date">อัพเดต 20/05/26</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-type industry">
-                            พนักงานราชการทั่วไป
-                            <span class="free-tag">✓ ฟรี</span>
-                        </div>
-                        <h3 class="card-title">นักวิเคราะห์นโยบายและแผน<br><span class="card-subtitle">สำนักงานปลัดกระทรวงอุตสาหกรรม</span></h3>
-                        <p class="card-desc">เนื้อหาสรุปครบ 9 วิชา · กฎหมายที่เกี่ยวข้อง · คลังข้อสอบพร้อมเฉลยละเอียด</p>
-                        <div class="card-pills">
-                            <span class="pill active">วางแผนกลยุทธ์</span>
-                            <span class="pill active">ข้อมูลข่าวสาร</span>
-                            <span class="pill active">บ้านเมืองที่ดี</span>
-                            <span class="pill active">พ.ร.บ. โรงงาน</span>
-                            <span class="pill more">+5 วิชา</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-free">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                เรียนฟรี ไม่มีหมดอายุ
-                            </div>
-                            <span class="card-btn industry">
-                                เข้าคอร์ส
-                                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- OPSD Card -->
-                <a href="Page/source/OPSD/indexopsd.html" class="course-card">
-                    <div class="card-bar opsd"></div>
-                    <div class="card-image" style="background: linear-gradient(135deg, #f0f4ff, #e8ecfe);">
-                        <img src="pic/logo_OPSDD.png" alt="สำนักงานปลัดกระทรวงกลาโหม" width="144" height="144" decoding="async" onerror="this.onerror=null;this.src='Page/source/OPSD/pic/logo_OPSDD.jpg';">
-                        <span class="card-badge opsd">กระทรวงกลาโหม</span>
-                        <span class="card-date">อัพเดต 10/02/26</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-type opsd">
-                            ข้าราชการสามัญกลาโหม
-                            <span class="free-tag">✓ ฟรี</span>
-                        </div>
-                        <h3 class="card-title">นักวิเคราะห์นโยบายและแผน<br><span class="card-subtitle">สำนักงานปลัดกระทรวงกลาโหม</span></h3>
-                        <p class="card-desc">เนื้อหาสรุปครบ 7 วิชา · กฎหมายที่เกี่ยวข้อง · คลังข้อสอบพร้อมเฉลยละเอียด</p>
-                        <div class="card-pills">
-                            <span class="pill active">สารบรรณ</span>
-                            <span class="pill active">ข้อมูลข่าวสาร</span>
-                            <span class="pill active">ความรู้ทั่วไป</span>
-                            <span class="pill active">ภาษาอังกฤษ</span>
-                            <span class="pill more">+3 วิชา</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-free">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                เรียนฟรี ไม่มีหมดอายุ
-                            </div>
-                            <span class="card-btn opsd">
-                                เข้าคอร์ส
-                                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
+            <div class="courses-grid" id="dynamic-courses-grid">
+                <div style="grid-column: 1/-1; text-align: center; color: var(--color-text-muted); padding: 2rem;">
+                    กำลังโหลดคอร์สเรียน...
+                </div>
             </div>
         </div>
     </section>
@@ -2471,7 +2350,7 @@
             <div style="text-align:center; margin-bottom: var(--space-xl);">
                 <div class="section-label" style="justify-content:center">FAQ</div>
                 <h2 class="section-title">คำถามที่พบบ่อย</h2>
-                <p class="section-subtitle" style="margin: 0 auto;">เรื่องคอร์ส ควิซ กระดาน และการสนับสนุนโปรเจกต์</p>
+                <p class="section-subtitle" style="margin: 0 auto;">เรื่องคอร์ส ข้อสอบ และการสนับสนุนโปรเจกต์</p>
             </div>
             <div class="faq-inner">
                 <details class="faq-item" open>
@@ -2480,43 +2359,43 @@
                         <span class="arrow">⌄</span>
                     </summary>
                     <div class="faq-answer">
-                        <p>SlothMove เป็นเว็บรวมสรุปและข้อสอบเพื่อเตรียมสอบราชการ เนื้อหาที่เปิดให้เรียนในปัจจุบันเข้าถึงได้ฟรี ไม่มีค่าสมัครและไม่ล็อกเนื้อหาเพื่อให้คุณซ้อมด้วยตนเองได้ตามเวลาที่สะดวก</p>
+                        <p>SlothMove เป็นเว็บรวมสรุปและข้อสอบเพื่อเตรียมสอบราชการ คอร์สทั้งหมดเข้าถึงได้ฟรี ไม่มีค่าสมัครและไม่ล็อกเนื้อหา — ซ้อมทำข้อสอบได้ไม่จำกัดตลอดเวลา</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>
-                        ตอนนี้มีคอร์สอะไรบ้าง และจะมีคอร์สเพิ่มไหม
+                        ตอนนี้มีคอร์สอะไรบ้าง
                         <span class="arrow">⌄</span>
                     </summary>
                     <div class="faq-answer">
-                        <p>ปัจจุบันเปิดแยกเป็นหน้ารวม OPSD (สายสำนักงานปลัดกระทรวงกลาโหม) และหน้า Industry (สายกระทรวงอุตสาหกรรม) พร้อมควิซในแต่ละหัวข้อ ในอนาคตอาจเพิ่มคอร์สหรือสายงานใหม่เมื่อผลิตและตรวจทานเนื้อหาพร้อม ให้ติดตามหน้าแรกและแฟนเพจว่ามีอัปเดตอย่างไร</p>
+                        <p>ปัจจุบันมี 4 คอร์ส: นักวิเคราะห์นโยบายและแผน ปภ. (กรมป้องกันและบรรเทาสาธารณภัย) · นักวิเคราะห์นโยบายและแผน สป.อก. (กระทรวงอุตสาหกรรม) · นักวิเคราะห์นโยบายและแผน สป.กห. (กระทรวงกลาโหม) · ตำรวจสายอำนวยการและสนับสนุน (สำนักงานตำรวจแห่งชาติ) แต่ละคอร์สมีสรุปเนื้อหา + คลังข้อสอบพร้อมเฉลย</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>
-                        กระดานคะแนนคืออะไร
+                        ข้อสอบอัปเดตบ่อยไหม
                         <span class="arrow">⌄</span>
                     </summary>
                     <div class="faq-answer">
-                        <p>กระดานคะแนนคือการบันทึกคะแนนหลังเล่นควิซบางชุดจบเมื่อคุณเลือกใช้งานฟีเจอร์นั้นบนหน้าควิซ ช่วยให้เห็นคะแนนและโหมดการเล่นของคุณรวมถึงเปรียบเทียบกับผู้อื่นในคอร์สนั้น รายละเอียดขึ้นกับที่อธิบายบนหน้าควิซว่าอนุญาตเก็บหรือแสดงข้อมูลใดบ้าง</p>
+                        <p>อัปเดตเนื้อหาตามกฎหมายและประกาศล่าสุด คอร์สที่อัปเดตล่าสุดจะแสดงก่อน ดูวันที่อัปเดตได้ที่หน้าแต่ละคอร์ส</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>
-                        ต้องมีบัญชีผู้ใช้ไหม แล้วข้อมูลถูกเก็บอย่างไร
+                        ต้องมีบัญชีผู้ใช้ไหม
                         <span class="arrow">⌄</span>
                     </summary>
                     <div class="faq-answer">
-                        <p>การอ่านสรุปและทำข้อสอบส่วนใหญ่เข้าจากเว็บได้โดยตรง ไม่บังคับสมัครสมาชิกเพื่อเริ่มเรียน หากใช้กระดานหรือส่งชื่อ เลือกฟีเจอร์ตามฟอร์มบนควิซและอ่านคำอธิบายก่อนส่งทุกครั้ง</p>
+                        <p>ไม่ต้องสมัครสมาชิก — เข้าเรียนและทำข้อสอบได้ทันทีผ่านเว็บ ข้อมูลการสอบถูกเก็บในเบราว์เซอร์ของคุณเท่านั้น</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>
-                        ขอให้เพิ่มควิซหรือหน่วยงานได้อย่างไร
+                        ขอให้เพิ่มคอร์สใหม่หรือข้อสอบเพิ่มได้ไหม
                         <span class="arrow">⌄</span>
                     </summary>
                     <div class="faq-answer">
-                        <p>สามารถแนะนำหัวข้อหรือหน่วยงานที่อยากให้มีเพิ่มได้ทางข้อความแฟนเพจ SlothMove ทีมพิจารณาตามเวลาและแผนการผลิตเนื้อหา และไม่รับประกันว่าจะเพิ่มครบทุกคำขอ</p>
+                        <p>ส่งข้อเสนอมาทางแฟนเพจ Facebook ของ SlothMove ทีมจะพิจารณาตามความต้องการและแผนการผลิตเนื้อหา</p>
                     </div>
                 </details>
                 <details class="faq-item">
@@ -2525,7 +2404,7 @@
                         <span class="arrow">⌄</span>
                     </summary>
                     <div class="faq-answer">
-                        <p>สแกน QR พร้อมเพย์ในส่วนเลี้ยงกาแฟบนหน้าเว็บ หรือติดตามและแชทกับทีมผ่าน Facebook ของ SlothMove</p>
+                        <p>สแกน QR พร้อมเพย์ในส่วน "เลี้ยงกาแฟ" บนเว็บ หรือกดติดตาม Facebook และแชร์ให้เพื่อนที่กำลังเตรียมสอบราชการ</p>
                     </div>
                 </details>
             </div>
@@ -2790,6 +2669,97 @@
             btn.disabled = false;
             btn.textContent = 'ติดตาม';
         });
+    </script>
+
+    <!-- Render courses synchronously from data file -->
+    <script src="data/courses.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+                const grid = document.getElementById('dynamic-courses-grid');
+                if(!grid || typeof COURSE_DATA === 'undefined') return;
+                grid.innerHTML = '';
+                
+                const sortedCourses = [...COURSE_DATA].sort((a, b) => {
+                    const dateA = new Date('20' + a.updated.split('/').reverse().join('-'));
+                    const dateB = new Date('20' + b.updated.split('/').reverse().join('-'));
+                    return dateB - dateA;
+                });
+
+                sortedCourses.forEach(course => {
+                    let theme = 'opsd';
+                    let gradient = 'linear-gradient(135deg, #f0f4ff, #e8ecfe)';
+                    if (course.category.includes('มหาดไทย') || course.category.includes('ปภ')) {
+                        theme = 'pab';
+                        gradient = 'linear-gradient(135deg, #fef3ec, #fde8d8)';
+                    } else if (course.category.includes('อุตสาหกรรม')) {
+                        theme = 'industry';
+                        gradient = 'linear-gradient(135deg, #f5f0ff, #ede8fc)';
+                    } else if (course.category.includes('ตำรวจ')) {
+                        theme = 'pab'; 
+                        gradient = 'linear-gradient(135deg, #fff1f2, #ffe4e6)';
+                    }
+                    
+                    const cardHTML = `
+                        ${course.category.includes('ตำรวจ') ? `
+                        <div class="course-card">
+                            <div class="card-bar ${theme}" style="background: linear-gradient(90deg, #be123c, #9f1239)"></div>
+                            <div class="card-image" style="background: ${gradient};">
+                                <div style="position:absolute;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:5;">
+                                    <span style="background:rgba(255,255,255,0.95);color:#be123c;font-family:var(--font-display);font-weight:700;font-size:0.75rem;padding:6px 16px;border-radius:20px;">🔧 Under Maintenance</span>
+                                </div>
+                                <img src="${course.image}" alt="${course.title}" style="filter:grayscale(1);opacity:0.5;">
+                                <span class="card-badge ${theme}" style="background: #9f1239">${course.category}</span>
+                                <span class="card-date">${course.updated}</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-type ${theme}" style="color: #9f1239">
+                                    ${course.type}
+                                    <span class="free-tag">✓ ฟรี</span>
+                                </div>
+                                <h3 class="card-title">${course.title}<br><span class="card-subtitle">${course.subtitle}</span></h3>
+                                <div class="card-footer">
+                                    <div class="card-free">
+                                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                        เรียนฟรี
+                                    </div>
+                                    <span class="card-btn ${theme}" style="background: #9f1239">
+                                        รอข้อมูลเพิ่มเติม
+                                        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        ` : `
+                        <a href="${course.link}" class="course-card">
+                            <div class="card-bar ${theme}"></div>
+                            <div class="card-image" style="background: ${gradient};">
+                                <img src="${course.image}" alt="${course.title}">
+                                <span class="card-badge ${theme}">${course.category}</span>
+                                <span class="card-date">${course.updated}</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-type ${theme}">
+                                    ${course.type}
+                                    <span class="free-tag">✓ ฟรี</span>
+                                </div>
+                                <h3 class="card-title">${course.title}<br><span class="card-subtitle">${course.subtitle}</span></h3>
+                                <div class="card-footer">
+                                    <div class="card-free">
+                                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                        เรียนฟรี
+                                    </div>
+                                    <span class="card-btn ${theme}">
+                                        เข้าคอร์ส
+                                        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        `}
+                    `;
+                    grid.innerHTML += cardHTML;
+                });
+            });
 
     </script>
 </body>

@@ -1,4 +1,4 @@
-const QUESTIONS = [
+var QUESTIONS = [
   {
     "question": "พระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. 2540 ให้ไว้ ณ วันที่เท่าใด",
     "choices": [

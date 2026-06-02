@@ -1375,14 +1375,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    DARK MODE — Knowledge Page Blocks
    ============================================ */
 [data-theme="dark"] .kb-highlight {
-    background: var(--cream-warm) !important;
-    border-color: var(--yellow-strong) !important;
+    background: #1e1e32 !important;
+    border-color: #fcec4a !important;
 }
 [data-theme="dark"] .kb-highlight .kb-hb-title {
-    color: var(--yellow-strong) !important;
+    color: #ffffff !important;
 }
 [data-theme="dark"] .kb-highlight .kb-hb-content {
-    color: var(--text) !important;
+    color: #c8d0e0 !important;
 }
 
 /* amber highlight → dark amber bg */
@@ -1435,14 +1435,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* cards in dark mode */
 [data-theme="dark"] .kb-card {
-    background: var(--cream-warm) !important;
+    background: #1e1e32 !important;
     border-color: var(--border) !important;
 }
 [data-theme="dark"] .kb-card .kb-card-title {
-    color: var(--text) !important;
+    color: #ffffff !important;
 }
 [data-theme="dark"] .kb-card .kb-card-content {
-    color: var(--text-muted) !important;
+    color: #a8b2c8 !important;
+}
+/* navy cards — override dark bg so they're dark in both modes */
+[data-theme="dark"] .kb-card-navy {
+    background: #1a1a2e !important;
+    border-color: #fcec4a !important;
+}
+[data-theme="dark"] .kb-card-navy .kb-card-title {
+    color: #ffffff !important;
+}
+[data-theme="dark"] .kb-card-navy .kb-card-content {
+    color: #a8b2c8 !important;
 }
 
 /* number badges — ensure visible in dark */
@@ -1463,6 +1474,80 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 [data-theme="dark"] .vocab-term-card {
     background: var(--cream-warm) !important;
     border-color: var(--border) !important;
+}
+
+/* ============================================
+   CARD & HIGHLIGHT HOVER EFFECTS
+   ============================================ */
+.kb-card {
+    transition: transform 0.15s var(--ease-smooth), box-shadow 0.15s var(--ease-smooth), border-color 0.15s;
+}
+.kb-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(26,26,46,0.12);
+}
+.kb-highlight {
+    transition: border-left-width 0.15s, box-shadow 0.15s;
+}
+.kb-highlight:hover {
+    border-left-width: 6px !important;
+    box-shadow: 0 4px 20px rgba(26,26,46,0.08);
+}
+.kb-numbered-item {
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.kb-numbered-item:hover {
+    border-color: var(--yellow-strong) !important;
+    box-shadow: 0 0 0 3px rgba(252,236,74,0.15);
+}
+
+/* ============================================
+   VOCAB SECTION — Interactive Cards
+   ============================================ */
+.vocab-card:hover {
+    border-color: var(--yellow-strong) !important;
+    box-shadow: 0 0 0 3px rgba(252,236,74,0.2) !important;
+    transform: translateY(-1px);
+}
+[data-theme="dark"] .vocab-card {
+    background: #1e1e32 !important;
+    border-color: #2d2d4a !important;
+}
+[data-theme="dark"] .vocab-card:hover {
+    border-color: #fcec4a !important;
+    box-shadow: 0 0 0 3px rgba(252,236,74,0.1) !important;
+}
+[data-theme="dark"] .vocab-group-header {
+    background: #1e1e32 !important;
+    border-color: #2d2d4a !important;
+}
+[data-theme="dark"] .vocab-group-header:hover {
+    background: #252540 !important;
+}
+[data-theme="dark"] .vocab-group-header .vocab-group-arrow {
+    color: #9a9587 !important;
+}
+[data-theme="dark"] .vocab-count-badge {
+    background: #2d2d4a !important;
+    color: #9a9587 !important;
+}
+[data-theme="dark"] .vocab-cat-btn {
+    background: #1e1e32 !important;
+    border-color: #2d2d4a !important;
+    color: #9a9587 !important;
+}
+[data-theme="dark"] .vocab-cat-btn.vocab-cat-active {
+    background: #ffffff !important;
+    color: #1a1a2e !important;
+    border-color: #ffffff !important;
+}
+[data-theme="dark"] .vocab-search-input {
+    background: #1e1e32 !important;
+    border-color: #2d2d4a !important;
+    color: #f0ece4 !important;
+}
+[data-theme="dark"] .vocab-search-input:focus {
+    border-color: #fcec4a !important;
 }
 
 /* vocab group title pill — ensure readable in dark */

@@ -1,0 +1,141 @@
+version: 1
+plan:
+  name: "PAB Content Redesign Batch D — volunteer_regulation, warning_regulation, disaster_situation, budget_knowledge"
+  max_concurrency: 4
+  max_consecutive_failures: 1
+  max_cycles: 15
+  auto_reject_retries: 1
+  verifier_config:
+    default_verifiers: []
+tasks:
+  - id: volunteer_regulation
+    title: "volunteer_regulation — reformat to exam-first + vocab-grid + Q&A + mnemonics"
+    prompt: |
+      เรื่อง: Redesign content file สำหรับ volunteer_regulation ให้เป็น exam-first format เหมือน ministry_act.json.js
+
+      อ่าน reference file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/ministry_act.json.js
+      อ่าน source file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/volunteer_regulation.json.js
+
+      สิ่งที่ต้องทำ:
+      1. เปลี่ยนโครงสร้างจาก knowledgeSections + vocabulary + additionalSections เป็น 3 knowledgeSections พร้อม vocab-grid ใน KS3 เหมือน ministry_act
+      2. จัดลำดับเนื้อหา exam-first: Quick Facts → มาตราสำคัญ → cards → Q&A → mnemonics
+      3. สร้าง vocab-grid block (type: "vocab-grid") ใน KS3 โดยรวม vocabulary ทั้งหมดเป็น groups
+      4. เพิ่ม 6-8 ข้อ Q&A พร้อมเฉลยใน KS1
+      5. เพิ่ม mnemonics/จุดจำ cards
+      6. ลบ vocabulary array และ additionalSections ออก (ย้ายเข้า knowledgeSections แล้ว)
+      7. เพิ่ม badgeLabel, PAGE_TYPE, stats ที่ขาด
+      8. ลบ id field ออกจากแต่ละ section
+
+      Template format (อ่าน ministry_act ดู):
+      - 3 ส่วน: สรุปเนื้อหา / โครงสร้าง / คำศัพท์
+      - navIcon + navLabel + icon + title + description สำหรับแต่ละ section
+      - blocks: highlight-box(navy=จุดสอบ, amber=จำง่าย, blue=พื้นฐาน, green=พิเศษ), cards, numbered-list, bullet-list, vocab-grid
+      - Vocab-grid groups: กระทรวง, องค์กร, ศัพท์กฎหมาย
+
+      เขียน output ไปที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/volunteer_regulation.json.js
+
+      ใช้ template style จาก ministry_act: ทุก string ใน JSON ต้องใช้ double quotes ไม่ใช่ backtick หรือ template literal
+      ตรวจสอบ JSON valid ด้วย: node -e "JSON.parse(require('fs').readFileSync('/Users/geefrost/Documents/SlothMove/Page/source/PAB/content/volunteer_regulation.json.js').toString().replace(/^window\.\w+ =\s*/,'').replace(/;$/,''))" && echo "VALID"
+
+      ภาษา: ไทยทั้งหมด
+    assigned_to: general
+    timeout_ms: 1800000
+
+  - id: warning_regulation
+    title: "warning_regulation — reformat to exam-first + vocab-grid + Q&A + mnemonics"
+    prompt: |
+      เรื่อง: Redesign content file สำหรับ warning_regulation ให้เป็น exam-first format เหมือน ministry_act.json.js
+
+      อ่าน reference file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/ministry_act.json.js
+      อ่าน source file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/warning_regulation.json.js
+
+      สิ่งที่ต้องทำ:
+      1. เปลี่ยนโครงสร้างจาก knowledgeSections + vocabulary + additionalSections เป็น 3 knowledgeSections พร้อม vocab-grid ใน KS3 เหมือน ministry_act
+      2. จัดลำดับเนื้อหา exam-first: Quick Facts → มาตราสำคัญ → cards → Q&A → mnemonics
+      3. สร้าง vocab-grid block (type: "vocab-grid") ใน KS3 โดยรวม vocabulary ทั้งหมดเป็น groups
+      4. เพิ่ม 6-8 ข้อ Q&A พร้อมเฉลยใน KS1
+      5. เพิ่ม mnemonics/จุดจำ cards
+      6. ลบ vocabulary array และ additionalSections ออก (ย้ายเข้า knowledgeSections แล้ว)
+      7. เพิ่ม badgeLabel, PAGE_TYPE, stats ที่ขาด
+      8. ลบ id field ออกจากแต่ละ section
+
+      Template format (อ่าน ministry_act ดู):
+      - 3 ส่วน: สรุปเนื้อหา / โครงสร้าง / คำศัพท์
+      - navIcon + navLabel + icon + title + description สำหรับแต่ละ section
+      - blocks: highlight-box(navy=จุดสอบ, amber=จำง่าย, blue=พื้นฐาน, green=พิเศษ), cards, numbered-list, bullet-list, vocab-grid
+      - Vocab-grid groups: กระทรวง, องค์กร, ศัพท์กฎหมาย
+
+      เขียน output ไปที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/warning_regulation.json.js
+
+      ใช้ template style จาก ministry_act: ทุก string ใน JSON ต้องใช้ double quotes ไม่ใช่ backtick หรือ template literal
+      ตรวจสอบ JSON valid ด้วย: node -e "JSON.parse(require('fs').readFileSync('/Users/geefrost/Documents/SlothMove/Page/source/PAB/content/warning_regulation.json.js').toString().replace(/^window\.\w+ =\s*/,'').replace(/;$/,''))" && echo "VALID"
+
+      ภาษา: ไทยทั้งหมด
+    assigned_to: general
+    timeout_ms: 1800000
+
+  - id: disaster_situation
+    title: "disaster_situation — reformat to exam-first + vocab-grid + Q&A + mnemonics"
+    prompt: |
+      เรื่อง: Redesign content file สำหรับ disaster_situation ให้เป็น exam-first format เหมือน ministry_act.json.js
+
+      อ่าน reference file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/ministry_act.json.js
+      อ่าน source file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/disaster_situation.json.js
+
+      สิ่งที่ต้องทำ:
+      1. เปลี่ยนโครงสร้างจาก knowledgeSections + vocabulary + additionalSections เป็น 3 knowledgeSections พร้อม vocab-grid ใน KS3 เหมือน ministry_act
+      2. จัดลำดับเนื้อหา exam-first: Quick Facts → มาตราสำคัญ → cards → Q&A → mnemonics
+      3. สร้าง vocab-grid block (type: "vocab-grid") ใน KS3 โดยรวม vocabulary ทั้งหมดเป็น groups
+      4. เพิ่ม 6-8 ข้อ Q&A พร้อมเฉลยใน KS1
+      5. เพิ่ม mnemonics/จุดจำ cards
+      6. ลบ vocabulary array และ additionalSections ออก (ย้ายเข้า knowledgeSections แล้ว)
+      7. เพิ่ม badgeLabel, PAGE_TYPE, stats ที่ขาด
+      8. ลบ id field ออกจากแต่ละ section
+
+      Template format (อ่าน ministry_act ดู):
+      - 3 ส่วน: สรุปเนื้อหา / โครงสร้าง / คำศัพท์
+      - navIcon + navLabel + icon + title + description สำหรับแต่ละ section
+      - blocks: highlight-box(navy=จุดสอบ, amber=จำง่าย, blue=พื้นฐาน, green=พิเศษ), cards, numbered-list, bullet-list, vocab-grid
+      - Vocab-grid groups: กระทรวง, องค์กร, ศัพท์กฎหมาย
+
+      เขียน output ไปที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/disaster_situation.json.js
+
+      ใช้ template style จาก ministry_act: ทุก string ใน JSON ต้องใช้ double quotes ไม่ใช่ backtick หรือ template literal
+      ตรวจสอบ JSON valid ด้วย: node -e "JSON.parse(require('fs').readFileSync('/Users/geefrost/Documents/SlothMove/Page/source/PAB/content/disaster_situation.json.js').toString().replace(/^window\.\w+ =\s*/,'').replace(/;$/,''))" && echo "VALID"
+
+      ภาษา: ไทยทั้งหมด
+    assigned_to: general
+    timeout_ms: 1800000
+
+  - id: budget_knowledge
+    title: "budget_knowledge — reformat to exam-first + vocab-grid + Q&A + mnemonics"
+    prompt: |
+      เรื่อง: Redesign content file สำหรับ budget_knowledge ให้เป็น exam-first format เหมือน ministry_act.json.js
+
+      อ่าน reference file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/ministry_act.json.js
+      อ่าน source file ที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/budget_knowledge.json.js
+
+      สิ่งที่ต้องทำ:
+      1. เปลี่ยนโครงสร้างจาก knowledgeSections + vocabulary + additionalSections เป็น 3 knowledgeSections พร้อม vocab-grid ใน KS3 เหมือน ministry_act
+      2. จัดลำดับเนื้อหา exam-first: Quick Facts → มาตราสำคัญ → cards → Q&A → mnemonics
+      3. สร้าง vocab-grid block (type: "vocab-grid") ใน KS3 โดยรวม vocabulary ทั้งหมดเป็น groups
+      4. เพิ่ม 6-8 ข้อ Q&A พร้อมเฉลยใน KS1
+      5. เพิ่ม mnemonics/จุดจำ cards
+      6. ลบ vocabulary array และ additionalSections ออก (ย้ายเข้า knowledgeSections แล้ว)
+      7. เพิ่ม badgeLabel, PAGE_TYPE, stats ที่ขาด
+      8. ลบ id field ออกจากแต่ละ section
+
+      Template format (อ่าน ministry_act ดู):
+      - 3 ส่วน: สรุปเนื้อหา / โครงสร้าง / คำศัพท์
+      - navIcon + navLabel + icon + title + description สำหรับแต่ละ section
+      - blocks: highlight-box(navy=จุดสอบ, amber=จำง่าย, blue=พื้นฐาน, green=พิเศษ), cards, numbered-list, bullet-list, vocab-grid
+      - Vocab-grid groups: กระทรวง, องค์กร, ศัพท์กฎหมาย
+
+      เขียน output ไปที่: /Users/geefrost/Documents/SlothMove/Page/source/PAB/content/budget_knowledge.json.js
+
+      ใช้ template style จาก ministry_act: ทุก string ใน JSON ต้องใช้ double quotes ไม่ใช่ backtick หรือ template literal
+      ตรวจสอบ JSON valid ด้วย: node -e "JSON.parse(require('fs').readFileSync('/Users/geefrost/Documents/SlothMove/Page/source/PAB/content/budget_knowledge.json.js').toString().replace(/^window\.\w+ =\s*/,'').replace(/;$/,''))" && echo "VALID"
+
+      ภาษา: ไทยทั้งหมด
+    assigned_to: general
+    timeout_ms: 1800000
