@@ -159,99 +159,143 @@ window.WARNING_REGULATION_DATA = {
       { term: "การปฏิบัติราชการตามปกติ", eng: "Official Duty as Usual", def: "การถือว่าการมาปฏิบัติงานที่ ปภ. ตามการประสานของ กภช. เป็นการปฏิบัติราชการตามปกติ ทำให้ได้รับเงินเดือน สิทธิประโยชน์จากต้นสังกัดเดิม" }
     ]}
   ],
-  additionalSections: [
+  "additionalSections": [
     {
-      navIcon: "🔢",
-      navLabel: "ตัวเลขน่ารู้",
-      icon: "🔢",
-      title: "📌 ตัวเลขน่ารู้ — ตัวเลขที่ต้องจำ",
-      description: "รวบรวมตัวเลขสำคัญจากระเบียบ พ.ศ. 2552 + ฉบับที่ 2 พ.ศ. 2562",
-      blocks: [
+      "navIcon": "📜",
+      "navLabel": "กฎหมายที่เกี่ยวข้อง",
+      "icon": "📜",
+      "title": "ธีมที่ 5 · กฎหมายที่เกี่ยวข้อง (เจาะลึก)",
+      "description": "พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550 (กฎหมายแม่) + ระเบียบ 2552/2562 (กฎหมายลูก)",
+      "blocks": [
         {
-          type: "highlight-box",
-          color: "navy",
-          title: "🚦 ระดับเตือนภัย",
-          content: "<strong>5 ระดับ</strong> = เขียว / เหลือง / ส้ม / แดง / ม่วง<br><strong>ระดับ 3 ขึ้นไป</strong> = ผู้ว่าฯ/นายอำเภอ ประกาศได้<br><strong>ระดับ 4 ขึ้นไป</strong> = อธิบดี ปภ./นายกฯ ประกาศได้<br><strong>ระดับ 5 (ม่วง)</strong> = นายกฯ ประกาศ + แจ้ง ครม."
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📜 พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550 (กฎหมายแม่)",
+          "content": "<strong>📌 ความสำคัญ:</strong> เป็นกฎหมายหลักที่ให้อำนาจ <strong>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</strong> และกำหนดโครงสร้างการบริหารจัดการภัยพิบัติทั้งระบบ<br><br><strong>องค์กรสำคัญ (ม.6):</strong> <strong>กปภ.ช.</strong> (คณะกรรมการป้องกันและบรรเทาสาธารณภัยแห่งชาติ) — <em>ต่างจาก กภช. ของระเบียบ 2552!</em><br>▪ <strong>ประธาน:</strong> นายกฯ/รองนายกฯ ที่นายกฯ มอบหมาย<br>▪ <strong>รองประธานคนที่ 1:</strong> <strong>รัฐมนตรีว่าการกระทรวงมหาดไทย</strong><br>▪ <strong>รองประธานคนที่ 2:</strong> <strong>ปลัดกระทรวงมหาดไทย</strong><br>▪ <strong>กรรมการโดยตำแหน่ง:</strong> ปลัดหลายกระทรวง (กลาโหม, พัฒนาสังคมฯ, เกษตรฯ, คมนาคม, ทรัพยากรฯ, เทคโนโลยีสารสนเทศฯ, สาธารณสุข), ผู้อำนวยการสำนักงบประมาณ, ผบ.ตร., ผบ.ทหารสูงสุด/ทบ./ทร./ทอ., เลขาฯ สมช.<br>▪ <strong>กรรมการผู้ทรงคุณวุฒิ ≤ 5 คน</strong> (ครม. แต่งตั้ง — ด้านผังเมือง/ป้องกันภัย)<br><br><strong>อำนาจ กปภ.ช. (ม.7):</strong> กำหนดนโยบาย/แผนแม่บท, พิจารณาแผนชาติ, ติดตามประเมินผล, อนุมัติงบประมาณ, ปฏิบัติการอื่นตามที่กฎหมายกำหนด"
         },
         {
-          type: "highlight-box",
-          color: "blue",
-          title: "📅 ปีที่สำคัญ",
-          content: "<strong>พ.ศ. 2552</strong> = ระเบียบฉบับแรก<br><strong>พ.ศ. 2559</strong> = พ.ร.บ.ปรับปรุงกระทรวงฯ ฉบับที่ 17 มาตรา 18 โอนอำนาจ<br><strong>พ.ศ. 2562</strong> = ระเบียบฉบับที่ 2 มีผลบังคับ <strong>9 ก.ค. 2562</strong><br><strong>พ.ศ. 2550</strong> = พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550"
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🏛️ โครงสร้างผู้บัญชาการ/ผู้อำนวยการ (ม.13-20)",
+          "content": "<table class='kb-table'><thead><tr><th>ระดับ</th><th>ผู้ดำรงตำแหน่ง</th><th>มาตรา</th><th>ขอบเขต</th></tr></thead><tbody><tr class='odd'><td class='bold text-law-act'>ผู้บัญชาการ</td><td><strong>รัฐมนตรี</strong></td><td>ม.13</td><td>ทั่วราชอาณาจักร</td></tr><tr class='even'><td>รองผู้บัญชาการ</td><td><strong>ปลัดกระทรวงมหาดไทย</strong></td><td>ม.13</td><td>ช่วยเหลือทั่วประเทศ</td></tr><tr class='odd'><td class='bold'>ผู้อำนวยการกลาง</td><td><strong>อธิบดี ปภ.</strong></td><td>ม.14</td><td>ทั่วประเทศ</td></tr><tr class='even'><td>ผู้อำนวยการจังหวัด</td><td><strong>ผู้ว่าราชการจังหวัด</strong></td><td>ม.15</td><td>ในเขตจังหวัด</td></tr><tr class='odd'><td>ผู้อำนวยการอำเภอ</td><td><strong>นายอำเภอ</strong></td><td>ม.19</td><td>ในเขตอำเภอ</td></tr><tr class='even'><td>ผู้อำนวยการท้องถิ่น</td><td><strong>ผู้บริหารท้องถิ่น</strong> (นายก อบจ./เทศมนตรี/นายก อบต.)</td><td>ม.20</td><td>ในเขต อปท.</td></tr></tbody></table><br><strong>💡 จุดสำคัญ:</strong> <strong>ผู้ว่าฯ (จังหวัด)</strong> มีอำนาจ<strong>สั่งการ</strong>หน่วยงานรัฐและ อปท. ในจังหวัด ให้ดำเนินการป้องกันและบรรเทาได้ — นี่คืออำนาจสำคัญของ ปภ.!"
         },
         {
-          type: "highlight-box",
-          color: "amber",
-          title: "🏛️ องค์กรและบุคลากร",
-          content: "<strong>3 ระดับ</strong> = ศูนย์ ขจ.ปภ. (กลาง / จังหวัด / อำเภอ)<br><strong>4 ปี</strong> = วาระกรรมการผู้ทรงคุณวุฒิ กภช.<br><strong>2 วาระ</strong> = ดำรงตำแหน่งได้ไม่เกิน 2 วาระติดต่อกัน (สูงสุด 8 ปี)<br><strong>1 ใน 3</strong> = องค์ประชุม กภช. (ฉบับ 2 ลดจากกึ่งหนึ่ง)"
-        },
-        {
-          type: "highlight-box",
-          color: "teal",
-          title: "🌊 กรณีศึกษา Tsunami 2011",
-          content: "<strong>9.1 ริกเตอร์</strong> = ขนาดแผ่นดินไหวนอกชายฝั่งญี่ปุ่น<br><strong>8 จังหวัด</strong> = ชายฝั่งอันดามันที่ได้รับการแจ้งเตือน<br><strong>5-15 นาที</strong> = ระยะเวลาเตือนก่อนคลื่นถึงชายฝั่งไทย<br><strong>0 คน</strong> = จำนวนผู้เสียชีวิตจาก Tsunami ในไทย (สำเร็จ)"
-        },
-        {
-          type: "highlight-box",
-          color: "rose",
-          title: "⏱️ ระยะเวลาอื่นๆ",
-          content: "<strong>30 วัน</strong> = ระยะเวลามีผลบังคับใช้หลังประกาศราชกิจจานุเบกษา<br><strong>30 วัน</strong> = ระยะเวลาแต่งตั้งกรรมการใหม่หลังตำแหน่งว่าง<br><strong>6 เดือน</strong> = ระยะเวลาสูงสุดที่เจ้าหน้าที่จากหน่วยงานอื่นมาปฏิบัติงานที่ ปภ.<br><strong>24/7</strong> = ระบบ TDW ทำงานตลอด 24 ชม. 7 วัน"
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🎯 กปภ.ช. (ม.6) vs กภช. (ระเบียบ 2552)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>กปภ.ช.</th><th>กภช.</th></tr></thead><tbody><tr class='odd'><td><strong>ชื่อเต็ม</strong></td><td>คณะกรรมการป้องกันและบรรเทาสาธารณภัยแห่งชาติ</td><td>คณะกรรมการบริหารระบบการเตือนภัยพิบัติแห่งชาติ</td></tr><tr class='even'><td><strong>กฎหมาย</strong></td><td><strong>พ.ร.บ. ป้องกันฯ พ.ศ. 2550</strong></td><td><strong>ระเบียบ พ.ศ. 2552 + ฉ.2/2562</strong></td></tr><tr class='odd'><td><strong>ขอบเขต</strong></td><td>การป้องกัน+บรรเทา<strong>ภัยพิบัติ</strong>ทั้งระบบ</td><td>การ<strong>เตือนภัย</strong>พิบัติ</td></tr><tr class='even'><td><strong>ประธาน</strong></td><td>นายกฯ/รองนายกฯ</td><td>นายกฯ/รองนายกฯ</td></tr><tr class='odd'><td><strong>รองประธาน</strong></td><td>รมว.มหาดไทย + ปลัด มท.</td><td>รมว.มหาดไทย (คนเดียว)</td></tr><tr class='even'><td><strong>เลขานุการ</strong></td><td>อธิบดี ปภ.</td><td>อธิบดี ปภ.</td></tr><tr class='odd'><td><strong>ผู้ทรงคุณวุฒิ</strong></td><td>≤ 5 คน</td><td>≤ 7 คน (วาระ 4 ปี)</td></tr><tr class='even'><td><strong>องค์ประชุม</strong></td><td>ไม่น้อยกว่ากึ่งหนึ่ง</td><td>ไม่น้อยกว่า 1 ใน 3 (ฉ.2/2562)</td></tr></tbody></table><br><strong>🧠 จำ:</strong> <strong>กปภ.ช. = กฎหมายหลัก / กภช. = ระเบียบย่อย</strong> — <strong>อย่าสับสน</strong>"
         }
       ]
     },
     {
-      navIcon: "⚖️",
-      navLabel: "ฉบับ 1 vs ฉบับ 2",
-      icon: "⚖️",
-      title: "⚖️ เปรียบเทียบ ฉบับ 1 (พ.ศ. 2552) vs ฉบับ 2 (พ.ศ. 2562)",
-      description: "ความเปลี่ยนแปลงสำคัญทั้ง 5 จุด",
-      blocks: [
+      "navIcon": "📖",
+      "navLabel": "ตารางมาตราสำคัญ",
+      "icon": "📖",
+      "title": "ธีมที่ 6 · ตารางสรุปมาตราสำคัญ (พ.ร.บ. 2550 + ระเบียบ 2552)",
+      "description": "รวบรวมมาตราสำคัญที่ออกสอบบ่อย พร้อมสาระสำคัญ",
+      "blocks": [
         {
-          type: "highlight-box",
-          color: "navy",
-          title: "📊 ตารางเปรียบเทียบระเบียบฉบับ 1 vs ฉบับ 2",
-          content: `<table style='width:100%; border-collapse:collapse; font-size:14px; background:transparent;'>
-<thead>
-<tr style='background:rgba(255,255,255,0.15);'>
-<th style='padding:8px; text-align:left; color:#fcec4a;'>ประเด็น</th>
-<th style='padding:8px; text-align:left; color:#fff;'>ฉบับ 1 (พ.ศ. 2552)</th>
-<th style='padding:8px; text-align:left; color:#fff;'>ฉบับ 2 (พ.ศ. 2562)</th>
-</tr>
-</thead>
-<tbody>
-<tr style='background:rgba(255,255,255,0.07);'>
-<td style='padding:8px; color:#e8dcc8;'><strong>ผู้รักษาการ</strong></td>
-<td style='padding:8px; color:#f0ece4;'>รัฐมนตรีว่าการ ก.พ.ร.ICT</td>
-<td style='padding:8px; color:#f0ece4;'>รัฐมนตรีว่าการกระทรวงมหาดไทย</td>
-</tr>
-<tr style='background:rgba(255,255,255,0.03);'>
-<td style='padding:8px; color:#e8dcc8;'><strong>สังกัดศูนย์เตือนภัยฯ</strong></td>
-<td style='padding:8px; color:#f0ece4;'>สำนักนายกฯ ICT</td>
-<td style='padding:8px; color:#f0ece4;'>กรม ปภ. (กระทรวงมหาดไทย)</td>
-</tr>
-<tr style='background:rgba(255,255,255,0.07);'>
-<td style='padding:8px; color:#e8dcc8;'><strong>องค์ประชุม กภช.</strong></td>
-<td style='padding:8px; color:#f0ece4;'>กึ่งหนึ่งของกรรมการทั้งหมด</td>
-<td style='padding:8px; color:#f0ece4;'>ไม่น้อยกว่า 1 ใน 3 ของกรรมการทั้งหมด</td>
-</tr>
-<tr style='background:rgba(255,255,255,0.03);'>
-<td style='padding:8px; color:#e8dcc8;'><strong>มาตรานำ</strong></td>
-<td style='padding:8px; color:#f0ece4;'>อาศัย ม.11(8) ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534</td>
-<td style='padding:8px; color:#f0ece4;'>อาศัย ม.18 พ.ร.บ.ปรับปรุงกระทรวงฯ ฉบับที่ 17 พ.ศ. 2559</td>
-</tr>
-<tr style='background:rgba(255,255,255,0.07);'>
-<td style='padding:8px; color:#e8dcc8;'><strong>ผลบังคับใช้</strong></td>
-<td style='padding:8px; color:#f0ece4;'>มีผลตั้งแต่วันประกาศในราชกิจจานุเบกษา</td>
-<td style='padding:8px; color:#f0ece4;'>30 วันนับแต่ประกาศ = 9 ก.ค. 2562</td>
-</tr>
-</tbody>
-</table>`
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📋 ตารางมาตราสำคัญ (พ.ร.บ. ป้องกันฯ พ.ศ. 2550)",
+          "content": "<table class='kb-table'><thead><tr><th>มาตรา</th><th>เนื้อหา</th><th>จุดสำคัญ</th></tr></thead><tbody><tr><td class='bold text-law-act'>ม.6</td><td>จัดตั้ง <strong>กปภ.ช.</strong></td><td>ประธาน = นายกฯ/รองนายกฯ</td></tr><tr><td class='bold'>ม.7</td><td>อำนาจ <strong>กปภ.ช.</strong></td><td>กำหนดนโยบาย/แผนแม่บท</td></tr><tr><td class='bold text-law-act'>ม.11</td><td>กรม ปภ. เป็น<strong>หน่วยงานกลาง</strong></td><td>มีอำนาจหน้าที่ 6 ข้อ</td></tr><tr><td class='bold text-law-act'>ม.12</td><td>แผนการป้องกันฯ <strong>แห่งชาติ</strong></td><td>อย่างน้อยต้องมี 6 สาระสำคัญ</td></tr><tr><td class='bold text-law-act'>ม.13</td><td><strong>รัฐมนตรี = ผู้บัญชาการ</strong></td><td>อำนาจทั่วราชอาณาจักร</td></tr><tr><td class='bold text-law-act'>ม.14</td><td><strong>อธิบดี ปภ. = ผู้อำนวยการกลาง</strong></td><td>รับผิดชอบทั่วประเทศ</td></tr><tr><td class='bold text-law-act'>ม.15</td><td><strong>ผู้ว่าฯ = ผู้อำนวยการจังหวัด</strong></td><td>สั่งการหน่วยงานรัฐ + อปท. ในจังหวัด</td></tr><tr><td class='bold text-law-act'>ม.17</td><td>คณะกรรมการจัดทำแผน<strong>จังหวัด</strong></td><td>ผู้ว่าฯ เป็นประธาน</td></tr><tr><td class='bold text-law-act'>ม.19</td><td><strong>นายอำเภอ = ผู้อำนวยการอำเภอ</strong></td><td>รับผิดชอบในเขตอำเภอ</td></tr><tr><td class='bold text-law-act'>ม.20</td><td><strong>ผู้บริหารท้องถิ่น = ผู้อำนวยการท้องถิ่น</strong></td><td>นายก อบจ./เทศมนตรี/นายก อบต.</td></tr><tr><td class='bold text-law-act'>ม.21</td><td>เมื่อเกิดภัย → ผู้อำนวยการท้องถิ่น<strong>ดำเนินการทันที</strong></td><td>แจ้งนายอำเภอ+ผู้ว่าฯ</td></tr></tbody></table>"
         },
         {
-          type: "highlight-box",
-          color: "amber",
-          title: "🔑 จุดสำคัญที่ออกข้อสอบบ่อย",
-          content: "<strong>1. ผู้รักษาการ:</strong> ฉบับ 2 รัฐมนตรีว่าการ<strong>กระทรวงมหาดไทย</strong> (ไม่ใช่ ICT)<br><strong>2. สังกัดศูนย์เตือนภัยฯ:</strong> ฉบับ 2 โอนมาสังกัด <strong>ปภ.</strong> (กรมป้องกันและบรรเทาสาธารณภัย)<br><strong>3. องค์ประชุม:</strong> ฉบับ 2 ลดเหลือ <strong>1 ใน 3</strong> (เพิ่มความคล่องตัว)<br><strong>4. มาตรานำ:</strong> อาศัย <strong>มาตรา 18</strong> ของ พ.ร.บ.ปรับปรุงกระทรวงฯ ฉบับที่ 17 พ.ศ. 2559<br><strong>5. วันที่มีผล:</strong> 9 กรกฎาคม 2562 (30 วันหลังประกาศราชกิจจานุเบกษา)"
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "📋 ตารางข้อสำคัญ (ระเบียบ พ.ศ. 2552 + ฉ.2/2562)",
+          "content": "<table class='kb-table'><thead><tr><th>ข้อ</th><th>เนื้อหา</th><th>จุดสำคัญ</th></tr></thead><tbody><tr><td class='bold'>ข้อ 4</td><td>นิยาม: การบริหารระบบเตือนภัย/ภัยพิบัติ/การเตือนภัย/หน่วยราชการ</td><td>ภัยพิบัติ <strong>ไม่รวมภัยทางทหาร</strong></td></tr><tr><td class='bold text-law-act'>ข้อ 6</td><td>จัดตั้ง <strong>กภช.</strong> + องค์ประชุม <strong>1 ใน 3</strong></td><td>ปรับจากกึ่งหนึ่ง (ฉ.2/2562)</td></tr><tr><td class='bold text-law-act'>ข้อ 6/1</td><td>กรรมการผู้ทรงคุณวุฒิ: วาระ <strong>4 ปี</strong>, ≤ <strong>2 วาระ</strong></td><td>พ้นเมื่อ ตาย/ลาออก/นายกฯ ให้ออก/ล้มละลายทุจริต/ไร้ความสามารถ/จำคุก</td></tr><tr><td class='bold'>ข้อ 7</td><td>อำนาจ กภช. — กำหนดนโยบาย/อนุมัติแผน</td><td>เสนอ ครม.</td></tr><tr><td class='bold'>ข้อ 9</td><td>หน่วยราชการต้อง<strong>ส่งเจ้าหน้าที่</strong>ร่วมปฏิบัติ</td><td>เมื่อ กภช./ปภ. ขอ</td></tr><tr><td class='bold'>ข้อ 13</td><td>ครม. อนุมัติแผน → หน่วยงาน<strong>ไม่ชักช้า</strong></td><td>การเงิน + ดำเนินการ</td></tr><tr><td class='bold text-law-act'>ข้อ 21</td><td>นายกฯ สั่งข้าราชการจากส่วนอื่นมาช่วย <strong>≤ 6 เดือน</strong></td><td>ถือเป็น<strong>การปฏิบัติราชการตามปกติ</strong></td></tr></tbody></table>"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำมาตราสำคัญ",
+          "text": "<strong>มาตราที่ต้องจำ (พ.ร.บ. 2550):</strong><br>• <strong>ม.6:</strong> กปภ.ช. (นายกฯ เป็นประธาน)<br>• <strong>ม.11:</strong> ปภ. = หน่วยงานกลาง<br>• <strong>ม.13:</strong> รัฐมนตรี = ผู้บัญชาการ<br>• <strong>ม.14:</strong> อธิบดี = ผู้อำนวยการกลาง<br>• <strong>ม.15:</strong> ผู้ว่าฯ = ผู้อำนวยการจังหวัด<br>• <strong>ม.19:</strong> นายอำเภอ = ผู้อำนวยการอำเภอ<br><br><strong>ข้อสำคัญ (ระเบียบ 2552):</strong><br>• <strong>ข้อ 6:</strong> กภช. + องค์ประชุม 1 ใน 3<br>• <strong>ข้อ 6/1:</strong> วาระ 4 ปี, ไม่เกิน 2 วาระ<br>• <strong>ข้อ 21:</strong> ดึงตัวคราวละ ≤ 6 เดือน"
+        }
+      ]
+    },
+    {
+      "navIcon": "🔍",
+      "navLabel": "ความแตกต่าง",
+      "icon": "🔍",
+      "title": "ธีมที่ 7 · ความแตกต่างที่ต้องจำ",
+      "description": "จุดเปรียบเทียบที่ข้อสอบชอบถามบ่อย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔄 ระดับเตือนภัย 5 ระดับ vs ผู้มีอำนาจประกาศ",
+          "content": "<table class='kb-table'><thead><tr><th>ระดับ</th><th>สี</th><th>ความหมาย</th><th>ผู้ประกาศ</th></tr></thead><tbody><tr class='odd'><td class='bold'>1</td><td>🟢 <strong>เขียว</strong></td><td>วิกฤตต่ำ — เฝ้าระวัง</td><td>หน่วยงานตามปกติ</td></tr><tr class='even'><td class='bold'>2</td><td>🟡 <strong>เหลือง</strong></td><td>เฝ้าระวัง</td><td>หน่วยงานตามปกติ</td></tr><tr class='odd'><td class='bold text-law-act'>3</td><td>🟠 <strong>ส้ม</strong></td><td>เตือนภัย</td><td><strong>ผู้ว่าฯ/นายอำเภอ</strong></td></tr><tr class='even'><td class='bold text-law-act'>4</td><td>🔴 <strong>แดง</strong></td><td>ภัยพิบัติ</td><td><strong>อธิบดี ปภ./นายกฯ</strong></td></tr><tr class='odd'><td class='bold text-law-act'>5</td><td>🟣 <strong>ม่วง</strong></td><td>วิกฤตรุนแรง</td><td><strong>นายกฯ + แจ้ง ครม.</strong></td></tr></tbody></table><br><strong>🧠 จำ:</strong> ระดับ 3 = ผู้ว่าฯ/นายอำเภอ / ระดับ 4 = อธิบดี/นายกฯ / ระดับ 5 = นายกฯ อย่างเดียว!<br><br><strong>💡 การยกเลิก:</strong> เมื่อสถานการณ์คลี่คลาย → ผู้ประกาศระดับ<strong>เดียวกัน</strong>เป็นผู้ยกเลิก"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 ผู้บัญชาการ vs ผู้อำนวยการ (พ.ร.บ. 2550)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>ผู้บัญชาการ (ม.13)</th><th>ผู้อำนวยการ (ม.14-20)</th></tr></thead><tbody><tr class='odd'><td><strong>ผู้ดำรงตำแหน่ง</strong></td><td><strong>รัฐมนตรี</strong> (ม.13)</td><td>อธิบดี/ผู้ว่าฯ/นายอำเภอ/ผู้บริหารท้องถิ่น</td></tr><tr class='even'><td><strong>ขอบเขต</strong></td><td>ทั่ว<strong>ราชอาณาจักร</strong></td><td>ระดับพื้นที่ (กลาง/จังหวัด/อำเภอ/ท้องถิ่น)</td></tr><tr class='odd'><td><strong>อำนาจ</strong></td><td>ควบคุม/กำกับ/สั่งการได้ทั่วประเทศ</td><td>รับผิดชอบในพื้นที่ของตน</td></tr><tr class='even'><td><strong>ลำดับชั้น</strong></td><td><strong>สูงสุด</strong> (ผู้บัญชาการ)</td><td>รองลงมา (ผู้อำนวยการ)</td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>ผู้บัญชาการ = รัฐมนตรี (1 คน ทั่วประเทศ)</strong><br><strong>ผู้อำนวยการ = อธิบดี/ผู้ว่าฯ/นายอำเภอ/ผู้บริหารท้องถิ่น (4 ระดับ ตามพื้นที่)</td></tr>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🔄 แผนการป้องกันฯ แห่งชาติ vs จังหวัด (ม.12 vs ม.16)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>แผนแห่งชาติ (ม.12)</th><th>แผนจังหวัด (ม.16)</th></tr></thead><tbody><tr class='odd'><td><strong>ผู้จัดทำ</strong></td><td>กรม ปภ. ร่วมกับหน่วยงานที่เกี่ยวข้อง</td><td>คณะกรรมการ (ผู้ว่าฯ เป็นประธาน)</td></tr><tr class='even'><td><strong>ผู้อนุมัติ</strong></td><td>กปภ.ช. → ครม.</td><td>ผู้ว่าฯ ประกาศใช้</td></tr><tr class='odd'><td><strong>สาระสำคัญ</strong></td><td>อย่างน้อย 6 เรื่อง (ตาม ม.12)</td><td>ต้อง<strong>สอดคล้อง</strong>กับแผนชาติ</td></tr><tr class='even'><td><strong>กรณีไม่สอดคล้อง</strong></td><td>— </td><td>ปภ. แจ้งผู้ว่าฯ → แก้ไขภายใน <strong>30 วัน</strong></td></tr></tbody></table><br><strong>🧠 จำ:</strong> แผนชาติอนุมัติโดย ครม. / แผนจังหวัดอนุมัติโดย ผู้ว่าฯ — แต่แผนจังหวัดต้อง<strong>สอดคล้อง</strong>กับแผนชาติ!"
+        }
+      ]
+    },
+    {
+      "navIcon": "🗺️",
+      "navLabel": "แผนผัง & ไทม์ไลน์",
+      "icon": "🗺️",
+      "title": "ธีมที่ 8 · แผนผัง & ไทม์ไลน์ (Big Picture)",
+      "description": "ภาพรวม — ไทม์ไลน์ 2 ฉบับ + โครงสร้าง ปภ. + Flow เตือนภัย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📅 ไทม์ไลน์ 2 ฉบับ (ระเบียบการเตือนภัยพิบัติ พ.ศ. 2552 + 2562)",
+          "content": "<table class='kb-table'><thead><tr><th>ฉบับ</th><th>ปี พ.ศ.</th><th>สาระสำคัญ</th></tr></thead><tbody><tr class='odd'><td class='bold'>หลัก</td><td>2552</td><td>ประกาศใช้ครั้งแรก — จัดตั้ง กภช. + ระบบ TDW (Thai Disaster Warning)</td></tr><tr class='even'><td class='bold text-law-act'>⭐ ฉ.2</td><td>2562</td><td>ปรับปรุง: <strong>รัฐมนตรีว่าการกระทรวงมหาดไทย</strong> เป็นผู้รักษาการ + ศูนย์ ขจ.ปภ. โอนมาสังกัด <strong>กรม ปภ.</strong> + ลดองค์ประชุม 1 ใน 3 + ใช้บังคับ <strong>9 ก.ค. 2562</strong></td></tr></tbody></table><br><strong>🧠 จำ:</strong> ฉบับ 2/2562 เปลี่ยน<strong>ผู้รักษาการ</strong> + โอนศูนย์เตือนภัยฯ มาสังกัด <strong>ปภ.</strong> (สอดคล้องกับ ม.18 พ.ร.บ. ปรับปรุงกระทรวงฯ ฉ.17/2559)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🏛️ แผนผังโครงสร้างการบริหารภัยพิบัติไทย",
+          "content": "<pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>[ไทย] ระดับชาติ (ตาม พ.ร.บ. 2550)\n  │\n  ├─ กปภ.ช. (คณะกรรมการป้องกันและบรรเทาสาธารณภัยแห่งชาติ) — ม.6\n  │    ├─ ประธาน: นายกฯ/รองนายกฯ\n  │    ├─ รองประธาน: รมว.มหาดไทย + ปลัด มท.\n  │    └─ เลขานุการ: อธิบดี ปภ.\n  │\n  ├─ ผู้บัญชาการ (ม.13): รัฐมนตรี — ทั่วราชอาณาจักร\n  │    └─ รองผู้บัญชาการ: ปลัดกระทรวงมหาดไทย\n  │\n  ├─ ผู้อำนวยการกลาง (ม.14): อธิบดี ปภ. — ทั่วประเทศ\n  │\n  ├─ กภช. (คณะกรรมการบริหารระบบเตือนภัย) — ระเบียบ 2552/2562\n  │    ├─ ประธาน: นายกฯ/รองนายกฯ\n  │    ├─ รองประธาน: รมว.มหาดไทย\n  │    ├─ เลขานุการ: อธิบดี ปภ.\n  │    └─ ผู้ทรงคุณวุฒิ ≤ 7 คน (วาระ 4 ปี, ไม่เกิน 2 วาระ)\n  │\n  └─ ศูนย์ ขจ.ปภ. (ศูนย์เตือนภัยพิบัติแห่งชาติ) — กรม ปภ.\n       ├─ ศูนย์กลาง → อธิบดี ปภ. (ประกาศระดับ 4-5)\n       ├─ ศูนย์จังหวัด → ผู้ว่าฯ (ประกาศระดับ 3)\n       └─ ศูนย์อำเภอ → นายอำเภอ\n\n📍 ระดับพื้นที่ (ตาม พ.ร.บ. 2550)\n  ├─ ผู้อำนวยการจังหวัด (ม.15): ผู้ว่าฯ\n  ├─ ผู้อำนวยการอำเภอ (ม.19): นายอำเภอ\n  └─ ผู้อำนวยการท้องถิ่น (ม.20): นายก อบจ./เทศมนตรี/อบต.</pre><br><strong>💡 จุดสังเกต:</strong> โครงสร้างซ้อนกัน 2 ชั้น — กฎหมายหลัก (พ.ร.บ. 2550) + กฎหมายรอง (ระเบียบ 2552)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 Flow การเตือนภัย (5 ระดับ)",
+          "content": "<pre style='background:var(--surface-2); padding:10px; border-radius:6px; line-height:1.8;'>🟢 เขียว (1) → เฝ้าระวัง → ไม่ต้องประกาศ\n  │\n  ▼\n🟡 เหลือง (2) → เฝ้าระวัง + ติดตาม → ไม่ต้องประกาศ\n  │\n  ▼\n🟠 ส้ม (3) → เตือนภัย! → ผู้ว่าฯ/นายอำเภอ ประกาศ\n  │              + เปิดศูนย์ปฏิบัติการ\n  ▼\n🔴 แดง (4) → ภัยพิบัติ! → อธิบดี ปภ./นายกฯ ประกาศ\n  │              + อพยพประชาชนทันที\n  ▼\n🟣 ม่วง (5) → วิกฤตรุนแรง! → นายกฯ + แจ้ง ครม.\n              + ขอความช่วยเหลือสากล\n  │\n  ▼\nเมื่อสถานการณ์คลี่คลาย → ผู้ประกาศ<strong>ระดับเดียวกัน</strong>เป็นผู้ยกเลิก</pre><br><strong>💡 จุดสำคัญ:</strong> การเตือนภัยต้อง<strong>ทันที</strong> — ทุกนาทีมีค่า = ชีวิตประชาชน"
+        }
+      ]
+    },
+    {
+      "navIcon": "💡",
+      "navLabel": "เทคนิคพิเศษ",
+      "icon": "💡",
+      "title": "ธีมที่ 9 · เทคนิคพิเศษสำหรับอันดับ 1",
+      "description": "เทคนิคขั้นสูง + จุดที่คนมักจำผิด + สูตรจำเร่งรัดสำหรับ ปภ.",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🎯 เทคนิคที่ 1: จุดที่คนมักจำผิด",
+          "content": "<strong>❌ ผิด → ถูก:</strong><br>❌ <strong>ผิด:</strong> ผู้รักษาการ (ระเบียบ 2552) = <strong>นายกฯ</strong> → <strong>ถูก:</strong> ฉบับปัจจุบัน (ฉ.2/2562) = <strong>รัฐมนตรีว่าการกระทรวงมหาดไทย</strong><br>❌ <strong>ผิด:</strong> <strong>กปภ.ช.</strong> = <strong>กภช.</strong> → <strong>ถูก:</strong> <strong>คนละชุด!</strong> กปภ.ช. (ม.6) = กฎหมายหลัก 2550 / กภช. = ระเบียบ 2552<br>❌ <strong>ผิด:</strong> ผู้บัญชาการ = อธิบดี ปภ. → <strong>ถูก:</strong> = <strong>รัฐมนตรี</strong> (ม.13) / อธิบดี = <strong>ผู้อำนวยการกลาง</strong> (ม.14)<br>❌ <strong>ผิด:</strong> ระดับ 4-5 ประกาศโดย <strong>ผู้ว่าฯ</strong> → <strong>ถูก:</strong> = <strong>อธิบดี ปภ./นายกฯ</strong> / ผู้ว่าฯ ประกาศได้แค่ <strong>ระดับ 3</strong><br>❌ <strong>ผิด:</strong> ผู้ทรงคุณวุฒิ กภช. = วาระ <strong>3 ปี</strong> → <strong>ถูก:</strong> = <strong>4 ปี</strong> (ต่อได้ไม่เกิน 2 วาระ)<br>❌ <strong>ผิด:</strong> นายกฯ ดึงตัวข้าราชการมาช่วย ปภ. ได้ <strong>1 ปี</strong> → <strong>ถูก:</strong> = <strong>6 เดือน</strong> (ข้อ 21)<br>❌ <strong>ผิด:</strong> ภัยพิบัติรวม<strong>ภัยทางทหาร</strong> → <strong>ถูก:</strong> = <strong>ไม่รวม</strong>ภัยทางทหาร (ข้อ 4)<br>❌ <strong>ผิด:</strong> กภช. ดึงตัวได้เลยโดยไม่ต้องขอ → <strong>ถูก:</strong> = <strong>ต้องเป็นการปฏิบัติราชการตามปกติ</strong> เจ้าหน้าที่ยังได้รับสิทธิจากต้นสังกัดเดิม"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🎯 เทคนิคที่ 2: ตัวเลขน่ารู้ (ออกสอบบ่อย)",
+          "content": "<strong>📌 ตัวเลขที่ต้องจำ:</strong><br>▪ <strong>5 ระดับ</strong> = ระดับเตือนภัย (เขียว/เหลือง/ส้ม/แดง/ม่วง)<br>▪ <strong>3 ระดับ</strong> = ศูนย์ ขจ.ปภ. (กลาง/จังหวัด/อำเภอ)<br>▪ <strong>4 ปี</strong> = วาระกรรมการผู้ทรงคุณวุฒิ กภช.<br>▪ <strong>2 วาระ</strong> = ดำรงตำแหน่งได้ไม่เกิน 2 วาระติดต่อกัน<br>▪ <strong>1 ใน 3</strong> = องค์ประชุม กภช. (ฉบับ 2/2562)<br>▪ <strong>6 เดือน</strong> = ดึงตัวข้าราชการมาช่วย ปภ. คราวละไม่เกิน 6 เดือน<br>▪ <strong>30 วัน</strong> = แก้ไขแผนจังหวัดให้สอดคล้องแผนชาติ (ม.17)<br>▪ <strong>30 วัน</strong> = มีผลบังคับใช้หลังประกาศราชกิจจาฯ (ฉ.2/2562)<br>▪ <strong>9 ก.ค. 2562</strong> = วันมีผลบังคับใช้ฉบับ 2<br>▪ <strong>5-15 นาที</strong> = เวลาเตือนภัย Tsunami ก่อนคลื่นถึงชายฝั่ง (JMA → ไทย)<br>▪ <strong>9.1 ริกเตอร์</strong> = ขนาดแผ่นดินไหวญี่ปุ่น 2011<br>▪ <strong>8 จังหวัด</strong> = ชายฝั่งอันดามันที่ได้รับเตือน Tsunami<br>▪ <strong>24/7</strong> = ระบบ TDW ทำงานตลอด<br>▪ <strong>5-10 คน</strong> = ผู้ทรงคุณวุฒิ กปภ.ช. (≤ 5) / กภช. (≤ 7)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🎯 เทคนิคที่ 3: โครงสร้างผู้บัญชาการ/ผู้อำนวยการ",
+          "content": "<strong>📋 จำแบบเรียงลำดับชั้น:</strong><br><br><strong>1️⃣ ผู้บัญชาการ (ม.13):</strong> รัฐมนตรี — สูงสุดทั่วประเทศ<br>   └─ <strong>รองผู้บัญชาการ:</strong> ปลัดกระทรวงมหาดไทย<br><br><strong>2️⃣ ผู้อำนวยการกลาง (ม.14):</strong> อธิบดี ปภ. — ทั่วประเทศ<br><br><strong>3️⃣ ผู้อำนวยการจังหวัด (ม.15):</strong> ผู้ว่าราชการจังหวัด<br>   └─ มีอำนาจ<strong>สั่งการ</strong>หน่วยงานรัฐ + อปท. ในจังหวัด<br><br><strong>4️⃣ ผู้อำนวยการอำเภอ (ม.19):</strong> นายอำเภอ<br><br><strong>5️⃣ ผู้อำนวยการท้องถิ่น (ม.20):</strong> ผู้บริหารท้องถิ่น (นายก อบจ./เทศมนตรี/นายก อบต.)<br><br><strong>🧠 จำง่าย:</strong> <strong>รัฐมนตรี > อธิบดี > ผู้ว่าฯ > นายอำเภอ > ผู้บริหารท้องถิ่น</strong><br><strong>ลำดับชั้น = บนลงล่าง</strong> สังเกตว่า <strong>รมว.</strong> สูงสุด (ไม่ใช่อธิบดี!)"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 สรุปสูตรเร่งรัด - จำ 5 อย่างพอ (อันดับ 1)",
+          "text": "<strong>กฎหมาย ปภ. จำ 5 อย่างก็สอบผ่าน:</strong><br>1. <strong>รัฐมนตรี = ผู้บัญชาการ</strong> (ม.13) ไม่ใช่อธิบดี!<br>2. <strong>ผู้ว่าฯ = ผู้อำนวยการจังหวัด</strong> (ม.15) — มีอำนาจสั่งการ อปท.<br>3. <strong>5 ระดับเตือนภัย</strong>: เขียว/เหลือง/ส้ม/แดง/ม่วง (ระดับ 3 = ผู้ว่าฯ/นายอำเภอ, ระดับ 4 = อธิบดี/นายกฯ, ระดับ 5 = นายกฯ)<br>4. <strong>กปภ.ช. ≠ กภช.</strong> — กปภ.ช. (พ.ร.บ. 2550) / กภช. (ระเบียบ 2552)<br>5. <strong>ผู้รักษาการ (ฉ.2/2562)</strong> = รัฐมนตรีว่าการกระทรวงมหาดไทย (ไม่ใช่ ICT)"
         }
       ]
     }

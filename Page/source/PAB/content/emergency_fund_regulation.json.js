@@ -27,7 +27,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "type": "highlight-box",
           "color": "navy",
           "title": "⚡ Quick Facts — สถิติที่ต้องรู้ก่อนสอบ",
-          "content": "ประกาศ <strong>16 ต.ค. 2568</strong> → บังคับใช้ <strong>1 ม.ค. 2569</strong> (30 วัน) | ยกเลิก 3 ฉบับ (พ.ศ. 2546, 2556, 2562) | ฐานอำนาจ: <strong>ม.41 พ.ร.บ. วินัยการเงินการคลัง พ.ศ. 2561</strong> | ผู้รักษาการ: <strong>รัฐมนตรี/ปลัดกระทรวงการคลัง</strong>"
+          "content": "ประกาศ <strong>10 พ.ย. 2568</strong> → บังคับใช้ <strong>11 พ.ย. 2568</strong> (วันถัดจากวันประกาศในราชกิจจานุเบกษา) | ยกเลิก 3 ฉบับ (พ.ศ. 2546, 2556, 2562) | ฐานอำนาจ: <strong>ม.41 พ.ร.บ. วินัยการเงินการคลัง พ.ศ. 2561</strong> | ผู้รักษาการ: <strong>รัฐมนตรี/ปลัดกระทรวงการคลัง</strong>"
         },
 
         /* ─── ข้อ 4: นิยามภัยพิบัติ (จุดออกสอบสูง) ─── */
@@ -79,7 +79,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "cards": [
             { "icon": "📝", "title": "สำนักเลขาธิการนายกฯ", "content": "ไม่เกิน <strong>10 ล้านบาท</strong>", "color": "amber" },
             { "icon": "🏥", "title": "สำนักงานปลัดสาธารณสุข", "content": "ไม่เกิน <strong>50 ล้านบาท</strong>", "color": "amber" },
-            { "icon": "🚨", "title": "ปภ. ส่วนกลาง", "content": "ไม่เกิน <strong>150 ล้านบาท</strong> (สูงสุด)", "color": "navy" },
+            { "icon": "🚨", "title": "ปภ. ส่วนกลาง", "content": "ไม่เกิน <strong>50 ล้านบาท</strong> (สูงสุด)", "color": "navy" },
             { "icon": "🏛️", "title": "สปภ.จ. แต่ละจังหวัด", "content": "ไม่เกิน <strong>100 ล้านบาท/แห่ง</strong> (76 แห่ง)", "color": "amber" },
             { "icon": "🏘️", "title": "อำเภอ/กิ่งอำเภอ", "content": "ไม่เกิน <strong>5 ล้านบาท/แห่ง</strong>", "color": "amber" },
             { "icon": "🛡️", "title": "กระทรวงกลาโหม", "content": "ตามข้อตกลงฯ ร่วมกับ ก.ค.", "color": "teal" },
@@ -91,7 +91,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "type": "highlight-box",
           "color": "green",
           "title": "💡 จำวงเงิน 5 ตัวหลัก",
-          "content": "<strong>สำนักเลขา 10 | สาธารณสุข 50 | ปภ.กลาง 150 (สูงสุด) | สปภ.จ. 100 | อำเภอ 5 ล้านบาท</strong><br>สูตร: <strong>10-50-150-100-5 = สิบ-ห้าสิบ-ร้อยห้าสิบ-ร้อย-ห้า</strong>"
+          "content": "<strong>สำนักเลขา 10 | สาธารณสุข 50 | ปภ.กลาง 50 (สูงสุด) | สปภ.จ. 100 | อำเภอ 5 ล้านบาท</strong><br>สูตร: <strong>10-50-50-100-5 = สิบ-ห้าสิบ-ห้าสิบ-ร้อย-ห้า</strong>"
         },
 
         /* ─── ข้อ 8: ก.ช.ภ. ─── */
@@ -127,10 +127,10 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "type": "highlight-box",
           "color": "green",
           "title": "🧠 บัตรลัดจำ — สรุปก่อนสอบ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;'>" +
+          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;color:#1a1a2e;'>" +
 "<thead><tr style='background:#166534;color:#fff;'><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>สูตร</th><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>ความหมาย</th></tr></thead>" +
 "<tbody>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>10-50-150-100-5</td><td style='padding:8px;border:1px solid #ddd;'>วงเงิน: สำนักเลขา | สาธารณสุข | ปภ.กลาง | สปภ.จ. | อำเภอ</td></tr>" +
+"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>10-50-50-100-5</td><td style='padding:8px;border:1px solid #ddd;'>วงเงิน: สำนักเลขา | สาธารณสุข | ปภ.กลาง | สปภ.จ. | อำเภอ</td></tr>" +
 "<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>60-120-15-30 วัน</td><td style='padding:8px;border:1px solid #ddd;'>กำหนดเวลา: ส่งใบสำคัญ | โอนงบ | ส่งรายงาน | ตรวจภายใน</td></tr>" +
 "<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>อนุมัติอำเภอ 1 ล้าน (อธิบดี)</td><td style='padding:8px;border:1px solid #ddd;'>จัดสรรให้อำเภอ/กิ่งอำเภอ (ข้อ 8)</td></tr>" +
 "<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>เชิงป้องกัน ≤ 20 ล้าน</td><td style='padding:8px;border:1px solid #ddd;'>ต้องประกาศเขตพื้นที่ก่อน อนุมัติโดยผู้ว่าฯ (ข้อ 5)</td></tr>" +
@@ -169,7 +169,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "type": "highlight-box",
           "color": "green",
           "title": "✅ เฉลยแบบทดสอบ",
-          "content": "<strong>A1:</strong> วงเงินสูงสุด <strong>150 ล้านบาท</strong> อยู่ที่ <strong>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.) ส่วนกลาง</strong> (ข้อ 6)<br>" +
+          "content": "<strong>A1:</strong> วงเงินสูงสุด <strong>50 ล้านบาท</strong> อยู่ที่ <strong>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.) ส่วนกลาง</strong> (ข้อ 6)<br>" +
 "<strong>A2:</strong> ไม่รวม: <strong>ภัยสงคราม</strong> | <strong>การประท้วงหยุดงานของพนักงานรัฐวิสาหกิจ</strong> | ส่วน<strong>การก่อการร้าย</strong>ต้องพิจารณาเป็นกรณีไป (ข้อ 4)<br>" +
 "<strong>A3:</strong> ก.ช.ภ.อ.: ประธาน=<strong>นายอำเภอ</strong> | เลขา=<strong>ปลัดอำเภอฝ่ายความมั่นคง</strong> | มติเสียงข้างมาก เท่าคะแนนไม่มีประธานชี้ขาด<br>ก.ช.ภ.จ.: ประธาน=<strong>ผู้ว่าฯ จังหวัด</strong> | เลขา=<strong>หัวหน้า สปภ.จ.</strong> | มติเสียงข้างมาก <strong>เท่าคะแนน → ประธานชี้ขาด</strong><br>" +
 "<strong>A4:</strong> มี <strong>8 ด้าน:</strong> แพทย์ | ฟื้นฟูสุขภาพ | คืนสภาพ | เสบียงอาหาร | ชดเชยเยียวยา | สังคมสงเคราะห์ | เกษตร | ที่พักพิงชั่วคราว (ข้อ 5)<br>" +
@@ -200,7 +200,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "items": [
             "<strong>ระดับ 1 (ชาติ):</strong> <strong>ครม./นายกรัฐมนตรี</strong> → อนุมัติงบกลาง | ประกาศสถานการณ์ฉุกเฉินระดับชาติ | ระดมทรัพยากรทั้งระบบ",
             "<strong>ระดับ 2 (กระทรวงการคลัง):</strong> <strong>กระทรวงการคลัง/กรมบัญชีกลาง</strong> → ผู้รักษาการตามระเบียบ | กำหนดวงเงิน | ตรวจสอบ | รับโอนงบชดใช้ | รายงานนายกฯ",
-            "<strong>ระดับ 3 (หน่วยงานเบิกจ่าย):</strong> <strong>8 หน่วยงาน</strong> (ปภ.กลาง 150 ล. | สปภ.จ. 100 ล. | อำเภอ 5 ล. | ฯลฯ) → เบิกจ่ายช่วยเหลือผู้ประสบภัย | ส่งใบสำคัญให้ กม. ภายใน 60 วัน",
+            "<strong>ระดับ 3 (หน่วยงานเบิกจ่าย):</strong> <strong>8 หน่วยงาน</strong> (ปภ.กลาง 50 ล. | สปภ.จ. 100 ล. | อำเภอ 5 ล. | ฯลฯ) → เบิกจ่ายช่วยเหลือผู้ประสบภัย | ส่งใบสำคัญให้ กม. ภายใน 60 วัน",
             "<strong>ระดับ 4 (พื้นที่):</strong> <strong>ก.ช.ภ.อ. (อำเภอ)</strong> → อนุมัติ | กลั่นกรอง | ประสาน | <strong>ก.ช.ภ.จ. (จังหวัด)</strong> → จัดสรรให้อำเภอ | เท่าคะแนนประธานชี้ขาด"
           ]
         },
@@ -208,12 +208,12 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "type": "highlight-box",
           "color": "amber",
           "title": "📊 สรุปวงเงิน 8 ระดับ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:13px;'>" +
+          "content": "<table style='width:100%;border-collapse:collapse;font-size:13px;color:#1a1a2e;'>" +
 "<thead><tr style='background:#92400e;color:#fff;'><th style='padding:8px;border:1px solid #92400e;font-family:var(--font-display);'>หน่วยงาน</th><th style='padding:8px;border:1px solid #92400e;font-family:var(--font-display);'>วงเงิน</th></tr></thead>" +
 "<tbody>" +
 "<tr style='background:#fffbeb;'><td style='padding:8px;border:1px solid #fde68a;'>สำนักเลขาธิการนายกฯ</td><td style='padding:8px;border:1px solid #fde68a;font-weight:700;'>10 ล้านบาท</td></tr>" +
 "<tr style='background:#fff;'><td style='padding:8px;border:1px solid #fde68a;'>สำนักงานปลัดกระทรวงสาธารณสุข</td><td style='padding:8px;border:1px solid #fde68a;font-weight:700;'>50 ล้านบาท</td></tr>" +
-"<tr style='background:#fffbeb;'><td style='padding:8px;border:1px solid #fde68a;font-weight:700;color:#b45309;'>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</td><td style='padding:8px;border:1px solid #fde68a;font-weight:900;font-size:1.1rem;color:#b45309;'>150 ล้านบาท (สูงสุด)</td></tr>" +
+"<tr style='background:#fffbeb;'><td style='padding:8px;border:1px solid #fde68a;font-weight:700;color:#b45309;'>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</td><td style='padding:8px;border:1px solid #fde68a;font-weight:900;font-size:1.1rem;color:#b45309;'>50 ล้านบาท</td></tr>" +
 "<tr style='background:#fff;'><td style='padding:8px;border:1px solid #fde68a;'>สปภ.จ. แต่ละจังหวัด</td><td style='padding:8px;border:1px solid #fde68a;font-weight:700;'>100 ล้านบาท/แห่ง</td></tr>" +
 "<tr style='background:#fffbeb;'><td style='padding:8px;border:1px solid #fde68a;'>อำเภอ/กิ่งอำเภอ</td><td style='padding:8px;border:1px solid #fde68a;font-weight:700;'>ไม่เกิน 5 ล้านบาท/แห่ง</td></tr>" +
 "</tbody></table>"
@@ -241,7 +241,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
           "content": "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;'>" +
 "<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>2568</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ปีประกาศ (16 ต.ค.)</div></div>" +
 "<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>2569</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>บังคับใช้ (1 ม.ค.)</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>150</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ล้าน วงเงิน ปภ. ส่วนกลาง</div></div>" +
+"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>50</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ล้าน วงเงิน ปภ. ส่วนกลาง</div></div>" +
 "<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>20</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ล้าน เชิงป้องกัน สูงสุด</div></div>" +
 "<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>60</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>วัน ส่งใบสำคัญ กม.</div></div>" +
 "<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>120</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>วัน โอนงบชดใช้</div></div>" +
@@ -266,7 +266,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
               "groupTitle": "เงินทดรองและการเบิกจ่าย",
               "category": "องค์กร",
               "terms": [
-                { "term": "เงินทดรองราชการ (Revolving Fund)", "eng": "Revolving Fund", "def": "เงินเบิกจ่ายล่วงหน้าเพื่อช่วยเหลือผู้ประสบภัย แล้วขอโอนงบประมาณมาชดใช้ภายหลัง | วงเงิน 10-150 ล้านขึ้นอยู่กับหน่วยงาน | ต้องส่งใบสำคัญให้ กม. ภายใน 60 วันทำการ" },
+                { "term": "เงินทดรองราชการ (Revolving Fund)", "eng": "Revolving Fund", "def": "เงินเบิกจ่ายล่วงหน้าเพื่อช่วยเหลือผู้ประสบภัย แล้วขอโอนงบประมาณมาชดใช้ภายหลัง | วงเงิน 10-50 ล้านขึ้นอยู่กับหน่วยงาน | ต้องส่งใบสำคัญให้ กม. ภายใน 60 วันทำการ" },
                 { "term": "ใบสำคัญรับเงิน (Payment Voucher)", "eng": "Payment Voucher", "def": "หลักฐานการจ่ายเงินทดรองแทนใบเสร็จ | ใช้เมื่อผู้รับเงินไม่มีใบเสร็จ | ให้ผู้รับลงชื่อรับไว้เป็นหลักฐาน | ต้องส่งให้กรมบัญชีกลางภายใน 60 วันทำการ" },
                 { "term": "การโอนงบชดใช้ (Budget Reimbursement)", "eng": "Budget Reimbursement", "def": "เมื่อจ่ายเงินทดรองไปแล้ว ขอโอนงบประมาณรายจ่ายมาชดใช้ | ต้องเสร็จสิ้นภายใน <strong>120 วันทำการ</strong>นับแต่วันจ่ายเงิน" },
                 { "term": "เชิงป้องกัน/ยับยั้ง (Preventive)", "eng": "Preventive Expenditure", "def": "ใช้จ่ายเพื่อป้องกันหรือยับยั้งภัยที่คาดว่าจะเกิด | วงเงินไม่เกิน <strong>20 ล้านบาท</strong> | ต้องประกาศเขตพื้นที่ก่อน | อนุมัติโดยผู้ว่าฯ" }
@@ -290,7 +290,7 @@ window.EMERGENCY_FUND_REGULATION_DATA =
   ],
   "additionalSections": [],
   "tips": [
-    "จำ: 10-50-150-100-5 = สำนักเลขา | สาธารณสุข | ปภ.กลาง | สปภ.จ. | อำเภอ (ล้านบาท)",
+    "จำ: 10-50-50-100-5 = สำนักเลขา | สาธารณสุข | ปภ.กลาง | สปภ.จ. | อำเภอ (ล้านบาท)",
     "จำ: 60 วันส่งใบสำคัญ | 120 วันโอนงบชดใช้ | 15 วันส่งรายงาน | 30 วันตรวจภายใน",
     "จำ: อนุมัติให้อำเภอ 1 ล้าน (อธิบดี) | ผู้ว่าฯ จัดสรร 50 ล้าน",
     "จำ: ก.ช.ภ.อ. ประธานนายอำเภอ | ก.ช.ภ.จ. ประธานผู้ว่าฯ | เลขาปลัดอำเภอ/หัวหน้า สปภ.จ.",

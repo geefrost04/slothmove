@@ -15,325 +15,348 @@ window.CIVIL_SERVICE_ACT_DATA =
   },
   "knowledgeSections": [
     {
-      "navIcon": "📋",
-      "navLabel": "สรุปเนื้อหา",
-      "icon": "📋",
-      "title": "📋 สรุปเนื้อหา",
-      "description": "เนื้อหาครบตามหลักสูตร สำหรับเตรียมสอบราชการ — เรียงตามน้ำหนักการออกสอบ",
-      "blocks": [
-
-        /* ─── Quick Facts ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "⚡ Quick Facts — สถิติที่ต้องรู้ก่อนสอบ",
-          "content": "ปี พ.ศ. <strong>2551</strong> → ยกเลิก 2509 | ผู้รักษาการ: <strong>นายกรัฐมนตรี</strong> | มาตราสำคัญ: <strong>30-37, 41-44, 55-62, 86</strong> | อายุเกษียณ: <strong>60 ปี (ชายและหญิงเท่ากัน)</strong>"
-        },
-
-        /* ─── ม.86: 5 ประเภทโทษ (จุดออกสอบสูงมาก) ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "⚖️ มาตรา 86 — 5 ประเภทโทษทางวินัย (จุดออกสอบสูงมาก)",
-          "content": "การลงโทษทางวินัยข้าราชการพลเรือน มี <strong>5 ระดับ</strong> จากเบาสุดไปหาหนักสุด:"
-        },
-        {
-          "type": "cards",
-          "color": "amber",
-          "cards": [
-            { "icon": "📝", "title": "ภาคทัณฑ์", "content": "<strong>เบาสุด</strong> — ลงโทษด้วยคำตักเตือน<br>ไม่มีผลต่อเงินเดือนหรือสิทธิ์ใด ๆ", "color": "green" },
-            { "icon": "💸", "title": "ตัดเงินเดือน", "content": "<strong>ตัดได้ไม่เกิน 20%</strong> เป็นเวลา<strong>ไม่เกิน 1 ปี</strong><br>ถือว่าเป็นโทษปานกลาง", "color": "amber" },
-            { "icon": "⏸️", "title": "พักราชการ", "content": "<strong>ห้ามปฏิบัติหน้าที่ชั่วคราว</strong><br>ไม่เกิน <strong>180 วัน</strong> | ระหว่างพักไม่ได้รับเงินเดือน", "color": "amber" },
-            { "icon": "🚪", "title": "ปลดออก", "content": "<strong>ปลดออกจากราชการ</strong><br>ยัง<strong>ได้สิทธิบำนาญ</strong> — เป็นความผิดร้ายแรง แต่ไม่ถึงขั้นไล่ออก<br>ไม่ต้องให้โอกาสสอบใหม่", "color": "rose" },
-            { "icon": "🚫", "title": "ไล่ออก", "content": "<strong>ไล่ออก + เพิกถอนสิทธิบำนาญและสิทธิอื่น</strong><br>กรณีร้ายแรงมาก เช่น ทุจริตต่อหน้าที่ หรือทำผิดซ้ำหลังได้รับโทษแล้ว", "color": "rose" }
-          ]
-        },
-        {
-          "type": "highlight-box",
-          "color": "rose",
-          "title": "⚠️ จุดจำ — ปลด vs ไล่ออก",
-          "content": "<strong>ปลดออก:</strong> ได้สิทธิบำนาญ — กรณีทุจริตร้ายแรงแต่ไม่ถึงขั้นไล่<br><strong>ไล่ออก:</strong> เพิกถอนสิทธิบำนาญ + สิทธิอื่น — กรณีร้ายแรงมาก หรือทำผิดซ้ำหลังได้รับโทษแล้ว<br><br><strong>สูตร:</strong> ภาคทัณฑ์ → ตัดเงิน → พักราชการ → ปลด(มีบำนาญ) → ไล่(เพิกถอน)"
-        },
-
-        /* ─── การบรรจุแต่งตั้ง (ม.30-37) ─── */
-        {
-          "type": "highlight-box",
-          "color": "blue",
-          "title": "📝 มาตรา 30–37 — การบรรจุและแต่งตั้งข้าราชการพลเรือน",
-          "content": "<strong>3 วิธีบรรจุเข้ารับราชการ:</strong>"
-        },
-        {
-          "type": "cards",
-          "color": "blue",
-          "cards": [
+        "navIcon": "🎯",
+        "navLabel": "เป้าหมาย & โครงสร้าง",
+        "icon": "🎯",
+        "title": "เป้าหมายและโครงสร้างความรู้",
+        "description": "วัตถุประสงค์หลักของเอกสาร และโครงสร้างความรู้ของ พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551",
+        "blocks": [
             {
-              "icon": "📚",
-              "title": "สอบแข่งขัน (ม.30-36)",
-              "content": "<strong>เปิดสอบ ภาค ก. ภาค ข. ภาค ค.</strong><br>• ต้องมีคุณสมบัติครบตามประกาศ<br>• ต้องเป็นไปอย่าง<strong>เปิดเผย คุณธรรม โปร่งใส</strong><br>• ผู้สอบได้ต้องได้รับการบรรจุเป็นข้าราชการพลเรือน",
-              "color": "blue"
+                "type": "highlight-box",
+                "color": "navy",
+                "title": "1. วัตถุประสงค์หลักของเอกสาร (Core Objectives)",
+                "content": "<strong>เอกสารนี้ต้องการสื่อสารอะไร:</strong> โครงสร้าง กฎเกณฑ์ มาตรฐาน และกลไกเชิงระบบในการบริหารทรัพยากรบุคคลของภาครัฐ (ข้าราชการพลเรือนสามัญ) ตั้งแต่การสรรหา บรรจุ แต่งตั้ง เลื่อนขั้น ไปจนถึงการลงโทษและการพ้นจากราชการ<br><br><strong>ปัญหาที่กำลังแก้ไข:</strong> กฎหมายนี้ถูกตราขึ้นเพื่อล้าง \"ระบบอุปถัมภ์\" การใช้ดุลยพินิจที่ไม่เป็นธรรม การแทรกแซงทางการเมือง และความล้าหลังของระบบตำแหน่งแบบซี (C) เดิมที่ทำให้คนไม่เติบโตตามความเชี่ยวชาญ<br><br><strong>เหตุใดจึงมีอยู่:</strong> เพื่อวางรากฐาน \"ระบบคุณธรรม (Merit System)\" ให้เป็นแกนกลางของรัฐ สร้างเกราะคุ้มครองข้าราชการน้ำดี และขับเคลื่อนระบบราชการให้มุ่งเน้น \"ผลสัมฤทธิ์ของงาน\" มากกว่าระบบอาวุโสเพียงอย่างเดียว"
             },
             {
-              "icon": "🔄",
-              "title": "รับโอน (ม.37)",
-              "content": "<strong>โอนข้าราชการพลเรือน</strong>ไปรับราชการในตำแหน่งเดียวกัน<br>• ต้องได้รับ<strong>ความยินยอม</strong>จากหน่วยงานต้นทางและรับ<br>• ต้องผ่านการตรวจสอบความเหมาะสม<br>• รับโอนได้ทุกกระทรวง/ทบวง/กรม",
-              "color": "blue"
-            },
-            {
-              "icon": "👤",
-              "title": "รับเข้าปฏิบัติงานก่อนบรรจุ",
-              "content": "<strong>รับคนเพื่อไปปฏิบัติงานก่อนบรรจุ</strong><br>• ทดลองปฏิบัติงานจริง<br>• หากผ่านการประเมินจึงบรรจุเป็นข้าราชการพลเรือน",
-              "color": "blue"
+                "type": "numbered-list",
+                "title": "2. วิเคราะห์โครงสร้างความรู้ (Knowledge Structure)",
+                "items": [
+                    "<strong>หัวข้อหลักที่ 1: กลไกขับเคลื่อนและคุ้มครอง (Board & Protectors):</strong> ก.พ., อ.ก.พ., และ ก.พ.ค.",
+                    "<strong>หัวข้อหลักที่ 2: การออกแบบระบบ (System Design):</strong> ระบบคุณธรรม และ การจัดประเภทตำแหน่ง 4 สายงาน",
+                    "<strong>หัวข้อหลักที่ 3: กระบวนการบริหารคน (HR Processes):</strong> การสรรหา บรรจุ แต่งตั้ง ประเมินผล และให้รางวัล",
+                    "<strong>หัวข้อหลักที่ 4: การรักษาระบบ (Maintenance):</strong> จรรยาข้าราชการ วินัย และกระบวนการทางวินัย",
+                    "<strong>หัวข้อหลักที่ 5: การเยียวยาข้อพิพาท (Remedies):</strong> การอุทธรณ์ และ การร้องทุกข์"
+                ]
             }
-          ]
-        },
-
-        /* ─── การออกจากราชการ (ม.41-44) ─── */
+        ]
+    },
+    {
+        "navIcon": "🧠",
+        "navLabel": "แนวคิด & ความสัมพันธ์",
+        "icon": "🧠",
+        "title": "แนวคิดหลักและความสัมพันธ์เชิงระบบ",
+        "description": "เจาะลึก Core Concepts, ความสัมพันธ์ระหว่างกลไก และเหตุผลเชิงตรรกะ (Cause & Effect)",
+        "blocks": [
+            {
+                "type": "highlight-box",
+                "color": "blue",
+                "title": "3. ระบุแนวคิดหลัก (Core Concepts)",
+                "content": ""
+            },
+            {
+                "type": "cards",
+                "color": "blue",
+                "cards": [
+                    {
+                        "icon": "⚖️",
+                        "title": "ระบบคุณธรรม (Merit System)",
+                        "content": "<strong>คืออะไร:</strong> 4 เสาหลัก (ความสามารถ, ผลสัมฤทธิ์, เป็นธรรม, ไร้อคติ)<br><strong>ทำหน้าที่:</strong> ไม้บรรทัดชี้วัดความชอบธรรมของคำสั่งทางปกครองในงาน HR",
+                        "color": "blue"
+                    },
+                    {
+                        "icon": "⚙️",
+                        "title": "คณะกรรมการข้าราชการพลเรือน (ก.พ.)",
+                        "content": "<strong>คืออะไร:</strong> \"สถาปนิก\" ผู้ออกแบบระบบ HR ของรัฐ<br><strong>ทำหน้าที่:</strong> ออกกฎ ระเบียบ กำหนดมาตรฐาน อนุมัติโครงสร้าง (นายกฯ เป็นประธาน)",
+                        "color": "navy"
+                    },
+                    {
+                        "icon": "🛡️",
+                        "title": "คณะกรรมการพิทักษ์ระบบคุณธรรม (ก.พ.ค.)",
+                        "content": "<strong>คืออะไร:</strong> \"ศาลเฉพาะทางขั้นต้น\" (กึ่งตุลาการ)<br><strong>ทำหน้าที่:</strong> ปกป้องระบบคุณธรรม วินิจฉัยข้อพิพาท เพื่อคานอำนาจผู้บังคับบัญชา",
+                        "color": "amber"
+                    },
+                    {
+                        "icon": "🏢",
+                        "title": "ตำแหน่ง 4 ประเภท",
+                        "content": "<strong>คืออะไร:</strong> บริหาร / อำนวยการ / วิชาการ / ทั่วไป<br><strong>ส่งผลต่อ:</strong> ให้สายวิชาการโตเทียบเท่าบริหารได้ ไม่ต้องทิ้งความเชี่ยวชาญ",
+                        "color": "teal"
+                    }
+                ]
+            },
+            {
+                "type": "bullet-list",
+                "title": "4. วิเคราะห์ความสัมพันธ์ (Relationship Analysis)",
+                "items": [
+                    "<strong>ก.พ. สนับสนุน ก.พ.ค. ด้วยข้อจำกัด:</strong> สำนักงาน ก.พ. เป็นฝ่ายธุรการให้ทั้งคู่ แต่ ก.พ.ค. มีอิสระในการวินิจฉัยคดี ก.พ. ห้ามแทรกแซง",
+                    "<strong>การประเมินผล ส่งผลต่อ การเลื่อนเงินเดือน:</strong> บังคับให้อิง \"ผลสัมฤทธิ์ของงาน\" เป็นหลัก ไม่ใช่อายุงาน",
+                    "<strong>อคติทางการเมือง ขัดแย้งกับ ระบบคุณธรรม:</strong> ห้ามนำความเห็นการเมืองมาพิจารณาความดีความชอบ",
+                    "<strong>คำสั่งนาย เป็นเงื่อนไขยกเว้นความผิดวินัย:</strong> ถ้านายสั่งผิดกฎหมาย ลูกน้องทักท้วงเป็น \"หนังสือ\" ถ้านายยืนยันเป็น \"หนังสือ\" ลูกน้องพ้นผิด"
+                ]
+            },
+            {
+                "type": "highlight-box",
+                "color": "rose",
+                "title": "5. วิเคราะห์ลำดับเหตุและผล (Cause & Effect)",
+                "content": "<strong>▪ ข้าราชการทำผิดวินัยร้ายแรง:</strong><br>Cause: ทำผิดร้ายแรง → Effect: ตั้งกรรมการสอบ → Impact: โทษมีแค่ ปลดออก/ไล่ออก (ห้ามต่ำกว่านี้) → Exception: ลดหย่อนได้แต่ห้ามต่ำกว่าปลดออก<br><br><strong>▪ นายละเลยลูกน้องทำผิด:</strong><br>Cause: นายไม่ลงโทษลูกน้อง → Effect: นายผิดวินัยเสียเอง → Impact: บังคับให้ผู้บริหารต้องมีความรับผิดชอบ (Accountability)<br><br><strong>▪ ชิงลาออกหนีความผิด:</strong><br>Cause: ลาออกไปแล้ว → Effect: การสอบสวนไม่สิ้นสุด → Impact: รัฐลงโทษได้ภายใน 3 ปีนับแต่วันออก"
+            }
+        ]
+    },
+    {
+        "navIcon": "👥",
+        "navLabel": "บทบาท & กฎระเบียบ",
+        "icon": "👥",
+        "title": "วิเคราะห์บทบาทหน้าที่ และกฎระเบียบ",
+        "description": "ความรับผิดชอบของแต่ละองค์ประกอบ และเงื่อนไข/ข้อยกเว้นทางกฎหมาย",
+        "blocks": [
+            {
+                "type": "cards",
+                "color": "teal",
+                "cards": [
+                    {
+                        "icon": "👔",
+                        "title": "รัฐมนตรีเจ้าสังกัด",
+                        "content": "บุคคลทางการเมือง มีอำนาจสั่งบรรจุ/แต่งตั้งเฉพาะระดับสูงสุด (บริหารระดับต้น/อำนวยการระดับสูง)",
+                        "color": "navy"
+                    },
+                    {
+                        "icon": "🏢",
+                        "title": "ปลัดกระทรวง/อธิบดี",
+                        "content": "ข้าราชการประจำผู้สูงสุด มีอำนาจเกลี่ยอัตรากำลัง สั่งบรรจุ และลงโทษวินัย",
+                        "color": "teal"
+                    },
+                    {
+                        "icon": "⚖️",
+                        "title": "อ.ก.พ. กระทรวง/กรม",
+                        "content": "บอร์ดระดับย่อย ดูแลอัตรากำลัง/วินัยภายใน ป้องกันการใช้อำนาจเผด็จการของอธิบดีคนเดียว",
+                        "color": "green"
+                    },
+                    {
+                        "icon": "💻",
+                        "title": "สำนักงาน ก.พ.",
+                        "content": "ศูนย์ข้อมูล Big Data ทรัพยากรบุคคลรัฐ, จัดสอบภาค ก., ฝ่ายเลขานุการ",
+                        "color": "blue"
+                    }
+                ]
+            },
+            {
+                "type": "highlight-box",
+                "color": "green",
+                "title": "7. วิเคราะห์กฎ ระเบียบ เงื่อนไข และข้อยกเว้น",
+                "content": "<strong>▪ สิ่งที่ต้องทำ:</strong> อุทิศเวลาให้ราชการ, รักษามารยาททางการเมือง, ปฏิบัติตามระเบียบ, วางตัวเป็นกลาง<br><strong>▪ สิ่งที่ห้ามทำ:</strong> เป็นกรรมการผู้จัดการบริษัทเอกชน (Conflict of Interest), ล่วงละเมิดทางเพศ, กลั่นแกล้งประชาชน, รายงานเท็จ<br><strong>▪ เงื่อนไขบังคับ:</strong> การบรรจุต้องเรียงตามลำดับบัญชี ห้ามข้ามลำดับเด็ดขาด<br><strong>▪ ข้อยกเว้น:</strong> คนเคยถูกปลดออก(เกิน 2 ปี) หรือไล่ออก(เกิน 3 ปี) สามารถกลับมารับราชการได้ <strong>ถ้า</strong> ก.พ. อนุมัติด้วยเสียง 4 ใน 5<br><strong>▪ ผลการฝ่าฝืน:</strong> ผิดไม่ร้ายแรง (ภาคทัณฑ์/ตัด/ลดเงินเดือน), ร้ายแรง (ปลดออกได้บำนาญ / ไล่ออกไม่ได้อะไรเลย)"
+            }
+        ]
+    },
+    {
+        "navIcon": "⚠️",
+        "navLabel": "จุดดัก & ข้อสอบ",
+        "icon": "⚠️",
+        "title": "วิเคราะห์เชิงลึก: ประเด็นที่ถูกมองข้าม & แนวข้อสอบ",
+        "description": "จุดบอดที่คนมักพลาด และสถิติแนวโน้มการออกสอบจริง",
+        "blocks": [
+            {
+                "type": "highlight-box",
+                "color": "purple",
+                "title": "8. วิเคราะห์ประเด็นที่มักถูกมองข้าม (Overlooked Issues)",
+                "content": "<strong>1. จรรยาข้าราชการ ไม่ใช่ วินัยข้าราชการ:</strong> ผิดจรรยาจะไม่ถูกตั้งกรรมการสอบสวนวินัย แต่จะถูกผู้บังคับบัญชาตักเตือน/หักคะแนนประเมิน แต่ถ้าผิดวินัยจะเข้าสู่กระบวนการลงโทษทันที<br><strong>2. ตอนไม่ผ่านโปร:</strong> ผู้ถูกสั่งให้ออกเพราะไม่ผ่านทดลองงาน กฎหมายถือเสมือน <strong>\"ไม่เคยเป็นข้าราชการ\"</strong> เพื่อปกป้องประวัติ<br><strong>3. อำนาจ ก.พ.ค. ผูกพันทันที:</strong> หาก ก.พ.ค. วินิจฉัย ผู้บังคับบัญชาต้องทำตามภายใน 30 วัน ละเลยถือว่าผิดอาญา ม.157"
+            },
+            {
+                "type": "highlight-box",
+                "color": "amber",
+                "title": "9. วิเคราะห์ประเด็นที่มีแนวโน้มออกข้อสอบ (Exam Insights)",
+                "content": "<strong>อุทธรณ์ VS ร้องทุกข์ (ออก 100%):</strong><br>▪ อุทธรณ์ = ใช้เมื่อ <strong>ถูกลงโทษวินัย</strong> → ยื่น ก.พ.ค.<br>▪ ร้องทุกข์ = ใช้เมื่อ <strong>คับข้องใจ/ไม่ได้รับความเป็นธรรม</strong> → ยื่น ผู้บังคับบัญชาชั้นเหนือขึ้นไป (ถ้านายสูงสุดทำค่อยยื่น ก.พ.ค.)<br><br><strong>วาระ ก.พ.ค.:</strong> ทำงานเต็มเวลา วาระเดียว เพื่อตัดปัญหาการสร้างฐานอำนาจ<br><br><strong>รักษาราชการแทนข้ามกรม:</strong> หากอธิบดีไม่อยู่ ปลัดตั้งผู้รักษาการแทน <strong>ต้องเป็นคนในกรมนั้นเท่านั้น</strong> ห้ามข้ามห้วย (จุดดักยอดฮิต)"
+            }
+        ]
+    },
+    {
+        "navIcon": "🕸️",
+        "navLabel": "สรุป & กราฟ",
+        "icon": "🕸️",
+        "title": "Knowledge Graph & Executive Summary",
+        "description": "ภาพรวมโครงสร้างความสัมพันธ์และบทสรุปผู้บริหาร",
+        "blocks": [
+            {
+                "type": "highlight-box",
+                "color": "navy",
+                "title": "10. Knowledge Graph แบบข้อความ",
+                "content": "<pre style='font-family:monospace; line-height:1.5;'>พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551\n│\n├─ ถูกขับเคลื่อนด้วย → [ระบบคุณธรรม]\n│    ├─ ห้ามอิงการเมือง\n│    └─ มุ่งผลสัมฤทธิ์\n│\n├─ โครงสร้างการกำกับดูแล\n│    ├─ [ก.พ.] → Policy Maker\n│    ├─ [ก.พ.ค.] → Protector / ศาลชั้นต้น\n│    └─ [สำนักงาน ก.พ.] → Operator\n│\n├─ การจำแนกตำแหน่ง\n│    └─ บริหาร / อำนวยการ / วิชาการ / ทั่วไป\n│\n├─ การควบคุมความประพฤติ\n│    ├─ [จรรยา] → หักคะแนนประเมิน\n│    └─ [วินัย] → โทษ (ภาคทัณฑ์ ยัน ไล่ออก)\n│\n└─ กลไกเยียวยา\n     ├─ โทษวินัย → [อุทธรณ์] → ก.พ.ค.\n     └─ ไม่เป็นธรรม → [ร้องทุกข์] → นายเหนือขึ้นไป / ก.พ.ค.</pre>"
+            },
+            {
+                "type": "highlight-box",
+                "color": "green",
+                "title": "11. Executive Summary (บทสรุปผู้บริหาร)",
+                "content": "พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551 เป็นกฎหมายแม่บทแห่งการปฏิรูประบบราชการไทย เปลี่ยนจาก \"ระบบอุปถัมภ์/อายุงาน\" สู่ <strong>\"ระบบคุณธรรม/มุ่งผลสัมฤทธิ์\"</strong> รื้อระบบซีเดิมเป็น 4 สายงาน (Broadbanding) เพื่อให้สายวิชาการโตได้ หัวใจสำคัญถูกแบ่งเป็น 2 ขา: <strong>ก.พ. (ออกแบบระบบ)</strong> และ <strong>ก.พ.ค. (พิจารณาอุทธรณ์ร้องทุกข์อย่างเป็นอิสระ)</strong><br><br>จุดเด่นคือกลไกบีบผู้บริหารให้มีความรับผิดชอบ (Accountability) เช่น นายไม่ลงโทษลูกน้อง ตัวเองผิดวินัย, ลาออกหนีความผิดไม่ได้, และคำสั่งขัดกฎหมายต้องทักท้วงเป็นหนังสือ สร้างสภาพแวดล้อมที่โปร่งใสและปกป้องข้าราชการน้ำดีอย่างแท้จริง"
+            }
+        ]
+    }
+],
+  "additionalSections": [
+    {
+      "navIcon": "👥",
+      "navLabel": "5. โครงสร้าง ก.พ./ก.พ.ค./อ.ก.พ.",
+      "icon": "👥",
+      "title": "ธีมที่ 5 · โครงสร้าง 3 องค์กรหลัก (เจาะลึก)",
+      "description": "ก.พ. (สถาปนิก), ก.พ.ค. (ศาลเฉพาะทาง), อ.ก.พ. (บอร์ดระดับย่อย) — ใครทำอะไร สำคัญอย่างไร",
+      "blocks": [
         {
           "type": "highlight-box",
           "color": "navy",
-          "title": "🚪 มาตรา 41–44 — การออกจากราชการ",
-          "content": "ข้าราชการพลเรือนออกจากราชการได้ <strong>5 กรณี:</strong>"
+          "title": "🏛️ คณะกรรมการข้าราชการพลเรือน (ก.พ.) — มาตรา 6",
+          "content": "<strong>สถานะ:</strong> \"สถาปนิก\" ผู้ออกแบบระบบบริหารทรัพยากรบุคคลภาครัฐ<br><br><strong>องค์ประกอบ (ม.6):</strong><br>▪ <strong>ประธาน:</strong> นายกรัฐมนตรี หรือรองนายกฯ ที่นายกฯ มอบหมาย<br>▪ <strong>กรรมการโดยตำแหน่ง:</strong> ปลัดสำนักนายกฯ, เลขาธิการ ก.พ.ร., เลขาธิการ สภาพัฒน์, ผู้อำนวยการสำนักงบประมาณ, เลขาธิการคณะกรรมการกฤษฎีกา, ฯลฯ<br>▪ <strong>กรรมการผู้ทรงคุณวุฒิ:</strong> ไม่เกิน <strong>5 คน</strong> (แต่งตั้งโดย ครม.) — <strong>วาระ 2 ปี</strong><br>▪ <strong>เลขานุการ:</strong> เลขาธิการ ก.พ.<br><br><strong>📋 อำนาจหน้าที่ (ม.8):</strong><br>1️⃣ เสนอแนะนโยบายการบริหารทรัพยากรบุคคลภาครัฐต่อ ครม.<br>2️⃣ ออก <strong>กฎ ก.พ.</strong> และระเบียบเกี่ยวกับการบริหารทรัพยากรบุคคล<br>3️⃣ พิจารณาวินิจฉัย<strong>อุทธรณ์และเรื่องร้องทุกข์</strong> (ก่อน ก.พ.ค. จะมี)<br>4️⃣ กำกับ ดูแล ประเมินผลการบริหารทรัพยากรบุคคล<br>5️⃣ เสนอแนะเกี่ยวกับการสรรหาและคัดเลือกข้าราชการ<br><br><strong>⚠️ จุดสังเกต:</strong> หากกระทรวง/กรมไม่ปฏิบัติตามมติ ก.พ. โดยไม่มีเหตุอันสมควร = <strong>รัฐมนตรีเจ้าสังกัด</strong>กระทำผิดวินัย (ม.11)"
         },
         {
-          "type": "cards",
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "⚖️ คณะกรรมการพิทักษ์ระบบคุณธรรม (ก.พ.ค.) — มาตรา 24",
+          "content": "<strong>สถานะ:</strong> \"ศาลเฉพาะทางขั้นต้น\" (กึ่งตุลาการ) — ปกป้องระบบคุณธรรม วินิจฉัยข้อพิพาท<br><br><strong>องค์ประกอบ (ม.24):</strong><br>▪ <strong>จำนวน:</strong> <strong>7 คน</strong> (แต่งตั้งโดย พระมหากษัตริย์ ตามคำแนะนำ ก.พ.)<br>▪ <strong>คุณสมบัติ:</strong> อายุ <strong>ไม่ต่ำกว่า 40 ปี</strong> + มีความรู้/ประสบการณ์ด้านการบริหารทรัพยากรบุคคล กฎหมาย หรือวิชาชีพ<br>▪ <strong>วาระ:</strong> <strong>6 ปี</strong> (ทำงานเต็มเวลา วาระเดียว — เพื่อตัดปัญหาการสร้างฐานอำนาจ)<br><br><strong>📋 อำนาจหน้าที่ (ม.30):</strong><br>1️⃣ พิจารณาวินิจฉัย<strong>อุทธรณ์</strong> (กรณีถูกลงโทษวินัย) — ม.114<br>2️⃣ พิจารณาวินิจฉัย<strong>เรื่องร้องทุกข์</strong> — ม.123<br>3️⃣ พิจารณา<strong>เรื่องการคุ้มครองระบบคุณธรรม</strong> — ม.126<br>4️⃣ แต่งตั้ง<strong>กรรมการวินิจฉัยอุทธรณ์/ร้องทุกข์</strong> (เทียบเท่าตำแหน่งบริหารระดับสูง)<br><br><strong>⚠️ จุดสำคัญ:</strong> คำวินิจฉัยของ ก.พ.ค. <strong>ผูกพันทันที</strong> ผู้บังคับบัญชาต้องทำตามภายใน 30 วัน — ละเลยถือว่าผิดอาญา ม.157"
+        },
+        {
+          "type": "highlight-box",
           "color": "teal",
-          "cards": [
-            { "icon": "🚪", "title": "ลาออก", "content": "ยื่นใบลาออกต่อหน่วยงาน<br>ต้องได้รับ<strong>อนุญาต</strong>จากหัวหน้าส่วนราชการ<br>เหลือเวลา 3 ปี → ต้องได้รับอนุญาตจากกระทรวง/ทบวงกรมก่อน", "color": "teal" },
-            { "icon": "🎂", "title": "เกษียณอายุ", "content": "อายุครบ <strong>60 ปี</strong> → พ้นจากราชการ<br>(ชายและหญิงเกษียณอายุเท่ากัน)<br>ได้สิทธิบำนาญตามจำนวนปีที่รับราชการ", "color": "teal" },
-            { "icon": "⚰️", "title": "ตายในราชการ", "content": "สิทธิ์บำเหน็จบำนาญ<br>ครอบครัวได้รับ<strong>การคุ้มครอง</strong>", "color": "teal" },
-            { "icon": "🏥", "title": "ให้ออกเพราะทุพพลภาพ", "content": "เมื่อไม่สามารถ<strong>ปฏิบัติหน้าที่</strong>ได้<br>ต้องผ่านการตรวจแพทย์", "color": "teal" },
-            { "icon": "⚖️", "title": "ให้ออกเพราะล้มละลาย", "content": "ตาม<strong>คำพิพากษาถึงที่สุด</strong><br>เป็นกรณีพ้นจากราชการเพราะเหตุทางกฎหมาย", "color": "teal" }
-          ]
-        },
-
-        /* ─── สิทธิประโยชน์และบำนาญ (ม.55-62) ─── */
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "💰 มาตรา 55–62 — สิทธิประโยชน์และบำนาญข้าราชการพลเรือน",
-          "content": "<strong>สิทธิประโยชน์ที่ข้าราชการพลเรือนได้รับ:</strong>"
-        },
-        {
-          "type": "cards",
-          "color": "green",
-          "cards": [
-            { "icon": "💵", "title": "เงินเดือน", "content": "ได้รับตาม<strong>เงินเดือนที่กำหนด</strong>ในบัญชีอัตราเงินเดือน<br>ตามตำแหน่งและชั้น", "color": "green" },
-            { "icon": "💼", "title": "เงินประจำตำแหน่ง", "content": "ตำแหน่งที่มี<strong>เงินประจำตำแหน่ง</strong>ตามกฎหมาย<br>ขึ้นกับระดับและประเภทตำแหน่ง", "color": "green" },
-            { "icon": "🏠", "title": "ค่าเช่าบ้าน", "content": "ข้าราชการที่<strong>ไม่มีที่อยู่ในที่ตั้งราชการ</strong><br>ได้รับสิทธิ์ค่าเช่าบ้านตามระเบียบ", "color": "green" },
-            { "icon": "💰", "title": "บำเหน็จบำนาญ", "content": "เมื่อ<strong>เกษียณหรือออกจากราชการ</strong>ตามกฎหมาย<br>ได้รับตามจำนวนปีที่รับราชการจริง", "color": "green" }
-          ]
+          "title": "🏢 คณะอนุกรรมการข้าราชการพลเรือน (อ.ก.พ.) — มาตรา 17",
+          "content": "<strong>สถานะ:</strong> \"บอร์ดระดับย่อย\" ดูแลอัตรากำลัง/วินัยภายในกระทรวงหรือกรม<br><br><strong>ระดับ อ.ก.พ.:</strong><br>▪ <strong>อ.ก.พ. กระทรวง:</strong> กรรมการโดยตำแหน่ง + ผู้ทรงคุณวุฒิ — ดูแลทั้งกระทรวง<br>▪ <strong>อ.ก.พ. กรม:</strong> ดูแลเฉพาะกรม — ป้องกันการใช้อำนาจเผด็จการของอธิบดี<br><br><strong>📋 อำนาจหน้าที่ (ม.18):</strong><br>▪ พิจารณาการบรรจุ การแต่งตั้ง การย้าย<br>▪ พิจารณาเรื่องวินัย (ตักเตือน ภาคทัณฑ์ ตัดเงินเดือน)<br>▪ ประเมินผลการปฏิบัติราชการ<br>▪ กลั่นกรอง<strong>การบรรจุระดับอำนวยการ/ชำนาญการ/ชำนาญงาน</strong> ก่อนเสนอ ปลัดกระทรวง/อธิบดีสั่ง<br><br><strong>🧠 จุดสังเกต:</strong> อ.ก.พ. = กลไกถ่วงดุลอำนาจ ไม่ให้หัวหน้าส่วนราชการใช้ดุลยพินิจเด็ดขาด"
         },
         {
           "type": "highlight-box",
-          "color": "green",
-          "title": "🎯 มาตรา 62 — ออกแล้วได้บำนาญ",
-          "content": "ข้าราชการที่ลาออกแล้ว<strong>ได้บำนาญ</strong> ต้อง:<br><br>• รับราชการมาแล้ว<strong>ไม่น้อยกว่า 25 ปี</strong><br>• อายุไม่ถึงเกษียณ แต่รับราชการ 25 ปีขึ้นไป<br>• ได้รับบำนาญตาม<strong>จำนวนปีที่รับราชการจริง</strong><br><br><strong>จำง่าย:</strong> 25 ปี = ขั้นต่ำรับบำนาญ"
-        },
-
-        /* ─── การอุทธรณ์ ─── */
-        {
-          "type": "highlight-box",
-          "color": "amber",
-          "title": "📜 การอุทธรณ์ — ข้าราชการที่ถูกลงโทษมีสิทธิ์อุทธรณ์",
-          "content": "ข้าราชการที่ได้รับ<strong>คำสั่งลงโทษทางวินัย</strong>มีสิทธิ์อุทธรณ์ตามขั้นตอนนี้:"
-        },
-        {
-          "type": "numbered-list",
-          "title": "กระบวนการอุทธรณ์ 3 ขั้น",
-          "items": [
-            "<strong>ขั้นที่ 1:</strong> ยื่นอุทธรณ์ต่อ<strong>หัวหน้าส่วนราชการ</strong> → ภายใน <strong>15 วัน</strong>นับแต่วันได้รับแจ้งคำสั่ง | หัวหน้าพิจารณาภายใน <strong>30 วัน</strong>",
-            "<strong>ขั้นที่ 2:</strong> หากไม่พอใจคำสั่ง → อุทธรณ์ต่อ <strong>ก.พ. (คณะกรรมการข้าราชการพลเรือน)</strong> → ภายใน <strong>30 วัน</strong>นับแต่วันได้รับแจ้งคำสั่งหัวหน้า",
-            "<strong>ขั้นที่ 3:</strong> คำสั่ง <strong>ก.พ. เป็นที่สุด</strong> → ถือว่าสิ้นสุดกระบวนการอุทธรณ์ | ไม่สามารถอุทธรณ์ต่อไปได้อีก"
-          ]
-        },
-        {
-          "type": "highlight-box",
-          "color": "amber",
-          "title": "💡 จุดจำ — อุทธรณ์",
-          "content": "<strong>15 วัน</strong> → ยื่นหัวหน้า | <strong>30 วัน</strong> → หัวหน้าพิจารณา | <strong>30 วัน</strong> → อุทธรณ์ต่อ ก.พ.<br><br><strong>สูตร:</strong> 15 → 30 → 30 | คำสั่ง ก.พ. เป็นที่สุด"
-        },
-
-        /* ─── บัตรลัดจำ ─── */
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "🧠 บัตรลัดจำ — สรุปก่อนสอบ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;'>" +
-"<thead><tr style='background:#166534;color:#fff;'><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>สูตร</th><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>ความหมาย</th></tr></thead>" +
-"<tbody>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>ภาคทัณฑ์ → ตัดเงิน → พัก → ปลด → ไล่</td><td style='padding:8px;border:1px solid #ddd;'>5 ระดับโทษทางวินัย จากเบาสุด → หนักสุด</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>ปลด=มีบำนาญ | ไล่=เพิกถอนบำนาญ</td><td style='padding:8px;border:1px solid #ddd;'>ม.86 — จุดแยกที่สำคัญที่สุดในข้อสอบ</td></tr>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>60/60</td><td style='padding:8px;border:1px solid #ddd;'>อายุเกษียณ ชาย/หญิง — เท่ากัน (ม.41)</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>25 ปี = ขั้นต่ำบำนาญ</td><td style='padding:8px;border:1px solid #ddd;'>ม.62 — ลาออกแล้วได้บำนาญ ต้องรับราชการ 25 ปีขึ้น</td></tr>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>180 วัน</td><td style='padding:8px;border:1px solid #ddd;'>พักราชการสูงสุด | ตัดเงินไม่เกิน 20% ไม่เกิน 1 ปี</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>15 → 30 → 30 = อุทธรณ์</td><td style='padding:8px;border:1px solid #ddd;'>ยื่น 15 วัน | หัวหน้าพิจารณา 30 วัน | อุทธรณ์ ก.พ. 30 วัน | ก.พ. เป็นที่สุด</td></tr>" +
-"</tbody></table>"
-        },
-
-        /* ─── แบบทดสอบ Q&A ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "✏️ แบบทดสอบ — ลองทำดู! (เฉลยอยู่กล่องถัดไป)",
-          "content": "<strong>ลองทำ 8 ข้อก่อนสอบ — ข้อไหนไม่แน่ ไปทบทวนในเนื้อหาข้างบน</strong>"
-        },
-        {
-          "type": "bullet-list",
-          "title": "คำถามที่ 1–4",
-          "items": [
-            "<strong>Q1:</strong> การลงโทษทางวินัยข้าราชการพลเรือนมีกี่ประเภท? เรียงจากเบาไปหนัก?",
-            "<strong>Q2:</strong> การ 'ปลดออก' กับการ 'ไล่ออก' แตกต่างกันอย่างไร? (จุดออกสอบสูงมาก)",
-            "<strong>Q3:</strong> อายุเกษียณของข้าราชการพลเรือน ชายและหญิง คือเท่าไหร่?",
-            "<strong>Q4:</strong> ข้าราชการที่ต้องการลาออกแล้วได้บำนาญ ต้องรับราชการมากี่ปีขึ้นไป?"
-          ]
-        },
-        {
-          "type": "bullet-list",
-          "title": "คำถามที่ 5–8",
-          "items": [
-            "<strong>Q5:</strong> ข้าราชการที่ถูกลงโทษทางวินัยมีสิทธิ์อุทธรณ์อย่างไร? ต้องยื่นที่ใด ภายในกี่วัน?",
-            "<strong>Q6:</strong> การพักราชการมีระยะเวลาสูงสุดเท่าไหร่? ระหว่างพักได้รับเงินเดือนหรือไม่?",
-            "<strong>Q7:</strong> การรับโอนข้าราชการพลเรือนต้องผ่านเงื่อนไขอะไรบ้าง?",
-            "<strong>Q8:</strong> หากข้าราชการเหลือเวลาราชการ 3 ปี จะลาออกได้หรือไม่? ต้องทำอย่างไร?"
-          ]
-        },
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "✅ เฉลยแบบทดสอบ",
-          "content": "<strong>A1:</strong> มี <strong>5 ประเภท</strong> เรียงจากเบาสุด: ภาคทัณฑ์ → ตัดเงินเดือน (≤20% ไม่เกิน 1 ปี) → พักราชการ (≤180 วัน) → ปลดออก (มีบำนาญ) → ไล่ออก (เพิกถอนบำนาญ) (ม.86)<br>" +
-"<strong>A2:</strong> <strong>ปลดออก</strong> = ปลดแต่ได้สิทธิบำนาญ (เป็นความผิดร้ายแรงแต่ไม่ถึงขั้นไล่) | <strong>ไล่ออก</strong> = ออกพร้อมเพิกถอนสิทธิบำนาญ + สิทธิอื่น (กรณีร้ายแรงมาก หรือทำผิดซ้ำหลังได้โทษแล้ว)<br>" +
-"<strong>A3:</strong> ชาย → <strong>60 ปี</strong> | หญิง → <strong>60 ปี</strong> — เท่ากัน (ม.41)<br>" +
-"<strong>A4:</strong> ต้องรับราชการมาแล้ว<strong>ไม่น้อยกว่า 25 ปี</strong> (ม.62)<br>" +
-"<strong>A5:</strong> ยื่นอุทธรณ์ต่อ<strong>หัวหน้าส่วนราชการ</strong>ภายใน <strong>15 วัน</strong> | หัวหน้าพิจารณาภายใน <strong>30 วัน</strong> | หากไม่พอใจ อุทธรณ์ต่อ<strong>ก.พ.</strong>ภายใน <strong>30 วัน</strong> | คำสั่ง ก.พ. <strong>เป็นที่สุด</strong><br>" +
-"<strong>A6:</strong> พักราชการสูงสุด <strong>180 วัน</strong> | ระหว่างพัก<strong>ไม่ได้รับเงินเดือน</strong><br>" +
-"<strong>A7:</strong> ต้องได้รับ<strong>ความยินยอม</strong>จากหน่วยงานต้นทางและหน่วยงานรับ | ต้องผ่านการตรวจสอบความเหมาะสม | โอนได้ในตำแหน่งเดียวกัน (ม.37)<br>" +
-"<strong>A8:</strong> <strong>ได้</strong> แต่ต้องได้รับ<strong>อนุญาตจากกระทรวง/ทบวง/กรมก่อน</strong> — เพราะเหลือเวลาอีก 3 ปี ต้องขออนุญาตระดับกระทรวง (ม.41)"
+          "color": "purple",
+          "title": "💻 สำนักงาน ก.พ. — มาตรา 13",
+          "content": "<strong>สถานะ:</strong> ส่วนราชการใน<strong>สำนักนายกรัฐมนตรี (สนร.)</strong> ขึ้นตรงต่อนายกฯ<br><br><strong>📋 หน้าที่ (ม.14):</strong><br>▪ รับผิดชอบงานธุรการของ ก.พ. และ ก.พ.ค.<br>▪ จัดทำ<strong>ฐานข้อมูลทะเบียนข้าราชการ</strong> (Big Data HR)<br>▪ จัด<strong>การสอบแข่งขันภาค ก.</strong> เพื่อบรรจุเข้ารับราชการ<br>▪ ศึกษา วิเคราะห์ เสนอแนะนโยบาย HR<br>▪ <strong>ผู้รักษาการตาม พ.ร.บ. นี้ (ฉบับปัจจุบัน)</strong> — เลขาธิการ ก.พ. (ม.17 แก้ไขโดย ฉ.2/2558)<br><br><strong>💡 หมายเหตุสำคัญ:</strong> ฉบับแรก (2551) นายกฯ รักษาการ / ฉบับที่ 2 (2558) <strong>เปลี่ยนเป็นเลขาธิการ ก.พ.</strong> — ข้อสอบมักถามฉบับปัจจุบัน!"
         }
       ]
     },
-
     {
-      "navIcon": "🏛️",
-      "navLabel": "โครงสร้าง",
-      "icon": "🏛️",
-      "title": "🏛️ โครงสร้างการบริหารงานข้าราชการพลเรือน",
-      "description": "โครงสร้างการบริหารและกระบวนการอุทธรณ์ตาม พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551",
+      "navIcon": "⚖️",
+      "navLabel": "6. โทษ 5 ประเภท",
+      "icon": "⚖️",
+      "title": "ธีมที่ 6 · โทษ 5 ประเภท + กระบวนการลงโทษ",
+      "description": "โทษทางวินัย (ม.88-98) + ขั้นตอนสอบสวน + โทษตามระดับความผิด",
       "blocks": [
         {
           "type": "highlight-box",
           "color": "navy",
-          "title": "🏗️ โครงสร้างการบริหารงานบุคคลข้าราชการพลเรือน",
-          "content": "ตาม <strong>พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551</strong> โครงสร้างการบริหารงานบุคคลเป็นดังนี้:"
-        },
-        {
-          "type": "cards",
-          "color": "navy",
-          "cards": [
-            {
-              "icon": "👑",
-              "title": "นายกรัฐมนตรี",
-              "content": "<strong>ผู้รักษาการ</strong>ตาม พ.ร.บ. นี้<br>กำหนดนโยบายทั่วไปเกี่ยวกับการบริหารงานบุคคลภาครัฐ",
-              "color": "navy"
-            },
-            {
-              "icon": "⚙️",
-              "title": "ก.พ. (คณะกรรมการข้าราชการพลเรือน)",
-              "content": "<strong>องค์กรอิสระ</strong>ในสำนักนายกรัฐมนตรี<br><strong>ดูแล:</strong> มาตรฐานการบริหารงานบุคคล | กำหนดนโยบายบุคลากรภาครัฐ | สอบแข่งขัน | ระเบียบวิชาชีพ<br>เป็นที่<strong>สุด</strong>ของการอุทธรณ์โทษวินัย",
-              "color": "blue"
-            },
-            {
-              "icon": "🏢",
-              "title": "หัวหน้าส่วนราชการ",
-              "content": "<strong>ปลัดกระทรวง / อธิบดี</strong><br><strong>อำนาจ:</strong> สั่งบรรจุ | ลงโทษทางวินัย | ให้ออกจากราชการ | พิจารณาอุทธรณ์ข้าราชการในสังกัด<br>รับผิดชอบการบริหารงานบุคคลโดยตรง",
-              "color": "teal"
-            },
-            {
-              "icon": "👔",
-              "title": "ข้าราชการพลเรือน",
-              "content": "<strong>พนักงานราชการ</strong>ที่บรรจุตาม พ.ร.บ. นี้<br>ได้รับเงินเดือนจาก<strong>งบประมาณแผ่นดิน</strong><br>มีสิทธิประโยชน์และบำนาญตามกฎหมาย",
-              "color": "green"
-            }
-          ]
+          "title": "⚖️ โทษทางวินัย 5 สถาน (มาตรา 88)",
+          "content": "<table class='kb-table'><thead><tr><th>ลำดับ</th><th>โทษ</th><th>ลักษณะ</th><th>ผลต่อบำนาญ</th></tr></thead><tbody><tr class='odd'><td class='bold'>1</td><td><strong>ภาคทัณฑ์</strong></td><td>ตักเตือนเป็นหนังสือ</td><td>ไม่กระทบ</td></tr><tr class='even'><td class='bold'>2</td><td><strong>ตัดเงินเดือน</strong></td><td>ตัดได้ไม่เกิน <strong>6 เดือน</strong> ในอัตราไม่เกิน <strong>10%</strong></td><td>ไม่กระทบ</td></tr><tr class='odd'><td class='bold'>3</td><td><strong>ลดเงินเดือน</strong></td><td>ลดได้ไม่เกิน <strong>1 ปี</strong> ในอัตราไม่เกิน <strong>20%</strong></td><td>ไม่กระทบ</td></tr><tr class='even'><td class='bold text-law-act'>4</td><td><strong>ปลดออก</strong></td><td>เป็นโทษร้ายแรง</td><td><strong>ได้รับบำนาญ</strong></td></tr><tr class='odd'><td class='bold text-law-act'>5</td><td><strong>ไล่ออก</strong></td><td>เป็นโทษร้ายแรง</td><td><strong>ไม่ได้บำนาญ</strong></td></tr></tbody></table><br><strong>🧠 ทริคจำ:</strong> <strong>ภาคทัณฑ์ - ตัด - ลด - ปลด - ไล่</strong> (เรียงจากเบาไปหนัก) — <strong>ปลด/ไล่ = ร้ายแรง</strong> ต้องสอบสวนก่อน"
         },
         {
           "type": "highlight-box",
-          "color": "blue",
-          "title": "📊 ตัวเลขสำคัญ — โครงสร้าง",
-          "content": "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;'>" +
-"<div style='background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#1e40af;'>2551</div><div style='font-size:0.75rem;color:#1e40af;margin-top:4px;'>ปีที่ประกาศใช้</div></div>" +
-"<div style='background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#1e40af;'>2509</div><div style='font-size:0.75rem;color:#1e40af;margin-top:4px;'>พ.ร.บ. ที่ยกเลิก</div></div>" +
-"<div style='background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#1e40af;'>60/60</div><div style='font-size:0.75rem;color:#1e40af;margin-top:4px;'>อายุเกษียณ ชาย/หญิง — เท่ากัน</div></div>" +
-"<div style='background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#1e40af;'>25</div><div style='font-size:0.75rem;color:#1e40af;margin-top:4px;'>ปี ขั้นต่ำบำนาญ</div></div>" +
-"</div>"
+          "color": "teal",
+          "title": "⚖️ โทษไม่ร้ายแรง vs ร้ายแรง — เกณฑ์แบ่ง",
+          "content": "<strong>📋 เกณฑ์ \"ร้ายแรง\" (ม.94):</strong><br>โทษปลดออก/ไล่ออก = ต้องผ่านการสอบสวน <strong>ทุกกรณี</strong> ไม่มีข้อยกเว้น<br><br><strong>ความผิดที่ถือเป็น \"ร้ายแรง\" (ตัวอย่าง):</strong><br>▪ <strong>ละทิ้งหน้าที่</strong>ติดต่อในคราวเดียวกันเกิน <strong>15 วัน</strong> โดยไม่มีเหตุอันสมควร (ม.85(4))<br>▪ <strong>กระทำการทุจริต</strong>ต่อหน้าที่ราชการ<br>▪ <strong>ล่วงละเมิดทางเพศ</strong>ผู้บังคับบัญชา/ผู้ใต้บังคับบัญชา<br>▪ <strong>ทำร้ายร่างกาย</strong>ผู้บังคับบัญชา/ผู้ร่วมงาน<br>▪ <strong>เปิดเผยความลับ</strong>ราชการที่สำคัญจนเกิดความเสียหาย<br>▪ <strong>ปฏิบัติหน้าที่</strong>โดยจงใจไม่ปฏิบัติตามระเบียบ<br><br><strong>📌 โทษร้ายแรง: ลดหย่อนได้ แต่ห้ามต่ำกว่า \"ปลดออก\"</strong> (ม.94 วรรค 2)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "⚖️ กระบวนการทางวินัย — ขั้นตอนสำคัญ",
+          "content": "<strong>📋 กระบวนการ (ม.90-93):</strong><br>1️⃣ <strong>กล่าวหา/ร้องเรียน</strong> → 2️⃣ <strong>ตั้งคณะกรรมการสอบสวน</strong> (เฉพาะความผิดร้ายแรง) → 3️⃣ <strong>สอบสวน + รายงานผล</strong> → 4️⃣ <strong>ลงโทษ</strong><br><br><strong>⏰ อายุความ:</strong><br>▪ กรณี<strong>ไม่ร้ายแรง</strong>: ลงโทษได้ภายใน <strong>3 ปี</strong> นับแต่กระทำผิด<br>▪ กรณี<strong>ร้ายแรง</strong>: ภายใน <strong>5 ปี</strong><br>▪ <strong>ลาออกหนีไม่รอด!</strong> ลาออกแล้วยังถูกลงโทษได้ภายใน 3 ปี (ม.105 วรรค 2)<br><br><strong>⚠️ ความรับผิดของผู้บังคับบัญชา:</strong><br>▪ <strong>ผู้บังคับบัญชาที่ละเลย</strong>ไม่ลงโทษลูกน้อง = <strong>ผิดวินัยเสียเอง</strong> (ม.95)<br>▪ ถ้าผู้ใต้บังคับบัญชากระทำความผิดร้ายแรง แต่ผู้บังคับบัญชา<strong>ละเลยไม่ลงโทษ</strong> = ผู้บังคับบัญชา<strong>ผิดวินัยร้ายแรง</strong>ด้วย<br><br><strong>💡 ทริค:</strong> กฎหมาย<strong>บังคับให้ผู้บริหาร</strong>ต้องมีความรับผิดชอบ (Accountability) ไม่ใช่แค่ลงโทษลูกน้อง"
         }
       ]
     },
-
     {
-      "navIcon": "📚",
-      "navLabel": "คำศัพท์",
-      "icon": "📚",
-      "title": "📚 คำศัพท์และตัวเลขน่ารู้",
-      "description": "ค้นหาและทบทวนคำศัพท์เชิงกฎหมาย ระเบียบ และคำย่อสำคัญ",
+      "navIcon": "📖",
+      "navLabel": "7. ตารางมาตราสำคัญ",
+      "icon": "📖",
+      "title": "ธีมที่ 7 · ตารางสรุปมาตราสำคัญสำหรับท่อง",
+      "description": "รวบรวมมาตราที่ออกสอบบ่อย พร้อมสาระสำคัญ",
       "blocks": [
         {
           "type": "highlight-box",
-          "color": "amber",
-          "title": "🔢 ตัวเลขสำคัญ — จำได้เร็ว",
-          "content": "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;'>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>2551</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ปีที่ประกาศใช้</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>5</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ประเภทโทษวินัย</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>180</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>วัน พักราชการ</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>25</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ปี ขั้นต่ำบำนาญ</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>15</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>วัน ยื่นอุทธรณ์</div></div>" +
-"</div>"
+          "color": "navy",
+          "title": "📋 ตารางสรุปมาตราสำคัญ (Must Know)",
+          "content": "<table class='kb-table'><thead><tr><th>มาตรา</th><th>เนื้อหา</th><th>จุดสำคัญ</th></tr></thead><tbody><tr><td class='bold'>ม.6</td><td>จัดตั้ง <strong>ก.พ.</strong> (คณะกรรมการข้าราชการพลเรือน)</td><td>นายกฯ/รองนายกฯ เป็นประธาน</td></tr><tr><td class='bold'>ม.8</td><td>อำนาจหน้าที่ <strong>ก.พ.</strong></td><td>ออกกฎ ก.พ. + เสนอนโยบาย</td></tr><tr><td class='bold text-law-act'>ม.11</td><td>ถ้าไม่ปฏิบัติตาม ก.พ. = <strong>รัฐมนตรีเจ้าสังกัด</strong>ผิดวินัย</td><td>รมต. ผิดวินัยเสียเอง!</td></tr><tr><td class='bold text-law-act'>ม.13</td><td>จัดตั้ง <strong>สำนักงาน ก.พ.</strong> (สังกัด สนร.)</td><td>ทำหน้าที่ธุรการ</td></tr><tr><td class='bold text-law-act'>ม.17</td><td><strong>เลขาธิการ ก.พ.</strong> รักษาการ (ฉ.2/2558 แก้)</td><td>เดิม: นายกฯ</td></tr><tr><td class='bold'>ม.17 (อ.ก.พ.)</td><td>จัดตั้ง <strong>อ.ก.พ.</strong> (กระทรวง/กรม)</td><td>ถ่วงดุลอำนาจอธิบดี</td></tr><tr><td class='bold text-law-act'>ม.24</td><td>จัดตั้ง <strong>ก.พ.ค.</strong> = 7 คน, วาระ <strong>6 ปี</strong></td><td>อายุ ≥ 40 ปี</td></tr><tr><td class='bold'>ม.30</td><td>อำนาจหน้าที่ <strong>ก.พ.ค.</strong></td><td>อุทธรณ์ + ร้องทุกข์ + คุ้มครอง</td></tr><tr><td class='bold'>ม.34</td><td>การจัดระเบียบต้องเป็นไปเพื่อ<strong>ผลสัมฤทธิ์</strong></td><td>ผลสัมฤทธิ์ > อาวุโส</td></tr><tr><td class='bold'>ม.35</td><td>ข้าราชการพลเรือน <strong>2 ประเภท</strong>: สามัญ + ในพระองค์</td><td>ลักษณะ 5 ถูกยกเลิก</td></tr><tr><td class='bold text-law-act'>ม.36</td><td>ตำแหน่ง <strong>4 ประเภท</strong>: บริหาร/อำนวยการ/วิชาการ/ทั่วไป</td><td>ระดับสูงสุดทั่วไป = ทักษะพิเศษ</td></tr><tr><td class='bold text-law-act'>ม.36 (คุณสมบัติ)</td><td>คุณสมบัติทั่วไป: สัญชาติไทย, อายุ <strong>≥ 18 ปี</strong></td><td>รวม 12 ข้อ</td></tr><tr><td class='bold text-law-act'>ม.85(4)</td><td>ละทิ้งหน้าที่ <strong>&gt; 15 วัน</strong> = ผิดวินัยร้ายแรง</td><td>15 วัน!</td></tr><tr><td class='bold text-law-act'>ม.88</td><td>โทษทางวินัย <strong>5 สถาน</strong></td><td>ภาคทัณฑ์ → ไล่ออก</td></tr><tr><td class='bold text-law-act'>ม.94</td><td>โทษร้ายแรง = ต้องสอบสวน, ลดหย่อนได้ไม่ต่ำกว่าปลดออก</td><td>ห้ามต่ำกว่าปลดออก!</td></tr><tr><td class='bold'>ม.95</td><td>ผู้บังคับบัญชาละเลยไม่ลงโทษลูกน้อง = ผิดวินัยเอง</td><td>Accountability</td></tr><tr><td class='bold text-law-act'>ม.114</td><td>อุทธรณ์คำสั่งลงโทษ → <strong>ก.พ.ค.</strong></td><td>ยื่น 30 วัน</td></tr><tr><td class='bold text-law-act'>ม.123</td><td>ร้องทุกข์ → ผู้บังคับบัญชาเหนือขึ้นไป (ถ้านายสูงสุด → ก.พ.ค.)</td><td>ต่างจากอุทธรณ์!</td></tr><tr><td class='bold text-law-act'>ม.157</td><td>ผู้บังคับบัญชาไม่ปฏิบัติตามคำวินิจฉัย ก.พ.ค. = ผิดอาญา</td><td>จำคุก ≤ 3 เดือน</td></tr></tbody></table>"
         },
         {
-          "type": "vocabularyGroups",
-          "groups": [
-            {
-              "icon": "⚖️",
-              "groupTitle": "โทษทางวินัยและการออกจากราชการ",
-              "category": "กระทรวง",
-              "terms": [
-                { "term": "ภาคทัณฑ์ (Reprimand)", "eng": "Reprimand", "def": "โทษทางวินัยที่เบาที่สุด — ลงโทษด้วยคำตักเตือน | ไม่มีผลต่อเงินเดือนหรือสิทธิ์ใด | ม.86" },
-                { "term": "ตัดเงินเดือน (Salary Deduction)", "eng": "Salary Deduction", "def": "โทษทางวินัยระดับปานกลาง — ตัดได้ไม่เกิน <strong>20%</strong> เป็นเวลาไม่เกิน <strong>1 ปี</strong> | ม.86" },
-                { "term": "พักราชการ (Suspension)", "eng": "Suspension", "def": "ห้ามปฏิบัติหน้าที่ชั่วคราวไม่เกิน <strong>180 วัน</strong> | ระหว่างพักไม่ได้รับเงินเดือน | ม.86" },
-                { "term": "ปลดออก (Removal)", "eng": "Removal", "def": "ปลดออกจากราชการเพราะความผิดร้ายแรง | ยัง<strong>ได้สิทธิบำนาญ</strong> | ไม่ต้องให้โอกาสสอบใหม่ | ม.86" },
-                { "term": "ไล่ออก (Dismissal)", "eng": "Dismissal", "def": "ไล่ออกพร้อม<strong>เพิกถอนสิทธิบำนาญและสิทธิอื่น</strong> | กรณีร้ายแรงมาก หรือทำผิดซ้ำหลังได้โทษแล้ว | ม.86" },
-                { "term": "การลาออก (Resignation)", "eng": "Resignation", "def": "ยื่นใบลาออกต่อหน่วยงาน ต้องได้รับอนุญาต | เหลือเวลา 3 ปี → ต้องได้รับอนุญาตจากกระทรวง/ทบวง/กรม | ม.41" }
-              ]
-            },
-            {
-              "icon": "💰",
-              "groupTitle": "สิทธิประโยชน์และบำนาญ",
-              "category": "องค์กร",
-              "terms": [
-                { "term": "บำนาญ (Pension)", "eng": "Pension", "def": "เงินที่จ่ายให้ข้าราชการที่เกษียณหรือออกจากราชการตามสิทธิ์ | ขั้นต่ำต้องรับราชการ 25 ปีขึ้นไป (ม.62)" },
-                { "term": "บำเหน็จ (Gratuity)", "eng": "Gratuity", "def": "เงินช่วยเหลือครอบครัวข้าราชการที่ตายในราชการ | จ่ายตามจำนวนปีที่รับราชการ" },
-                { "term": "ก.พ. (คณะกรรมการข้าราชการพลเรือน)", "eng": "Civil Service Commission", "def": "องค์กรอิสระในสำนักนายกรัฐมนตรี | ดูแล: นโยบายบุคลากรภาครัฐ | มาตรฐานกลาง | สอบแข่งขัน | เป็นที่สุดของการอุทธรณ์โทษวินัย" },
-                { "term": "เงินเดือนและเงินประจำตำแหน่ง", "eng": "Salary and Position Allowance", "def": "ข้าราชการพลเรือนได้รับเงินเดือนตามบัญชีอัตรา + เงินประจำตำแหน่ง (ถ้ามี) | ม.55" }
-              ]
-            },
-            {
-              "icon": "⚖️",
-              "groupTitle": "ศัพท์ทางกฎหมายและระเบียบ",
-              "category": "ศัพท์กฎหมาย",
-              "terms": [
-                { "term": "ข้าราชการพลเรือน (Civil Servant)", "eng": "Civil Servant", "def": "บุคคลที่ได้รับบรรจุเป็นพนักงานฝ่ายพลเรือนตาม พ.ร.บ. นี้ ได้รับเงินเดือนจากงบประมาณแผ่นดิน | ม.4" },
-                { "term": "มาตรา 30–37 (การบรรจุ)", "eng": "Sections 30–37 — Appointment", "def": "การบรรจุแต่งตั้งข้าราชการพลเรือน: สอบแข่งขัน (ภาค ก. ข. ค.) | รับโอน (ต้องยินยอม 2 ฝ่าย + ตรวจความเหมาะสม) | รับเข้าปฏิบัติงานก่อนบรรจุ" },
-                { "term": "มาตรา 86 (วินัย)", "eng": "Section 86 — Disciplinary Penalties", "def": "5 ประเภทโทษทางวินัย: ภาคทัณฑ์ | ตัดเงิน (≤20% ไม่เกิน 1 ปี) | พักราชการ (≤180 วัน) | ปลด(มีบำนาญ) | ไล่(เพิกถอนบำนาญ)" },
-                { "term": "มาตรา 62 (บำนาญ)", "eng": "Section 62 — Pension Eligibility", "def": "ลาออกแล้วได้บำนาญ → ต้องรับราชการ 25 ปีขึ้นไป | อายุไม่ถึงเกษียณแต่รับราชการ 25 ปีขึ้นไป → ได้บำนาญตามจำนวนปีจริง" },
-                { "term": "การอุทธรณ์ (Appeal)", "eng": "Appeal", "def": "ข้าราชการที่ถูกลงโทษอุทธรณ์ได้: ยื่น 15 วัน → หัวหน้าพิจารณา 30 วัน → อุทธรณ์ ก.พ. 30 วัน | คำสั่ง ก.พ. เป็นที่สุด" }
-              ]
-            }
-          ]
+          "type": "keypoint",
+          "title": "🧠 ทริคจำมาตราสำคัญ",
+          "text": "<strong>มาตราที่ต้องจำให้ได้:</strong><br>• <strong>ม.6/24:</strong> ก.พ. 7 คน / ก.พ.ค. 7 คน (เท่ากัน!)<br>• <strong>ม.17:</strong> เลขาธิการ ก.พ. รักษาการ<br>• <strong>ม.36:</strong> ตำแหน่ง 4 ประเภท + อายุ ≥ 18<br>• <strong>ม.85(4):</strong> ละทิ้งหน้าที่ > 15 วัน = ร้ายแรง<br>• <strong>ม.88:</strong> โทษ 5 สถาน<br>• <strong>ม.114/123:</strong> อุทธรณ์/ร้องทุกข์ → ก.พ.ค."
+        }
+      ]
+    },
+    {
+      "navIcon": "🔍",
+      "navLabel": "8. ความแตกต่าง",
+      "icon": "🔍",
+      "title": "ธีมที่ 8 · ความแตกต่างที่ต้องจำ",
+      "description": "จุดเปรียบเทียบที่ข้อสอบชอบถามบ่อย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔄 อุทธรณ์ vs ร้องทุกข์ (ต่างกันชัดเจน)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>อุทธรณ์ (ม.114)</th><th>ร้องทุกข์ (ม.123)</th></tr></thead><tbody><tr class='odd'><td><strong>เงื่อนไข</strong></td><td>ถูก<strong>ลงโทษทางวินัย</strong></td><td>คับข้องใจ/ไม่ได้รับความเป็นธรรมจากผู้บังคับบัญชา</td></tr><tr class='even'><td><strong>ยื่นต่อ</strong></td><td><strong>ก.พ.ค.</strong> โดยตรง</td><td>ผู้บังคับบัญชา<strong>เหนือขึ้นไป</strong> → ถ้านายสูงสุดค่อยยื่น ก.พ.ค.</td></tr><tr class='odd'><td><strong>ระยะเวลา</strong></td><td>30 วัน นับแต่ทราบคำสั่ง</td><td>ไม่กำหนด (แต่ต้องไม่ช้าเกิน)</td></tr><tr class='even'><td><strong>ผู้วินิจฉัย</strong></td><td><strong>ก.พ.ค.</strong> (ผูกพันทันที)</td><td>นายเหนือขึ้นไป → ก.พ.ค. (ถ้าไม่พอใจ)</td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>อุทธรณ์ = ถูกลงโทษ (ก.พ.ค. โดยตรง)</strong> / <strong>ร้องทุกข์ = คับข้องใจ (นายเหนือขึ้นไป)</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 จรรยาข้าราชการ vs วินัยข้าราชการ",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>จรรยาข้าราชการ (ม.78-83)</th><th>วินัยข้าราชการ (ม.84-98)</th></tr></thead><tbody><tr class='odd'><td><strong>ลักษณะ</strong></td><td>แนวปฏิบัติที่ดี</td><td>ข้อบังคับที่มีโทษ</td></tr><tr class='even'><td><strong>ผิดแล้ว</strong></td><td>ผู้บังคับบัญชา<strong>ตักเตือน</strong> + หักคะแนนประเมิน</td><td>เข้าสู่กระบวนการ<strong>ลงโทษ</strong>ทันที</td></tr><tr class='odd'><td><strong>กระบวนการ</strong></td><td>ไม่มีกรรมการสอบสวน</td><td>ต้องตั้ง<strong>กรรมการสอบสวน</strong> (ถ้าร้ายแรง)</td></tr><tr class='even'><td><strong>โทษ</strong></td><td>ตักเตือน + หักคะแนน</td><td>ภาคทัณฑ์ → ไล่ออก</td></tr><tr class='odd'><td><strong>อุทธรณ์</strong></td><td>ไม่ได้</td><td>ได้ (ก.พ.ค.)</td></tr></tbody></table><br><strong>🧠 จำ:</strong> <strong>จรรยา = ตักเตือน</strong> / <strong>วินัย = ลงโทษ</strong> (ชัดเจน!)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🔄 ปลดออก vs ไล่ออก (ต่างกันที่บำนาญ)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>ปลดออก (ม.88)</th><th>ไล่ออก (ม.88)</th></tr></thead><tbody><tr class='odd'><td><strong>ความร้ายแรง</strong></td><td>ร้ายแรง (แต่น้อยกว่าไล่ออก)</td><td>ร้ายแรงที่สุด</td></tr><tr class='even'><td><strong>เหตุผล</strong></td><td>ผิดร้ายแรง แต่<strong>ไม่ถึงขั้นไล่</strong></td><td>ผิดร้ายแรง<strong>ถึงขั้นเลวร้ายที่สุด</strong></td></tr><tr class='odd'><td><strong>บำนาญ</strong></td><td><strong>ได้รับบำนาญ</strong>ตามจำนวนปีที่รับราชการ</td><td><strong>ไม่ได้รับบำนาญ</strong> (เพิกถอน)</td></tr><tr class='even'><td><strong>กลับเข้ารับราชการ</strong></td><td>ได้ (ถ้าพ้นโทษ &gt; 2 ปี + ก.พ. อนุมัติ 4/5)</td><td>ได้ (ถ้าพ้นโทษ &gt; 3 ปี + ก.พ. อนุมัติ 4/5)</td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>ปลด = ได้บำนาญ / ไล่ = ไม่ได้บำนาญ</strong> (เงื่อนไขบำเหน็จต่างกัน)"
+        }
+      ]
+    },
+    {
+      "navIcon": "🗺️",
+      "navLabel": "9. แผนผัง & ไทม์ไลน์",
+      "icon": "🗺️",
+      "title": "ธีมที่ 9 · แผนผัง & ไทม์ไลน์ (Big Picture)",
+      "description": "ภาพรวม — ไทม์ไลน์ 3 ฉบับ + โครงสร้าง 3 องค์กร + Flow อุทธรณ์/ร้องทุกข์",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📅 ไทม์ไลน์ 3 ฉบับ พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551",
+          "content": "<table class='kb-table'><thead><tr><th>ฉบับ</th><th>ปี พ.ศ.</th><th>สาระสำคัญ</th></tr></thead><tbody><tr class='odd'><td class='bold'>หลัก</td><td>2551</td><td>ประกาศใช้ครั้งแรก (25 ม.ค. 2551) — รื้อระบบซี → 4 สายงาน + ตั้ง ก.พ.ค.</td></tr><tr class='even'><td class='bold text-law-act'>⭐ ฉ.1</td><td>2557</td><td>แก้ไขทั่วไป</td></tr><tr class='odd'><td class='bold text-law-act'>⭐ ฉ.2</td><td>2558</td><td>เปลี่ยนผู้รักษาการ: นายกฯ → <strong>เลขาธิการ ก.พ.</strong></td></tr><tr class='even'><td class='bold text-law-act'>⭐ ฉ.3</td><td>2562</td><td>แก้ <strong>โรคต้องห้าม</strong> จาก 5 โรค → <strong>4 โรค</strong> (ยกเลิกวัณโรค)</td></tr></tbody></table><br><strong>🧠 จำ:</strong> ฉ.2/2558 เปลี่ยนผู้รักษาการ + ฉ.3/2562 แก้โรคต้องห้าม"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🏛️ แผนผังโครงสร้าง 3 องค์กร + สำนักงาน ก.พ.",
+          "content": "<pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>นายกรัฐมนตรี\n  ├─ ก.พ. (คณะกรรมการข้าราชการพลเรือน) — ม.6\n  │    ├─ ประธาน: นายกฯ/รองนายกฯ (ที่นายกฯ มอบหมาย)\n  │    ├─ กรรมการโดยตำแหน่ง (ปลัด สนร., เลขาฯ ก.พ.ร., ฯลฯ)\n  │    ├─ กรรมการผู้ทรงคุณวุฒิ ≤ 5 คน (วาระ 2 ปี)\n  │    ├─ เลขานุการ: เลขาธิการ ก.พ.\n  │    │\n  │    └─ อ.ก.พ. (คณะอนุกรรมการฯ) — ม.17\n  │         ├─ อ.ก.พ. กระทรวง (ระดับกระทรวง)\n  │         └─ อ.ก.พ. กรม (ระดับกรม)\n  │\n  ├─ ก.พ.ค. (คณะกรรมการพิทักษ์ระบบคุณธรรม) — ม.24\n  │    ├─ 7 คน (แต่งตั้งโดย พระมหากษัตริย์ ตามคำแนะนำ ก.พ.)\n  │    ├─ อายุ ≥ 40 ปี\n  │    ├─ วาระ 6 ปี (ทำงานเต็มเวลา วาระเดียว)\n  │    └─ แต่งตั้ง \"กรรมการวินิจฉัยอุทธรณ์/ร้องทุกข์\" ได้\n  │\n  └─ สำนักงาน ก.พ. — ม.13 (สังกัด สนร.)\n       └─ หน้าที่: ธุรการ ก.พ./ก.พ.ค. + จัดสอบ ก. + Big Data HR</pre><br><strong>💡 จุดสังเกต:</strong> ก.พ. กับ ก.พ.ค. แยกจากกัน — ใช้สำนักงาน ก.พ. ร่วมกัน แต่<strong>มีอิสระในการวินิจฉัย</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 แผนผัง Flow อุทธรณ์ vs ร้องทุกข์",
+          "content": "<strong>🔄 Flow อุทธรณ์ (กรณีถูกลงโทษ):</strong><br><pre style='background:var(--surface-2); padding:10px; border-radius:6px;'>ผู้บังคับบัญชาสั่งลงโทษ → ผู้ถูกลงโทษ → อุทธรณ์ 30 วัน → ก.พ.ค. → คำวินิจฉัยผูกพันทันที</pre><br><strong>🔄 Flow ร้องทุกข์ (กรณีคับข้องใจ):</strong><br><pre style='background:var(--surface-2); padding:10px; border-radius:6px;'>นายทำให้คับข้องใจ → ผู้ถูกกระทำ → ร้องทุกข์ต่อนายเหนือขึ้นไป\n       │\n       └─→ นายเหนือพิจารณา\n                │\n                └─→ ถ้าเป็นนายสูงสุดแล้ว ไม่พอใจ → ก.พ.ค.</pre><br><strong>💡 จุดสำคัญ:</strong> <strong>อุทธรณ์ = ก.พ.ค. โดยตรง</strong> / <strong>ร้องทุกข์ = นายเหนือก่อน</strong> → <strong>ถ้านายสูงสุด ค่อย ก.พ.ค.</strong>"
+        }
+      ]
+    },
+    {
+      "navIcon": "💡",
+      "navLabel": "10. เทคนิคพิเศษ",
+      "icon": "💡",
+      "title": "ธีมที่ 10 · เทคนิคพิเศษสำหรับ 100 คะแนน",
+      "description": "เทคนิคขั้นสูง + จุดที่คนมักจำผิด + โรคต้องห้าม + คุณสมบัติข้าราชการ",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🎯 เทคนิคที่ 1: จุดที่คนมักจำผิด",
+          "content": "<strong>❌ ผิด → ถูก:</strong><br>❌ <strong>ผิด:</strong> ผู้รักษาการ = <strong>นายกฯ</strong> → <strong>ถูก:</strong> ฉบับปัจจุบัน (ฉ.2/2558) = <strong>เลขาธิการ ก.พ.</strong><br>❌ <strong>ผิด:</strong> ก.พ.ค. วาระ <strong>3 ปี</strong> → <strong>ถูก:</strong> วาระ <strong>6 ปี</strong> (ทำงานเต็มเวลา)<br>❌ <strong>ผิด:</strong> กรรมการ ก.พ.ค. อายุ <strong>50 ปี</strong> → <strong>ถูก:</strong> อายุ <strong>ไม่ต่ำกว่า 40 ปี</strong><br>❌ <strong>ผิด:</strong> ก.พ. กำหนดหลักเกณฑ์การสอบ = ก.พ.ค. → <strong>ถูก:</strong> เป็นของ <strong>ก.พ.</strong> (ก.พ.ค. ไม่มีอำนาจนี้!)<br>❌ <strong>ผิด:</strong> ข้าราชการพลเรือน 4 ประเภท → <strong>ถูก:</strong> <strong>2 ประเภท</strong> (สามัญ + ในพระองค์) — ตำแหน่ง 4 ประเภท<br>❌ <strong>ผิด:</strong> ละทิ้งหน้าที่ <strong>7 วัน</strong> = ผิดวินัยร้ายแรง → <strong>ถูก:</strong> <strong>&gt; 15 วัน</strong><br>❌ <strong>ผิด:</strong> ข้าราชการอายุ <strong>20 ปี</strong> บรรจุได้ → <strong>ถูก:</strong> <strong>18 ปีบริบูรณ์</strong><br>❌ <strong>ผิด:</strong> โรคต้องห้าม 5 โรค (รวมวัณโรค) → <strong>ถูก:</strong> ฉบับ 3/2562 แก้เป็น <strong>4 โรค</strong> (ไม่รวมวัณโรค)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🎯 เทคนิคที่ 2: โรคต้องห้าม 4 โรค (ฉ.3/2562)",
+          "content": "<table class='kb-table'><thead><tr><th>ลำดับ</th><th>โรค</th><th>ลักษณะ</th></tr></thead><tbody><tr class='odd'><td class='bold'>1</td><td>โรคเท้าช้าง</td><td>ในระยะที่ปรากฏอาการ<strong>เป็นที่รังเกียจแก่สังคม</strong></td></tr><tr class='even'><td class='bold'>2</td><td>โรคติดยาเสพติดให้โทษ</td><td>(เช่น ยาบ้า เฮโรอีน ฯลฯ)</td></tr><tr class='odd'><td class='bold'>3</td><td>โรคพิษสุราเรื้อรัง</td><td>ติดเหล้าจนไม่สามารถควบคุมตัวเอง</td></tr><tr class='even'><td class='bold'>4</td><td>โรคติดต่อร้ายแรง/เรื้อรัง</td><td>อาการ<strong>เด่นชัดหรือรุนแรง</strong> และเป็นอุปสรรคต่อการปฏิบัติงาน</td></tr></tbody></table><br><strong>🧠 ทริค:</strong> จำ <strong>\"เท้าช้าง - ยาเสพติด - สุรา - เรื้อรัง\"</strong><br><strong>⚠️ หมายเหตุ:</strong> เดิม (ก่อน ฉ.3/2562) มี 5 โรค — รวม <strong>วัณโรค</strong>ด้วย แต่<strong>ถูกยกเลิกออก</strong>แล้ว เพราะปัจจุบันรักษาได้"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🎯 เทคนิคที่ 3: ลักษณะต้องห้าม 12 ข้อ (ม.36)",
+          "content": "<strong>ลักษณะต้องห้ามของผู้บรรจุข้าราชการ (ม.36 ข้อ 8-12 อาจยกเว้นได้):</strong><br>1️⃣ <strong>อายุไม่ครบ 18 ปี</strong>บริบูรณ์<br>2️⃣ <strong>ไม่เลื่อมใส</strong>การปกครองระบอบประชาธิปไตยฯ<br>3️⃣ <strong>เป็นข้าราชการการเมือง</strong><br>4️⃣ <strong>ทุพพลภาพ/ไร้ความสามารถ/จิตฟั่นเฟือน</strong><br>5️⃣ <strong>เป็นพระภิกษุ/สามเณร/นักพรต</strong><br>6️⃣ <strong>อยู่ในระหว่างถูกพักราชการ</strong>หรือสั่งให้ออกจากราชการไว้ก่อน<br>7️⃣ <strong>เคยต้องโทษจำคุก</strong> (เว้นแต่ความผิดลหุโทษ/ไม่ร้ายแรง และพ้นโทษมาแล้วเกิน 5 ปี)<br>8️⃣ <strong>เป็นบุคคลล้มละลาย</strong><br>9️⃣ <strong>เคยถูกให้ออก/ปลดออก</strong>เพราะผิดวินัย (เกิน 2 ปี)<br>🔟 <strong>เคยถูกไล่ออก</strong>เพราะผิดวินัย (เกิน 3 ปี)<br>1️⃣1️⃣ <strong>เคยทุจริตในการสอบ</strong>เข้ารับราชการ (เว้นแต่ ก.พ. ยกเว้น)<br>1️⃣2️⃣ <strong>เคยถูกลงโทษให้ออกจากรัฐวิสาหกิจ</strong>มาแล้วเกิน 2 ปี<br><br><strong>💡 จุดสังเกต:</strong> ข้อ 8-12 <strong>ก.พ. อาจยกเว้น</strong>ได้ (เฉพาะรายหรือทั่วไป)"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 สรุปสูตรเร่งรัด - จำ 7 อย่างพอ",
+          "text": "<strong>กฎหมายนี้จำ 7 อย่างก็สอบผ่าน:</strong><br>1. <strong>เลขาธิการ ก.พ.</strong> รักษาการ (ม.17 ฉ.2/2558)<br>2. <strong>ก.พ.</strong> = สถาปนิก / <strong>ก.พ.ค.</strong> = ศาลเฉพาะทาง (วาระ 6 ปี, 7 คน, อายุ 40+)<br>3. <strong>2 ประเภท</strong> ข้าราชการ (สามัญ/ในพระองค์) / <strong>4 ประเภท</strong> ตำแหน่ง<br>4. <strong>โทษ 5 สถาน</strong> (ภาคทัณฑ์ → ไล่ออก) / <strong>ปลด/ไล่ = ร้ายแรง</strong><br>5. <strong>อุทธรณ์ (ม.114)</strong> = ถูกลงโทษ → ก.พ.ค. / <strong>ร้องทุกข์ (ม.123)</strong> = นายเหนือก่อน<br>6. <strong>โรคต้องห้าม 4 โรค</strong> (ฉ.3/2562 ยกเลิกวัณโรค)<br>7. <strong>ละทิ้งหน้าที่ > 15 วัน</strong> = ผิดวินัยร้ายแรง + <strong>ผู้บังคับบัญชาละเลย = ผิดเอง</strong>"
         }
       ]
     }
   ],
-  "additionalSections": [],
   "tips": [
     "จำ: 5 ประเภทโทษ = ภาคทัณฑ์ → ตัดเงินเดือน → พักราชการ → ปลดออก → ไล่ออก",
     "จำ: อายุเกษียณ = 60 ปี — ชายและหญิงเท่ากัน",

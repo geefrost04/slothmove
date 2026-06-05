@@ -1,469 +1,310 @@
-window.MINISTRY_ACT_DATA =
-{
+window.MINISTRY_ACT_DATA = {
   "id": "ministry_act",
   "PAGE_TYPE": "knowledge",
   "title": "พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545",
   "titleShort": "พ.ร.บ. ปรับปรุงกระทรวงฯ",
   "emoji": "🏢",
-  "subtitle": "กฎหมายว่าด้วยโครงสร้างและหน้าที่ของกระทรวง ทบวง กรม และการจัดระเบียบราชการ",
-  "badgeLabel": "สรุปสอบ ข.ป. ป.ป.ท.",
+  "subtitle": "สรุปเจาะลึกโครงสร้าง 20 กระทรวง ส่วนราชการอิสระ และหลักการปรับปรุงส่วนราชการ",
+  "badgeLabel": "สรุปเตรียมสอบภาค ข. ปภ.",
   "stats": {
     "chapters": 7,
     "parts": 47,
-    "vocab": 16,
+    "vocab": 15,
     "quiz": 50
   },
   "knowledgeSections": [
     {
-      "navIcon": "📋",
-      "navLabel": "สรุปเนื้อหา",
-      "icon": "📋",
-      "title": "📋 สรุปเนื้อหา",
-      "description": "เนื้อหาครบตามหลักสูตร สำหรับเตรียมสอบราชการ — เรียงตามน้ำหนักการออกสอบ",
+      "navIcon": "🎯",
+      "navLabel": "1. แก่นกฎหมาย",
+      "icon": "🎯",
+      "title": "ธีมที่ 1 · แก่นและคอนเซปต์หลัก (Core Philosophy)",
+      "description": "เป้าหมายสูงสุดในการปฏิรูปและจัดโครงสร้างกระทรวง ทบวง กรม",
       "blocks": [
-
-        /* ─── กล่องสถิติด่วน ─── */
         {
           "type": "highlight-box",
           "color": "navy",
-          "title": "⚡ Quick Facts — สถิติที่ต้องรู้ก่อนสอบ",
-          "content": "ปี พ.ศ. <strong>2545</strong> → 20 กระทรวง | ผู้รักษาการ: <strong>นายกรัฐมนตรี</strong> | มาตราสำคัญ: <strong>5, 6, 46</strong> | แก้ไขแล้ว <strong>20 ฉบับ</strong> (2545–2564)"
-        },
-
-        /* ─── มาตรา 5: 20 กระทรวง ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "🔢 มาตรา 5 — 20 กระทรวง (ภาค ก. ส่วนที่ 1)",
-          "content": "<strong>ม.5(1)</strong> สนน. มีฐานะเป็นกระทรวง | <strong>ม.5(2)–(20)</strong> อีก 19 กระทรวง รวม <strong>20 กระทรวง</strong> — กระทรวงล่าสุดคือ <strong>อว.</strong> (ฉ.18 พ.ศ. 2562)"
-        },
-
-        /* ─── 20 กระทรวง Cards ─── */
-        {
-          "type": "cards",
-          "color": "blue",
-          "cards": [
-            { "icon": "🏛️", "title": "สำนักนายกรัฐมนตรี", "content": "บริหารราชการทั่วไป | งบฯ | ก.พ. | ก.พ.ร. | สนน.", "color": "blue" },
-            { "icon": "🛡️", "title": "กลาโหม", "content": "ป้องกันประเทศ | รักษาความมั่นคง (ใช้ พ.ร.บ.กลาโหม พ.ศ.2551)", "color": "amber" },
-            { "icon": "💰", "title": "การคลัง", "content": "การเงิน | ภาษี | รัษฎากร | งบฯ | รัฐวิสาหกิจ", "color": "blue" },
-            { "icon": "🌐", "title": "การต่างประเทศ", "content": "การทูต | ความสัมพันธ์ระหว่างประเทศ | คนไทยในต่างประเทศ", "color": "blue" },
-            { "icon": "✈️", "title": "การท่องเที่ยวฯ", "content": "ส่งเสริมท่องเที่ยว | กีฬาเพื่อสุขภาพ | กีฬาอาชีพ", "color": "blue" },
-            { "icon": "👥", "title": "การพัฒนาสังคมฯ", "content": "สวัสดิการ | เด็ก | ผู้สูงอายุ | คนพิการ | หลักประกันฯ (ฉ.11 แยกจาก มหาดไทย)", "color": "blue" },
-            { "icon": "🎓", "title": "อว. (อุดมศึกษาฯ)", "content": "อุดมศึกษา | วิทยาศาสตร์ | วิจัย | นวัตกรรม | ก.ค.ศ.สังกัด อว. (ฉ.18 รวม ศธ.+อว.)", "color": "green" },
-            { "icon": "🌾", "title": "เกษตรและสหกรณ์", "content": "เกษตรกรรม | ป่าไม้ | ชลประทาน | สหกรณ์ | สินค้าเกษตร", "color": "blue" },
-            { "icon": "🚂", "title": "คมนาคม", "content": "ทางหลวง | ราง | เครื่องบิน | เรือ | กรมการขนส่งทางราง (ฉ.18 จัดตั้ง)", "color": "blue" },
-            { "icon": "🌿", "title": "ทรัพยากรธรรมชาติฯ", "content": "ป่าไม้ | ทรัพยากรทางทะเล | อุทยานฯ | สิ่งแวดล้อม (ฉ.16 จัดตั้งใหม่)", "color": "blue" },
-            { "icon": "📡", "title": "ดิจิทัลเพื่อเศรษฐกิจฯ", "content": "ICT | ดิจิทัลเพื่อเศรษฐกิจ | ดิจิทัลเพื่อสังคม (ฉ.12 แยกจาก ICT, ฉ.17 รวมกลับ)", "color": "blue" },
-            { "icon": "⚡", "title": "พลังงาน", "content": "นโยบายพลังงาน | ปิโตรเลียม | ไฟฟ้า | พลังงานทดแทน (ฉ.13 แยกจาก อุตสาหกรรม)", "color": "blue" },
-            { "icon": "🏪", "title": "พาณิชย์", "content": "การค้า | ส่งออก-นำเข้า | ราคา | ผู้บริโภค | ประกันภัย | คปภ.", "color": "blue" },
-            { "icon": "🏘️", "title": "มหาดไทย", "content": "การปกครองท้องที่ | อปท. | ผู้ว่าฯ | นายอำเภอ | กำนัน", "color": "blue" },
-            { "icon": "⚖️", "title": "ยุติธรรม", "content": "เรือนจำ | อัยการ | เมาเสพ | ฟอกเงิน | ทะเบียนยานพาหนะ", "color": "blue" },
-            { "icon": "👷", "title": "แรงงาน", "content": "แรงงานไทย/ต่างชาติ | ประกันสังคม | สวัสดิการ | กองทุนฯ", "color": "blue" },
-            { "icon": "🎭", "title": "วัฒนธรรม", "content": "ศิลปะ | วัฒนธรรม | ภูมิปัญญา | ภาษา | พระพุทธศาสนา", "color": "blue" },
-            { "icon": "🏥", "title": "สาธารณสุข", "content": "สุขภาพ | ยา | เวชภัณฑ์ | โรคติดต่อ | อาหาร | อุบัติเหตุ", "color": "blue" },
-            { "icon": "🏭", "title": "อุตสาหกรรม", "content": "อุตสาหกรรม | โรงงาน | มาตรฐาน | ส่งออก (ฉ.13 โอน พลังงาน ไป พน.)", "color": "blue" }
-          ]
-        },
-
-        /* ─── มาตรา 46: ส่วนราชการอิสระ 7 แห่ง ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "⭐ มาตรา 46 — ส่วนราชการไม่สังกัดกระทรวง 7 แห่ง (จุดออกสอบสูง)",
-          "content": "มีฐานะเป็น<strong>กรม</strong> ขึ้นตรง<strong>นายกรัฐมนตรี</strong> — ไม่ใช่สังกัดกระทรวงใด ตั้งตามกฎหมายเฉพาะ เช่น ปปง./ป.ป.ท. ตั้งโดย พ.ร.บ.เฉพาะ อยู่นอก พ.ร.บ.นี้"
+          "title": "👑 วัตถุประสงค์หลัก (ทำไมต้องมีกฎหมายนี้?)",
+          "content": "<strong>เป้าหมายสูงสุด:</strong> ลดความซ้ำซ้อน จัดโครงสร้างให้กะทัดรัด และนำระบบ <strong>\"กลุ่มภารกิจ\" (Cluster)</strong> มาใช้บูรณาการงานที่เกี่ยวข้องกันให้อยู่ภายใต้ทิศทางเดียวกัน"
         },
         {
-          "type": "cards",
-          "color": "amber",
-          "cards": [
-            { "icon": "👑", "title": "สำนักราชเลขาธิการ (สร.)", "content": "เลขานุการในพระองค์พระมหากษัตริย์ | ม.46(1)", "color": "amber" },
-            { "icon": "🏛️", "title": "สำนักพระราชวัง", "content": "จัดการพระราชวัง | ดูแลทรัพย์สินพระมหากษัตริย์ | ม.46(2)", "color": "amber" },
-            { "icon": "☸️", "title": "สงช. (พระพุทธศาสนา)", "content": "บริหารกิจการพระพุทธศาสนา | ม.46(3)", "color": "amber" },
-            { "icon": "🌊", "title": "กปร. (พระราชดำริ)", "content": "ประสานงานโครงการอันเนื่องมาจากพระราชดำริ | ม.46(4)", "color": "amber" },
-            { "icon": "🔬", "title": "กวน. (วิจัยแห่งชาติ)", "content": "วิจัยและวิชาการแห่งชาติ | ม.46(5)", "color": "amber" },
-            { "icon": "📖", "title": "ราชบัณฑิตยสภา", "content": "ส่งเสริมวิชาการและศิลปกรรม | ม.46(6)", "color": "amber" },
-            { "icon": "🚔", "title": "สตช. (ตำรวจแห่งชาติ)", "content": "รักษาความสงบเรียบร้อย | ม.46(7)", "color": "amber" }
-          ]
-        },
-
-        /* ─── Timeline: 20 ฉบับแก้ไข — CONCISE ─── */
-        {
-          "type": "highlight-box",
-          "color": "blue",
-          "title": "📜 20 ฉบับแก้ไข — Timeline ย่อ (พ.ศ. 2545–2564)",
-          "content": "<div style='overflow-x:auto;'>" +
-"<table style='width:100%;border-collapse:collapse;font-size:13px;'>" +
-"<thead><tr style='background:#1e40af;color:#fff;'>" +
-"<th style='padding:9px 10px;border:1px solid rgba(255,255,255,0.15);text-align:center;width:60px;font-family:var(--font-display);font-weight:700;'>ฉบับ</th>" +
-"<th style='padding:9px 10px;border:1px solid rgba(255,255,255,0.15);text-align:center;width:65px;font-family:var(--font-display);font-weight:700;'>ปี</th>" +
-"<th style='padding:9px 10px;border:1px solid rgba(255,255,255,0.15);font-family:var(--font-display);font-weight:700;'>เหตุการณ์สำคัญ</th></tr></thead>" +
-"<tbody>" +
-"<tr style='background:#f8fafc;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>1</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2545</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>ก.พ.ร. มาสังกัด สนน.</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>2–5</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2546</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>ปรับโครงสร้าง สนน. | โอน กรมวิเทศสหการ → ต่างประเทศ</td></tr>" +
-"<tr style='background:#fff1f2;'><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-weight:900;color:#be123c;'>3</td><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-size:0.82rem;color:#be123c;'>2546</td><td style='padding:8px 10px;border:1px solid #fecdd3;color:#1a1a2e;'><strong style='color:#be123c;'>⚡แยก</strong> กอศ.+ศธ. ← วิทยาศึกษาฯ เดิม</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>6–7</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2550</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>จัดตั้ง คปภ. (แยกจากพาณิชย์) | ปรับโครงสร้างตามนโยบาย</td></tr>" +
-"<tr style='background:#fff1f2;'><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-weight:900;color:#be123c;'>8</td><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-size:0.82rem;color:#be123c;'>2551</td><td style='padding:8px 10px;border:1px solid #fecdd3;color:#1a1a2e;'><strong style='color:#be123c;'>⚡รวม</strong> กอศ.+ศธ. กลับ → วิทยาศึกษาฯ ฉบับเดิม</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>9–10</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2553</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>ปรับโครงสร้าง สนน.</td></tr>" +
-"<tr style='background:#fff1f2;'><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-weight:900;color:#be123c;'>11</td><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-size:0.82rem;color:#be123c;'>2554</td><td style='padding:8px 10px;border:1px solid #fecdd3;color:#1a1a2e;'><strong style='color:#be123c;'>⚡แยก</strong> กพม. ← มหาดไทย</td></tr>" +
-"<tr style='background:#fff1f2;'><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-weight:900;color:#be123c;'>12</td><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-size:0.82rem;color:#be123c;'>2555</td><td style='padding:8px 10px;border:1px solid #fecdd3;color:#1a1a2e;'><strong style='color:#be123c;'>⚡แยก</strong> ดศ. ← กระทรวง ICT</td></tr>" +
-"<tr style='background:#fff1f2;'><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-weight:900;color:#be123c;'>13</td><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-size:0.82rem;color:#be123c;'>2555</td><td style='padding:8px 10px;border:1px solid #fecdd3;color:#1a1a2e;'><strong style='color:#be123c;'>⚡แยก</strong> พน. ← อุตสาหกรรม</td></tr>" +
-"<tr style='background:#fff1f2;'><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-weight:900;color:#be123c;'>14</td><td style='padding:8px 10px;border:1px solid #fecdd3;text-align:center;font-size:0.82rem;color:#be123c;'>2555</td><td style='padding:8px 10px;border:1px solid #fecdd3;color:#1a1a2e;'><strong style='color:#be123c;'>⚡รวม</strong> กระทรวง ICT → ดศ.</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>15</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2558</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>จัดตั้ง สคทช. สังกัด สนน. (ม.46)</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>16</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2559</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>ยุบ ทรัพยากรฯเดิม → ทรัพยากรธรรมชาติฯ ใหม่ (โอน กรมป่าไม้ ← เกษตรฯ)</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>17</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2560</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>ยุบ กระทรวง ICT อีกครั้ง → รวมเข้า ดศ.</td></tr>" +
-"<tr style='background:#dcfce7;'><td style='padding:8px 10px;border:1px solid #86efac;text-align:center;font-weight:900;color:#166534;'>18</td><td style='padding:8px 10px;border:1px solid #86efac;text-align:center;font-size:0.82rem;color:#166534;'>2562</td><td style='padding:8px 10px;border:1px solid #86efac;color:#1a1a2e;'><strong style='color:#166534;'>⚡รวมใหญ่</strong> ศธ.+อว. → อว. ฉบับใหม่ + จัดตั้ง กรมขนส่งทางราง</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-weight:700;color:#1a1a2e;'>19</td><td style='padding:8px 10px;border:1px solid #e2e8f0;text-align:center;font-size:0.82rem;color:#475569;'>2562</td><td style='padding:8px 10px;border:1px solid #e2e8f0;color:#1a1a2e;'>แก้ไข ก.พ.ร. ให้สอดคล้องกับ ฉ.18</td></tr>" +
-"<tr style='background:#dcfce7;'><td style='padding:8px 10px;border:1px solid #86efac;text-align:center;font-weight:900;color:#166534;'>20</td><td style='padding:8px 10px;border:1px solid #86efac;text-align:center;font-size:0.82rem;color:#166534;'>2564</td><td style='padding:8px 10px;border:1px solid #86efac;color:#1a1a2e;'><strong style='color:#166534;'>⚡ฉบับล่าสุด</strong> จัดตั้ง สคทช. อย่างเป็นทางการ → ม.46</td></tr>" +
-"</tbody></table></div>"
-        },
-
-        /* ─── ก.พ. / ก.พ.ร. / ก.ค.ศ. ─── */
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "⭐ ก.พ. / ก.พ.ร. / ก.ค.ศ. — สามเสาหลักราชการ (จุดออกสอบสูง)",
-          "content": "ทั้งสามองค์กรเป็น<strong>องค์กรอิสระ</strong> ภายในสำนักนายกรัฐมนตรี ดูแลคนละเรื่อง — จำง่ายด้วย <strong>\"คน ระบบ ครู\"</strong>"
-        },
-        {
-          "type": "cards",
-          "color": "green",
-          "cards": [
-            {
-              "icon": "👤",
-              "title": "ก.พ. → คน",
-              "content": "<strong>คณะกรรมการข้าราชการพลเรือน</strong><br>สังกัด สนน. (ม.6)<br><br><strong>ดูแล:</strong> นโยบายบุคลากรภาครัฐ | มาตรฐานกลาง | สอบแข่งขัน | ระเบียบวิชาชีพ",
-              "color": "green"
-            },
-            {
-              "icon": "⚙️",
-              "title": "ก.พ.ร. → ระบบ",
-              "content": "<strong>คณะกรรมการพัฒนาระบบราชการ</strong><br>สังกัด สนน. (ม.6)<br><br><strong>ดูแล:</strong> โครงสร้าง | ระบบงาน | ประสิทธิภาพ | มาตรฐานการจัดการภาครัฐ",
-              "color": "green"
-            },
-            {
-              "icon": "🎓",
-              "title": "ก.ค.ศ. → ครู",
-              "content": "<strong>คณะกรรมการข้าราชการครูฯ</strong><br>สังกัด <strong>อว.</strong> (ฉ.18 ยุบ ศธ.+อว.เดิม รวมเป็น อว.)<br><br><strong>ดูแล:</strong> นโยบายบุคลากรครู | มาตรฐานวิชาชีพครู | การบรรจุแต่งตั้ง | ก.ค.ศ.ก. ด้านหลักสูตร",
-              "color": "green"
-            }
-          ]
-        },
-
-        /* ─── มาตรา 6 ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "⚙️ มาตรา 6 — อำนาจหน้าที่สำนักนายกรัฐมนตรี",
-          "content": "สำนักนายกรัฐมนตรีทำหน้าที่ <strong>บริหารราชการส่วนกลาง ส่วนภูมิภาค ส่วนท้องถิ่น และลงทุน</strong> ตามมาตรา 6 วรรคหนึ่ง — ฉบับจริงเป็น<strong>วรรคเดียวไม่มี (1)–(5)</strong> แต่แบ่งเนื้อหาได้ 5 ด้าน:"
-        },
-        {
-          "type": "numbered-list",
-          "title": "มาตรา 6 วรรคหนึ่ง — แบ่งเป็น 5 ด้าน (ไม่ใช่ข้อทางกฎหมาย)",
-          "items": [
-            "<strong>ราชการทั่วไปของนายกฯ และ ครม.</strong> + บริหารราชการทั่วไป รวมถึงงานที่ไม่อยู่ในอำนาจกระทรวงใด",
-            "<strong>นโยบายและแผน</strong> — เศรษฐกิจ สังคม การเมือง ความมั่นคง งบประมาณ (ด้านสำคัญที่สุดในเชิงสอบ)",
-            "<strong>บริหารงานบุคคลภาครัฐ</strong> + กฎหมายและพัฒนากฎหมาย",
-            "<strong>ติดตามและประเมินผล</strong> + ปฏิบัติภารกิจพิเศษ",
-            "<strong>ราชการอื่นตามที่กฎหมายกำหนด</strong> ให้เป็นอำนาจของ สนน. หรือที่ ครม. มอบหมาย"
-          ]
-        },
-
-        /* ─── มาตรา 7 สนน. ─── */
-        {
-          "type": "highlight-box",
-          "color": "blue",
-          "title": "📁 มาตรา 7 — ส่วนราชการในสำนักนายกรัฐมนตรี",
-          "content": "แบ่งเป็น <strong>2 กลุ่ม</strong>: ส่วนราชการทั่วไป + ส่วนราชการขึ้นตรงนายกรัฐมนตรี (รวม 13 แห่ง)"
-        },
-        {
-          "type": "bullet-list",
-          "title": "📋 ส่วนราชการทั่วไป (4 แห่ง)",
-          "items": [
-            "กรมประชาสัมพันธ์",
-            "สำนักงานคณะกรรมการคุ้มครองผู้บริโภค (สคบ.)",
-            "กรมโยธาธิการและผังเมือง",
-            "กรมพัฒนาฝีมือแรงงาน"
-          ]
-        },
-        {
-          "type": "bullet-list",
-          "title": "📌 ส่วนราชการขึ้นตรงนายกรัฐมนตรี (9 แห่ง)",
-          "items": [
-            "สำนักเลขาธิการนายกรัฐมนตรี",
-            "สำนักเลขาธิการคณะรัฐมนตรี",
-            "สำนักข่าวกรองแห่งชาติ",
-            "สำนักงบประมาณ",
-            "สำนักงานสภาพัฒนาการฯ (สภาพัฒน์)",
-            "สำนักงาน ก.พ.",
-            "สำนักงานคณะกรรมการส่งเสริมการลงทุน (BOI)",
-            "สำนักงานทรัพยากรน้ำฯ (สทนช.)",
-            "สำนักงานคณะกรรมการนโยบายที่ดินฯ (สคทช.) — ฉ.20 จัดตั้งอย่างเป็นทางการ"
-          ]
-        },
-
-        /* ─── มาตรา 8-10 ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "⚙️ มาตรา 8–10 — กระทรวงที่ใช้กฎหมายจัดระเบียบเฉพาะ",
-          "content": "<strong>ม.8</strong> = ยกเว้น กลาโหม (ไม่อยู่ภายใต้ พ.ร.บ.ปรับปรุงกระทรวงฯ)<br><strong>ม.9</strong> = ใช้ พ.ร.บ.จัดระเบียบราชการกระทรวงกลาโหม พ.ศ. 2551<br><strong>ม.10</strong> = การคลัง ใช้ พ.ร.บ.วินัยการเงินการคลังของรัฐ"
-        },
-        {
-          "type": "bullet-list",
-          "title": "รายละเอียด มาตรา 8–10",
-          "items": [
-            "<strong>มาตรา 8</strong> — กระทรวงกลาโหม <strong>ไม่</strong>อยู่ภายใต้ พ.ร.บ.ปรับปรุงกระทรวงฯ ใช้กฎหมายเฉพาะตัวเอง",
-            "<strong>มาตรา 9</strong> — การจัดระเบียบและบริหารงานกลาโหม ให้เป็นไปตาม <strong>พ.ร.บ.จัดระเบียบราชการกระทรวงกลาโหม พ.ศ. 2551</strong>",
-            "<strong>มาตรา 10</strong> — กระทรวงการคลังดูแล <strong>การเงิน การคลัง งบประมาณ ภาษีอากร รัษฎากร หนี้สาธารณะ รัฐวิสาหกิจ การควบคุมการเงินการธนาคารและการประกันภัย</strong> — ส่วนกระทรวงอื่นเป็นไปตามกฎหมายจัดระเบียบราชการ"
-          ]
-        },
-
-        /* ─── มาตรา 47-60 ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "⚙️ มาตรา 47–60 — หลักเกณฑ์การปรับปรุงส่วนราชการ",
-          "content": "เมื่อมีการยุบ โอน หรือรวมส่วนราชการ ต้องดำเนินการตามหลักเกณฑ์ที่กฎหมายกำหนด"
-        },
-        {
-          "type": "numbered-list",
-          "title": "มาตรา 47–49: การยุบ โอน รวม",
-          "items": [
-            "<strong>มาตรา 47</strong> — ยุบกระทรวง → ตราเป็น <strong>พระราชกฤษฎีกา</strong> (ต้องมีเหตุผลรองรับ)",
-            "<strong>มาตรา 48</strong> — โอนกรม → ตราเป็น <strong>พระราชกฤษฎีกา</strong>",
-            "<strong>มาตรา 49</strong> — รวมส่วนราชการที่มีภารกิจเกี่ยวข้อง → จัดเป็น<strong>กลุ่มงานเดียวกัน</strong>"
-          ]
-        },
-        {
-          "type": "numbered-list",
-          "title": "มาตรา 50–51: การโอนทรัพย์สิน ข้าราชการ งบประมาณ",
-          "items": [
-            "<strong>มาตรา 50</strong> — เมื่อยุบ/โอน → ให้โอน <strong>อำนาจหน้าที่ | ทรัพย์สิน | งบประมาณ | หนี้ | สิทธิ | ภาระผูกพัน | ข้าราชการ</strong> ไปยังหน่วยงานใหม่",
-            "<strong>มาตรา 51</strong> — ข้าราชการที่โอนไป → ให้เป็นไปตาม <strong>พระราชกฤษฎีกา</strong>"
-          ]
-        },
-        {
-          "type": "numbered-list",
-          "title": "มาตรา 52–60: บทบังคับใช้และบทเฉพาะกาล",
-          "items": [
-            "<strong>มาตรา 52–53</strong> — ผู้รักษาการตาม พ.ร.บ.นี้ = <strong>นายกรัฐมนตรี</strong>",
-            "<strong>มาตรา 54</strong> — ให้ยุบกรมทางหลวงชนบทภายใน 10 ปี (ฉบับแก้ไขยกเลิกแล้ว)",
-            "<strong>มาตรา 55</strong> — การแบ่งส่วนราชการ<strong>ภายในกรม</strong> → กระทำโดย <strong>กฎกระทรวง</strong>",
-            "<strong>มาตรา 56</strong> — การโอนกรมไปสังกัดกระทรวงอื่น → กระทำโดย <strong>พระราชกฤษฎีกา</strong>",
-            "<strong>มาตรา 57–60</strong> — บทเฉพาะกาล: รักษาสิทธิข้าราชการเดิม | ใช้กฎหมายเดิม | โอนงบประมาณ"
-          ]
-        },
-        {
-          "type": "highlight-box",
-          "color": "amber",
-          "title": "💡 จุดจำ — มาตรา 47-60",
-          "content": "<strong>ยุบกระทรวง</strong> = พระราชกฤษฎีกา | <strong>โอนกรม</strong> = พระราชกฤษฎีกา | <strong>แบ่งภายในกรม</strong> = กฎกระทรวง | ผู้รักษาการ = <strong>นายกรัฐมนตรี</strong>"
-        },
-
-        /* ─── Quick Reference Mnemonics ─── */
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "🧠 บัตรลัดจำ — สรุปก่อนสอบ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;'>" +
-"<thead><tr style='background:#166534;color:#fff;'><th style='padding:8px;border:1px solid #166534;text-align:left;'>สูตร</th><th style='padding:8px;border:1px solid #166534;text-align:left;'>ความหมาย</th></tr></thead>" +
-"<tbody>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>\"คน ระบบ ครู\"</td><td style='padding:8px;border:1px solid #ddd;'>ก.พ.=คน | ก.พ.ร.=ระบบ | ก.ค.ศ.=ครู (สังกัด อว. หลัง ฉ.18)</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>\"แยก-รวม-แยก-รวม สุดท้าย อว.+ดิจิทัล+ที่ดิน\"</td><td style='padding:8px;border:1px solid #ddd;'>2545แยก3 | 2551รวม | 2554แยก3 | 2562รวม=อว. | 2564สคทช.</td></tr>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>รวม-แบ่ง-กระจาย</td><td style='padding:8px;border:1px solid #ddd;'>ส่วนกลาง=รวมอำนาจ | ส่วนภูมิภาค=แบ่งอำนาจ | ส่วนท้องถิ่น=กระจายอำนาจ</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>7 แห่ง ม.46</td><td style='padding:8px;border:1px solid #ddd;'>สร. | พระราชวัง | สงช. | กปร. | กวน. | ราชบัณฑิตยสภา | สตช.</td></tr>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>ยุบ=พระราชกฤษฎีกา | แบ่งในกรม=กฎกระทรวง</td><td style='padding:8px;border:1px solid #ddd;'>ม.47-56 จำง่าย: ยุบ/โอนกระทรวง/กรม = พระราชกฤษฎีกา | แบ่งภายในกรม = กฎกระทรวง</td></tr>" +
-"</tbody></table>"
-        },
-
-        /* ─── แบบทดสอบ Q&A ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "✏️ แบบทดสอบ — ลองทำดู! (เฉลยอยู่กล่องถัดไป)",
-          "content": "<strong>ลองทำ 8 ข้อก่อนสอบ — ข้อไหนไม่แน่ ไปทบทวนในเนื้อหาข้างบน</strong>"
-        },
-        {
-          "type": "bullet-list",
-          "title": "คำถามที่ 1–4",
-          "items": [
-            "<strong>Q1:</strong> พ.ร.บ.ปรับปรุงกระทรวงฯ พ.ศ. 2545 กำหนดให้มีกระทรวงทั้งหมดกี่กระทรวง?",
-            "<strong>Q2:</strong> กระทรวงใดใช้กฎหมายจัดระเบียบราชการเฉพาะตัวเอง (ไม่อยู่ภายใต้ พ.ร.บ.ปรับปรุงกระทรวงฯ)?",
-            "<strong>Q3:</strong> ฉบับแก้ไขใดที่รวม กระทรวงศึกษาธิการ + กระทรวงการอุดมศึกษาฯ เป็น กระทรวง อว.?",
-            "<strong>Q4:</strong> ส่วนราชการอิสระที่ไม่สังกัดกระทรวง (มาตรา 46) มีกี่แห่ง? ยกตัวอย่าง 3 แห่ง"
-          ]
-        },
-        {
-          "type": "bullet-list",
-          "title": "คำถามที่ 5–8",
-          "items": [
-            "<strong>Q5:</strong> ก.พ. ก.พ.ร. และ ก.ค.ศ. แตกต่างกันอย่างไร? (บทบาท + สังกัด)",
-            "<strong>Q6:</strong> การยุบกระทรวง ทำโดยกฎหมายชนิดใด? การแบ่งส่วนราชการภายในกรมล่ะ?",
-            "<strong>Q7:</strong> สำนักนายกรัฐมนตรีมีอำนาจหน้าที่ตาม มาตรา 6 กี่ด้าน? ด้านใดสำคัญที่สุดในเชิงสอบ?",
-            "<strong>Q8:</strong> พ.ร.บ.ฉบับแก้ไขล่าสุด (ฉบับที่ 20) ประกาศใช้ปี พ.ศ.ใด? เพิ่มส่วนราชการอะไร?"
-          ]
-        },
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "✅ เฉลยแบบทดสอบ",
-          "content": "<strong>A1:</strong> 20 กระทรวง (มาตรา 5) รวม สนน. ด้วย = 21 ส่วนราชการระดับกระทรวง<br>" +
-"<strong>A2:</strong> กระทรวง<strong>กลาโหม</strong> — ใช้ พ.ร.บ.จัดระเบียบราชการกระทรวงกลาโหม พ.ศ. 2551 (มาตรา 8-9)<br>" +
-"<strong>A3:</strong> ฉบับที่ <strong>18</strong> (พ.ศ. 2562) — ยุบ ศธ.+อว. → รวมเป็น <strong>กระทรวง อว.</strong><br>" +
-"<strong>A4:</strong> 7 แห่ง (มาตรา 46) — สร., พระราชวัง, สงช., กปร., กวน., ราชบัณฑิตยสภา, สตช.<br>" +
-"<strong>A5:</strong> ก.พ. = คนในราชการ (สนน.) | ก.พ.ร. = ระบบราชการ (สนน.) | ก.ค.ศ. = ครู (<strong>อว.</strong> หลัง ฉ.18)<br>" +
-"<strong>A6:</strong> ยุบกระทรวง = <strong>พระราชกฤษฎีกา</strong> | แบ่งภายในกรม = <strong>กฎกระทรวง</strong><br>" +
-"<strong>A7:</strong> 5 ด้าน (มาตรา 6 วรรคหนึ่ง) — ด้าน <strong>นโยบายและแผน</strong> สำคัญสุดในเชิงสอบ (ครอบคลุม เศรษฐกิจ สังคม การเมือง ความมั่นคง งบประมาณ)<br>" +
-"<strong>A8:</strong> พ.ศ. <strong>2564</strong> — จัดตั้ง <strong>สคทช.</strong> (สำนักงานคณะกรรมการนโยบายที่ดินแห่งชาติ) สังกัด สนน. มาตรา 46"
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ (Memory Hack) - แก่นของกฎหมาย",
+          "text": "กฎหมายนี้เปรียบเสมือน <strong>\"คู่มือจัดบ้านใหม่\"</strong> ของประเทศ (มี 20 ห้องใหญ่/กระทรวง) เน้น <strong>จัดกลุ่มงาน - ลดความซ้ำซ้อน - ไม่เพิ่มคนเปลืองเงิน</strong>"
         }
       ]
     },
-
     {
-      "navIcon": "🏛️",
-      "navLabel": "โครงสร้าง",
-      "icon": "🏛️",
-      "title": "🏛️ โครงสร้างราชการ",
-      "description": "3 ส่วนการบริหารราชการตาม พ.ร.บ.ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534 มาตรา 6",
+      "navIcon": "⚖️",
+      "navLabel": "2. โครงสร้างอำนาจ",
+      "icon": "⚖️",
+      "title": "ธีมที่ 2 · โครงสร้างอำนาจ & ความสัมพันธ์ (Power & Relations)",
+      "description": "โครงสร้าง 20 กระทรวง และหน่วยงานอิสระที่ทรงพลัง",
       "blocks": [
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "🏗️ 3 ส่วนการบริหารราชการ — หลักการสำคัญ",
-          "content": "ตาม <strong>พ.ร.บ.ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534 มาตรา 6</strong> — การบริหารราชการแผ่นดินของประเทศไทยแบ่งเป็น <strong>3 ส่วน</strong>: ส่วนกลาง ส่วนภูมิภาค และส่วนท้องถิ่น โดยทั้ง 3 ส่วนอยู่ในการควบคุมของ <strong>คณะรัฐมนตรี</strong>"
-        },
-        {
-          "type": "cards",
-          "color": "navy",
-          "cards": [
-            {
-              "icon": "🏛️",
-              "title": "ส่วนที่ 1: ส่วนกลาง — รวมอำนาจ",
-              "content": "<strong>หลักการ:</strong> รวมอำนาจการตัดสินใจ กำหนดนโยบาย วางแผน และควบคุมไว้ที่ส่วนกลาง (กรุงเทพฯ)<br><br><strong>4 ประเภท (ม.7 พ.ร.บ. 2534):</strong><br>• สำนักนายกรัฐมนตรี<br>• กระทรวง หรือ ทบวงที่มีฐานะเทียบเท่ากระทรวง<br>• ทบวง ซึ่งสังกัด สนน. หรือกระทรวง<br>• กรม หรือส่วนราชการที่มีฐานะเป็นกรม<br><br><strong>ผู้บังคับบัญชา:</strong> รัฐมนตรี (นโยบาย) | ปลัดกระทรวง (บริหาร)",
-              "color": "navy"
-            },
-            {
-              "icon": "🗺️",
-              "title": "ส่วนที่ 2: ส่วนภูมิภาค — แบ่งอำนาจ",
-              "content": "<strong>หลักการ:</strong> ราชการส่วนกลางเป็นเจ้าของอำนาจ → แบ่งอำนาจบังคับบัญชาให้ภูมิภาคนำไปปฏิบัติ<br><br><strong>2 ระดับ:</strong><br>• <strong>จังหวัด (76 จังหวัด):</strong> ผู้ว่าราชการจังหวัด (ข้าราชการพลเรือน หรือ ผู้ว่าฯ ที่ได้รับแต่งตั้ง)<br>• <strong>อำเภอ (877 อำเภอ):</strong> นายอำเภอ (ข้าราชการพลเรือน)<br><br><strong>ข้อสำคัญ:</strong> ต้องไม่ขัดต่อนโยบายส่วนกลาง / ครม. / กฎหมาย — ภูมิภาคอยู่ภายใต้การกำกับของส่วนกลาง",
-              "color": "blue"
-            },
-            {
-              "icon": "🏘️",
-              "title": "ส่วนที่ 3: ส่วนท้องถิ่น — กระจายอำนาจ",
-              "content": "<strong>หลักการ:</strong> ส่วนกลางมอบอำนาจให้ประชาชนในท้องถิ่นปกครองตนเองอย่างอิสระ (แต่ไม่ขัดกฎหมาย)<br><br><strong>4 ประเภท อปท.:</strong><br>• <strong>อบจ. (76 แห่ง):</strong> สภา อบจ. (เลือกตั้ง) + นายก อบจ. (เลือกตั้ง)<br>• <strong>เทศบาล:</strong> สภา (เลือกตั้ง) + นายกเทศมนตรี (เลือกตั้ง)<br>• <strong>อบต.:</strong> สภา (เลือกตั้ง) + กำนัน/ผู้ใหญ่บ้าน<br>• <strong>กทม. + เมืองพัทยา:</strong> อปท. ตามกฎหมายเฉพาะ<br><br><strong>อปท. = นิติบุคคล</strong> มีอำนาจออกข้อบังคับ/ระเบียบได้",
-              "color": "green"
-            }
-          ]
-        },
-        {
-          "type": "highlight-box",
-          "color": "amber",
-          "title": "🧠 จุดจำ — สูตร 3 ส่วน",
-          "content": "<strong>\"รวม-แบ่ง-กระจาย\"</strong><br>" +
-"• ส่วน<strong>กลาง</strong> = <strong>รวม</strong>อำนาจ → สนน. / กระทรวง / ทบวง / กรม<br>" +
-"• ส่วน<strong>ภูมิภาค</strong> = <strong>แบ่ง</strong>อำนาจ → จังหวัด + อำเภอ (ขึ้นกับส่วนกลาง)<br>" +
-"• ส่วน<strong>ท้องถิ่น</strong> = <strong>กระจาย</strong>อำนาจ → อปท. (นิติบุคคล มีสภา + ผู้บริหารเลือกตั้ง)"
-        },
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "📐 โครงสร้างสถาปัตยกรรมราชการ — ภาพรวม",
-          "content": "<strong>คณะรัฐมนตรี</strong> ← ควบคุมทั้ง 3 ส่วน<br>" +
-"│<br>" +
-"├── <strong>ส่วนกลาง:</strong> สนน. → กระทรวง (20 แห่ง) → กรม<br>" +
-"│    ส่วนราชการขึ้นตรงนายกฯ (9 แห่ง)<br>" +
-"│    ส่วนราชการไม่สังกัดกระทรวง (7 แห่ง) ขึ้นนายกฯ<br>" +
-"├── <strong>ส่วนภูมิภาค:</strong> จังหวัด (76 จังหวัด) → อำเภอ (877 อำเภอ)<br>" +
-"└── <strong>ส่วนท้องถิ่น:</strong> อบจ. (76) | เทศบาล | อบต. | กทม./เมืองพัทยา"
-        },
         {
           "type": "highlight-box",
           "color": "blue",
-          "title": "⚠️ กระทรวงกลาโหม — ยกเว้นจากระบบนี้",
-          "content": "กระทรวงกลาโหม <strong>ไม่ได้</strong>อยู่ภายใต้ พ.ร.บ.ปรับปรุงกระทรวงฯ แต่ใช้ <strong>พ.ร.บ.จัดระเบียบราชการกระทรวงกลาโหม พ.ศ. 2551</strong> แทน (มาตรา 9) — จัดระเบียบตามระบบทหาร มีรัฐมนตรีว่าการกลาโหมเป็นผู้บังคับบัญชา"
+          "title": "🏛️ 20 กระทรวงหลัก (นิติบุคคลทั้งหมด)",
+          "content": "ปัจจุบันประเทศไทยมี <strong>20 กระทรวง</strong> โดย <strong>สำนักนายกรัฐมนตรี</strong> มีฐานะเป็นกระทรวงและถือเป็น <mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>กระทรวงเบอร์ 1</mark><br><em>(กระทรวงใหม่ล่าสุดที่ตั้งคือ <strong>กระทรวง อว.</strong> ปี 2562)</em>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🛡️ หน่วยงานอิสระระดับกรม (มาตรา 46) ขึ้นตรงต่อนายกฯ",
+          "content": "6 หน่วยงานทรงพลังที่มีฐานะเป็นกรม แต่ <strong>ไม่สังกัดกระทรวงใด</strong> ขึ้นตรงต่อนายกรัฐมนตรีโดยตรง:<br>① สำนักงานพระพุทธศาสนาแห่งชาติ (พศ.)<br>② สำนักงาน กปร. (โครงการพระราชดำริ)<br>③ สำนักงานราชบัณฑิตยสภา<br>④ สำนักงานตำรวจแห่งชาติ (สตช.)<br>⑤ สำนักงาน ปปง. (ฟอกเงิน)<br>⑥ สำนักงาน ป.ป.ท. (ทุจริตภาครัฐ)"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ (Memory Hack) - 6 หน่วยงานอิสระ",
+          "text": "สูตรท่อง: <strong>\"พุทธ - กปร. - บัณฑิต - ตำรวจ - ฟอกเงิน - ทุจริต\"</strong> ทุกหน่วยล้วนขึ้นตรงต่อนายกฯ!"
         }
       ]
     },
-
     {
-      "navIcon": "📚",
-      "navLabel": "คำศัพท์",
-      "icon": "📚",
-      "title": "📚 คำศัพท์และตัวเลขน่ารู้",
-      "description": "ค้นหาและทบทวนคำศัพท์เชิงกฎหมาย ระเบียบ และคำย่อสำคัญ",
+      "navIcon": "⚠️",
+      "navLabel": "3. จุดดักข้อสอบ",
+      "icon": "⚠️",
+      "title": "ธีมที่ 3 · จุดดักควายในข้อสอบ (Exam Pitfalls & Exceptions)",
+      "description": "ข้อยกเว้นและจุดหลอกที่ทำให้คนสอบตกบ่อยๆ",
       "blocks": [
         {
           "type": "highlight-box",
           "color": "amber",
-          "title": "🔢 ตัวเลขสำคัญ — จำได้เร็ว",
-          "content": "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;'>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>2545</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ปีที่ประกาศใช้</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>20</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>กระทรวง</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>20</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ฉบับแก้ไข</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>3</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ส่วนราชการ</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>7</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ม.46 แห่ง</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>2564</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ฉบับล่าสุด</div></div>" +
-"</div>"
+          "title": "⚠️ ข้อยกเว้นของกระทรวงกลาโหม",
+          "content": "กระทรวงกลาโหม <strong>ไม่ได้จัดระเบียบตามกฎหมายนี้</strong> แต่มีกฎหมายของตัวเองต่างหาก (พ.ร.บ.จัดระเบียบราชการกระทรวงกลาโหม)"
         },
         {
-          "type": "vocabularyGroups",
-          "groups": [
-            {
-              "icon": "🏛️",
-              "groupTitle": "คำศัพท์หมวดราชการ",
-              "category": "กระทรวง",
-              "terms": [
-                { "term": "สำนักนายกรัฐมนตรี (สนน.)", "eng": "Office of the Prime Minister", "def": "หน่วยงานลำดับแรกที่มีฐานะเป็นกระทรวง — มาตรา 5(1) | ผู้รักษาการตาม พ.ร.บ.นี้ = นายกรัฐมนตรี" },
-                { "term": "กระทรวง", "eng": "Ministry", "def": "ส่วนราชการระดับสูงสุด ปัจจุบันมี 20 แห่ง (มาตรา 5) รวม สนน. = 21 ส่วนราชการระดับกระทรวง | มีรัฐมนตรีเป็นผู้บังคับบัญชา" },
-                { "term": "กรม", "eng": "Department", "def": "ส่วนราชการระดับรองจากกระทรวง มีอธิบดีเป็นผู้บังคับบัญชา | การแบ่งภายในกรมทำโดย กฎกระทรวง (ม.55)" },
-                { "term": "ทบวง", "eng": "Bureau / Office", "def": "ส่วนราชการที่มีฐานะเทียบเท่ากรม อาจสังกัด สนน. หรือกระทรวง" },
-                { "term": "ปลัดกระทรวง", "eng": "Permanent Secretary", "def": "ข้าราชการประจำสูงสุดของกระทรวง บังคับบัญชาราชการที่อยู่ในกระทรวง | ตำแหน่งเป็นข้าราชการพลเรือน" },
-                { "term": "อปท.", "eng": "Local Administrative Organization", "def": "องค์กรปกครองส่วนท้องถิ่น — อบจ. เทศบาล อบต. กทม. เมืองพัทยา เป็นนิติบุคคล มีสภาและผู้บริหารจากการเลือกตั้ง" }
-              ]
-            },
-            {
-              "icon": "⭐",
-              "groupTitle": "องค์กรอิสระและคณะกรรมการ",
-              "category": "องค์กร",
-              "terms": [
-                { "term": "ก.พ. (ข้าราชการพลเรือน)", "eng": "Civil Service Commission", "def": "องค์กรอิสระใน สนน. ดูแล: นโยบายบุคลากรภาครัฐ | มาตรฐานกลาง | สอบแข่งขัน | ระเบียบวิชาชีพ | จำง่าย: \"คน\"" },
-                { "term": "ก.พ.ร. (พัฒนาระบบราชการ)", "eng": "Public Organization Development Commission", "def": "องค์กรอิสระใน สนน. ดูแล: โครงสร้าง | ระบบงาน | ประสิทธิภาพ | มาตรฐานการจัดการภาครัฐ | จำง่าย: \"ระบบ\" | ฉ.1 มาสังกัด สนน." },
-                { "term": "ก.ค.ศ. (ข้าราชการครูฯ)", "eng": "Teachers and Educational Personnel Commission", "def": "องค์กรอิสระ สังกัด <strong>อว.</strong> (หลัง ฉ.18) ดูแล: นโยบายบุคลากรครู | มาตรฐานวิชาชีพครู | การบรรจุแต่งตั้ง | มี ก.ค.ศ.ก. ด้านหลักสูตรช่วย | จำง่าย: \"ครู\"" },
-                { "term": "สตช. (ตำรวจแห่งชาติ)", "eng": "National Police Office", "def": "ส่วนราชการไม่สังกัดกระทรวง ม.46(7) มีฐานะเป็นกรม ขึ้นตรงนายกรัฐมนตรี | รักษาความสงบเรียบร้อย | ผู้บัญชาการตำรวจแห่งชาติเป็นผู้บังคับบัญชา" },
-                { "term": "สงช. (พระพุทธศาสนา)", "eng": "National Office of Buddhism", "def": "ส่วนราชการไม่สังกัดกระทรวง ม.46(3) มีฐานะเป็นกรม ขึ้นตรงนายกรัฐมนตรี | บริหารกิจการพระพุทธศาสนา" },
-                { "term": "สคทช. (นโยบายที่ดินฯ)", "eng": "Office of the National Land Policy Board", "def": "ส่วนราชการไม่สังกัดกระทรวง ม.46 ขึ้นตรงนายกฯ | ตั้งโดย พ.ร.บ.คณะกรรมการนโยบายที่ดินแห่งชาติ พ.ศ. 2562 | ฉ.20 จัดตั้งอย่างเป็นทางการ" }
-              ]
-            },
-            {
-              "icon": "⚖️",
-              "groupTitle": "ศัพท์ทางกฎหมายและระเบียบ",
-              "category": "ศัพท์กฎหมาย",
-              "terms": [
-                { "term": "พระราชกฤษฎีกา", "eng": "Royal Decree", "def": "กฎหมายลำดับรองจากพระราชบัญญัติ | ใช้ในการ: ยุบกระทรวง (ม.47) | โอนกรมไปสังกัดกระทรวงอื่น (ม.56) | กำหนดสิทธิหน้าที่ข้าราชการที่โอน (ม.51)" },
-                { "term": "กฎกระทรวง", "eng": "Ministerial Regulation", "def": "กฎหมายลำดับรองจากพระราชกฤษฎีกา | ใช้ในการแบ่งส่วนราชการ<strong>ภายในกรม</strong> (ม.55) | ผู้ลงนาม: รัฐมนตรีเจ้าสังกัด" },
-                { "term": "มาตรา 5", "eng": "Section 5 — Number of Ministries", "def": "กำหนดจำนวนและชื่อ 20 กระทรวง | ม.5(1)=สนน. | ม.5(2)–(20)=19 กระทรวง | กระทรวงล่าสุด: อว. (ฉ.18, พ.ศ. 2562)" },
-                { "term": "มาตรา 6", "eng": "Section 6 — Powers of the PM's Office", "def": "อำนาจหน้าที่ สนน. (5 ด้าน): ราชการทั่วไป | นโยบายและแผน | บริหารงานบุคคลฯ | ติดตามและประเมินผล | ราชการอื่นตามกฎหมาย/ครม. มอบหมาย" },
-                { "term": "มาตรา 46", "eng": "Section 46 — Independent Agencies", "def": "ส่วนราชการไม่สังกัดกระทรวง 7 แห่ง: สร. | พระราชวัง | สงช. | กปร. | กวน. | ราชบัณฑิตยสภา | สตช. | มีฐานะเป็นกรม ขึ้นตรงนายกฯ" },
-                { "term": "มาตรา 47–60", "eng": "Sections 47–60 — Reorganization Rules", "def": "ยุบกระทรวง=พระราชกฤษฎีกา | โอนกรม=พระราชกฤษฎีกา | แบ่งในกรม=กฎกระทรวง | ผู้รักษาการ=นายกรัฐมนตรี | ม.57–60=บทเฉพาะกาล (รักษาสิทธิข้าราชการเดิม)" }
-              ]
-            }
+          "type": "highlight-box",
+          "color": "rose",
+          "title": "⚠️ ระวัง! หน่วยงานในพระองค์ (อดีตเคยหลอก)",
+          "content": "<strong>สำนักพระราชวัง</strong> และ <strong>สำนักราชเลขาธิการ</strong> <mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>ถูกยกเลิกออกจากกฎหมายนี้แล้ว</mark> (ปัจจุบันแยกไปอยู่ พ.ร.บ.บริหารราชการในพระองค์)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "การเปลี่ยนชื่อกลับไปกลับมา (ข้อสอบชอบถาม)",
+          "content": "▪ ขนส่งทางน้ำ -> กลับมาเป็น <mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>กรมเจ้าท่า</mark><br>▪ พัฒนาการกีฬา -> กลับมาเป็น <mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>กรมพลศึกษา</mark><br>▪ ราชบัณฑิตยสถาน -> เปลี่ยนเป็น <mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>สำนักงานราชบัณฑิตยสภา</mark>"
+        }
+      ]
+    },
+    {
+      "navIcon": "🔢",
+      "navLabel": "4. ทริคตัวเลข",
+      "icon": "🔢",
+      "title": "ธีมที่ 4 · ทริคจำตัวเลข & ระยะเวลา (Number Hacks)",
+      "description": "รวมตัวเลข วันที่ และระยะเวลาสำคัญที่ต้องเป๊ะ",
+      "blocks": [
+        {
+          "type": "numbered-list",
+          "title": "ตัวเลขสำคัญ (Must Know)",
+          "items": [
+            "<strong>3 ตุลา 45:</strong> วันที่กฎหมายมีผลบังคับใช้ (จำเลข 3-10-45)",
+            "<strong>3 ปี:</strong> หากมีการโอน/ควบรวมกระทรวงกรม (ด้วย พ.ร.ฎ.) <mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>ห้ามเพิ่มอัตรากำลังคนใหม่ภายใน 3 ปีเด็ดขาด</mark> (เพื่อไม่ให้เปลืองงบ)",
+            "<strong>1 ปี และ 2 ปี:</strong> หลังควบรวมหน่วยงาน รัฐบาลต้องทำรายงานสรุปผลประหยัดงบส่งให้ <strong>รัฐสภา (ส.ส. + ส.ว.)</strong> ทราบเมื่อครบ 1 ปี และ 2 ปี",
+            "<strong>20 กระทรวง:</strong> จำนวนกระทรวงทั้งหมดในปัจจุบัน"
           ]
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ (Memory Hack) - เลข 3",
+          "text": "กฎหมายนี้เลข 3 แรงมาก: บังคับใช้ <strong>3</strong> ตุลา / รวมกรมแล้วห้ามเพิ่มคน <strong>3</strong> ปี"
         }
       ]
     }
   ],
-  "additionalSections": [],
+  "additionalSections": [
+    {
+      "navIcon": "🏛️",
+      "navLabel": "5. 20 กระทรวง (ฉบับเต็ม)",
+      "icon": "🏛️",
+      "title": "ธีมที่ 5 · รายชื่อ 20 กระทรวง + กระทรวงมหาดไทย (เจาะลึก)",
+      "description": "รายชื่อ 20 กระทรวงตามมาตรา 5 + โครงสร้างกระทรวงมหาดไทย 6 กรม 3 กลุ่มภารกิจ",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🏛️ 20 กระทรวง + สำนักนายกรัฐมนตรี (ฉบับปัจจุบัน)",
+          "content": "<table class='kb-table'><thead><tr><th>ลำดับ</th><th>กระทรวง</th><th>สังกัด/หน้าที่หลัก</th></tr></thead><tbody><tr class='odd'><td class='bold text-law-act'>1</td><td><strong>สำนักนายกรัฐมนตรี (สนร.)</strong></td><td>ราชการทั่วไปของนายกฯ และ ครม.</td></tr><tr class='even'><td>2</td><td>กระทรวงกลาโหม</td><td>ป้องกันประเทศ (ใช้กฎหมายเฉพาะ)</td></tr><tr class='odd'><td>3</td><td>กระทรวงการคลัง</td><td>การเงิน ภาษี งบประมาณ</td></tr><tr class='even'><td>4</td><td>กระทรวงการต่างประเทศ</td><td>สัมพันธ์ระหว่างประเทศ</td></tr><tr class='odd'><td class='bold text-law-act'>⭐5</td><td><strong>กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.)</strong></td><td>อุดมศึกษา+วิทย์ (ฉ.19/2562)</td></tr><tr class='even'><td>6</td><td>กระทรวงเกษตรและสหกรณ์</td><td>เกษตรกรรม ปศุสัตว์ ประมง</td></tr><tr class='odd'><td>7</td><td>กระทรวงคมนาคม</td><td>คมนาคมขนส่ง</td></tr><tr class='even'><td>8</td><td>กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม (ดีอี)</td><td>เทคโนโลยี ดิจิทัล</td></tr><tr class='odd'><td>9</td><td>กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม (ทส.</td><td>สิ่งแวดล้อม ป่าไม้</td></tr><tr class='even'><td>10</td><td>กระทรวงพลังงาน</td><td>พลังงาน น้ำมัน ไฟฟ้า</td></tr><tr class='odd'><td>11</td><td>กระทรวงพาณิชย์</td><td>พาณิชย์ การค้าระหว่างประเทศ</td></tr><tr class='even'><td>12</td><td>กระทรวงมหาดไทย</td><td><strong>บำบัดทุกข์ บำรุงสุข ปกครองท้องถิ่น</strong></td></tr><tr class='odd'><td>13</td><td>กระทรวงยุติธรรม</td><td>ศาล อัยการ ราชทัณฑ์</td></tr><tr class='even'><td>14</td><td>กระทรวงแรงงาน</td><td>แรงงาน สวัสดิการ</td></tr><tr class='odd'><td>15</td><td>กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์ (พม.)</td><td>สังคมสงเคราะห์ เด็ก สตรี ผู้สูงอายุ</td></tr><tr class='even'><td>16</td><td>กระทรวงศึกษาธิการ</td><td>การศึกษา ครู โรงเรียน</td></tr><tr class='odd'><td>17</td><td>กระทรวงสาธารณสุข</td><td>สาธารณสุข โรงพยาบาล</td></tr><tr class='even'><td>18</td><td>กระทรวงอุตสาหกรรม</td><td>โรงงานอุตสาหกรรม</td></tr><tr class='odd'><td>19</td><td>กระทรวงการท่องเที่ยวและกีฬา</td><td>ท่องเที่ยว กีฬา</td></tr><tr class='even'><td>20</td><td>กระทรวงวัฒนธรรม</td><td>ศิลปวัฒนธรรม ศาสนา</td></tr></tbody></table><br><strong>📝 หมายเหตุ:</strong> สำนักนายกรัฐมนตรีมีฐานะเป็นกระทรวง ตามมาตรา 5 (1)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🏛️ กระทรวงมหาดไทย (เจาะลึก) — 6 กรม 3 กลุ่มภารกิจ",
+          "content": "<table class='kb-table'><thead><tr><th>กลุ่มภารกิจ</th><th>กรม</th><th>หน้าที่</th></tr></thead><tbody><tr class='odd'><td rowspan='2' class='bold'>🔵 กลุ่มที่ 1<br>กิจการความมั่นคงภายใน</td><td class='bold'>กรมการปกครอง (ปค.)</td><td>ทะเบียนราษฎร ปกครองท้องที่ กำนัน ผู้ใหญ่บ้าน</td></tr><tr class='even'><td class='bold'>กรมการพัฒนาชุมชน (พช.)</td><td>พัฒนาชุมชน ส่งเสริมอาชีพ</td></tr><tr class='odd'><td rowspan='2' class='bold'>🔶 กลุ่มที่ 2<br>บริหารท้องถิ่นและที่ดิน</td><td class='bold'>กรมส่งเสริมการปกครองท้องถิ่น (สถ.)</td><td>กำกับ อปท. (อบจ./เทศบาล/อบต.)</td></tr><tr class='even'><td class='bold'>กรมที่ดิน (ทด.)</td><td>ทะเบียนที่ดิน โฉนด</td></tr><tr class='odd'><td rowspan='2' class='bold'>🔹 กลุ่มที่ 3<br>สาธารณภัยและพัฒนาเมือง</td><td class='bold text-law-act'>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</td><td>ป้องกัน บรรเทา ฟื้นฟูสาธารณภัย</td></tr><tr class='even'><td class='bold'>กรมโยธาธิการและผังเมือง (ยผ.)</td><td>ผังเมือง ก่อสร้าง อาคาร</td></tr></tbody></table><br><strong>⭐ จุดสำคัญ:</strong> <strong>ปภ.</strong> (กรมป้องกันและบรรเทาสาธารณภัย) ตั้งขึ้นเมื่อ <strong>3 ต.ค. 2545</strong> (วันเดียวกับที่ พ.ร.บ. ปรับปรุงฯ มีผลบังคับใช้) — ก่อนหน้านี้คือ \"กองป้องกันภัยฝ่ายพลเรือน กรมการปกครอง\"<br><strong>📝 ภารกิจกระทรวงมหาดไทย:</strong> \"บำบัดทุกข์ บำรุงสุข\" การรักษาความสงบเรียบร้อย ส่งเสริมการปกครองท้องถิ่น พัฒนาชุมชน"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ (Memory Hack) - 20 กระทรวง",
+          "text": "สูตรท่องแบ่งตามกลุ่ม:<br>• <strong>ความมั่นคง:</strong> กลาโหม, มหาดไทย<br>• <strong>เศรษฐกิจ:</strong> คลัง, พาณิชย์, อุตสาหกรรม, เกษตรฯ, พลังงาน, คมนาคม, ดิจิทัล, ท่องเที่ยว, อว.<br>• <strong>สังคม:</strong> ศึกษาธิการ, สาธารณสุข, แรงงาน, พม., ยุติธรรม, วัฒนธรรม<br>• <strong>ต่างประเทศ + สนร.:</strong> การต่างประเทศ, สนร."
+        }
+      ]
+    },
+    {
+      "navIcon": "🧩",
+      "navLabel": "6. กลุ่มภารกิจ (Cluster)",
+      "icon": "🧩",
+      "title": "ธีมที่ 6 · กลุ่มภารกิจ (Cluster) - หัวใจของกฎหมาย",
+      "description": "แนวคิดกลุ่มภารกิจที่ใช้จัดโครงสร้างกระทรวง เพื่อบูรณาการงานที่เกี่ยวข้องกัน",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🧩 กลุ่มภารกิจ (Cluster) คืออะไร?",
+          "content": "<strong>กลุ่มภารกิจ</strong> = การจัดกรมที่มีงาน<strong>เกี่ยวเนื่องสัมพันธ์กัน</strong>ให้อยู่ภายใต้กลุ่มเดียวกัน เพื่อให้เกิด<strong>การบูรณาการ</strong> กำหนดเป้าหมายร่วมกัน ลดความซ้ำซ้อน และทำงานมีประสิทธิภาพมากขึ้น<br><br><strong>ตัวอย่างในกระทรวงมหาดไทย:</strong> กลุ่มภารกิจด้านสาธารณภัยและพัฒนาเมือง ประกอบด้วย ปภ. + ยผ. (ทั้งสองกรมทำงานเกี่ยวกับเมืองและภัยพิบัติ)<br><br><strong>ข้อดี:</strong><br>✅ ลดความซ้ำซ้อนของงาน<br>✅ ประสานงานระหว่างกรมง่ายขึ้น<br>✅ กำหนดเป้าหมายร่วมกัน<br>✅ ประหยัดงบประมาณ<br>✅ เพิ่มประสิทธิภาพการทำงาน"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🧩 ตัวอย่างกลุ่มภารกิจในกระทรวงอื่นๆ",
+          "content": "<strong>📌 กระทรวงเกษตรและสหกรณ์:</strong><br>• กลุ่มพืช: กรมวิชาการเกษตร, กรมส่งเสริมการเกษตร, กรมการข้าว<br>• กลุ่มปศุสัตว์-ประมง: กรมปศุสัตว์, กรมประมง<br>• กลุ่มทรัพยากร: กรมพัฒนาที่ดิน, กรมฝนหลวงฯ<br><br><strong>📌 กระทรวงศึกษาธิการ:</strong><br>• กลุ่มการศึกษาขั้นพื้นฐาน: สพฐ. (สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน)<br>• กลุ่มอาชีวศึกษา: สอศ. (สำนักงานคณะกรรมการการอาชีวศึกษา)<br>• กลุ่มอุดมศึกษา: สกอ. (ย้ายไป อว. แล้ว)<br><br><strong>📌 กระทรวงสาธารณสุข:</strong><br>• กลุ่มบริการ: กรมการแพทย์, กรมสุขภาพจิต, กรมควบคุมโรค<br>• กลุ่มสนับสนุน: กรมอนามัย, กรมวิทยาศาสตร์การแพทย์, กรมเภสัชกรรม<br>• กลุ่มบริหาร: สำนักงานปลัดกระทรวง, กอง/สำนักต่างๆ"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ: แนวคิดกลุ่มภารกิจ",
+          "text": "<strong>กฎหมาย พ.ศ. 2545 เน้น 3 เรื่อง:</strong><br>1. <strong>Cluster (กลุ่มภารกิจ):</strong> รวมกรมที่ทำงานคล้ายกันไว้ด้วยกัน<br>2. <strong>Lean (กระทัดรัด):</strong> ลดจำนวนกรม ลดคนซ้ำซ้อน<br>3. <strong>Integration (บูรณาการ):</strong> งานที่เกี่ยวข้องต้องประสานกัน<br><br>🎯 <strong>ผลลัพธ์:</strong> กระทรวงมีขนาดเล็กลง งานมีประสิทธิภาพมากขึ้น"
+        }
+      ]
+    },
+    {
+      "navIcon": "📖",
+      "navLabel": "7. ตารางมาตราสำคัญ",
+      "icon": "📖",
+      "title": "ธีมที่ 7 · ตารางสรุปมาตราสำคัญสำหรับท่อง",
+      "description": "รวบรวมมาตราสำคัญที่ออกสอบบ่อย พร้อมสาระสำคัญและจุดจำ",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📋 ตารางสรุปมาตราสำคัญ (Must Know)",
+          "content": "<table class='kb-table'><thead><tr><th>มาตรา</th><th>เนื้อหา</th><th>จุดสำคัญ</th></tr></thead><tbody><tr><td class='bold'>ม.2</td><td>ใช้บังคับ<strong>วันถัดจาก</strong>วันประกาศราชกิจจาฯ</td><td>เริ่มใช้ 3 ต.ค. 2545</td></tr><tr><td class='bold'>ม.4 (เดิม)</td><td>ให้มีกระทรวง ทบวง กรม ตามที่บัญญัติ</td><td>โครงสร้างหลัก</td></tr><tr><td class='bold'>ม.5</td><td>รายชื่อ 20 กระทรวง (ฉบับปัจจุบัน)</td><td>สนร. = กระทรวงลำดับ 1</td></tr><tr><td class='bold text-law-act'>ม.7</td><td>นายกฯ <strong>รักษาการ</strong>ตาม พ.ร.บ. นี้</td><td>นายกฯ รักษาการ!</td></tr><tr><td class='bold'>ม.8</td><td>อำนาจหน้าที่ของ <strong>สนร.</strong> (ราชการทั่วไปของนายกฯ และ ครม.)</td><td>กิจการงบประมาณด้วย</td></tr><tr><td class='bold'>ม.10</td><td>ส่วนราชการใน สนร. ที่ขึ้นตรงต่อนายกฯ (สลธ.นร., สลธ.ครม., ปชส., สงป., กพร. ฯลฯ)</td><td>ส่วนราชการระดับกรม</td></tr><tr><td class='bold text-law-act'>ม.11-15</td><td>กระทรวงกลาโหม, การคลัง, การต่างประเทศ, เกษตรฯ, คมนาคม</td><td>5 กระทรวงแรก</td></tr><tr><td class='bold text-law-act'>ม.16-17</td><td>พาณิชย์, มหาดไทย (6 กรม 3 กลุ่ม)</td><td>มหาดไทย = ปกครองท้องถิ่น</td></tr><tr><td class='bold text-law-act'>ม.39 ทวิ</td><td>หน่วยงานอิสระ<strong>ตามรัฐธรรมนูญ</strong>: ศาลรัฐธรรมนูญ, ศาลปกครอง</td><td>อิสระตาม รธน.</td></tr><tr><td class='bold text-law-act'>ม.46</td><td>6 หน่วยงานอิสระ = <strong>กรมขึ้นตรงนายกฯ</strong> (พศ., กปร., ราชบัณฑิต, สตช., ปปง., ป.ป.ท.)</td><td>อิสระระดับกรม</td></tr><tr><td class='bold text-law-act'>ม.54</td><td>กรมทางหลวงชนบท (ถูก<strong>ยกเลิก</strong>ให้ยุบภายใน 10 ปี แต่ถูก<strong>ยกเลิกข้อกำหนด</strong>นี้ในภายหลัง)</td><td>ยังคงอยู่!</td></tr><tr><td class='bold'>ม.55</td><td>ให้โอนบรรดากิจการฯ ของส่วนราชการที่ถูกยุบเลิกไปยังส่วนราชการใหม่</td><td>ตามที่กำหนดใน พ.ร.ฎ.</td></tr></tbody></table>"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำมาตราสำคัญ",
+          "text": "<strong>มาตราที่ต้องจำให้ได้:</strong><br>• <strong>ม.2:</strong> เริ่มใช้วันถัดจากประกาศ<br>• <strong>ม.5:</strong> 20 กระทรวง<br>• <strong>ม.7:</strong> นายกฯ รักษาการ<br>• <strong>ม.8:</strong> อำนาจ สนร.<br>• <strong>ม.39 ทวิ:</strong> ศาลรัฐธรรมนูญ + ศาลปกครอง<br>• <strong>ม.46:</strong> 6 หน่วยงานอิสระ"
+        }
+      ]
+    },
+    {
+      "navIcon": "🔍",
+      "navLabel": "8. ความแตกต่าง",
+      "icon": "🔍",
+      "title": "ธีมที่ 8 · ความแตกต่างที่ต้องจำ",
+      "description": "จุดเปรียบเทียบที่ข้อสอบชอบถามบ่อย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔄 หน่วยงานอิสระ 3 ประเภท",
+          "content": "<table class='kb-table'><thead><tr><th>ประเภท</th><th>ฐานะ</th><th>ตัวอย่าง</th><th>ขึ้นตรงต่อ</th></tr></thead><tbody><tr><td><strong>1. ตามรัฐธรรมนูญ (ม.39 ทวิ)</strong></td><td>หน่วยงานอิสระ</td><td>ศาลรัฐธรรมนูญ, ศาลปกครอง</td><td>ประธานศาล</td></tr><tr><td><strong>2. ระดับกรม (ม.46)</strong></td><td>กรม</td><td>พศ., กปร., ราชบัณฑิต, สตช., ปปง., ป.ป.ท.</td><td>นายกฯ</td></tr><tr><td><strong>3. รัฐวิสาหกิจ</strong></td><td>รัฐวิสาหกิจ</td><td>กฟน., กฟภ., กปน., กปภ., อต., อจน.</td><td>กระทรวงเจ้าสังกัด</td></tr></tbody></table><br><strong>🧠 จำ:</strong> <strong>อิสระตาม รธน.</strong> = 2 ศาล / <strong>อิสระระดับกรม</strong> = 6 หน่วยงาน / <strong>รัฐวิสาหกิจ</strong> = 6 แห่ง (กระทรวงมหาดไทย)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 กฎหมาย 3 ขั้น (เปรียบเทียบ)",
+          "content": "<table class='kb-table'><thead><tr><th>กฎหมาย</th><th>ใช้ทำอะไร</th><th>ตัวอย่าง</th></tr></thead><tbody><tr><td><strong>พ.ร.บ.</strong></td><td>• <strong>ตั้ง</strong>กระทรวง/กรมใหม่<br>• เพิ่มอัตรากำลัง</td><td>ตั้งกระทรวง อว. (ฉ.19/2562)</td></tr><tr><td><strong>พ.ร.ฎ.</strong></td><td>• <strong>ยุบ/รวม/โอน</strong>กระทรวง/กรม<br>• เปลี่ยนชื่อ<br>• โอนกิจการ (ม.55)</td><td>ยุบกระทรวงวิทย์เดิม → รวมเข้า อว.</td></tr><tr><td><strong>กฎกระทรวง</strong></td><td>• <strong>แบ่งส่วนราชการ</strong>ภายในกรม<br>• ตั้งกอง/สำนักงานเลขานุการกรม</td><td>แบ่งกองในกรม ปภ.</td></tr></tbody></table><br><strong>🧠 สูตรจำ:</strong> <strong>ตั้งใหม่</strong> = พ.ร.บ. / <strong>ยุบรวม</strong> = พ.ร.ฎ. / <strong>แบ่งกอง</strong> = กฎกระทรวง"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🔄 กระทรวงกลาโหม vs กระทรวงอื่น",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>กระทรวงกลาโหม</th><th>กระทรวงอื่นๆ</th></tr></thead><tbody><tr><td>กฎหมายจัดระเบียบ</td><td><strong>พ.ร.บ. จัดระเบียบราชการกระทรวงกลาโหม</strong> (เฉพาะ)</td><td>พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545</td></tr><tr><td>อำนาจหน้าที่</td><td>ป้องกันประเทศ (ม.15)</td><td>ตามภารกิจของกระทรวง</td></tr><tr><td>การปรับโครงสร้าง</td><td>ใช้กฎหมายเฉพาะ</td><td>ใช้ พ.ร.บ./พ.ร.ฎ. ตามปกติ</td></tr></tbody></table><br><strong>⚠️ จุดสังเกต:</strong> กระทรวงกลาโหม<strong>ไม่ได้จัดระเบียบตาม พ.ร.บ. ปรับปรุงฯ</strong> แต่มีกฎหมายของตัวเองต่างหาก — ข้อสอบชอบถาม!"
+        }
+      ]
+    },
+    {
+      "navIcon": "🗺️",
+      "navLabel": "9. แผนผัง & ไทม์ไลน์",
+      "icon": "🗺️",
+      "title": "ธีมที่ 9 · แผนผัง & ไทม์ไลน์ (Big Picture)",
+      "description": "ภาพรวมระบบราชการไทย — ไทม์ไลน์ 20 ฉบับแก้ไข + โครงสร้าง สนร. + สายบังคับบัญชา",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📅 ไทม์ไลน์ 20 ฉบับแก้ไข พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545",
+          "content": "<table class='kb-table'><thead><tr><th>ฉบับที่</th><th>ปี พ.ศ.</th><th>สาระสำคัญ</th></tr></thead><tbody><tr class='odd'><td class='bold'>หลัก</td><td>2545</td><td>ประกาศใช้ครั้งแรก (2 ต.ค. 2545) — 20 กระทรวง, 6 หน่วยงานอิสระ</td></tr><tr class='even'><td class='bold'>ฉ.1</td><td>2546</td><td>แก้ไขเพิ่มเติม</td></tr><tr class='odd'><td class='bold'>ฉ.2</td><td>2547</td><td>โอนกรมการประกันภัย → คปภ. (กำกับประกันภัย)</td></tr><tr class='even'><td class='bold text-law-act'>⭐ ฉ.3</td><td>2548</td><td>ยุบกรมวิเทศสหการ โอนไปกระทรวงการต่างประเทศ</td></tr><tr class='odd'><td class='bold'>ฉ.4</td><td>2550</td><td>เพิ่ม สปร. (สำนักงานรัฐบาลอิเล็กทรอนิกส์)</td></tr><tr class='even'><td class='bold'>ฉ.5</td><td>2550</td><td>แก้ม.7 ให้นายกฯ/รองนายกฯ รักษาการได้</td></tr><tr class='odd'><td class='bold'>ฉ.6</td><td>2551</td><td>แก้ไขทั่วไป</td></tr><tr class='even'><td class='bold'>ฉ.7-13</td><td>2552-2560</td><td>แก้ไขเพิ่มเติมหลายครั้ง</td></tr><tr class='odd'><td class='bold text-law-act'>⭐ ฉ.14</td><td>2558</td><td>เพิ่ม สศช. (สำนักงานสภาพัฒน์) เป็นส่วนราชการ</td></tr><tr class='even'><td class='bold'>ฉ.15-17</td><td>2559-2561</td><td>แก้ไขเพิ่มเติม</td></tr><tr class='odd'><td class='bold text-law-act'>⭐ ฉ.18</td><td>2562</td><td>ตั้ง <strong>กรมการขนส่งทางราง</strong> (คมนาคม)</td></tr><tr class='even'><td class='bold text-law-act'>⭐ ฉ.19</td><td>2562</td><td>ตั้ง <strong>กระทรวง อว.</strong> (ยุบกระทรวงวิทย์เดิม+อุดมศึกษา)</td></tr><tr class='odd'><td class='bold text-law-act'>⭐ ฉ.20</td><td>2564</td><td>ตั้ง <strong>สคทช.</strong> (สำนักงานคณะกรรมการนโยบายที่ดินแห่งชาติ) - ฉบับล่าสุด</td></tr></tbody></table><br><strong>🧠 จำฉบับสำคัญ:</strong> <strong>ฉ.18/19/2562</strong> (ขนส่งทางราง+อว.) และ <strong>ฉ.20/2564</strong> (สคทช.)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🏛️ แผนผังโครงสร้าง สำนักนายกรัฐมนตรี (มาตรา 8, 10)",
+          "content": "<strong>📌 สำนักนายกรัฐมนตรี (สนร.) — มาตรา 5(1)</strong><br><pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>นายกรัฐมนตรี\n  ├─ รองนายกรัฐมนตรี (หลายคน)\n  │    └─ รัฐมนตรีประจำสำนักนายกรัฐมนตรี\n  └─ ส่วนราชการใน สนร. (ม.10):\n       ├─ สำนักเลขาธิการนายกรัฐมนตรี (สลธ.นร.)\n       ├─ สำนักเลขาธิการคณะรัฐมนตรี (สลธ.ครม.)\n       ├─ กรมประชาสัมพันธ์ (ปชส.)\n       ├─ สำนักงบประมาณ (สงป.)\n       ├─ สำนักงานคณะกรรมการกฤษฎีกา (สคก.)\n       ├─ สำนักงานคณะกรรมการข้าราชการพลเรือน (สำนักงาน ก.พ.)\n       ├─ สำนักงานคณะกรรมการพัฒนาระบบราชการ (สำนักงาน ก.พ.ร.)\n       ├─ สำนักงานคณะกรรมการส่งเสริมการลงทุน (BOI)\n       └─ สำนักงานสภาความมั่นคงแห่งชาติ (สมช.)</pre><br><strong>🧠 จุดจำ:</strong> ส่วนราชการใน สนร. ขึ้นตรงต่อนายกฯ (ไม่ผ่านปลัดกระทรวง)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🏛️ แผนผังสายบังคับบัญชากระทรวง (ตัวอย่างมหาดไทย)",
+          "content": "<pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>รัฐมนตรีว่าการกระทรวงมหาดไทย (รมว.มท.)\n  └─ รัฐมนตรีช่วยว่าการกระทรวงมหาดไทย (รมช.มท.)\n       └─ ปลัดกระทรวงมหาดไทย (ปลัด มท.)\n            └─ รองปลัดกระทรวงมหาดไทย\n                 ├─ สำนักงานรัฐมนตรี (สร.มท.)\n                 ├─ สำนักงานปลัดกระทรวง (สป.มท.)\n                 └─ กรม 6 กรม 3 กลุ่มภารกิจ:\n                      ├─ กรมการปกครอง (ปค.)\n                      ├─ กรมการพัฒนาชุมชน (พช.)\n                      ├─ กรมส่งเสริมการปกครองท้องถิ่น (สถ.)\n                      ├─ กรมที่ดิน (ทด.)\n                      ├─ กรมป้องกันและบรรเทาสาธารณภัย (ปภ.) ⭐\n                      └─ กรมโยธาธิการและผังเมือง (ยผ.)\n                 └─ รัฐวิสาหกิจ 6 แห่ง\n                      ├─ กฟน. กฟภ. กปน. กปภ. อต. อจน.</pre><br><strong>💡 จุดสังเกต:</strong> ปภ. อยู่ภายใต้ปลัดกระทรวง (ผ่านกลุ่มภารกิจ) ไม่ใช่ขึ้นตรงต่อ รมว. โดยตรง"
+        }
+      ]
+    },
+    {
+      "navIcon": "💡",
+      "navLabel": "10. เทคนิคพิเศษ",
+      "icon": "💡",
+      "title": "ธีมที่ 10 · เทคนิคพิเศษสำหรับ 100 คะแนน",
+      "description": "เทคนิคขั้นสูง จุดที่คนมักจำผิด และสูตรจำแบบเร่งรัด",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🎯 เทคนิคที่ 1: จุดที่คนมักจำผิด",
+          "content": "<strong>❌ ผิด → ถูก:</strong><br>❌ <strong>ผิด:</strong> ปภ. ขึ้นตรงต่อนายกฯ → <strong>ถูก:</strong> ปภ. สังกัด<strong>กระทรวงมหาดไทย</strong><br>❌ <strong>ผิด:</strong> กระทรวงกลาโหมจัดตาม พ.ร.บ. นี้ → <strong>ถูก:</strong> ใช้<strong>กฎหมายเฉพาะ</strong>ของกลาโหม<br>❌ <strong>ผิด:</strong> ศาลรัฐธรรมนูญ = กรมใน สนร. → <strong>ถูก:</strong> เป็น<strong>หน่วยงานอิสระตามรัฐธรรมนูญ</strong> (ม.39 ทวิ)<br>❌ <strong>ผิด:</strong> บูรณาการ 6 หน่วยงานอิสระขึ้นตรงนายกฯ → <strong>ถูก:</strong> มี<strong>6 หน่วย</strong>ขึ้นตรงนายกฯ (พศ./กปร./ราชบัณฑิต/สตช./ปปง./ป.ป.ท.)<br>❌ <strong>ผิด:</strong> ตั้งกระทรวงใหม่ = พ.ร.ฎ. → <strong>ถูก:</strong> ตั้งกระทรวง = <strong>พ.ร.บ.</strong> / ยุบรวม = พ.ร.ฎ."
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🎯 เทคนิคที่ 2: จำแบบเรียงลำดับ",
+          "content": "<strong>สูตรจำ 6 หน่วยงานอิสระ (ม.46):</strong><br>1️⃣ <strong>พุทธ</strong> (พศ.) — สำนักงานพระพุทธศาสนาแห่งชาติ<br>2️⃣ <strong>กปร.</strong> — สำนักงานโครงการพระราชดำริ<br>3️⃣ <strong>บัณฑิต</strong> (ราชบัณฑิตยสภา) — ภาษาไทย วิชาการ<br>4️⃣ <strong>ตำรวจ</strong> (สตช.) — สำนักงานตำรวจแห่งชาติ<br>5️⃣ <strong>ฟอกเงิน</strong> (ปปง.) — ป้องกันปราบปรามการฟอกเงิน<br>6️⃣ <strong>ทุจริต</strong> (ป.ป.ท.) — ป้องกันปราบปรามการทุจริตภาครัฐ<br><br><strong>สูตรท่อง:</strong> <strong>\"พุทธ - กปร. - บัณฑิต - ตำรวจ - ฟอกเงิน - ทุจริต\"</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🎯 เทคนิคที่ 3: สูตรจำมาตรา 5 (20 กระทรวง)",
+          "content": "<strong>สูตรจำ 20 กระทรวงตามลำดับ:</strong><br>1. <strong>สนร.</strong> (สำนักนายกฯ)<br>2. <strong>กลาโหม</strong><br>3. <strong>คลัง</strong><br>4. <strong>ต่างประเทศ</strong><br>5. <strong>อว.</strong> (อุดมศึกษาฯ)<br>6. <strong>เกษตรฯ</strong><br>7. <strong>คมนาคม</strong><br>8. <strong>ดิจิทัล</strong><br>9. <strong>ทรัพยากรฯ</strong><br>10. <strong>พลังงาน</strong><br>11. <strong>พาณิชย์</strong><br>12. <strong>มหาดไทย</strong> ⭐ (มี ปภ.)<br>13. <strong>ยุติธรรม</strong><br>14. <strong>แรงงาน</strong><br>15. <strong>พม.</strong> (พัฒนาสังคมฯ)<br>16. <strong>ศึกษาธิการ</strong><br>17. <strong>สาธารณสุข</strong><br>18. <strong>อุตสาหกรรม</strong><br>19. <strong>ท่องเที่ยวและกีฬา</strong><br>20. <strong>วัฒนธรรม</strong><br><br><strong>🧠 ทริค:</strong> จำแค่ 4 ตัวแรก (สนร./กลาโหม/คลัง/ต่างประเทศ) ก็ได้คะแนนเยอะแล้ว เพราะออกบ่อยสุด!"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 สรุปสูตรเร่งรัด",
+          "text": "<strong>กฎหมายนี้จำ 5 อย่างพอ:</strong><br>1. <strong>3 ต.ค. 45</strong> = บังคับใช้ + ก่อตั้ง ปภ.<br>2. <strong>20 กระทรวง</strong> + <strong>สนร. = กระทรวงลำดับ 1</strong><br>3. <strong>นายกฯ รักษาการ</strong> (ม.7)<br>4. <strong>6 หน่วยอิสระ</strong> (ม.46) — พุทธ/กปร./บัณฑิต/ตำรวจ/ฟอกเงิน/ทุจริต<br>5. <strong>กลาโหม = กฎหมายเฉพาะ</strong> ไม่ใช่กฎหมายนี้"
+        }
+      ]
+    }
+  ],
+  "vocabularyGroups": [
+    {
+      "icon": "🔢",
+      "groupTitle": "ตัวเลขและคำย่อที่ต้องจำ",
+      "category": "ตัวเลขและคำย่อ",
+      "terms": [
+        { "term": "20 กระทรวง", "eng": "20 Ministries", "def": "จำนวนกระทรวงทั้งหมดในปัจจุบัน (รวมสำนักนายกรัฐมนตรี)" },
+        { "term": "3 ปี", "eng": "3 Years", "def": "ระยะเวลาห้ามกำหนดตำแหน่งหรือเพิ่มอัตรากำลังบุคคล หลังจากการจัดตั้ง/ควบโอนหน่วยงานตาม พ.ร.ฎ." },
+        { "term": "1 ปี และ 2 ปี", "eng": "1 and 2 Years Reports", "def": "ระยะเวลาที่คณะรัฐมนตรีต้องส่งรายงานผลประหยัดงบและอัตรากำลังหลังควบโอนต่อรัฐสภา" },
+        { "term": "อว.", "eng": "MHESI", "def": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (จัดตั้ง พ.ศ. 2562)" },
+        { "term": "สคทช.", "eng": "ONLR", "def": "สำนักงานคณะกรรมการนโยบายที่ดินแห่งชาติ (จัดตั้ง พ.ศ. 2564 ขึ้นตรงต่อนายกฯ)" },
+        { "term": "TICA", "eng": "TICA", "def": "กรมความร่วมมือระหว่างประเทศ สังกัดกระทรวงการต่างประเทศ" },
+        { "term": "BOI", "eng": "BOI", "def": "สำนักงานคณะกรรมการส่งเสริมการลงทุน สังกัดสำนักนายกรัฐมนตรี (ขึ้นตรงนายกฯ)" }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "groupTitle": "ประเภทกฎหมายปรับโครงสร้าง",
+      "category": "กฎหมาย",
+      "terms": [
+        { "term": "พระราชกฤษฎีกา (พ.ร.ฎ.)", "eng": "Royal Decree", "def": "ใช้สำหรับ: ยุบเลิกกรม/กระทรวง, โอนกรม/กระทรวง, ควบรวมกรม/กระทรวง" },
+        { "term": "กฎกระทรวง", "eng": "Ministerial Regulation", "def": "ใช้สำหรับ: การแบ่งส่วนราชการภายในกรม (การตั้งกอง, สำนักงานเลขานุการกรม)" }
+      ]
+    }
+  ],
   "tips": [
-    "จำ: 20 กระทรวง + สำนักนายฯ = 21 ส่วนราชการระดับกระทรวง",
-    "กระทรวงล่าสุดคือ อว. (ฉบับ 18, 2562)",
-    "ฉบับ 20 (2564) จัดตั้ง สคทช. ใน สนน. ม.46",
-    "มาตรา 5 = จำนวนกระทรวง | มาตรา 46 = ส่วนราชการอิสระ 7 แห่ง",
-    "ก.พ.ร. สังกัด สนน. | ก.ค.ศ. สังกัด อว. (หลัง ฉ.18)"
+    "✅ ปัจจุบันไทยมี 20 กระทรวง โดยมีสำนักนายกรัฐมนตรีเป็นกระทรวงลำดับที่ 1",
+    "✅ จัดตั้งกระทรวง อว. = ฉบับที่ 19 พ.ศ. 2562 (ยุบรวมกระทรวงวิทย์เดิม + อุดมศึกษา)",
+    "✅ จัดตั้ง กรมการขนส่งทางราง = ฉบับที่ 18 พ.ศ. 2562 (สังกัดคมนาคม)",
+    "✅ จัดตั้ง สคทช. = ฉบับที่ 20 พ.ศ. 2564 (ฉบับล่าสุด ขึ้นตรงต่อนายกฯ)",
+    "✅ ควบรวม/โอน/ยุบกรมหรือกระทรวง = พระราชกฤษฎีกา (พ.ร.ฎ.)",
+    "✅ โยกย้ายหรือยุบหน่วยงานตาม พ.ร.ฎ. = ห้ามเพิ่มงบและคนภายใน 3 ปี",
+    "✅ ปปง., ป.ป.ท., สตช., พศ., กปร., ราชบัณฑิตยสภา = เป็นกรมขึ้นตรงต่อนายกรัฐมนตรี (มาตรา 46)"
   ],
   "quizFile": "quiz.html",
-  "related": [
-    "admin_act",
-    "civil_service_act"
-  ]
+  "related": ["admin_act", "civil_service_act"]
 };

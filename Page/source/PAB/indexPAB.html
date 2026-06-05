@@ -722,7 +722,229 @@
         .theme-toggle:not(.dark-mode) .toggle-knob { transform: translateX(0); }
         .theme-toggle.dark-mode .toggle-knob { transform: translateX(26px); }
         .theme-toggle:hover { transform: scale(1.05); }
-        .theme-toggle:active { transform: scale(0.96); }
+        .theme-toggle:active {
+            transform: scale(0.96);
+        }
+
+        /* ============================================================
+           MOCK TEST SECTION — Warm Editorial (matches site theme)
+           ============================================================ */
+        .mock-test-section {
+            background: var(--cream);
+            scroll-margin-top: 72px;
+            flex-shrink: 0;
+        }
+        /* Re-use the section-header pattern */
+        .mock-test-header {
+            padding: var(--space-lg) var(--space-lg) var(--space-md);
+            display: flex; align-items: center; gap: 14px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            flex-shrink: 0; position: relative;
+        }
+        .mock-test-header::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--yellow-strong), transparent);
+            opacity: 0.4;
+        }
+        .mock-test-header-icon {
+            width: 50px; height: 50px;
+            border-radius: 13px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+            background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-strong) 100%);
+            color: var(--navy);
+        }
+        .mock-test-header-info { flex: 1; }
+        .mock-test-header-chip {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--font-display);
+            font-size: 0.6rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--accent); background: var(--accent-bg);
+            border: 1px solid rgba(201,125,58,0.3);
+            padding: 3px 10px; border-radius: var(--radius-full);
+            margin-bottom: 5px;
+        }
+        .mock-test-header-title {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1.05rem; color: var(--text);
+            line-height: 1.25; margin-bottom: 3px;
+        }
+        .mock-test-header-sub {
+            font-family: var(--font-body);
+            font-size: 0.75rem; color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Card body area */
+        .mock-test-body {
+            padding: var(--space-lg);
+            background: var(--cream);
+        }
+        .mock-test-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .mock-test-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--yellow-strong);
+        }
+        /* Yellow-to-navy gradient top bar, same as course cards but taller */
+        .mock-test-card-top {
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-strong) 35%, var(--accent) 65%, var(--navy) 100%);
+        }
+        .mock-test-card-inner {
+            padding: var(--space-xl) var(--space-lg);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        .mock-test-card-content { position: relative; z-index: 1; }
+
+        .mock-test-badge {
+            display: inline-flex;
+            align-items: center; gap: 6px;
+            font-family: var(--font-display);
+            font-weight: 700; font-size: 0.62rem;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--accent); background: var(--accent-bg);
+            border: 1px solid rgba(201,125,58,0.3);
+            padding: 4px 12px; border-radius: var(--radius-full);
+            margin-bottom: var(--space-md);
+        }
+        .mock-test-badge-dot {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+        .mock-test-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            color: var(--text);
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        .mock-test-title .hl-yellow {
+            color: var(--yellow-strong);
+            position: relative;
+        }
+        .mock-test-title .hl-yellow::after {
+            content: '';
+            position: absolute; left: 0; bottom: 2px;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, rgba(220,207,0,0.3), transparent);
+            border-radius: 2px;
+        }
+        .mock-test-desc {
+            font-family: var(--font-body);
+            font-size: clamp(0.82rem, 1.6vw, 0.92rem);
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+            max-width: 620px;
+        }
+        .mock-test-meta {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+        .mock-test-meta-item {
+            display: inline-flex;
+            align-items: center; gap: 6px;
+            font-family: var(--font-display);
+            font-weight: 700; font-size: 0.72rem;
+            color: var(--text);
+            background: var(--cream-warm);
+            padding: 7px 14px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border);
+            transition: all var(--duration-fast) var(--ease-smooth);
+        }
+        .mock-test-card:hover .mock-test-meta-item {
+            border-color: var(--yellow-strong);
+            background: var(--yellow-soft);
+        }
+        .mock-test-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1;
+            min-width: 220px;
+        }
+        .btn-mock-start {
+            display: inline-flex;
+            align-items: center; justify-content: center; gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 800; font-size: 0.95rem;
+            color: var(--navy);
+            background: var(--yellow);
+            padding: 15px 30px;
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-bounce);
+            box-shadow: var(--shadow-md);
+            text-align: center; letter-spacing: 0.01em;
+        }
+        .btn-mock-start:hover {
+            background: var(--yellow-strong);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-mock-start:active {
+            transform: translateY(-1px) scale(0.98);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-mock-leaderboard {
+            display: inline-flex;
+            align-items: center; justify-content: center; gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 700; font-size: 0.85rem;
+            color: var(--text);
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            padding: 13px 30px;
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-smooth);
+            text-align: center;
+        }
+        .btn-mock-leaderboard:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 900px) {
+            .mock-test-card-inner {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+                padding: var(--space-lg);
+            }
+            .mock-test-actions {
+                width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .mock-test-body {
+                padding: var(--space-md);
+            }
+            .mock-test-header {
+                padding: var(--space-md) var(--space-md) var(--space-sm);
+            }
+        }
     </style>
 </head>
 <body>
@@ -778,7 +1000,7 @@
                         เตรียมพร้อมสอบในที่เดียว — <strong>ไม่มีค่าใช้จ่าย</strong>
                     </p>
                     <div class="hero-actions">
-                        <a href="#courses" class="btn-primary">
+                        <a href="#main-content" class="btn-primary">
                             เข้าเรียนเลย
                             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                         </a>
@@ -800,6 +1022,43 @@
     </section>
 
     <main id="main-content">
+
+        <!-- ===== SECTION MOCK TEST: จำลองข้อสอบจริง ===== -->
+        <section class="mock-test-section" id="mock-test">
+            <div class="mock-test-header">
+                <div class="mock-test-header-icon">🎯</div>
+                <div class="mock-test-header-info">
+                    <div class="mock-test-header-chip">Simulation · จำลองสอบ</div>
+                    <div class="mock-test-header-title">จำลองข้อสอบจริง ภาค ข. กรมป้องกันและบรรเทาสาธารณภัย</div>
+                    <div class="mock-test-header-sub">ทดสอบความพร้อมด้วยข้อสอบจำลองแบบจับเวลา — สุ่มข้อสอบ 200 ข้อจากทุกวิชา</div>
+                </div>
+            </div>
+            <div class="mock-test-body">
+                <div class="mock-test-card">
+                    <div class="mock-test-card-top"></div>
+                    <div class="mock-test-card-inner">
+                        <div class="mock-test-card-content">
+                            <div class="mock-test-badge"><span class="mock-test-badge-dot"></span> 🔥 Simulation Mode</div>
+                            <h2 class="mock-test-title">ทดลองสอบสนามเสมือนจริง<br>เตรียมพร้อมก่อนลงสนามจริง</h2>
+                            <p class="mock-test-desc">จำลองการสอบภาค ข. เสมือนจริงเสมือนอยู่ในห้องสอบจริง จับเวลา 180 นาที สุ่มข้อสอบ 200 ข้อครอบคลุมทุกเนื้อหาตามหลักเกณฑ์การสอบล่าสุด พร้อมระบบตรวจคะแนนและเฉลยคำอธิบายทันทีหลังส่งกระดาษคำตอบ</p>
+                            <div class="mock-test-meta">
+                                <div class="mock-test-meta-item">⏱️ 180 นาที</div>
+                                <div class="mock-test-meta-item">📝 200 ข้อ</div>
+                                <div class="mock-test-meta-item">💯 200 คะแนน</div>
+                                <div class="mock-test-meta-item">🎯 เกณฑ์ผ่าน 60%</div>
+                            </div>
+                        </div>
+                        <div class="mock-test-actions">
+                            <a href="mock_test.html" class="btn-mock-start">
+                                เริ่มทำข้อสอบจำลอง
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                            </a>
+                            <a href="leaderboard.html" class="btn-mock-leaderboard">🏅 อันดับคะแนนจำลอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- ===== SECTION 1: Part 1 — Law (กฎหมายที่เกี่ยวข้อง) ===== -->
         <section class="course-section" id="section-p1-law">

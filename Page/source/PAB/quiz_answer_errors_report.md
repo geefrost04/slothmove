@@ -1,6 +1,6 @@
 # รายงานเฉลยผิดในไฟล์ .questions.js
 
-รวม **53 ข้อ** ผิด ใน **9 ไฟล์** — `answer` index ไม่ตรงกับตัวอักษรในเฉลย
+รวม **52 ข้อ** ผิด ใน **9 ไฟล์** — `answer` index ไม่ตรงกับตัวอักษรในเฉลย
 
 ---
 
@@ -127,13 +127,6 @@
 
 ---
 
-## 10. pab_knowledge/pab_knowledge.questions.js — 1 ข้อ
-
-| ข้อ | คำถาม (แบบย่อ) | เฉลยบอก | ค่าเดิม | ต้องแก้ answer เป็น |
-|---|---|---|---|---|
-| - | ยุทธศาสตร์ที่ 2 มีเป้าประสงค์เพื่อจัดทำข้อมูลประเภทใดให้ครอบ... | ข. | 0 | **1** |
-
----
 
 ## สรุป
 
@@ -148,8 +141,8 @@
 | national_disaster_plan/national_disaster_plan.questions.js | 3 |
 | volunteer_regulation/volunteer_regulation.questions.js | 2 |
 | policy_analysis/government_policy.questions.js | 2 |
-| pab_knowledge/pab_knowledge.questions.js | 1 |
-| **รวม** | **53 ข้อ** |
+
+| **รวม** | **52 ข้อ** |
 
 ---
 

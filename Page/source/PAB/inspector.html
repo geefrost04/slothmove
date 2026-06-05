@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>เครื่องมือตรวจสอบคุณภาพข้อสอบ ปภ. | SlothMove</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Kanit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="../../../pic/slothmove_mascot.png">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: {
+            DEFAULT: '#faf8f4',
+            warm: '#f5f0e8',
+          },
+          navy: {
+            DEFAULT: '#1a1a2e',
+            mid: '#2d2d4a',
+            light: '#4b4b7a',
+          },
+          accent: {
+            DEFAULT: '#e05300', // PAB Orange
+            warm: '#f36b21',
+            bg: '#fff5f0',
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  body { font-family:'Sarabun',sans-serif; background:#faf8f4; }
+  .font-kanit { font-family:'Kanit',sans-serif; }
+</style>
+</head>
+<body class="min-h-screen text-navy antialiased pb-12">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 border-b border-cream-warm bg-white/80 backdrop-blur-md font-kanit">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 gap-2">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <img src="../../../pic/slothmove_mascot.png" class="w-8 h-8 rounded-xl object-contain shrink-0" alt="SlothMove">
+      <div class="min-w-0 leading-tight">
+        <span class="font-black text-navy text-sm sm:text-base truncate block">เครื่องมือตรวจสอบคุณภาพข้อสอบ ปภ.</span>
+        <span class="text-[10px] sm:text-[11px] text-slate-500 font-semibold tracking-wide">Exam Quality Inspector (20 วิชา)</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <a class="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-bold bg-accent text-white hover:bg-accent/90 transition-all shadow-sm" href="mock_test.html">
+        🎮 ไปหน้าสอบจำลอง
+      </a>
+      <a class="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white hover:bg-slate-50 transition-all" href="indexPAB.html">
+        หน้าหลัก
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTAINER -->
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <!-- Loading Bar & Status -->
+  <div class="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm mb-6" id="loaderContainer">
+    <div class="flex items-center justify-between mb-2">
+      <div class="text-sm font-bold text-slate-700 font-kanit" id="loaderStatusText">กำลังเริ่มต้นระบบตรวจสอบ...</div>
+      <div class="text-xs text-slate-400 font-bold" id="loaderProgressVal">0%</div>
+    </div>
+    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+      <div class="bg-accent h-full rounded-full transition-all duration-300" id="loaderProgressBar" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <!-- Dashboard Overview -->
+  <div id="inspectorDashboard" class="hidden">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col">
+        <span class="text-[11px] font-bold text-slate-400 font-kanit uppercase tracking-wider">วิชาที่โหลดสำเร็จ</span>
+        <span class="text-3xl font-black font-kanit text-navy mt-1" id="statLoadedSubjects">0 / 20</span>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col">
+        <span class="text-[11px] font-bold text-slate-400 font-kanit uppercase tracking-wider">ข้อสอบทั้งหมดในคลัง</span>
+        <span class="text-3xl font-black font-kanit text-navy mt-1" id="statTotalQuestions">0 ข้อ</span>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col">
+        <span class="text-[11px] font-bold text-slate-400 font-kanit uppercase tracking-wider">ข้อที่ไม่มีคำอธิบาย</span>
+        <span class="text-3xl font-black font-kanit text-amber-600 mt-1" id="statMissingExplanations">0 ข้อ</span>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col">
+        <span class="text-[11px] font-bold text-slate-400 font-kanit uppercase tracking-wider">ข้อสอบที่ชอยส์ไม่ครบ 4 ข้อ</span>
+        <span class="text-3xl font-black font-kanit text-red-600 mt-1" id="statInvalidChoices">0 ข้อ</span>
+      </div>
+    </div>
+
+    <!-- Inspector Workbench -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Sidebar / List of Subjects -->
+      <div class="lg:col-span-4 space-y-3">
+        <div class="bg-white rounded-2xl border border-slate-100 p-4 shadow-sm">
+          <h3 class="font-kanit font-black text-navy text-sm mb-3">รายชื่อวิชา (คลิกเพื่อเลือกวิชา)</h3>
+          <div class="space-y-1.5 max-h-[600px] overflow-y-auto pr-1" id="subjectSelectorList">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Panel / Questions View -->
+      <div class="lg:col-span-8 space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-4">
+            <div>
+              <h2 class="font-black font-kanit text-lg text-navy" id="selectedSubjectTitle">กรุณาเลือกวิชา</h2>
+              <p class="text-xs text-slate-400 font-medium" id="selectedSubjectMeta">เลือกวิชาจากรายการด้านซ้ายเพื่อไล่ตรวจเช็คข้อสอบ</p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="exportJSON()" class="px-3.5 py-1.5 bg-navy text-white hover:bg-navy-mid font-kanit font-bold text-xs rounded-xl transition-all">
+                Export JSON
+              </button>
+            </div>
+          </div>
+
+          <!-- Question Cards Container -->
+          <div class="space-y-4" id="questionsContainer">
+            <div class="text-center py-12 text-slate-400 text-sm font-medium">
+              👉 คลิกเลือกวิชาเพื่อเปิดดูข้อสอบของวิชานั้นๆ
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JSON Export Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden" id="jsonModal">
+  <div class="bg-white rounded-3xl shadow-2xl p-6 w-full max-w-2xl mx-4 border border-slate-100">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+      <h3 class="font-kanit font-bold text-base text-navy">JSON Export & Editor Helper</h3>
+      <button onclick="closeJsonModal()" class="text-slate-400 hover:text-slate-600 font-bold text-lg">&times;</button>
+    </div>
+    <p class="text-slate-500 font-sarabun text-xs mb-3 leading-relaxed">
+      คุณสามารถคัดลอกข้อมูล JSON ด้านล่างไปใช้อัปเดตในไฟล์ `.questions.js` ของวิชานี้ หรือใช้เป็นข้อมูลอ้างอิงได้ครับ:
+    </p>
+    <textarea class="w-full h-80 border border-slate-200 rounded-xl p-3 font-mono text-[11px] bg-slate-50 outline-none focus:border-accent" id="jsonTextarea" readonly></textarea>
+    <div class="flex justify-end gap-2 mt-4">
+      <button class="px-5 py-2.5 rounded-xl font-bold font-kanit text-xs border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all" onclick="closeJsonModal()">ปิดหน้าต่าง</button>
+      <button class="px-5 py-2.5 rounded-xl font-bold font-kanit text-xs text-white bg-accent hover:bg-accent/90 transition-all shadow-sm" onclick="copyJsonText()">คัดลอก JSON</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const EXAM_SOURCES = [
+  { path: 'admin_act/admin_act.questions.js', subject: 'พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'budget_act/budget_act.questions.js', subject: 'พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'budget_knowledge/budget_knowledge.questions.js', subject: 'ความรู้เกี่ยวกับการงบประมาณ', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'civil_service_act/civil_service_act.questions.js', subject: 'พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'disaster_act/disaster_act.questions.js', subject: 'พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'disaster_department/disaster_department.questions.js', subject: 'ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'disaster_situation/disaster_situation.questions.js', subject: 'ความรู้เกี่ยวกับวิเคราะห์สถานการณ์ภัยและจัดการภัยพิบัติ', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'emergency_fund_regulation/emergency_fund_regulation.questions.js', subject: 'ระเบียบกระทรวงการคลังว่าด้วยเงินทดรองราชการฯ พ.ศ. 2562', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'english/english.questions.js', subject: 'วิชาภาษาอังกฤษ', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'info_act/info_act.questions.js', subject: 'พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'ministry_act/ministry_act.questions.js', subject: 'พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'national_accident_regulation/national_accident_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2535', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'national_disaster_plan/national_disaster_plan.questions.js', subject: 'แผนการป้องกันและบรรเทาสาธารณภัยแห่งชาติ พ.ศ. 2564-2570', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'national_plan/national_plan.questions.js', subject: 'แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'policy_analysis/policy_analysis.questions.js', subject: 'ความรู้เกี่ยวกับการวางแผนเชิงกลยุทธ์และการวิเคราะห์นโยบาย', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'political_economy/political_economy.questions.js', subject: 'ความรู้เกี่ยวกับเศรษฐกิจ สังคม การเมือง', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'road_safety_regulation/road_safety_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'saraban_regulation/saraban_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. 2526', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'volunteer_regulation/volunteer_regulation.questions.js', subject: 'ระเบียบกระทรวงมหาดไทยว่าด้วยอาสาสมัครป้องกันภัยฝ่ายพลเรือน พ.ศ. 2547', updatedAt: '5 มิ.ย. 2569' },
+  { path: 'warning_regulation/warning_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยระบบการเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552', updatedAt: '5 มิ.ย. 2569' }
+];
+
+const subjectQuestions = {}; // subject -> array of normalized questions
+let activeSubject = null;
+const LETTERS = ['ก', 'ข', 'ค', 'ง'];
+
+// Normalize format helper
+function normalizeQuestion(q, subject) {
+  if (!q) return null;
+  const text = q.q !== undefined ? q.q : q.question;
+  const opts = q.opts !== undefined ? q.opts : q.choices;
+  const ans = q.ans !== undefined ? q.ans : q.answer;
+  const exp = q.exp !== undefined ? q.exp : q.explanation;
+  
+  return {
+    q: text ? String(text).trim() : '',
+    o: Array.isArray(opts) ? opts.map(o => String(o).trim()) : [],
+    a: typeof ans === 'number' ? ans : 0,
+    exp: exp ? String(exp).trim() : '',
+    subject: subject
+  };
+}
+
+// Sequentially load files
+function loadQuestions(index) {
+  if (index >= EXAM_SOURCES.length) {
+    // Done loading
+    document.getElementById('loaderContainer').classList.add('hidden');
+    document.getElementById('inspectorDashboard').classList.remove('hidden');
+    calculateStats();
+    buildSubjectList();
+    
+    // Auto select first subject
+    selectSubject(EXAM_SOURCES[0].subject);
+    return;
+  }
+
+  const src = EXAM_SOURCES[index];
+  document.getElementById('loaderStatusText').textContent = `กำลังโหลด: ${src.subject}...`;
+  const pct = Math.round((index / EXAM_SOURCES.length) * 100);
+  document.getElementById('loaderProgressBar').style.width = `${pct}%`;
+  document.getElementById('loaderProgressVal').textContent = `${pct}%`;
+
+  const script = document.createElement('script');
+  script.src = src.path;
+  script.onload = () => {
+    const keys = [
+      'QUESTIONS',
+      'ADMIN_ACT_QUESTIONS',
+      'BUDGET_ACT_QUESTIONS',
+      'BUDGET_KNOWLEDGE_QUESTIONS',
+      'CIVIL_SERVICE_ACT_QUESTIONS',
+      'DISASTER_ACT_QUESTIONS',
+      'DISASTER_DEPARTMENT_QUESTIONS',
+      'DISASTER_SITUATION_QUESTIONS',
+      'EMERGENCY_FUND_REGULATION_QUESTIONS',
+      'INFO_ACT_QUESTIONS',
+      'MINISTRY_ACT_QUESTIONS',
+      'NATIONAL_ACCIDENT_REGULATION_QUESTIONS',
+      'NATIONAL_DISASTER_PLAN_QUESTIONS',
+      'NATIONAL_PLAN_QUESTIONS',
+      'POLICY_ANALYSIS_QUESTIONS',
+      'POLITICAL_ECONOMY_QUESTIONS',
+      'ROAD_SAFETY_REGULATION_QUESTIONS',
+      'SARABAN_REGULATION_QUESTIONS',
+      'VOLUNTEER_REGULATION_QUESTIONS',
+      'WARNING_REGULATION_QUESTIONS',
+      'QUIZ_QUESTIONS'
+    ];
+
+    subjectQuestions[src.subject] = [];
+
+    for (const key of keys) {
+      if (Array.isArray(window[key]) && window[key].length > 0) {
+        window[key].forEach(q => {
+          const norm = normalizeQuestion(q, src.subject);
+          if (norm) {
+            subjectQuestions[src.subject].push(norm);
+          }
+        });
+        window[key] = []; // Clear global reference
+      }
+    }
+
+    setTimeout(() => loadQuestions(index + 1), 20);
+  };
+
+  script.onerror = () => {
+    console.error(`Failed to load ${src.path}`);
+    subjectQuestions[src.subject] = [];
+    setTimeout(() => loadQuestions(index + 1), 20);
+  };
+
+  document.body.appendChild(script);
+}
+
+// Stats counter
+function calculateStats() {
+  let loadedCount = 0;
+  let totalQs = 0;
+  let missingExps = 0;
+  let invalidChoices = 0;
+
+  Object.keys(subjectQuestions).forEach(sub => {
+    const list = subjectQuestions[sub];
+    if (list && list.length > 0) {
+      loadedCount++;
+      totalQs += list.length;
+      list.forEach(q => {
+        if (!q.exp) missingExps++;
+        if (q.o.length < 4) invalidChoices++;
+      });
+    }
+  });
+
+  document.getElementById('statLoadedSubjects').textContent = `${loadedCount} / ${EXAM_SOURCES.length}`;
+  document.getElementById('statTotalQuestions').textContent = `${totalQs} ข้อ`;
+  document.getElementById('statMissingExplanations').textContent = `${missingExps} ข้อ`;
+  document.getElementById('statInvalidChoices').textContent = `${invalidChoices} ข้อ`;
+}
+
+// Build Sidebar list
+function buildSubjectList() {
+  const container = document.getElementById('subjectSelectorList');
+  container.innerHTML = '';
+
+  EXAM_SOURCES.forEach(src => {
+    const list = subjectQuestions[src.subject] || [];
+    const btn = document.createElement('button');
+    btn.id = `btn-sub-${src.subject}`;
+    btn.className = 'w-full text-left px-3.5 py-3 rounded-xl border border-slate-100 hover:bg-slate-50 transition-all font-kanit flex flex-col bg-white';
+    
+    // Check validation errors
+    let warnings = 0;
+    list.forEach(q => {
+      if (!q.exp || q.o.length < 4) warnings++;
+    });
+
+    const badgeCls = warnings > 0 ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700';
+    const badgeText = warnings > 0 ? `⚠️ ${warnings} จุด` : '✅ สมบูรณ์';
+
+    let updatedHtml = '';
+    if (src.updatedAt !== undefined) {
+      if (src.updatedAt) {
+        updatedHtml = `
+          <div class="text-[10px] text-emerald-600 mt-1 font-bold font-sarabun flex items-center gap-1">
+            <span>📅 ปรับปรุงคำถามแล้ว: ${src.updatedAt}</span>
+          </div>
+        `;
+      } else {
+        updatedHtml = `
+          <div class="text-[10px] text-amber-600 mt-1 font-bold font-sarabun flex items-center gap-1">
+            <span>📅 ปรับปรุงคำถามแล้ว: (ยังไม่ได้ระบุ)</span>
+          </div>
+        `;
+      }
+    }
+
+    btn.innerHTML = `
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-xs font-bold text-navy leading-snug flex-1">${src.subject}</span>
+        <span class="text-[9px] font-black font-kanit px-1.5 py-0.5 rounded-full shrink-0 ${badgeCls}">${badgeText}</span>
+      </div>
+      <div class="flex items-center justify-between mt-1">
+        <span class="text-[10px] text-slate-400 font-medium font-sarabun">
+          ข้อสอบทั้งหมด: ${list.length} ข้อ
+        </span>
+        <a href="${src.path}" target="_blank" onclick="event.stopPropagation()"
+           class="text-[9px] font-bold font-kanit px-1.5 py-0.5 rounded-full shrink-0 bg-blue-50 text-blue-600 hover:bg-blue-100 hover:text-blue-700 transition-all border border-blue-200"
+           title="เปิดไฟล์ ${src.path}">
+          📄 ไฟล์
+        </a>
+      </div>
+      ${updatedHtml}
+    `;
+
+    btn.onclick = () => selectSubject(src.subject);
+    container.appendChild(btn);
+  });
+}
+
+// Select specific subject
+function selectSubject(subjectName) {
+  activeSubject = subjectName;
+
+  // Active state style
+  document.querySelectorAll('[id^="btn-sub-"]').forEach(btn => {
+    btn.classList.remove('border-accent', 'bg-accent/5');
+    btn.classList.add('border-slate-100', 'bg-white');
+  });
+
+  const activeBtn = document.getElementById(`btn-sub-${subjectName}`);
+  if (activeBtn) {
+    activeBtn.classList.remove('border-slate-100', 'bg-white');
+    activeBtn.classList.add('border-accent', 'bg-accent/5');
+  }
+
+  document.getElementById('selectedSubjectTitle').textContent = subjectName;
+  
+  const list = subjectQuestions[subjectName] || [];
+  const src = EXAM_SOURCES.find(s => s.subject === subjectName);
+  let metaText = `สถิติวิชานี้: รวม ${list.length} ข้อ`;
+  if (src && src.updatedAt !== undefined) {
+    metaText += ` | 📅 ปรับปรุงคำถามแล้ว เมื่อวันที่: ${src.updatedAt || '(ยังไม่ได้ระบุ)'}`;
+  }
+  document.getElementById('selectedSubjectMeta').textContent = metaText;
+
+  renderQuestions(list);
+}
+
+// Render questions
+function renderQuestions(list) {
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-12 text-slate-400 text-sm font-medium">
+        📭 ไม่พบข้อสอบในวิชานี้ หรือไม่สามารถโหลดไฟล์ได้
+      </div>
+    `;
+    return;
+  }
+
+  list.forEach((q, idx) => {
+    const card = document.createElement('div');
+    card.className = 'p-5 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-all relative';
+    
+    // Warnings check
+    let warnHtml = '';
+    if (q.o.length < 4) {
+      warnHtml += `<span class="px-2 py-0.5 rounded bg-red-100 text-red-700 text-[10px] font-bold">⚠️ ตัวเลือกไม่ครบ ${q.o.length}/4 ข้อ</span>`;
+    }
+    if (!q.exp) {
+      warnHtml += `<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-700 text-[10px] font-bold">⚠️ ไม่มีคำอธิบายเฉลย</span>`;
+    }
+
+    let choicesHtml = '';
+    q.o.forEach((opt, oIdx) => {
+      const isCorrect = oIdx === q.a;
+      const cls = isCorrect 
+        ? 'bg-green-50 border-green-500 text-green-700 font-bold' 
+        : 'bg-slate-50 border-slate-200/60 text-slate-600';
+      
+      const checkIcon = isCorrect 
+        ? `<span class="ml-auto text-green-600 font-black text-xs">✓ เฉลย</span>` 
+        : '';
+
+      choicesHtml += `
+        <div class="flex items-center gap-3 px-3 py-2 border rounded-xl text-xs sm:text-sm font-sarabun ${cls}">
+          <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center text-[10px] font-bold shrink-0">${LETTERS[oIdx]}</span>
+          <span class="flex-1">${escHtml(opt)}</span>
+          ${checkIcon}
+        </div>
+      `;
+    });
+
+    const expText = q.exp ? escHtml(q.exp) : '<span class="text-amber-500 font-bold">ไม่มีข้อมูลคำอธิบายเฉลย</span>';
+
+    card.innerHTML = `
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-kanit">ข้อที่ ${idx + 1}</span>
+        <div class="flex flex-wrap gap-1.5 justify-end">
+          ${warnHtml}
+        </div>
+      </div>
+      <p class="font-sarabun text-sm sm:text-base font-semibold text-navy leading-relaxed mb-4 whitespace-pre-line">${escHtml(q.q)}</p>
+      <div class="space-y-2 mb-4">
+        ${choicesHtml}
+      </div>
+      <div class="p-3 bg-slate-50/60 border border-slate-100 rounded-xl text-xs font-sarabun text-slate-500 leading-relaxed flex items-start gap-2">
+        <span class="text-base leading-none">💡</span>
+        <div><strong class="text-slate-700 font-kanit">คำอธิบาย:</strong> ${expText}</div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function escHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+
+// JSON Modal export logic
+function exportJSON() {
+  if (!activeSubject) return;
+  const list = subjectQuestions[activeSubject] || [];
+  
+  // Format to standard QUESTIONS structure
+  const formatted = list.map(q => ({
+    q: q.q,
+    opts: q.o,
+    ans: q.a,
+    exp: q.exp
+  }));
+
+  const text = JSON.stringify(formatted, null, 2);
+  document.getElementById('jsonTextarea').value = text;
+  document.getElementById('jsonModal').classList.remove('hidden');
+}
+
+function closeJsonModal() {
+  document.getElementById('jsonModal').classList.add('hidden');
+}
+
+function copyJsonText() {
+  const textarea = document.getElementById('jsonTextarea');
+  textarea.select();
+  document.execCommand('copy');
+  alert('คัดลอกข้อมูล JSON ไปยังคลิปบอร์ดแล้วครับ!');
+}
+
+// Start loading sequence on mount
+window.onload = () => {
+  loadQuestions(0);
+};
+</script>
+</body>
+</html>

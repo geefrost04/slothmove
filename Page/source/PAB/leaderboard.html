@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>กระดานคะแนน ปภ. | SlothMove</title>
+<link href="https://slothmoveth.com/Page/source/PAB/leaderboard.html" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="article" property="og:type"/>
+<meta content="th_TH" property="og:locale"/>
+<meta content="SlothMove" property="og:site_name"/>
+<meta content="กระดานคะแนน ปภ. | SlothMove" property="og:title"/>
+<meta content="กระดานคะแนนผู้เข้าสอบจำลองและควิซวิชาต่างๆ กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)" property="og:description"/>
+<meta content="https://slothmoveth.com/pic/slothmove_mascot.png" property="og:image"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Kanit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="../../../pic/slothmove_mascot.png">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: {
+            DEFAULT: '#faf8f4',
+            warm: '#f5f0e8',
+          },
+          navy: {
+            DEFAULT: '#1a1a2e',
+            mid: '#2d2d4a',
+          },
+          accent: {
+            DEFAULT: '#c97d3a',
+            warm: '#e8a87c',
+            bg: '#fdf3e8',
+          },
+          yellow: {
+            DEFAULT: '#fcec4a',
+            strong: '#ddcf00',
+            soft: '#fffdf0',
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  body { font-family:'Sarabun',sans-serif; background:#faf8f4; }
+  .font-kanit { font-family:'Kanit',sans-serif; }
+  .rank-1 { background:linear-gradient(135deg,#fef9c3,#fde68a); border-color:#fde68a; }
+  .rank-2 { background:linear-gradient(135deg,#f8fafc,#e2e8f0); border-color:#cbd5e1; }
+  .rank-3 { background:linear-gradient(135deg,#fff7ed,#fed7aa); border-color:#fdba74; }
+  .tab-active { background:#1a1a2e !important; color:#fff !important; }
+</style>
+</head>
+<body class="min-h-screen text-navy">
+
+<!-- NAV -->
+<nav class="bg-navy border-b border-navy-mid sticky top-0 z-40">
+  <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <img src="../../../pic/slothmove_mascot.png" class="w-8 h-8 rounded-xl object-contain" alt="SlothMove">
+      <span class="font-kanit font-bold text-white text-base">กระดานคะแนน ปภ.</span>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <a class="px-3 py-1.5 rounded-lg bg-navy-mid hover:bg-navy/80 text-white text-xs font-kanit border border-navy-mid transition-all" href="indexPAB.html">หน้าหลัก ปภ.</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="bg-navy pb-8 pt-6 relative overflow-hidden">
+  <div class="max-w-2xl mx-auto px-4 text-center relative z-10">
+    <div class="text-5xl mb-3">🏆</div>
+    <h1 class="font-kanit font-black text-2xl text-white mb-1">กระดานเกียรติยศ ปภ.</h1>
+    <p class="text-slate-300 font-sarabun text-sm">ผู้ทำคะแนนควิซและข้อสอบจำลองสูงสุด ภาค ข. กรมป้องกันและบรรเทาสาธารณภัย</p>
+  </div>
+  <div class="absolute top-[-50%] right-[-20%] w-[350px] h-[350px] bg-yellow/5 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+
+<!-- SUBJECT TABS -->
+<div class="max-w-2xl mx-auto px-4 -mt-4 mb-3">
+  <div class="bg-white rounded-2xl shadow-md border border-slate-100 p-1.5 flex gap-1 overflow-x-auto">
+    <button class="tab-active flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold transition-all whitespace-nowrap" id="sub-all" onclick="setSubject('all')">ทั้งหมด</button>
+    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-mock" onclick="setSubject('จำลองสอบ')">🎯 จำลองข้อสอบจริง</button>
+    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-disaster" onclick="setSubject('ป้องกันและบรรเท')">🚒 พ.ร.บ. ป้องกันและบรรเทาฯ</button>
+    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-admin" onclick="setSubject('บริหารราชการ')">⚖️ บริหารราชการแผ่นดิน</button>
+    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-plan13" onclick="setSubject('แผนพัฒนาเศรษฐกิจ')">📊 แผนพัฒนาฯ ฉบับ 13</button>
+  </div>
+</div>
+
+<!-- STATS ROW -->
+<div class="max-w-2xl mx-auto px-4 mb-4 grid grid-cols-4 gap-2">
+  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+    <div class="text-lg font-kanit font-black text-navy" id="statTotal">—</div>
+    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">ผู้เข้าสอบ</div>
+  </div>
+  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+    <div class="text-lg font-kanit font-black text-accent" id="statAvg">—</div>
+    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">เฉลี่ย %</div>
+  </div>
+  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+    <div class="text-lg font-kanit font-black text-emerald-600" id="statTop">—</div>
+    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">สูงสุด %</div>
+  </div>
+  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
+    <div class="text-lg font-kanit font-black text-blue-600" id="statFast">—</div>
+    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">เร็วสุด</div>
+  </div>
+</div>
+
+<!-- BOARD LIST -->
+<div class="max-w-2xl mx-auto px-4 pb-10">
+  <div class="text-center py-12" id="loadingState">
+    <div class="text-3xl animate-pulse mb-2">⏳</div>
+    <p class="text-slate-400 font-sarabun text-sm">กำลังโหลดคะแนน...</p>
+  </div>
+  <div class="hidden text-center py-12" id="emptyState">
+    <div class="text-4xl mb-3">🎯</div>
+    <p class="text-navy font-kanit font-bold text-base mb-1">ยังไม่มีผลคะแนน</p>
+    <p class="text-slate-400 font-sarabun text-sm">ไปทำข้อสอบแล้วบันทึกขึ้นกระดานกันเลย!</p>
+    <a class="inline-block mt-4 px-5 py-2.5 rounded-2xl font-kanit font-bold text-sm text-white bg-navy hover:bg-navy-mid transition-all" href="indexPAB.html">ไปทำข้อสอบ</a>
+  </div>
+  <div class="space-y-2" id="boardList"></div>
+</div>
+
+<script>
+const SUPA = window.supabase.createClient(
+  'https://rtedyfalsfqcjsvgjqmx.supabase.co',
+  'sb_publishable_vn5tbKzxOtHlmuFLlG_BJQ_54Lk-626'
+);
+
+let allData = [], activeSub = 'all';
+
+const MEDALS = ['🥇','🥈','🥉'];
+
+const COLOR_PALETTES = [
+  '#c97d3a', // accent
+  '#3d8c6c', // success
+  '#1a1a2e', // navy
+  '#a21caf', // purple
+  '#b91c1c', // red
+  '#0d9488', // teal
+];
+
+function getSubjectShort(subj) {
+  if (!subj) return 'ทั่วไป';
+  if (subj.includes('จำลองข้อสอบจริง') || subj.includes('Mock')) return 'จำลองสอบ ปภ.';
+  if (subj.includes('ป้องกันและบรรเทา')) return 'พ.ร.บ. ป้องกันฯ';
+  if (subj.includes('บริหารราชการ')) return 'บริหารราชการฯ';
+  if (subj.includes('แผนพัฒนาเศรษฐกิจ')) return 'แผนพัฒนาฯ 13';
+  if (subj.includes('แผนการป้องกัน')) return 'แผน ปภ. ชาติ';
+  if (subj.includes('ระเบียบข้าราชการพลเรือน')) return 'พลเรือน 51';
+  if (subj.includes('เงินทดรองราชการ')) return 'เงินทดรองฯ';
+  if (subj.includes('งานสารบรรณ')) return 'งานสารบรรณ';
+  if (subj.includes('รักษาความปลอดภัย')) return 'รปภ. ชาติ';
+  
+  return subj.substring(0, 15) + (subj.length > 15 ? '...' : '');
+}
+
+function getSubjectColor(subj) {
+  let hash = 0;
+  for (let i = 0; i < subj.length; i++) {
+    hash = subj.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const idx = Math.abs(hash) % COLOR_PALETTES.length;
+  return COLOR_PALETTES[idx];
+}
+
+function fmtTime(sec) {
+  if (!sec) return '—';
+  const m = Math.floor(sec/60), s = sec%60;
+  return m > 0 ? `${m}น ${s}ว` : `${s}ว`;
+}
+
+async function loadData() {
+  let data = null, error = null;
+  try {
+    const res = await SUPA
+      .from('scores')
+      .select('*')
+      .order('pct',      { ascending: false })
+      .order('time_sec', { ascending: true })
+      .order('created_at',{ ascending: false })
+      .limit(500);
+    data = res.data;
+    error = res.error;
+  } catch (e) {
+    error = e;
+  } finally {
+    const loadingEl = document.getElementById('loadingState');
+    if (loadingEl) loadingEl.classList.add('hidden');
+  }
+
+  const empty = document.getElementById('emptyState');
+
+  if (error) {
+    if (empty) {
+      let hint = empty.querySelector('[data-load-err]');
+      if (!hint) {
+        hint = document.createElement('p');
+        hint.setAttribute('data-load-err', '1');
+        hint.className = 'text-amber-600 font-sarabun text-xs mt-2 max-w-xs mx-auto leading-relaxed';
+        empty.appendChild(hint);
+      }
+      hint.textContent = 'โหลดข้อมูลไม่สำเร็จ — กรุณาลองใหม่อีกครั้ง';
+      empty.classList.remove('hidden');
+    }
+    return;
+  }
+
+  if (!data?.length) {
+    if (empty) empty.classList.remove('hidden');
+    return;
+  }
+  
+  // Filter for PAB dept
+  allData = data.filter(row => {
+    if (row.dept === 'pab') return true;
+    // Fallback detection by subject names
+    const s = row.subject || '';
+    return s.includes('ป้องกันและบรรเทา') || s.includes('แผนการป้องกันและบรรเทา');
+  });
+
+  if (!allData.length) {
+    if (empty) empty.classList.remove('hidden');
+    return;
+  }
+
+  if (empty) empty.classList.add('hidden');
+  render();
+}
+
+function setSubject(sub) {
+  activeSub = sub;
+  const subMap = { 
+    all: 'sub-all',
+    'จำลองสอบ': 'sub-mock',
+    'ป้องกันและบรรเท': 'sub-disaster',
+    'บริหารราชการ': 'sub-admin',
+    'แผนพัฒนาเศรษฐกิจ': 'sub-plan13'
+  };
+  
+  document.querySelectorAll('[id^="sub-"]').forEach(el => {
+    el.classList.remove('tab-active');
+    el.classList.add('text-slate-500');
+  });
+  
+  const el = document.getElementById(subMap[sub] || 'sub-all');
+  if (el) { 
+    el.classList.add('tab-active'); 
+    el.classList.remove('text-slate-500'); 
+  }
+  render();
+}
+
+function render() {
+  let data = allData;
+  if (activeSub !== 'all') {
+    data = data.filter(r => (r.subject || '').includes(activeSub));
+  }
+
+  // Stats
+  const statEl = (id, v) => { 
+    const el = document.getElementById(id);
+    if (el) el.textContent = v; 
+  };
+  
+  if (data.length) {
+    statEl('statTotal', data.length);
+    statEl('statAvg',   Math.round(data.reduce((s,r)=>s+r.pct,0)/data.length)+'%');
+    statEl('statTop',   Math.max(...data.map(r=>r.pct))+'%');
+    const withTime = data.filter(r => r.time_sec > 0);
+    statEl('statFast', withTime.length ? fmtTime(Math.min(...withTime.map(r=>r.time_sec))) : '—');
+  } else {
+    ['statTotal','statAvg','statTop','statFast'].forEach(id => statEl(id,'—'));
+  }
+
+  const list = document.getElementById('boardList');
+  const empty = document.getElementById('emptyState');
+
+  if (!data.length) { 
+    if (list) list.innerHTML = ''; 
+    if (empty) empty.classList.remove('hidden'); 
+    return; 
+  }
+  
+  if (empty) empty.classList.add('hidden');
+
+  if (list) {
+    list.innerHTML = data.slice(0, 100).map((r, i) => {
+      const rank = i + 1;
+      const medal = rank <= 3 ? MEDALS[rank-1] : `<span class="font-kanit font-bold text-slate-400 text-sm w-6 inline-block text-center">${rank}</span>`;
+      const cls = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : 'bg-white';
+      const color = getSubjectColor(r.subject || '');
+      const shortSubject = getSubjectShort(r.subject || '');
+      const timeLbl = r.time_sec > 0 ? `⏱ ${fmtTime(r.time_sec)}` : '';
+      const dt = new Date(r.created_at).toLocaleDateString('th-TH', {day:'numeric', month:'short'});
+      const pctCls = r.pct >= 80 ? 'text-emerald-600' : r.pct >= 60 ? 'text-accent' : 'text-red-500';
+
+      return `
+      <div class="${cls} rounded-2xl border border-slate-100 shadow-sm px-4 py-3 flex items-center gap-3 transition-transform duration-200 hover:-translate-y-[1px]">
+        <div class="w-9 h-9 flex items-center justify-center text-xl flex-shrink-0">${medal}</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-1.5 flex-wrap mb-1">
+            <span class="font-kanit font-bold text-slate-800 text-sm">${escHtml(r.nickname)}</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full font-kanit font-bold text-white" style="background:${color}">${shortSubject}</span>
+            ${r.mode ? `<span class="text-[10px] px-2 py-0.5 rounded-full font-kanit font-bold bg-slate-100 text-slate-500">${r.mode} ข้อ</span>` : ''}
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 bg-slate-100 rounded-full h-1.5 overflow-hidden">
+              <div class="h-full rounded-full" style="width:${r.pct}%;background:${color}"></div>
+            </div>
+            <span class="text-[10px] text-slate-400 font-sarabun flex-shrink-0">${timeLbl ? timeLbl+' · ' : ''}${dt}</span>
+          </div>
+        </div>
+        <div class="text-right flex-shrink-0">
+          <div class="font-kanit font-black text-base ${pctCls}">${r.pct}%</div>
+          <div class="text-slate-400 font-sarabun text-[11px]">${r.score}/${r.total}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+loadData();
+setInterval(loadData, 30000);
+</script>
+</body>
+</html>

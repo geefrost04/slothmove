@@ -1,2 +1,55 @@
-# Keep SlothMove clean
-# Only website files
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.venv-*/
+venv/
+.env
+.env.local
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Backups & deprecated files
+*.bak
+*.bak[0-9]
+*.deprecated
+*.old
+*_dump.txt
+*_questions_dump.txt
+*_deprecated.py
+check_*_deprecated.py
+print_*_questions.py
+
+# Build scripts (generation/utility, not part of site)
+generate_*.py
+check_*.py
+print_*.py
+count_questions.py
+
+# Project-specific
+.mavis/
+.memory/
+.supabase/

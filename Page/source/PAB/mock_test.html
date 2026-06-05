@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>จำลองสอบสนามจริง ปภ. | SlothMove</title>
+<link href="https://slothmoveth.com/Page/source/PAB/mock_test.html" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="article" property="og:type"/>
+<meta content="th_TH" property="og:locale"/>
+<meta content="SlothMove" property="og:site_name"/>
+<meta content="จำลองสอบสนามจริง ปภ. | SlothMove" property="og:title"/>
+<meta content="จำลองข้อสอบจริง ภาค ข. กรมป้องกันและบรรเทาสาธารณภัย สุ่มข้อสอบ 200 ข้อ จับเวลา 180 นาที" property="og:description"/>
+<meta content="https://slothmoveth.com/pic/slothmove_mascot.png" property="og:image"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Kanit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="../../../pic/slothmove_mascot.png">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: {
+            DEFAULT: '#faf8f4',
+            warm: '#f5f0e8',
+          },
+          navy: {
+            DEFAULT: '#1a1a2e',
+            mid: '#2d2d4a',
+            light: '#4b4b7a',
+          },
+          accent: {
+            DEFAULT: '#e05300', // PAB Orange (Matching PAB Official Logo)
+            warm: '#f36b21',
+            bg: '#fff5f0', // Soft Orange Background
+          },
+          yellow: {
+            DEFAULT: '#fcec4a',
+            strong: '#ddcf00',
+            soft: '#fffdf0',
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  body { font-family:'Sarabun',sans-serif; background:#faf8f4; }
+  .font-kanit { font-family:'Kanit',sans-serif; }
+  .screen { display:none; }
+  .screen.active { display:block; }
+  .opt-btn { transition:all .15s; }
+  .opt-btn:hover:not(:disabled) { transform:translateX(3px); border-color:#e05300 !important; background:#fff5f0 !important; }
+  .opt-selected { border-color:#e05300 !important; background:#fff5f0 !important; box-shadow:0 0 0 2px #e05300; }
+  .review-correct { background:#dcfce7; border-color:#16a34a; color:#15803d; }
+  .review-wrong   { background:#fee2e2; border-color:#dc2626; color:#b91c1c; }
+  #sharePreview { display:none; border-radius:1.25rem; width:100%; max-width:480px; margin:0 auto .75rem; box-shadow:0 8px 32px rgba(0,0,0,0.18); }
+</style>
+</head>
+<body class="min-h-screen text-navy antialiased">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 border-b border-cream-warm bg-white/80 backdrop-blur-md font-kanit">
+  <div class="max-w-4xl mx-auto px-4 flex items-center justify-between h-16 gap-2">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <img src="../../../pic/slothmove_mascot.png" class="w-8 h-8 rounded-xl object-contain shrink-0" alt="SlothMove">
+      <div class="min-w-0 leading-tight">
+        <span class="font-black text-navy text-sm sm:text-base truncate block">จำลองสอบสนามจริง ปภ.</span>
+        <span class="text-[10px] sm:text-[11px] text-slate-500 font-semibold tracking-wide">สุ่ม 200 ข้อ · 200 คะแนน · 180 นาที</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <a class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-navy text-white text-xs font-bold hover:bg-navy-mid transition-all shadow-sm" href="leaderboard.html">
+        <span>🏅</span> กระดานคะแนน
+      </a>
+      <a class="inline-flex items-center px-3 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white hover:bg-slate-50 transition-all" href="indexPAB.html">
+        หน้าหลัก
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ START SCREEN ═══ -->
+<div class="screen active" id="startScreen">
+  <div class="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-8">
+    <div class="w-full max-w-lg">
+      <div class="rounded-3xl bg-white border border-slate-100 shadow-xl overflow-hidden relative">
+        <div class="h-3 bg-gradient-to-r from-yellow via-accent to-accent-warm"></div>
+        <div class="p-6 sm:p-10 text-center">
+          <div class="text-6xl mb-4">🚒</div>
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-accent font-kanit mb-1">Virtual Examination Ground</p>
+          <h1 class="font-black font-kanit text-2xl sm:text-3xl text-navy mb-3 leading-snug">
+            จำลองสอบสนามจริง ปภ. <br>
+            <span class="text-accent">200 ข้อ 200 คะแนน</span>
+          </h1>
+          <p class="text-slate-500 font-sarabun text-sm leading-relaxed mb-6 max-w-md mx-auto">
+            สุ่มข้อสอบเสมือนจริงแบ่งตามวิชา (สุ่มวิชาละ 10 ข้อรวม 20 วิชา) จับเวลา 180 นาที ตรวจคะแนนและเฉลยหลังส่งกระดาษคำตอบ
+          </p>
+
+          <!-- Status / Loading -->
+          <div class="mb-8" id="loadStatusContainer">
+            <div class="text-xs text-slate-400 font-kanit mb-2" id="loadStatusText">กำลังสแกนคลังข้อสอบ ปภ. (20 วิชา)...</div>
+            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+              <div class="bg-accent h-full rounded-full transition-all duration-300" id="loadProgressBar" style="width: 5%"></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 mb-8 rounded-2xl border border-slate-100 bg-cream-warm/20 p-4">
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-white shadow-sm border border-slate-50">
+              <span class="text-[10px] font-bold text-slate-400 font-kanit mb-1">จำนวนข้อสอบ</span>
+              <span class="text-lg font-black font-kanit text-navy">200 ข้อ</span>
+            </div>
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-white shadow-sm border border-slate-50">
+              <span class="text-[10px] font-bold text-slate-400 font-kanit mb-1">เวลาจำกัด</span>
+              <span class="text-lg font-black font-kanit text-navy">180 นาที</span>
+            </div>
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-white shadow-sm border border-slate-50">
+              <span class="text-[10px] font-bold text-slate-400 font-kanit mb-1">รวมคะแนน</span>
+              <span class="text-lg font-black font-kanit text-navy">200 แต้ม</span>
+            </div>
+          </div>
+
+          <button id="startExamBtn" disabled class="w-full py-4 rounded-2xl font-bold font-kanit text-base text-white bg-accent hover:bg-accent/90 active:scale-[0.98] transition-all shadow-md shadow-accent/20 flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed" onclick="startMockExam()">
+            <span>เริ่มทำข้อสอบจำลอง</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ QUIZ SCREEN ═══ -->
+<div class="screen" id="quizScreen">
+  <div class="max-w-5xl mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      
+      <!-- Left: Question Area -->
+      <div class="lg:col-span-3">
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden mb-4">
+          <div class="h-1.5 bg-accent"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-black font-kanit text-accent text-lg" id="qNumText">ข้อ 1 / 200</span>
+              <span class="text-xs px-2.5 py-1 bg-accent-bg text-accent rounded-full font-kanit font-bold" id="qSubjectText">วิชา</span>
+            </div>
+            <h2 class="font-sarabun text-navy text-base sm:text-lg leading-relaxed mb-6 font-semibold" id="questionText">คำถาม</h2>
+            <div class="space-y-3" id="optionsContainer">
+              <!-- Options loaded dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="flex justify-between items-center gap-4">
+          <button class="px-5 py-3 rounded-2xl border-2 border-slate-200 hover:bg-slate-50 text-slate-700 font-bold font-kanit text-sm transition-all" onclick="prevQuestion()">
+            ← ย้อนกลับ
+          </button>
+          <button class="px-6 py-3 rounded-2xl text-white bg-navy hover:bg-navy-mid font-bold font-kanit text-sm transition-all shadow-sm" onclick="nextQuestion()">
+            ข้อถัดไป →
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Navigation Panel / Overview -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-3xl border border-slate-100 p-5 shadow-sm sticky top-24">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <h3 class="font-kanit font-black text-navy text-sm">แผงกระดาษคำตอบ</h3>
+            <span class="text-xs font-bold text-slate-400 font-kanit" id="answeredCountText">ตอบแล้ว 0/200</span>
+          </div>
+
+          <!-- Timer & Submit -->
+          <div class="mb-4 text-center p-3 bg-cream rounded-2xl border border-slate-100">
+            <div class="text-[10px] font-bold text-slate-400 font-kanit uppercase tracking-wider">เวลาคงเหลือ</div>
+            <div class="text-2xl font-black font-kanit text-navy tracking-tight my-1" id="timerDisplay">180:00</div>
+            <button class="w-full mt-2 py-2.5 bg-accent hover:bg-accent/90 text-white rounded-xl font-bold font-kanit text-xs transition-all shadow-sm shadow-accent/20" onclick="confirmSubmitExam()">
+              🔔 ส่งกระดาษคำตอบ
+            </button>
+          </div>
+
+          <!-- Question Grid -->
+          <div class="max-h-[300px] overflow-y-auto pr-1">
+            <div class="grid grid-cols-5 gap-1.5" id="questionsGrid">
+              <!-- Dynamically populated grid circles -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ RESULT SCREEN ═══ -->
+<div class="screen" id="resultScreen">
+  <div class="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-8">
+    <div class="w-full max-w-lg">
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+        <div class="h-3 bg-accent"></div>
+        <div class="p-8 text-center">
+          <div class="text-6xl mb-4" id="resultEmoji">🏆</div>
+          <h2 class="font-black font-kanit text-2xl text-navy mb-2">ผลการทำข้อสอบจำลอง</h2>
+          <p class="text-slate-400 font-sarabun text-xs mb-4">จำลองสอบสนามจริง ปภ. (ภาค ข.)</p>
+          
+          <div class="my-5 p-6 rounded-2xl bg-cream border border-slate-100">
+            <div class="font-black font-kanit text-4xl text-accent" id="scoreText">145 / 200</div>
+            <div class="text-slate-500 font-kanit font-bold text-sm mt-1" id="scoreDetail">คิดเป็น 72.5%</div>
+            <div class="text-slate-400 font-sarabun text-xs mt-1" id="timeTakenText">เวลาที่ใช้: 1ชั่วโมง 45นาที</div>
+          </div>
+
+          <p class="text-navy font-sarabun text-sm leading-relaxed mb-6 font-semibold" id="resultMsg">ยอดเยี่ยม! พร้อมสอบแล้ว</p>
+          
+          <!-- Action Buttons -->
+          <div class="space-y-2 mb-4">
+            <button class="w-full py-3.5 rounded-2xl font-bold font-kanit text-sm text-white bg-accent hover:bg-accent/90 transition-all flex items-center justify-center gap-2" onclick="openSaveModal()">
+              🏅 บันทึกคะแนนขึ้นกระดานคะแนน
+            </button>
+            <button class="w-full py-3.5 rounded-2xl font-bold font-kanit text-sm bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-all flex items-center justify-center gap-2" id="reviewBtn" onclick="showReview()">
+              📋 ดูเฉลยและทบทวนคำตอบ
+            </button>
+          </div>
+
+          <div class="flex gap-2 mb-4">
+            <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-xs border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5" id="shareBtn" onclick="shareResult()">
+              แชร์คะแนน
+            </button>
+            <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-xs border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5" onclick="downloadCard()">
+              ดาวน์โหลดรูปการ์ด
+            </button>
+          </div>
+
+          <a class="block w-full py-3.5 rounded-2xl font-bold font-kanit text-sm border-2 border-slate-200 text-slate-700 hover:bg-slate-50 transition-all text-center" href="indexPAB.html">
+            กลับหน้าแรก ปภ.
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ REVIEW SCREEN ═══ -->
+<div class="screen" id="reviewScreen">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="flex items-center justify-between mb-6">
+      <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 font-kanit text-sm font-bold transition-all shadow-sm" onclick="showScreen('resultScreen')">
+        ← ผลคะแนน
+      </button>
+      <div class="text-center">
+        <div class="font-black font-kanit text-lg text-navy">ทบทวนข้อสอบจำลอง</div>
+        <div class="text-xs text-slate-500 font-kanit" id="reviewHeader">ผิด 0 จาก 200 ข้อ</div>
+      </div>
+      <div class="w-24"></div> <!-- Spacer -->
+    </div>
+
+    <!-- Questions list -->
+    <div class="space-y-4 mb-8" id="reviewList">
+      <!-- Generated dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONFIRM SUBMIT DIALOG ═══ -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden animate-fade-in" id="confirmModal">
+  <div class="bg-white rounded-3xl shadow-2xl p-7 w-80 max-w-full mx-4 border border-slate-100">
+    <h3 class="font-kanit font-bold text-lg text-navy mb-2 text-center">ส่งกระดาษคำตอบ</h3>
+    <p class="text-slate-500 font-sarabun text-sm text-center mb-4 leading-relaxed" id="confirmModalText">ยืนยันการส่งข้อสอบและส่งผลคะแนน?</p>
+    <div class="flex gap-2">
+      <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-sm border-2 border-slate-100 text-slate-500 hover:bg-slate-50" onclick="closeConfirmModal()">ยกเลิก</button>
+      <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-sm text-white bg-accent hover:bg-accent/90 transition-all shadow-sm" onclick="submitExam()">ส่งข้อสอบ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SAVE SCORE MODAL ═══ -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden" id="saveModal">
+  <div class="bg-white rounded-3xl shadow-2xl p-7 w-80 max-w-full mx-4 border border-slate-100">
+    <h3 class="font-kanit font-bold text-lg text-navy mb-1 text-center">🏅 บันทึกขึ้นกระดาน</h3>
+    <p class="text-slate-500 font-sarabun text-sm text-center mb-4">ใส่ชื่อเล่นของคุณ</p>
+    <input class="w-full border-2 border-slate-200 focus:border-accent rounded-2xl px-4 py-3 font-kanit text-navy outline-none mb-3 text-center text-lg" id="nicknameInput" maxlength="20" placeholder="ชื่อเล่น..." type="text"/>
+    <p class="text-red-500 font-sarabun text-xs text-center mb-2 hidden" id="saveError"></p>
+    <div class="flex gap-2">
+      <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-sm border-2 border-slate-100 text-slate-500 hover:bg-slate-50" onclick="closeSaveModal()">ยกเลิก</button>
+      <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-sm text-white bg-accent hover:bg-accent/90 transition-all shadow-sm" id="saveConfirmBtn" onclick="confirmSave()">บันทึก</button>
+    </div>
+  </div>
+</div>
+
+<!-- Offscreen canvas for share preview generation -->
+<canvas id="sharePreview"></canvas>
+
+<script>
+// File paths to load questions from (All 20 Subjects)
+const EXAM_SOURCES = [
+  { path: 'admin_act/admin_act.questions.js', subject: 'พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534' },
+  { path: 'budget_act/budget_act.questions.js', subject: 'พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561' },
+  { path: 'budget_knowledge/budget_knowledge.questions.js', subject: 'ความรู้เกี่ยวกับการงบประมาณ' },
+  { path: 'civil_service_act/civil_service_act.questions.js', subject: 'พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551' },
+  { path: 'disaster_act/disaster_act.questions.js', subject: 'พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550' },
+  { path: 'disaster_department/disaster_department.questions.js', subject: 'ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย' },
+  { path: 'disaster_situation/disaster_situation.questions.js', subject: 'ความรู้เกี่ยวกับวิเคราะห์สถานการณ์ภัยและจัดการภัยพิบัติ' },
+  { path: 'emergency_fund_regulation/emergency_fund_regulation.questions.js', subject: 'ระเบียบกระทรวงการคลังว่าด้วยเงินทดรองราชการฯ พ.ศ. 2562' },
+  { path: 'english/english.questions.js', subject: 'วิชาภาษาอังกฤษ' },
+  { path: 'info_act/info_act.questions.js', subject: 'พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540' },
+  { path: 'ministry_act/ministry_act.questions.js', subject: 'พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545' },
+  { path: 'national_accident_regulation/national_accident_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2535' },
+  { path: 'national_disaster_plan/national_disaster_plan.questions.js', subject: 'แผนการป้องกันและบรรเทาสาธารณภัยแห่งชาติ พ.ศ. 2564-2570' },
+  { path: 'national_plan/national_plan.questions.js', subject: 'แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13' },
+  { path: 'policy_analysis/policy_analysis.questions.js', subject: 'ความรู้เกี่ยวกับการวางแผนเชิงกลยุทธ์และการวิเคราะห์นโยบาย' },
+  { path: 'political_economy/political_economy.questions.js', subject: 'ความรู้เกี่ยวกับเศรษฐกิจ สังคม การเมือง' },
+  { path: 'road_safety_regulation/road_safety_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554' },
+  { path: 'saraban_regulation/saraban_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. 2526' },
+  { path: 'volunteer_regulation/volunteer_regulation.questions.js', subject: 'ระเบียบกระทรวงมหาดไทยว่าด้วยอาสาสมัครป้องกันภัยฝ่ายพลเรือน พ.ศ. 2547' },
+  { path: 'warning_regulation/warning_regulation.questions.js', subject: 'ระเบียบสำนักนายกรัฐมนตรีว่าด้วยระบบการเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552' }
+];
+
+const SUPA = window.supabase.createClient(
+  'https://rtedyfalsfqcjsvgjqmx.supabase.co',
+  'sb_publishable_vn5tbKzxOtHlmuFLlG_BJQ_54Lk-626'
+);
+
+// State
+let allQuestions = []; // Global pool
+let examQuestions = []; // Selected 200 questions
+let userAnswers = {}; // index -> selectedOptionIndex (0-3)
+let currentIdx = 0;
+let timeRemaining = 180 * 60; // 180 minutes in seconds
+let examTimer = null;
+let startTime = null;
+
+const LETTERS = ['ก', 'ข', 'ค', 'ง'];
+
+// Normalize format
+function normalizeQuestion(q, subject) {
+  if (!q) return null;
+  const text = q.q !== undefined ? q.q : q.question;
+  const opts = q.opts !== undefined ? q.opts : q.choices;
+  const ans = q.ans !== undefined ? q.ans : q.answer;
+  const exp = q.exp !== undefined ? q.exp : q.explanation;
+  
+  if (typeof text !== 'string' || !Array.isArray(opts) || opts.length < 2 || typeof ans !== 'number') {
+    return null;
+  }
+  
+  return {
+    q: text.trim(),
+    o: opts.map(o => String(o).trim()),
+    a: ans,
+    exp: exp ? String(exp).trim() : '',
+    subject: subject
+  };
+}
+
+// Dynamically load script tags and extract questions
+function loadSourceQuestions(index) {
+  if (index >= EXAM_SOURCES.length) {
+    // Finished loading all 20 sources
+    document.getElementById('loadStatusText').textContent = `โหลดคลังข้อสอบ 20 วิชาสำเร็จ! รวม ${allQuestions.length} ข้อ`;
+    document.getElementById('loadProgressBar').style.width = '100%';
+    document.getElementById('startExamBtn').disabled = false;
+    return;
+  }
+
+  const src = EXAM_SOURCES[index];
+  document.getElementById('loadStatusText').textContent = `กำลังโหลด: ${src.subject}...`;
+  document.getElementById('loadProgressBar').style.width = `${((index / EXAM_SOURCES.length) * 100).toFixed(0)}%`;
+
+  const script = document.createElement('script');
+  script.src = src.path;
+  script.onload = () => {
+    const keys = [
+      'QUESTIONS',
+      'ADMIN_ACT_QUESTIONS',
+      'BUDGET_ACT_QUESTIONS',
+      'BUDGET_KNOWLEDGE_QUESTIONS',
+      'CIVIL_SERVICE_ACT_QUESTIONS',
+      'DISASTER_ACT_QUESTIONS',
+      'DISASTER_DEPARTMENT_QUESTIONS',
+      'DISASTER_SITUATION_QUESTIONS',
+      'EMERGENCY_FUND_REGULATION_QUESTIONS',
+      'INFO_ACT_QUESTIONS',
+      'MINISTRY_ACT_QUESTIONS',
+      'NATIONAL_ACCIDENT_REGULATION_QUESTIONS',
+      'NATIONAL_DISASTER_PLAN_QUESTIONS',
+      'NATIONAL_PLAN_QUESTIONS',
+      'POLICY_ANALYSIS_QUESTIONS',
+      'POLITICAL_ECONOMY_QUESTIONS',
+      'ROAD_SAFETY_REGULATION_QUESTIONS',
+      'SARABAN_REGULATION_QUESTIONS',
+      'VOLUNTEER_REGULATION_QUESTIONS',
+      'WARNING_REGULATION_QUESTIONS',
+      'QUIZ_QUESTIONS'
+    ];
+
+    for (const key of keys) {
+      if (Array.isArray(window[key])) {
+        window[key].forEach(q => {
+          const normalized = normalizeQuestion(q, src.subject);
+          if (normalized) allQuestions.push(normalized);
+        });
+        window[key] = []; // Clear global values
+      }
+    }
+    
+    // Clear standard global QUESTIONS
+    if (Array.isArray(window.QUESTIONS)) {
+      window.QUESTIONS = [];
+    }
+
+    setTimeout(() => loadSourceQuestions(index + 1), 30);
+  };
+  
+  script.onerror = () => {
+    console.error(`Failed to load ${src.path}`);
+    setTimeout(() => loadSourceQuestions(index + 1), 30);
+  };
+  
+  document.body.appendChild(script);
+}
+
+// Shuffle array
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Build block-based grouped randomized exam deck (10 questions per subject block)
+function buildExamDeck() {
+  const groups = {};
+  allQuestions.forEach(q => {
+    if (!groups[q.subject]) {
+      groups[q.subject] = [];
+    }
+    groups[q.subject].push(q);
+  });
+
+  const subjects = Object.keys(groups);
+  const shuffledSubjects = shuffleArray(subjects);
+
+  let deck = [];
+  shuffledSubjects.forEach(sub => {
+    const subPool = groups[sub];
+    
+    if (sub === 'วิชาภาษาอังกฤษ') {
+      // Group passage questions by passage key
+      const passages = {};
+      subPool.forEach(q => {
+        const match = q.q.match(/^(Passage\s+\d+)/i);
+        if (match) {
+          const key = match[1].toLowerCase().replace(/\s+/g, ' '); // normalize whitespace and casing
+          if (!passages[key]) passages[key] = [];
+          passages[key].push(q);
+        }
+      });
+
+      const passageKeys = Object.keys(passages);
+      if (passageKeys.length >= 2) {
+        // Shuffle the passage keys and select 2 passages at random
+        const shuffledPassages = shuffleArray(passageKeys);
+        const selectedPassageKeys = shuffledPassages.slice(0, 2);
+        
+        let selected = [];
+        selectedPassageKeys.forEach(key => {
+          // Sort questions within the passage by Q number to keep Q1 -> Q5 order
+          const sortedQuestions = passages[key].slice().sort((a, b) => {
+            const numA = a.q.match(/Q(\d+):/i);
+            const numB = b.q.match(/Q(\d+):/i);
+            if (numA && numB) {
+              return parseInt(numA[1], 10) - parseInt(numB[1], 10);
+            }
+            return 0;
+          });
+          selected = selected.concat(sortedQuestions);
+        });
+        deck = deck.concat(selected);
+      } else {
+        // Fallback: pick any 10 randomly if for some reason passages are not loaded
+        const shuffledSubPool = shuffleArray(subPool);
+        deck = deck.concat(shuffledSubPool.slice(0, 10));
+      }
+    } else {
+      // Standard subject blocks
+      const shuffledSubPool = shuffleArray(subPool);
+      const selected = shuffledSubPool.slice(0, 10);
+      deck = deck.concat(selected);
+    }
+  });
+
+  // Fallback backfill check
+  if (deck.length < 200 && allQuestions.length >= 200) {
+    const currentIds = new Set(deck.map(q => q.q));
+    const extra = allQuestions.filter(q => !currentIds.has(q.q));
+    const shuffledExtra = shuffleArray(extra);
+    deck = deck.concat(shuffledExtra.slice(0, 200 - deck.length));
+  }
+
+  return deck.slice(0, 200);
+}
+
+// Start simulation
+function startMockExam() {
+  examQuestions = buildExamDeck();
+  if (!examQuestions.length) {
+    alert('ไม่มีข้อมูลข้อสอบในระบบ');
+    return;
+  }
+  
+  userAnswers = {};
+  currentIdx = 0;
+  timeRemaining = 180 * 60; // 180 minutes
+  startTime = new Date();
+  
+  showScreen('quizScreen');
+  renderQuestion();
+  renderAnswerGrid();
+  startTimer();
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// Timer
+function startTimer() {
+  clearInterval(examTimer);
+  updateTimerDisplay();
+  examTimer = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay();
+    if (timeRemaining <= 0) {
+      clearInterval(examTimer);
+      alert('หมดเวลาทำข้อสอบแล้ว! ระบบจะส่งคำตอบโดยอัตโนมัติ');
+      submitExam();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const hr = Math.floor(timeRemaining / 3600);
+  const min = Math.floor((timeRemaining % 3600) / 60);
+  const sec = timeRemaining % 60;
+  
+  const display = hr > 0 
+    ? `${String(hr).padStart(2,'0')}:${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`
+    : `${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+    
+  document.getElementById('timerDisplay').textContent = display;
+}
+
+// Render current question
+function renderQuestion() {
+  const q = examQuestions[currentIdx];
+  const total = examQuestions.length;
+  
+  document.getElementById('qNumText').textContent = `ข้อ ${currentIdx + 1} / ${total}`;
+  document.getElementById('qSubjectText').textContent = q.subject;
+  document.getElementById('questionText').textContent = q.q;
+  
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+  
+  q.o.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    const isSelected = userAnswers[currentIdx] === idx;
+    
+    btn.className = `opt-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-xl border-2 bg-white text-left text-sm font-sarabun text-slate-700 ${isSelected ? 'opt-selected' : 'border-slate-100 shadow-sm'}`;
+    btn.innerHTML = `<span class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-kanit font-bold shrink-0 ${isSelected ? 'border-accent bg-accent text-white' : 'border-slate-300'}">${LETTERS[idx]}</span><span>${escHtml(opt)}</span>`;
+    
+    btn.onclick = () => selectOption(idx);
+    container.appendChild(btn);
+  });
+  
+  // Highlight currently active circle in grid
+  document.querySelectorAll('[id^="grid-btn-"]').forEach(el => {
+    el.classList.remove('ring-2', 'ring-accent', 'ring-offset-2');
+  });
+  const currentGridEl = document.getElementById(`grid-btn-${currentIdx}`);
+  if (currentGridEl) {
+    currentGridEl.classList.add('ring-2', 'ring-accent', 'ring-offset-2');
+  }
+}
+
+// Select choice
+function selectOption(optIdx) {
+  userAnswers[currentIdx] = optIdx;
+  renderQuestion();
+  
+  // Update grid circle status
+  const gridEl = document.getElementById(`grid-btn-${currentIdx}`);
+  if (gridEl) {
+    gridEl.className = 'w-9 h-9 rounded-xl font-kanit font-bold text-xs flex items-center justify-center transition-all bg-navy text-white';
+  }
+  
+  // Update answered count
+  const answeredCount = Object.keys(userAnswers).length;
+  document.getElementById('answeredCountText').textContent = `ตอบแล้ว ${answeredCount}/${examQuestions.length}`;
+}
+
+// Jump to a specific question
+function jumpToQuestion(idx) {
+  if (idx >= 0 && idx < examQuestions.length) {
+    currentIdx = idx;
+    renderQuestion();
+  }
+}
+
+function nextQuestion() {
+  if (currentIdx + 1 < examQuestions.length) {
+    currentIdx++;
+    renderQuestion();
+  }
+}
+
+function prevQuestion() {
+  if (currentIdx - 1 >= 0) {
+    currentIdx--;
+    renderQuestion();
+  }
+}
+
+// Generate the bottom/side answer sheet grid navigation panel
+function renderAnswerGrid() {
+  const grid = document.getElementById('questionsGrid');
+  grid.innerHTML = '';
+  
+  examQuestions.forEach((_, idx) => {
+    const btn = document.createElement('button');
+    btn.id = `grid-btn-${idx}`;
+    btn.textContent = idx + 1;
+    btn.className = 'w-9 h-9 rounded-xl font-kanit font-bold text-xs flex items-center justify-center transition-all bg-slate-100 text-slate-500 hover:bg-slate-200';
+    btn.onclick = () => jumpToQuestion(idx);
+    grid.appendChild(btn);
+  });
+}
+
+// Confirm submit dialog
+function confirmSubmitExam() {
+  const total = examQuestions.length;
+  const answered = Object.keys(userAnswers).length;
+  const unanswered = total - answered;
+  
+  const modalText = unanswered > 0 
+    ? `คุณยังทำข้อสอบไม่ครบ (ยังไม่ได้ตอบอีก ${unanswered} ข้อ) แน่ใจหรือไม่ว่าต้องการส่งกระดาษคำตอบตอนนี้?`
+    : `คุณตอบครบทั้ง ${total} ข้อแล้ว ยืนยันการส่งข้อสอบและสรุปผลคะแนน?`;
+    
+  document.getElementById('confirmModalText').textContent = modalText;
+  document.getElementById('confirmModal').classList.remove('hidden');
+}
+
+function closeConfirmModal() {
+  document.getElementById('confirmModal').classList.add('hidden');
+}
+
+// Grade and submit exam
+let finalScore = 0;
+let percentage = 0;
+let timeTakenSec = 0;
+
+function submitExam() {
+  clearInterval(examTimer);
+  closeConfirmModal();
+  
+  let correctCount = 0;
+  examQuestions.forEach((q, idx) => {
+    if (userAnswers[idx] === q.a) {
+      correctCount++;
+    }
+  });
+  
+  finalScore = correctCount;
+  percentage = Math.round((correctCount / examQuestions.length) * 100);
+  
+  const endTime = new Date();
+  timeTakenSec = Math.floor((endTime - startTime) / 1000);
+  
+  const hr = Math.floor(timeTakenSec / 3600);
+  const min = Math.floor((timeTakenSec % 3600) / 60);
+  const sec = timeTakenSec % 60;
+  
+  let timeStr = '';
+  if (hr > 0) timeStr += `${hr} ชั่วโมง `;
+  if (min > 0) timeStr += `${min} นาที `;
+  timeStr += `${sec} วินาที`;
+  
+  document.getElementById('scoreText').textContent = `${correctCount} / ${examQuestions.length}`;
+  document.getElementById('scoreDetail').textContent = `คิดเป็น ${percentage}%`;
+  document.getElementById('timeTakenText').textContent = `เวลาที่ใช้: ${timeStr}`;
+  
+  let emoji = '😅', msg = 'พยายามอีกนิดนะครับ ลองอ่านทบทวนจุดที่ผิดพลาดแล้วทดสอบอีกครั้ง!';
+  if (percentage >= 80) { 
+    emoji = '🏆'; 
+    msg = 'สุดยอดมากๆ! คะแนนผ่านเกณฑ์ในระดับดีเยี่ยม พร้อมสำหรับห้องสอบจริงแล้ว!'; 
+  } else if (percentage >= 60) { 
+    emoji = '👍'; 
+    msg = 'ผ่านเกณฑ์แล้วครับ! ทบทวนข้อที่ทำผิดเพิ่มอีกเล็กน้อยเพื่อความมั่นใจ 100%'; 
+  }
+  
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultMsg').textContent = msg;
+  
+  showScreen('resultScreen');
+  buildSharePreview(finalScore, examQuestions.length, percentage, emoji);
+}
+
+// Save to Supabase leaderboard modal logic
+let _saved = false;
+
+function openSaveModal() {
+  if (_saved) return;
+  document.getElementById('saveError').classList.add('hidden');
+  document.getElementById('nicknameInput').value = '';
+  document.getElementById('saveModal').classList.remove('hidden');
+  setTimeout(() => document.getElementById('nicknameInput').focus(), 100);
+}
+
+function closeSaveModal() {
+  document.getElementById('saveModal').classList.add('hidden');
+}
+
+async function confirmSave() {
+  const nick = document.getElementById('nicknameInput').value.trim();
+  const errEl = document.getElementById('saveError');
+  if (!nick) { errEl.textContent = 'กรุณาใส่ชื่อเล่น'; errEl.classList.remove('hidden'); return; }
+  
+  const btn = document.getElementById('saveConfirmBtn');
+  btn.textContent = 'กำลังบันทึก...'; btn.disabled = true;
+  
+  try {
+    const payload = {
+      nickname: nick,
+      dept: 'pab',
+      subject: 'ข้อสอบจำลองสนามจริง 200 ข้อ (ปภ.)',
+      score: finalScore,
+      total: examQuestions.length,
+      pct: percentage,
+      mode: examQuestions.length,
+      time_sec: timeTakenSec
+    };
+    
+    let { error } = await SUPA.from('scores').insert(payload);
+    if (error && /dept|schema cache/i.test(error.message)) {
+      const { dept, ...noDept } = payload;
+      ({ error } = await SUPA.from('scores').insert(noDept));
+    }
+    if (error) throw new Error(error.message);
+    
+    _saved = true;
+    closeSaveModal();
+    const saveBtn = document.querySelector('[onclick="openSaveModal()"]');
+    if (saveBtn) { 
+      saveBtn.innerHTML = '✅ บันทึกเรียบร้อยแล้ว'; 
+      saveBtn.disabled = true; 
+      saveBtn.style.opacity = '0.6'; 
+    }
+  } catch(e) {
+    errEl.textContent = 'เกิดข้อผิดพลาด: ' + e.message;
+    errEl.classList.remove('hidden');
+    btn.textContent = 'บันทึก'; btn.disabled = false;
+  }
+}
+
+// Review panel generator
+function showReview() {
+  const list = document.getElementById('reviewList');
+  list.innerHTML = '';
+  
+  let wrongCount = 0;
+  
+  examQuestions.forEach((q, idx) => {
+    const isCorrect = userAnswers[idx] === q.a;
+    if (!isCorrect) wrongCount++;
+    
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm';
+    
+    let optionsHtml = '';
+    q.o.forEach((opt, optIdx) => {
+      let cls = 'border-2 border-slate-50 bg-slate-50 text-slate-600';
+      let badge = '';
+      
+      if (optIdx === q.a) {
+        cls = 'review-correct border-2';
+        badge = `<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-green-700 bg-green-100 px-2 py-0.5 rounded-full">✓ คำตอบที่ถูกต้อง</span>`;
+      } else if (optIdx === userAnswers[idx]) {
+        cls = 'review-wrong border-2';
+        badge = `<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-red-700 bg-red-100 px-2 py-0.5 rounded-full">✗ คำตอบของคุณ</span>`;
+      }
+      
+      optionsHtml += `
+        <div class="flex items-center gap-3 px-4 py-3 rounded-xl ${cls}">
+          <span class="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center text-xs font-kanit font-bold shrink-0">${LETTERS[optIdx]}</span>
+          <span class="font-sarabun text-sm flex-1">${escHtml(opt)}</span>
+          ${badge}
+        </div>`;
+    });
+    
+    let expHtml = q.exp 
+      ? `<div class="mt-3 p-3 rounded-xl text-xs font-sarabun text-slate-600 leading-relaxed bg-accent-bg">💡 อธิบาย: ${escHtml(q.exp)}</div>`
+      : '';
+      
+    card.innerHTML = `
+      <div class="px-5 pt-5 pb-3">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-black font-kanit ${isCorrect ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}">${idx + 1}</span>
+          <span class="text-xs font-bold font-kanit ${isCorrect ? 'text-green-600' : 'text-red-500'}">${isCorrect ? 'ตอบถูก' : 'ตอบผิด'}</span>
+          <span class="text-[10px] text-slate-400 font-kanit ml-auto">${q.subject}</span>
+        </div>
+        <p class="font-sarabun text-slate-800 text-sm leading-relaxed">${escHtml(q.q)}</p>
+      </div>
+      <div class="px-5 pb-5 space-y-2">
+        ${optionsHtml}
+        ${expHtml}
+      </div>`;
+      
+    list.appendChild(card);
+  });
+  
+  document.getElementById('reviewHeader').textContent = `ตอบผิดทั้งหมด ${wrongCount} จาก ${examQuestions.length} ข้อ`;
+  showScreen('reviewScreen');
+}
+
+// Canvas Sharing preview generator (Orange Theme)
+let _shareLogoImg = null;
+function buildSharePreview(sc, total, pct, emoji) {
+  return document.fonts.ready.then(() => {
+    if (_shareLogoImg) return _shareLogoImg;
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = '../../../pic/slothmove_mascot.png';
+      img.onload = () => { _shareLogoImg = img; resolve(img); };
+      img.onerror = () => { resolve(null); };
+    });
+  }).then(logo => {
+    const cvs = document.getElementById('sharePreview');
+    if (!cvs) return;
+    
+    const W = 600, H = 850;
+    cvs.width = W; cvs.height = H;
+    const ctx = cvs.getContext('2d');
+    
+    // Background gradient (cream Warm theme)
+    const bg = ctx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0, '#faf8f4');
+    bg.addColorStop(1, '#f5f0e8');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0,0,W,H);
+    
+    // Decorative top accent bar
+    const bar = ctx.createLinearGradient(0,0,W,0);
+    bar.addColorStop(0, '#fcec4a');
+    bar.addColorStop(0.5, '#e05300');
+    bar.addColorStop(1, '#ddcf00');
+    ctx.fillStyle = bar;
+    ctx.fillRect(0,0,W,12);
+    
+    // Logo mascot drawing
+    if (logo) {
+      ctx.drawImage(logo, W/2-40, 60, 80, 80);
+    }
+    
+    // Title
+    ctx.fillStyle = '#1a1a2e';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    ctx.font = 'bold 36px Kanit';
+    ctx.fillText('SlothMove', W/2, 160);
+    
+    ctx.fillStyle = '#e05300';
+    ctx.font = 'bold 22px Kanit';
+    ctx.fillText('จำลองสอบสนามจริง ปภ. (ภาค ข.)', W/2, 215);
+    
+    // Middle Card box
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.roundRect(50, 270, 500, 480, 30);
+    ctx.fill();
+    ctx.strokeStyle = '#e5e0d8';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    
+    // Score Badge circle
+    ctx.fillStyle = '#fff5f0';
+    ctx.beginPath();
+    ctx.arc(W/2, 390, 80, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Score Text
+    ctx.fillStyle = '#e05300';
+    ctx.font = 'black 64px Kanit';
+    ctx.fillText(String(sc), W/2, 335);
+    
+    ctx.fillStyle = '#a09a8c';
+    ctx.font = 'bold 16px Kanit';
+    ctx.fillText(`/ ${total} ข้อ`, W/2, 415);
+    
+    // Percentage and status message
+    ctx.fillStyle = '#1a1a2e';
+    ctx.font = 'black 34px Kanit';
+    ctx.fillText(`${pct}%`, W/2, 500);
+    
+    ctx.fillStyle = '#7a756d';
+    ctx.font = 'bold 16px Sarabun';
+    ctx.fillText(pct >= 60 ? '✓ สอบผ่านเกณฑ์ประเมิน' : '✗ ยังไม่ผ่านเกณฑ์การสอบ', W/2, 550);
+    
+    // Divider line
+    ctx.strokeStyle = '#f0ebe4';
+    ctx.beginPath();
+    ctx.moveTo(100, 600);
+    ctx.lineTo(500, 600);
+    ctx.stroke();
+    
+    // Additional details
+    ctx.fillStyle = '#7a756d';
+    ctx.font = '15px Sarabun';
+    const hr = Math.floor(timeTakenSec / 3600);
+    const min = Math.floor((timeTakenSec % 3600) / 60);
+    const sec = timeTakenSec % 60;
+    let timeStr = '';
+    if (hr > 0) timeStr += `${hr}ชั่วโมง `;
+    if (min > 0) timeStr += `${min}นาที `;
+    timeStr += `${sec}วินาที`;
+    ctx.fillText(`เวลาที่ใช้: ${timeStr}`, W/2, 630);
+    
+    ctx.fillStyle = '#1a1a2e';
+    ctx.font = 'bold 16px Kanit';
+    ctx.fillText('มาจำลองสอบวิเคราะห์และข้อสอบสนามจริง ปภ. ฟรี!', W/2, 675);
+    ctx.fillStyle = '#e05300';
+    ctx.fillText('slothmoveth.com', W/2, 705);
+    
+    // Footer watermark
+    ctx.fillStyle = '#a09a8c';
+    ctx.font = '13px Sarabun';
+    ctx.fillText('© 2026 SlothMove · เตรียมสอบข้าราชการอย่างมั่นใจ', W/2, 790);
+  });
+}
+
+function shareResult() {
+  const btn = document.getElementById('shareBtn');
+  if (btn) { btn.innerHTML = '⏳ กำลังแชร์...'; btn.disabled = true; }
+  
+  const shareText = `🎯 ฉันทำข้อสอบ "จำลองสอบสนามจริง ปภ. (200 ข้อ)" ได้ ${finalScore}/200 (${percentage}%)\nมาลองสอบวัดระดับกันได้ที่ SlothMove 👉 ${window.location.href}`;
+  
+  const cvs = document.getElementById('sharePreview');
+  
+  function done(label) {
+    if (btn) { btn.innerHTML = label; btn.disabled = false; }
+    setTimeout(() => {
+      if (btn) btn.innerHTML = 'แชร์คะแนน';
+    }, 2500);
+  }
+  
+  cvs.toBlob(blob => {
+    try {
+      const file = new File([blob], 'slothmove-mock-result.png', {type: 'image/png'});
+      if (navigator.canShare && navigator.canShare({files: [file]})) {
+        navigator.share({files: [file], text: shareText}).then(() => done('✓ แชร์เรียบร้อย!'))
+        .catch(err => {
+          if (err && err.name === 'AbortError') done('แชร์คะแนน');
+          else copyTextFallback();
+        });
+      } else copyTextFallback();
+    } catch(e) { copyTextFallback(); }
+  }, 'image/png');
+  
+  function copyTextFallback() {
+    if (navigator.share) {
+      navigator.share({text: shareText, url: window.location.href})
+      .then(() => done('✓ แชร์เรียบร้อย!'))
+      .catch(e => {
+        if (e.name === 'AbortError') done('แชร์คะแนน');
+        else writeClipboard();
+      });
+    } else writeClipboard();
+  }
+  
+  function writeClipboard() {
+    navigator.clipboard.writeText(shareText).then(() => done('✓ คัดลอกลิงก์!'))
+    .catch(() => done('แชร์คะแนน'));
+  }
+}
+
+function downloadCard() {
+  const cvs = document.getElementById('sharePreview');
+  if (!cvs || !cvs.width) return;
+  try {
+    const a = document.createElement('a');
+    a.download = 'slothmove-mock-result.png';
+    a.href = cvs.toDataURL('image/png');
+    a.click();
+  } catch(e) { alert('ไม่สามารถดาวน์โหลดรูปภาพได้ในขณะนี้: ' + e.message); }
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Load resources onload
+window.onload = () => {
+  loadSourceQuestions(0);
+};
+</script>
+</body>
+</html>

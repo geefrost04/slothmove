@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const PAGE_TYPE = window.PAGE_TYPE || 'lesson';
-    const BASE_PATH = window.BASE_PATH || '../_system/';
+    const BASE_PATH = window.BASE_PATH || '../system/';
 
     // Load base styles
     const styleLink = document.createElement('link');
@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="#section-home" class="nav-tab active" data-section="home">🏠 หน้าแรก</a>
                         <a href="#section-s1" class="nav-tab" data-section="s1">📖 สรุปเนื้อหา</a>
                         <a href="#section-s2" class="nav-tab" data-section="s2">🏛️ โครงสร้าง</a>
-                        <a href="#section-s3" class="nav-tab" data-section="s3">📚 คำศัพท์</a>
-                        <a href="quiz.html" class="nav-tab" data-section="quiz" target="_blank" rel="noopener noreferrer">✏️ ทำข้อสอบ</a>
+                        <a href="flashcard.html" class="nav-tab nav-tab-flashcard" data-section="flashcard" target="_blank" rel="noopener noreferrer">
+                            <span class="nav-fc-icon">🎴</span>
+                            <span>Flashcard</span>
+                        </a>
                     </div>
                     <div class="nav-actions">
                         <a href="../indexPAB.html" class="nav-btn">🏠 หน้าหลัก</a>
@@ -51,8 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="#section-home">🏠 หน้าแรก</a>
                     <a href="#section-s1">📖 สรุปเนื้อหา</a>
                     <a href="#section-s2">🏛️ โครงสร้าง</a>
-                    <a href="#section-s3">📚 คำศัพท์</a>
-                    <a href="quiz.html" target="_blank" rel="noopener noreferrer">✏️ ทำข้อสอบ</a>
+                    <a href="flashcard.html" class="mobile-flashcard-link" target="_blank" rel="noopener noreferrer">
+                        <span>🎴 Flashcard</span>
+                    </a>
                     <button class="mobile-cta" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>
                 </div>
             </nav>
@@ -75,8 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                     📖 เข้าสู่บทเรียน
                                     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                                 </a>
-                                <a href="quiz.html" class="btn-dark" target="_blank" rel="noopener noreferrer">
-                                    ✏️ ทำข้อสอบทันที
+                                <a href="flashcard.html" class="btn-dark btn-flashcard" target="_blank" rel="noopener noreferrer">
+                                    <span class="btn-fc-shimmer"></span>
+                                    <span class="btn-fc-icon">🎴</span>
+                                    <span class="btn-fc-text">
+                                        <strong>Flashcard</strong>
+                                    </span>
+                                    <span class="btn-fc-arrow">→</span>
                                 </a>
                             </div>
                         </div>
@@ -198,6 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setupMobileMenu();
         setupNavbarScroll();
         setupDonatePopup();
+        setupFlashcardNudge();
 
         console.log('✅ Lesson rendered:', data.title);
     }
@@ -544,6 +553,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ===== Flashcard links — navigate directly (no popup nudge) =====
+    function setupFlashcardNudge() {
+        // Popup nudge removed — flashcard links open directly
+    }
+
     // ===== QUIZ FUNCTIONS =====
     function loadQuizPage() {
         var lessonHref = window.LESSON_HREF || 'ministry_act.html';
@@ -716,6 +730,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setupThemeToggle();
         setupNavbarScroll();
         setupDonatePopup();
+        setupFlashcardNudge();
         refreshQuizPoolCount();
     }
 
@@ -755,7 +770,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var LETTERS = ['ก', 'ข', 'ค', 'ง'];
     var _questions = [], _current = 0, _score = 0, _answered = false;
     var _wrongAnswers = [];
-    var _quizTimer = null, _quizSec = 0;
+    var _quizTimer = null, _quizSec = 0, _quizMode = 0;
 
     function refreshQuizPoolCount() {
         var el = document.getElementById('quizPoolCount');
@@ -829,6 +844,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!source.length) { alert('ไม่มีข้อมูลข้อสอบ'); return; }
         _questions = _buildDeck(source, n);
         _current = 0; _score = 0; _wrongAnswers = [];
+        _quizMode = n;
         _startTimer();
         window.showScreen('quizScreen');
         _renderQuestion();
@@ -1224,16 +1240,76 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modal) modal.classList.add('hidden');
     };
 
+    function _getSupa() {
+        if (window.supabase && !window._supaInstance) {
+            window._supaInstance = window.supabase.createClient(
+                'https://rtedyfalsfqcjsvgjqmx.supabase.co',
+                'sb_publishable_vn5tbKzxOtHlmuFLlG_BJQ_54Lk-626'
+            );
+        }
+        return window._supaInstance || null;
+    }
+
     window.confirmSave = function() {
         var input = document.getElementById('nicknameInput');
         var name = input ? input.value.trim() : '';
+        var errEl = document.getElementById('saveError');
+        
         if (!name) {
-            var err = document.getElementById('saveError');
-            if (err) { err.textContent = 'กรุณาใส่ชื่อเล่น'; err.classList.remove('hidden'); }
+            if (errEl) { errEl.textContent = 'กรุณาใส่ชื่อเล่น'; errEl.classList.remove('hidden'); }
             return;
         }
-        alert('บันทึกคะแนนสำเร็จ! (ฟีเจอร์เต็มรูปแบบกำลังพัฒนา)');
-        window.closeSaveModal();
+        
+        var supaClient = _getSupa();
+        if (!supaClient) {
+            if (errEl) { errEl.textContent = 'ไม่สามารถเชื่อมต่อระบบฐานข้อมูลได้'; errEl.classList.remove('hidden'); }
+            return;
+        }
+        
+        var btn = document.getElementById('saveConfirmBtn');
+        if (btn) { btn.textContent = 'กำลังบันทึก...'; btn.disabled = true; }
+        
+        var total = _questions.length;
+        var pct = Math.round((_score / total) * 100);
+        var subject = window.QUIZ_SUBJECT || (window.LESSON_DATA ? window.LESSON_DATA.title : 'บทเรียน ปภ.');
+        
+        var payload = {
+            nickname: name,
+            dept: 'pab',
+            subject: subject,
+            score: _score,
+            total: total,
+            pct: pct,
+            mode: _quizMode || total,
+            time_sec: _quizSec
+        };
+        
+        supaClient.from('scores').insert(payload).then(function(res) {
+            var error = res.error;
+            if (error) {
+                if (/dept|schema cache/i.test(error.message)) {
+                    var noDept = Object.assign({}, payload);
+                    delete noDept.dept;
+                    return supaClient.from('scores').insert(noDept);
+                }
+                throw new Error(error.message);
+            }
+            return res;
+        }).then(function(res) {
+            if (res && res.error) throw new Error(res.error.message);
+            
+            window.closeSaveModal();
+            var saveBtn = document.querySelector('[onclick="openSaveModal()"]');
+            if (saveBtn) {
+                saveBtn.innerHTML = '✅ บันทึกแล้ว';
+                saveBtn.disabled = true;
+                saveBtn.style.opacity = '0.6';
+                saveBtn.removeAttribute('onclick');
+            }
+        }).catch(function(err) {
+            if (errEl) { errEl.textContent = 'เกิดข้อผิดพลาด: ' + err.message; errEl.classList.remove('hidden'); }
+            if (btn) { btn.textContent = 'บันทึก'; btn.disabled = false; }
+        });
     };
 
     function _escHtml(s) {
@@ -1316,8 +1392,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                     📖 เริ่มอ่านเนื้อหา
                                     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                                 </a>
-                                <a href="quiz.html" class="btn-dark" target="_blank" rel="noopener noreferrer">
-                                    ✏️ ทำข้อสอบ
+                                <a href="flashcard.html" class="btn-dark btn-flashcard" target="_blank" rel="noopener noreferrer">
+                                    <span class="btn-fc-shimmer"></span>
+                                    <span class="btn-fc-icon">🎴</span>
+                                    <span class="btn-fc-text">
+                                        <strong>Flashcard</strong>
+                                    </span>
+                                    <span class="btn-fc-arrow">→</span>
                                 </a>
                             </div>
                         </div>
@@ -1382,13 +1463,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 const id = 'k' + (i + 1);
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
             });
-            tabHtml += `<a href="#section-k3" class="nav-tab" data-section="vocab">📚 คำศัพท์</a>`;
-            tabHtml += `<a href="quiz.html" class="nav-tab" data-section="quiz" target="_blank" rel="noopener noreferrer">✏️ ทำข้อสอบ</a>`;
-            mobileHtml += `<a href="#section-k3">📚 คำศัพท์</a>`;
+            tabHtml += `<a href="flashcard.html" class="nav-tab nav-tab-flashcard" data-section="flashcard" target="_blank" rel="noopener noreferrer">
+                <span class="nav-fc-icon">🎴</span>
+                <span>Flashcard</span>
+            </a>`;
             (kd.additionalSections || []).forEach((sec, i) => {
                 const id = 'add' + (i + 1);
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
             });
+            mobileHtml += `<a href="flashcard.html" class="mobile-flashcard-link" target="_blank" rel="noopener noreferrer">
+                <span>🎴 Flashcard</span>
+            </a>`;
             mobileHtml += `<button class="mobile-cta" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>`;
             tabs.innerHTML = tabHtml;
             if (mobileMenu) mobileMenu.innerHTML = mobileHtml;
@@ -1426,6 +1511,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </section>`;
             });
+            // Render Vocabulary section if present (corresponds to tab section-k3)
+            if (kd.vocabulary && kd.vocabulary.length > 0) {
+                html += `
+                <section class="glossary-section" id="section-k3" style="scroll-margin-top:72px;">
+                    <div class="container">
+                        <div class="sec-break"><span class="sec-break-label">📚 คำศัพท์น่ารู้</span></div>
+                        <h2 style="font-family:var(--font-display); font-weight:900; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--text); text-align:center; margin-bottom:var(--space-sm);">คลังคำศัพท์</h2>
+                        <p style="text-align:center;font-family:var(--font-body);font-size:0.88rem;color:var(--text-muted);margin-bottom:var(--space-xl);">คำศัพท์สำคัญและคำจำกัดความสำหรับการเตรียมสอบ</p>
+                        <div id="vocab-content"></div>
+                    </div>
+                </section>`;
+            }
             // Render additionalSections
             (kd.additionalSections || []).forEach((sec, i) => {
                 const id = 'add' + (i + 1);
@@ -1455,43 +1552,165 @@ document.addEventListener('DOMContentLoaded', function() {
             sectionsEl.innerHTML = html;
         }
 
-        // Render vocabulary (support flat array or grouped format)
+        // Render vocabulary (new beautiful design with search + category tabs + flashcard grid)
         const vocabEl = document.getElementById('vocab-content');
         if (vocabEl && kd.vocabulary && kd.vocabulary.length > 0) {
+            const vocabId = 'pab-vocab-' + Math.random().toString(36).substr(2, 6);
             let html = '';
-            // Check if grouped format or flat
+
+            // Flatten all terms for unified search
+            const allTerms = [];
             if (kd.vocabulary[0]?.groupTitle) {
                 kd.vocabulary.forEach(group => {
-                    html += `<div style="margin-bottom:var(--space-xl);">`;
-                    if (group.groupTitle) {
-                        html += `<h3 style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--navy);background:var(--yellow);display:inline-block;padding:4px 16px;border-radius:20px;margin-bottom:var(--space-md);">${group.groupTitle}</h3>`;
-                    }
-                    html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">`;
                     (group.terms || []).forEach(term => {
-                        html += `<div style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
-                            <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--text);">${term.term}</div>
-                            ${term.eng ? `<div style="font-size:0.75rem;color:var(--yellow-strong);font-weight:600;">${term.eng}</div>` : ''}
-                            <div style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-muted);line-height:1.6;">${term.def}</div>
-                        </div>`;
+                        allTerms.push({ ...term, _group: group.groupTitle });
                     });
-                    html += `</div></div>`;
                 });
             } else {
-                // Flat array format: render directly with icon, term, meaning
-                html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">`;
-                kd.vocabulary.forEach(v => {
-                    html += `<div style="background:var(--card-bg);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;">
-                        <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--text);">
-                            <span>${v.icon || '📝'}</span>
-                            <span>${v.term}</span>
-                        </div>
-                        ${v.thai ? `<div style="font-size:0.72rem;color:var(--yellow-strong);font-weight:600;">${v.thai}</div>` : ''}
-                        <div style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-muted);line-height:1.6;">${v.meaning}</div>
-                        ${v.tag ? `<div style="margin-top:4px;"><span style="font-size:0.68rem;font-weight:600;background:var(--cream);color:var(--text-muted);padding:2px 8px;border-radius:10px;">${v.tag}</span></div>` : ''}
-                    </div>`;
-                });
-                html += `</div>`;
+                kd.vocabulary.forEach(v => allTerms.push(v));
             }
+
+            // Unique categories from data
+            const cats = ['ทั้งหมด'];
+            const catColors = { 'ทั้งหมด': '#1a1a2e', 'การเมือง': '#1d4ed8', 'เศรษฐกิจ': '#b45309', 'สังคม': '#065f46', 'นโยบาย': '#6d28d9', 'ต่างประเทศ': '#be185d' };
+            allTerms.forEach(t => {
+                if (t.category && !cats.includes(t.category)) cats.push(t.category);
+            });
+
+            html += `
+            <div id="${vocabId}" class="vocab-new-root">
+                <!-- Search bar -->
+                <div style="margin-bottom:var(--space-lg);">
+                    <div style="position:relative;">
+                        <input id="vs-${vocabId}" type="text" placeholder="🔍 พิมพ์คำที่ต้องการค้นหา..."
+                            oninput="filterVocabNew('${vocabId}')"
+                            style="width:100%;padding:14px 20px 14px 46px;border:2px solid var(--border);border-radius:var(--radius-full);font-family:var(--font-body);font-size:1rem;color:var(--text);background:var(--white);outline:none;transition:border-color 0.2s,box-shadow 0.2s;box-sizing:border-box;">
+                        <span style="position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:1.1rem;pointer-events:none;opacity:0.5;">🔍</span>
+                    </div>
+                    <div id="vc-${vocabId}" style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);margin-top:8px;text-align:right;"></div>
+                </div>
+
+                <!-- Category pills -->
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--space-xl);">
+                    ${cats.map((cat, ci) => {
+                        const col = catColors[cat] || '#1a1a2e';
+                        const isFirst = ci === 0;
+                        return `<button onclick="filterVocabCatNew('${vocabId}','${cat}',this)"
+                            style="padding:7px 18px;border-radius:var(--radius-full);font-family:var(--font-display);font-weight:700;font-size:0.8rem;cursor:pointer;border:1.5px solid ${isFirst ? col : 'var(--border)'};background:${isFirst ? col : 'var(--white)'};color:${isFirst ? '#fff' : 'var(--text-muted)'};transition:all 0.15s;letter-spacing:0.01em;"
+                            class="vc-btn${isFirst ? ' vc-btn-active' : ''}">${cat}</button>`;
+                    }).join('')}
+                </div>
+
+                <!-- Flashcard grid -->
+                <div id="vg-${vocabId}" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">`;
+
+            // Render each term card
+            allTerms.forEach((term, i) => {
+                const cat = term.category || term._group || 'ทั้งหมด';
+                const col = catColors[cat] || '#1a1a2e';
+                const borderCol = col;
+                html += `
+                    <div class="vc-card" data-vocab-text="${(term.term + ' ' + (term.eng || '') + ' ' + (term.def || '')).toLowerCase().replace(/<[^>]*>/g,'')}"
+                         data-vocab-cat="${cat}"
+                         style="background:var(--white);border:1.5px solid var(--border-light);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:0;transition:all 0.2s;cursor:default;position:relative;overflow:hidden;"
+                         onmouseenter="this.style.borderColor='${col}';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)';"
+                         onmouseleave="this.style.borderColor='var(--border-light)';this.style.boxShadow='none';this.style.transform='translateY(0)';">
+                        <!-- Left color bar -->
+                        <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:${col};border-radius:16px 0 0 16px;"></div>
+
+                        <!-- Category badge -->
+                        <div style="margin-bottom:10px;">
+                            <span style="display:inline-block;font-family:var(--font-display);font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${col};background:${col}18;border:1px solid ${col}40;padding:3px 10px;border-radius:99px;">${cat}</span>
+                        </div>
+
+                        <!-- Term + English -->
+                        <div style="margin-bottom:10px;">
+                            <div style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--text);line-height:1.3;margin-bottom:3px;">${term.term}</div>
+                            ${term.eng ? `<div style="font-family:var(--font-body);font-size:0.78rem;color:${col};font-weight:600;">${term.eng}</div>` : ''}
+                        </div>
+
+                        <!-- Definition -->
+                        <div style="font-family:var(--font-body);font-size:0.85rem;color:var(--text-muted);line-height:1.7;flex:1;">${term.def || term.meaning || ''}</div>
+
+                        <!-- Memory tip (if exists) -->
+                        ${term.mnemonic ? `
+                        <div style="margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);">
+                            <div style="font-family:var(--font-display);font-size:0.68rem;font-weight:700;color:${col};text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">💡 จำง่าย</div>
+                            <div style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);line-height:1.6;">${term.mnemonic}</div>
+                        </div>` : ''}
+                    </div>`;
+            });
+
+            html += `</div>
+                <div id="ve-${vocabId}" style="text-align:center;padding:var(--space-xl) 0;display:none;">
+                    <div style="font-size:3rem;margin-bottom:var(--space-md);">📭</div>
+                    <div style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--text-muted);">ไม่พบคำที่ค้นหา</div>
+                    <div style="font-family:var(--font-body);font-size:0.85rem;color:var(--text-light);margin-top:8px;">ลองพิมพ์คำอื่น</div>
+                </div>
+            </div>
+
+            <script>
+            window.filterVocabNew = function(gid) {
+                var q = document.getElementById('vs-' + gid).value.toLowerCase().trim();
+                var cards = document.querySelectorAll('#vg-' + gid + ' .vc-card');
+                var activeCat = document.querySelector('#' + gid + ' .vc-btn-active') ?
+                    document.querySelector('#' + gid + ' .vc-btn-active').textContent.trim() : 'ทั้งหมด';
+                var visible = 0;
+                cards.forEach(function(c) {
+                    var text = c.getAttribute('data-vocab-text');
+                    var cat = c.getAttribute('data-vocab-cat');
+                    var matchText = q === '' || text.includes(q);
+                    var matchCat = activeCat === 'ทั้งหมด' || cat === activeCat;
+                    var show = matchText && matchCat;
+                    c.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+                var empty = document.getElementById('ve-' + gid);
+                if (empty) empty.style.display = visible === 0 ? '' : 'none';
+                var count = document.getElementById('vc-' + gid);
+                if (count) count.textContent = q ? visible + ' จาก ' + cards.length + ' คำ' : '';
+            };
+            window.filterVocabCatNew = function(gid, cat, btn) {
+                // Update button styles
+                var allBtns = document.querySelectorAll('#' + gid + ' .vc-btn');
+                var catColors = { 'ทั้งหมด': '#1a1a2e', 'การเมือง': '#1d4ed8', 'เศรษฐกิจ': '#b45309', 'สังคม': '#065f46', 'นโยบาย': '#6d28d9', 'ต่างประเทศ': '#be185d' };
+                var col = catColors[cat] || '#1a1a2e';
+                allBtns.forEach(function(b) {
+                    b.classList.remove('vc-btn-active');
+                    b.style.background = 'var(--white)';
+                    b.style.color = 'var(--text-muted)';
+                    b.style.borderColor = 'var(--border)';
+                });
+                btn.classList.add('vc-btn-active');
+                btn.style.background = col;
+                btn.style.color = '#fff';
+                btn.style.borderColor = col;
+                // Filter cards
+                var q = document.getElementById('vs-' + gid).value.toLowerCase().trim();
+                var cards = document.querySelectorAll('#vg-' + gid + ' .vc-card');
+                var visible = 0;
+                cards.forEach(function(c) {
+                    var text = c.getAttribute('data-vocab-text');
+                    var cardCat = c.getAttribute('data-vocab-cat');
+                    var matchText = q === '' || text.includes(q);
+                    var matchCat = cat === 'ทั้งหมด' || cardCat === cat;
+                    var show = matchText && matchCat;
+                    c.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+                var empty = document.getElementById('ve-' + gid);
+                if (empty) empty.style.display = visible === 0 ? '' : 'none';
+                var count = document.getElementById('vc-' + gid);
+                if (count) count.textContent = q ? visible + ' จาก ' + cards.length + ' คำ' : visible + ' คำ';
+            };
+            // Init count
+            (function() {
+                var cards = document.querySelectorAll('#vg-${vocabId} .vc-card');
+                var count = document.getElementById('vc-${vocabId}');
+                if (count) count.textContent = cards.length + ' คำ';
+            })();
+            </script>`;
+
             vocabEl.innerHTML = html;
         }
 
@@ -1499,6 +1718,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setupMobileMenu();
         setupNavbarScroll();
         setupDonatePopup();
+        setupFlashcardNudge();
         setupScrollSpy();
         console.log('✅ Knowledge page rendered:', kd.title);
     }
@@ -1522,6 +1742,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     html += `<div class="kb-highlight kb-hb-${block.color}" style="background:${p.bg};border-left:4px solid ${p.border};padding:18px 20px;border-radius:12px;margin:20px 0;">
                         <div class="kb-hb-title" style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:${p.title};margin-bottom:10px;">${block.title || ''}</div>
                         <div class="kb-hb-content" style="font-family:var(--font-body);font-size:0.9rem;color:${isNavy ? p.content : p.content};line-height:1.8;">${block.content || ''}</div>
+                        ${block.examNote ? `<div style="background:#fffbeb;border-top:1.5px solid #f59e0b;margin:12px -20px -18px;padding:10px 20px;font-family:var(--font-body);font-size:0.82rem;color:#92400e;line-height:1.6;border-radius:0 0 12px 12px;">${block.examNote}</div>` : ''}
                     </div>`;
                     break;
                 }
@@ -1610,18 +1831,46 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>`;
                     break;
                 }
-                case 'table': {
-                    html += `<div style="overflow-x:auto;margin:20px 0;border-radius:12px;border:1px solid var(--border);">`;
-                    if (block.title) html += `<div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--text);padding:12px 16px;border-bottom:1px solid var(--border);background:var(--cream);">${block.title}</div>`;
+                case 'table':
+                case 'comparison-table': {
+                    html += `<div style="overflow-x:auto;margin:20px 0;border-radius:12px;border:1.5px solid var(--border);box-shadow:0 2px 8px rgba(26,26,46,0.06);">`;
+                    if (block.title) {
+                        // Color-coded title bar
+                        const PALETTE = {
+                            amber:  { bg: '#fef3e8', border: '#f59e0b', title: '#92400e' },
+                            blue:   { bg: '#eff6ff', border: '#3b82f6', title: '#1e40af' },
+                            navy:   { bg: '#1a1a2e', border: '#fcec4a', title: '#ffffff' },
+                            green:  { bg: '#f0fdf4', border: '#22c55e', title: '#166534' },
+                            rose:   { bg: '#fff1f2', border: '#f43f5e', title: '#9f1239' },
+                            purple: { bg: '#faf5ff', border: '#a855f7', title: '#7e22ce' },
+                            teal:   { bg: '#f0fdfa', border: '#14b8a6', title: '#115e59' }
+                        };
+                        const p = PALETTE[block.color] || PALETTE.blue;
+                        html += `<div style="font-family:var(--font-display);font-weight:800;font-size:0.92rem;color:${p.title};padding:12px 18px;background:${p.bg};border-bottom:1.5px solid ${p.border};border-radius:12px 12px 0 0;">${block.title}</div>`;
+                    }
                     html += `<table style="width:100%;border-collapse:collapse;font-size:0.85rem;">`;
+                    // Optional headers row
+                    if (block.headers && block.headers.length > 0) {
+                        html += `<thead><tr style="background:#1a1a2e;color:#ffffff;">`;
+                        block.headers.forEach((h, hi) => {
+                            html += `<th style="padding:10px 13px;text-align:left;font-family:var(--font-display);font-weight:700;font-size:0.8rem;letter-spacing:0.02em;border-bottom:2px solid #fcec4a;color:#ffffff;">${h}</th>`;
+                        });
+                        html += `</tr></thead>`;
+                    }
                     (block.rows || []).forEach((row, i) => {
-                        html += `<tr style="${i === 0 ? 'background:var(--navy);color:#fff;font-family:var(--font-display);font-weight:700;' : 'border-bottom:1px solid var(--border-light);'}">`;
+                        const rowBg = i % 2 === 0 ? '#ffffff' : '#f5f0e8';
+                        html += `<tr style="background:${rowBg};border-bottom:1px solid #e5e0d8;transition:background 0.15s;">`;
                         row.forEach(cell => {
-                            html += `<td style="padding:11px 14px;">${cell}</td>`;
+                            html += `<td style="padding:10px 13px;font-family:var(--font-body);font-size:0.85rem;color:#1a1a2e;line-height:1.6;vertical-align:top;">${cell}</td>`;
                         });
                         html += `</tr>`;
                     });
-                    html += `</table></div>`;
+                    html += `</table>`;
+                    // Exam note
+                    if (block.examNote) {
+                        html += `<div style="background:#fffbeb;border-top:1.5px solid #f59e0b;padding:10px 16px;font-family:var(--font-body);font-size:0.82rem;color:#92400e;line-height:1.6;border-radius:0 0 12px 12px;">${block.examNote}</div>`;
+                    }
+                    html += `</div>`;
                     break;
                 }
                 case 'number-cards': {
@@ -1638,17 +1887,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     break;
                 }
-                case 'number-cards': {
-                    html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:20px 0;">`;
-                    (block.numberCards || []).forEach(card => {
-                        html += `<div style="background:var(--white);border:1.5px solid var(--yellow-strong);border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(252,236,74,0.15);">
-                            <div style="font-family:var(--font-display);font-weight:900;font-size:1.8rem;color:var(--navy);">${card.num}</div>
-                            <div style="font-family:var(--font-body);font-size:0.78rem;color:var(--text-muted);margin-top:6px;line-height:1.5;">${card.label}</div>
-                        </div>`;
-                    });
-                    html += `</div>`;
-                    break;
-                }
+                
                 case 'vocab-grid': {
                     // New vocabulary section with search + accordion
                     const groups = block.groups || [];

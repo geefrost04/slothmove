@@ -27,7 +27,7 @@ window.DISASTER_ACT_DATA =
           "type": "highlight-box",
           "color": "navy",
           "title": "⚡ Quick Facts — สถิติที่ต้องรู้ก่อนสอบ",
-          "content": "ปี พ.ศ. <strong>2550</strong> → ประกาศ 6 พ.ย. 2550 | ผู้รักษาการ: <strong>รัฐมนตรีว่าการกระทรวงมหาดไทย</strong> | สังกัด: <strong>มหาดไทย</strong> | มาตราสำคัญ: <strong>4, 6-7, 13-14, 43-48</strong> | สาธารณภัย: <strong>8 ประเภท</strong> | อปพร. วาระ <strong>3 ปี</strong>"
+          "content": "ปี พ.ศ. <strong>2550</strong> → ประกาศในราชกิจจานุเบกษา เล่ม 124 ตอนที่ 52 ก วันที่ 7 กันยายน 2550 | ผู้รักษาการ: <strong>รัฐมนตรีว่าการกระทรวงมหาดไทย</strong> | สังกัด: <strong>มหาดไทย</strong> | มาตราสำคัญ: <strong>4, 6-7, 13-14, 43-48</strong> | สาธารณภัย: <strong>8 ประเภท</strong> | อปพร. วาระ <strong>3 ปี</strong>"
         },
 
         /* ─── ม.4: 8 ประเภทสาธารณภัย (จุดออกสอบสูง) ─── */
@@ -63,7 +63,7 @@ window.DISASTER_ACT_DATA =
           "type": "highlight-box",
           "color": "navy",
           "title": "🏛️ มาตรา 6 — องค์ประกอบ กปภ.ช.",
-          "content": "<strong>ประธาน:</strong> นายกรัฐมนตรี<br><strong>รองประธาน:</strong> รองนายกฯ ที่นายกฯ มอบหมาย<br><strong>กรรมการ:</strong> รมต.มหาดไทย, รมต.สาธารณสุข, รมต.กลาโหม, รมต.เกษตรฯ, รมต.อุตสาหกรรม, รมต.คมนาคม, ผบ.ทสูงสุด, ผบ.ตร.<br><strong>กรรมการผู้ทรงคุณวุฒิ:</strong> ไม่เกิน <strong>5 คน</strong> วาระ <strong>3 ปี</strong> แต่งตั้งโดย ครม.<br><strong>เลขานุการ:</strong> อธิบดี ปภ."
+          "content": "<strong>ประธาน:</strong> นายกรัฐมนตรี<br><strong>รองประธาน:</strong> รองนายกรัฐมนตรีที่นายกฯ มอบหมาย และรัฐมนตรีว่าการกระทรวงมหาดไทย<br><strong>กรรมการโดยตำแหน่ง:</strong> ปลัดกระทรวงกลาโหม, ปลัดกระทรวงการพัฒนาสังคมฯ, ปลัดกระทรวงเกษตรฯ, ปลัดกระทรวงคมนาคม, ปลัดกระทรวงทรัพยากรฯ, ปลัดกระทรวงดิจิทัลฯ, ปลัดกระทรวงสาธารณสุข, ผู้อำนวยการสำนักงบประมาณ, ผู้บัญชาการตำรวจแห่งชาติ, ผู้บัญชาการทหารสูงสุด, ผู้บัญชาการทหารบก, ผู้บัญชาการทหารเรือ, ผู้บัญชาการทหารอากาศ, เลขาธิการสภาความมั่นคงแห่งชาติ<br><strong>กรรมการผู้ทรงคุณวุฒิ:</strong> ไม่เกิน <strong>5 คน</strong> วาระ <strong>3 ปี</strong> แต่งตั้งโดย ครม.<br><strong>เลขานุการ:</strong> อธิบดี ปภ."
         },
         {
           "type": "highlight-box",
@@ -169,7 +169,7 @@ window.DISASTER_ACT_DATA =
           "type": "highlight-box",
           "color": "green",
           "title": "🧠 บัตรลัดจำ — สรุปก่อนสอบ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;'>" +
+          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;color:#1a1a2e;'>" +
 "<thead><tr style='background:#166534;color:#fff;'><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>สูตร</th><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>ความหมาย</th></tr></thead>" +
 "<tbody>" +
 "<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>ไฟ น้ำ ลม แล้ง + โรค 3 + ศัตรูพืช</td><td style='padding:8px;border:1px solid #ddd;'>8 ประเภทสาธารณภัย (ม.4)</td></tr>" +

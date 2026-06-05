@@ -1,273 +1,316 @@
-window.INFO_ACT_DATA =
-{
+window.INFO_ACT_DATA = {
   "id": "info_act",
   "PAGE_TYPE": "knowledge",
   "title": "พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540",
   "titleShort": "พ.ร.บ. ข้อมูลข่าวสารฯ",
-  "subtitle": "สิทธิรับรู้ · ข้อมูล 3 ประเภท · กระบวนการขอ · กสม. · 15 วัน ตอบคำขอ",
-  "badgeLabel": "สำหรับเตรียมสอบภาค ข. ปภ.",
   "emoji": "📋",
+  "subtitle": "สรุปสิทธิรับรู้ข้อมูลภาครัฐ ข้อมูลห้ามเปิดเผย การคุ้มครองสิทธิส่วนบุคคล และการอุทธรณ์",
+  "badgeLabel": "สรุปเตรียมสอบภาค ข. ปภ.",
   "stats": {
-    "chapters": 5,
-    "parts": 40,
-    "vocab": 10,
+    "chapters": 7,
+    "parts": 41,
+    "vocab": 15,
     "quiz": 50
   },
   "knowledgeSections": [
     {
-      "navIcon": "📋",
-      "navLabel": "สรุปเนื้อหา",
-      "icon": "📋",
-      "title": "📋 สรุปเนื้อหา",
-      "description": "เนื้อหาครบตามหลักสูตร สำหรับเตรียมสอบราชการ — เรียงตามน้ำหนักการออกสอบ",
+      "navIcon": "🎯",
+      "navLabel": "1. แก่นกฎหมาย",
+      "icon": "🎯",
+      "title": "ธีมที่ 1 · แก่นและคอนเซปต์หลัก (Core Philosophy)",
+      "description": "เจตนารมณ์สูงสุด: เปิดเผยเป็นหลัก ปกปิดเป็นข้อยกเว้น",
       "blocks": [
-
-        /* ─── Quick Facts ─── */
         {
           "type": "highlight-box",
           "color": "navy",
-          "title": "⚡ Quick Facts — สถิติที่ต้องรู้ก่อนสอบ",
-          "content": "ประกาศใช้ <strong>พ.ศ. 2540</strong> | บังคับใช้ <strong>2 พ.ย. 2542</strong> | ผู้รักษาการ: <strong>รัฐมนตรีว่าการกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</strong> | ฐานอำนาจ: <strong>รัฐธรรมนูญ ม.41</strong>"
+          "title": "👑 หัวใจของกฎหมาย: Right to Know",
+          "content": "<strong>เป้าหมายอันดับ 1:</strong> ประชาชนต้องมีสิทธิรับรู้ข้อมูลการทำงานของรัฐ เพื่อความโปร่งใสและตรวจสอบได้ <em>(เปิดเผยเป็นหลัก ปกปิดเป็นข้อยกเว้น)</em><br><strong>กฎหมายที่ใหญ่ที่สุดเรื่องข้อมูล:</strong> ถ้าระเบียบอื่นขัด พ.ร.บ. นี้ <strong><mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>ให้ใช้ พ.ร.บ. นี้แทนเสมอ!</mark></strong>"
         },
-
-        /* ─── มาตรา 9: สิทธิขอเข้าถึง ─── */
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ (Memory Hack) - แก่นกฎหมาย",
+          "text": "กฎหมายนี้มีเพื่อ <strong>\"แฉรัฐ - ปกป้องเรา\"</strong> (รัฐต้องโปร่งใส แต่ข้อมูลส่วนตัวประชาชนต้องเก็บมิดชิด)"
+        }
+      ]
+    },
+    {
+      "navIcon": "⚖️",
+      "navLabel": "2. โครงสร้างอำนาจ",
+      "icon": "⚖️",
+      "title": "ธีมที่ 2 · โครงสร้างอำนาจ & ความสัมพันธ์ (Power & Relations)",
+      "description": "ช่องทางการเปิดเผย และ คณะกรรมการ 2 ชุด",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "blue",
+          "title": "📢 3 ช่องทางการเปิดเผยข้อมูล",
+          "content": "<table class='kb-table'><thead><tr><th>มาตรา</th><th>วิธีเปิดเผย</th><th>ตัวอย่างข้อมูลที่บังคับ</th></tr></thead><tbody><tr class='odd'><td class='bold'>ม. 7</td><td>พิมพ์ลง <strong>ราชกิจจานุเบกษา</strong></td><td>โครงสร้างอำนาจ, สถานที่ติดต่อ</td></tr><tr class='even'><td class='bold'>ม. 9</td><td>จัดตั้งไว้ให้ <strong>ดู (บอร์ด/แฟ้ม)</strong></td><td>สัญญาสัมปทาน, งบประมาณปีปัจจุบัน</td></tr><tr class='odd'><td class='bold'>ม. 11</td><td>จัดหาให้เมื่อ <strong>ขอ</strong></td><td>เรื่องอื่นๆ ที่ไม่ได้อยู่ใน ม.7 และ ม.9</td></tr></tbody></table>"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ (Memory Hack) - 3 ช่องทาง",
+          "text": "สูตรท่อง: <strong>\"7 พิมพ์ - 9 ดู - 11 ขอ\"</strong>"
+        },
         {
           "type": "highlight-box",
           "color": "navy",
-          "title": "📖 มาตรา 9 — สิทธิของประชาชน (จุดออกสอบสูง)",
-          "content": "<strong>ประชาชนมีสิทธิขอเข้าถึง</strong>ข้อมูลข่าวสารของราชการที่อยู่ในความครอบครองของหน่วยงานของรัฐ<br><br><strong>รูปแบบที่รวม:</strong> เอกสาร | ภาพ | บันทึกเสียง | รูปแบบอื่น<br><strong>ขอบเขต:</strong> หน่วยงานของรัฐทุกแห่ง | รัฐวิสาหกิจ | หน่วยงานที่รับงบประมาณจากรัฐ"
-        },
-
-        /* ─── 3 ประเภทข้อมูล (จุดออกสอบสูงมาก) ─── */
+          "title": "👥 บอร์ด กขร. (ชุดใหญ่) VS บอร์ด กวฉ. (ชุดวินิจฉัย)",
+          "content": "▪ <strong>บอร์ด กขร. (ชุดใหญ่):</strong> ดูแลภาพรวม รับเรื่อง <strong>ร้องเรียน (ม.13)</strong> กรณีบริการช้า/ไม่ตั้งแฟ้ม <em>(ประธานคือ รมต.ที่นายกมอบหมาย / ไม่มี ผบ.ตร. ในบอร์ด)</em><br>▪ <strong>บอร์ด กวฉ. (วินิจฉัย):</strong> ทำหน้าที่เหมือน <strong>ศาลข้อมูล</strong> รับเรื่อง <strong>อุทธรณ์ (ม.15/25)</strong> กรณีรัฐปฏิเสธไม่ให้ข้อมูล <em>(คำวินิจฉัยถือเป็น \"ที่สุดในฝ่ายบริหาร\")</em>"
+        }
+      ]
+    },
+    {
+      "navIcon": "⚠️",
+      "navLabel": "3. จุดดักข้อสอบ",
+      "icon": "⚠️",
+      "title": "ธีมที่ 3 · จุดดักควายในข้อสอบ (Exam Pitfalls & Exceptions)",
+      "description": "คำหลอกและข้อยกเว้นที่ทำคนสอบตก",
+      "blocks": [
         {
           "type": "highlight-box",
-          "color": "navy",
-          "title": "🔐 ข้อมูลข่าวสาร 3 ประเภท (จุดออกสอบสูงมาก)",
-          "content": "<strong>แบ่งตามระดับการเปิดเผย:</strong>"
-        },
-        {
-          "type": "cards",
           "color": "amber",
-          "cards": [
-            { "icon": "✅", "title": "เปิดเผยได้ทันที", "content": "ข้อมูลเกี่ยวกับการดำเนินงานของรัฐ | ผลการพิจารณาคดี คำพิพากษา | นโยบายรัฐบาล ยุทธศาสตร์ | แผนพัฒนาเศรษฐกิจและสังคม | ทะเบียนและรายงานการประชุมของรัฐ | สถิติและรายงานของราชการ", "color": "green" },
-            { "icon": "🔒", "title": "ห้ามเปิดเผย (ลับ)", "content": "ข้อมูลที่การเปิดเผยจะกระทบต่อความมั่นคงของรัฐ | ข้อมูลที่เปิดเผยจะทำให้เกิดความเสียหายต่อการฑูตินิติบัตร | ข้อมูลที่กฎหมายสั่งห้ามเปิดเผย | ข้อมูลที่ละเมิดสิทธิบุคคล", "color": "rose" },
-            { "icon": "👤", "title": "ข้อมูลส่วนบุคคล", "content": "ข้อมูลเกี่ยวกับบุคคลที่ทำให้ระบุตัวบุคคลได้ เช่น ชื่อ ที่อยู่ บัตรประจำตัวประชาชน | ต้องได้รับความยินยอมจากเจ้าของข้อมูล", "color": "purple" }
-          ]
+          "title": "⚠️ ศาล และ คนต่างด้าว (ข้อสอบชอบถาม)",
+          "content": "▪ <strong>ศาล:</strong> พ.ร.บ. นี้บังคับใช้เฉพาะงาน <strong>\"ธุรการ\"</strong> ของศาลเท่านั้น (งานพิจารณาคดีไม่อยู่ใน พ.ร.บ. นี้)<br>▪ <strong>คนต่างด้าว:</strong> นิติบุคคลจะถือเป็นคนต่างด้าวเมื่อต่างชาติถือหุ้น <strong><mark style='background:var(--yellow); border-radius:4px; padding:0 4px; color:#1a1a2e; font-weight:bold;'>เกินกึ่งหนึ่ง (มากกว่า 50%)</mark></strong>"
         },
-
-        /* ─── มาตรา 12-17: กระบวนการขอ ─── */
         {
           "type": "highlight-box",
-          "color": "navy",
-          "title": "📝 มาตรา 12-17 — กระบวนการขอเข้าถึงข้อมูล",
-          "content": "<strong>ขั้นตอนการขอเข้าถึง:</strong>"
+          "color": "rose",
+          "title": "🚫 ข้อมูลที่ \"ห้ามเปิดเผย\" (มาตรา 14)",
+          "content": "ข้อมูลที่กระทบต่อ <strong>\"สถาบันพระมหากษัตริย์\"</strong> ห้ามเปิดเผยโดยเด็ดขาด <em>(ไม่มีข้อยกเว้นและไม่มีดุลพินิจใดๆ ทั้งสิ้น)</em>"
         },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "ร้องเรียน VS อุทธรณ์",
+          "content": "▪ <strong>ร้องเรียน:</strong> ใช้ตอนรัฐงี่เง่า (บริการช้า, หาไม่เจอ, ไม่ยอมลงราชกิจจาฯ)<br>▪ <strong>อุทธรณ์:</strong> ใช้ตอนรัฐ <strong>ปฏิเสธคำขอตรงๆ</strong> (เช่น อ้างความมั่นคงเลยไม่ให้ดู, หรือไม่ยอมแก้ข้อมูลส่วนตัวให้)"
+        }
+      ]
+    },
+    {
+      "navIcon": "🔢",
+      "navLabel": "4. ทริคตัวเลข",
+      "icon": "🔢",
+      "title": "ธีมที่ 4 · ทริคจำตัวเลข & ระยะเวลา (Number Hacks)",
+      "description": "วันเวลาและตัวเลขที่ต้องเป๊ะก่อนเข้าสอบ",
+      "blocks": [
         {
           "type": "numbered-list",
-          "title": "กระบวนการ",
+          "title": "ตัวเลขสำคัญ (Must Know)",
           "items": [
-            "<strong>ยื่นคำขอ</strong> → เป็น<strong>หนังสือ</strong>หรือผ่าน<strong>ช่องทางอิเล็กทรอนิกส์</strong>ไปยังหน่วยงานที่เก็บรักษาข้อมูล",
-            "<strong>พิจารณา</strong> → ภายใน <strong>15 วันทำการ</strong>",
-            "<strong>แจ้งผล</strong> → อนุญาต หรือ <strong>ปฏิเสธ พร้อมเหตุผล</strong> (ต้องทำเป็นหนังสือ)",
-            "<strong>อุทธรณ์</strong> → กรณีถูกปฏิเสธ ยื่นต่อ<strong>กสม. ภายใน 30 วัน</strong>นับแต่ได้รับแจ้งปฏิเสธ"
+            "<strong>90 วัน:</strong> วันที่กฎหมายมีผลบังคับใช้ (หลังประกาศราชกิจจาฯ 90 วัน)",
+            "<strong>15 วัน:</strong> ระยะเวลายื่นอุทธรณ์ เมื่อรัฐ <strong>ปฏิเสธการให้ข้อมูล</strong> (มาตรา 15)",
+            "<strong>30 วัน:</strong> ระยะเวลายื่นอุทธรณ์ เมื่อรัฐ <strong>ปฏิเสธการแก้ไขข้อมูลส่วนตัว</strong> (มาตรา 25)",
+            "<strong>30 (+30) วัน:</strong> กรอบเวลาที่บอร์ด กวฉ. ต้องพิจารณาอุทธรณ์ให้เสร็จ (ขยายได้รวมไม่เกิน 60 วัน)",
+            "<strong>75 ปี:</strong> ระยะเวลาเก็บข้อมูลสถาบันฯ (ม.14) ก่อนส่งหอจดหมายเหตุ",
+            "<strong>20 ปี:</strong> ระยะเวลาเก็บข้อมูลความมั่นคง/ส่วนตัว (ม.15) ก่อนส่งหอจดหมายเหตุ",
+            "<strong>5 ปี:</strong> ระยะเวลาที่ขอต่ออายุความลับได้ (ต่อได้คราวละไม่เกิน 5 ปี)"
           ]
         },
         {
-          "type": "highlight-box",
-          "color": "rose",
-          "title": "⚠️ จุดจำ — การปฏิเสธต้องทำเป็นหนังสือ",
-          "content": "การปฏิเสธ<strong>ต้องทำเป็นหนังสือ</strong> ระบุ<strong>เหตุผล</strong>และ<strong>สิทธิอุทธรณ์</strong><br>หากไม่พอใจ → อุทธรณ์ต่อ<strong>กสม. ภายใน 30 วัน</strong>"
-        },
-
-        /* ─── 4 หลักคุ้มครองข้อมูลส่วนบุคคล ─── */
-        {
-          "type": "highlight-box",
-          "color": "blue",
-          "title": "🛡️ มาตรา 23-24 — หลัก 4 ประการในการคุ้มครองข้อมูลส่วนบุคคล",
-          "content": "<strong>1) ความยินยอม</strong> — ต้องได้รับความยินยอมจากเจ้าของข้อมูลก่อนเก็บรวบรวม<br><strong>2) ความโปร่งใส</strong> — ต้องแจ้งวัตถุประสงค์ในการเก็บรวบรวมข้อมูล<br><strong>3) การปกป้อง</strong> — ต้องมีมาตรการรักษาความมั่นคงปลอดภัย<br><strong>4) สิทธิแก้ไข</strong> — เจ้าของข้อมูลมีสิทธิขอให้แก้ไขข้อมูลที่ไม่ถูกต้อง"
-        },
-
-        /* ─── หน้าที่หน่วยงาน ─── */
-        {
-          "type": "highlight-box",
-          "color": "amber",
-          "title": "🏛️ หน้าที่ของหน่วยงานของรัฐ (มาตรา 7-8)",
-          "content": "จัดเตรียมข้อมูลข่าวสารไว้ให้ประชาชนเข้าถึงได้สะดวก และต้องปรับปรุงให้ทันสมัยอยู่เสมอ<br><br><strong>1.</strong> จัดทำคู่มือสถานีข้อมูลข่าวสารของราชการ<br><strong>2.</strong> เผยแพร่ผ่านระบบเครือข่ายอินเทอร์เน็ต<br><strong>3.</strong> จัดให้มีเจ้าหน้าที่รับผิดชอบข้อมูลข่าวสาร<br><strong>4.</strong> จัดเก็บรักษาข้อมูลไม่น้อยกว่า <strong>10 ปี</strong> (เอกสารสำคัญ)"
-        },
-
-        /* ─── บทลงโทษ ─── */
-        {
-          "type": "highlight-box",
-          "color": "rose",
-          "title": "⚖️ มาตรา 35-36 — บทลงโทษ",
-          "content": "<strong>มาตรา 35:</strong> เจ้าหน้าที่ของรัฐผู้ใด<strong>obstruction การเข้าถึงข้อมูล</strong>ของประชาชนโดยมิชอบ → มี<strong>โทษทางอาญา</strong> (จำคุกและ/หรือปรับ)<br><br><strong>มาตรา 36:</strong> ผู้ใดเปิดเผยข้อมูลความลับที่ไม่ได้รับอนุญาต → มีโทษตามที่กฎหมายกำหนด"
-        },
-
-        /* ─── บัตรลัดจำ ─── */
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "🧠 บัตรลัดจำ — สรุปก่อนสอบ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;'>" +
-"<thead><tr style='background:#166534;color:#fff;'><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>สูตร</th><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>ความหมาย</th></tr></thead>" +
-"<tbody>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>15 วันทำการ</td><td style='padding:8px;border:1px solid #ddd;'>กำหนดพิจารณาและตอบคำขอ (มาตรา 12)</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>30 วัน</td><td style='padding:8px;border:1px solid #ddd;'>ยื่นอุทธรณ์ต่อ กสม. นับแต่ได้รับแจ้งปฏิเสธ (มาตรา 17)</td></tr>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>10 ปี</td><td style='padding:8px;border:1px solid #ddd;'>ระยะเวลาจัดเก็บเอกสารสำคัญ (มาตรา 7)</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>obstruction = อาญา</td><td style='padding:8px;border:1px solid #ddd;'>ขัดขวางการเข้าถึงข้อมูล = ความผิดทางอาญา (มาตรา 35)</td></tr>" +
-"<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>ปฏิเสธ = หนังสือ</td><td style='padding:8px;border:1px solid #ddd;'>การปฏิเสธต้องทำเป็นหนังสือ ระบุเหตุผล + สิทธิอุทธรณ์</td></tr>" +
-"</tbody></table>"
-        },
-
-        /* ─── แบบทดสอบ Q&A ─── */
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "✏️ แบบทดสอบ — ลองทำดู! (เฉลยอยู่กล่องถัดไป)",
-          "content": "<strong>ลองทำ 6 ข้อก่อนสอบ — ข้อไหนไม่แน่ ไปทบทวนในเนื้อหาข้างบน</strong>"
-        },
-        {
-          "type": "bullet-list",
-          "title": "คำถามที่ 1–3",
-          "items": [
-            "<strong>Q1:</strong> พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540 มีสิทธิอะไร? ผู้รักษาการคือใคร?",
-            "<strong>Q2:</strong> ข้อมูลข่าวสาร 3 ประเภท คืออะไร? แต่ละประเภทยกตัวอย่างมา 2 ข้อ",
-            "<strong>Q3:</strong> กระบวนการขอเข้าถึงข้อมูลมีกี่ขั้นตอน? หน่วยงานต้องตอบภายในกี่วัน?"
-          ]
-        },
-        {
-          "type": "bullet-list",
-          "title": "คำถามที่ 4–6",
-          "items": [
-            "<strong>Q4:</strong> หลัก 4 ประการในการคุ้มครองข้อมูลส่วนบุคคลตาม พ.ร.บ. นี้คืออะไร?",
-            "<strong>Q5:</strong> การปฏิเสธคำขอต้องทำอย่างไร? ผู้ถูกปฏิเสธมีสิทธิอะไร?",
-            "<strong>Q6:</strong> หน่วยงานของรัฐมีหน้าที่อะไรบ้างตาม พ.ร.บ. นี้? เอกสารสำคัญต้องเก็บไว้กี่ปี?"
-          ]
-        },
-        {
-          "type": "highlight-box",
-          "color": "green",
-          "title": "✅ เฉลยแบบทดสอบ",
-          "content": "<strong>A1:</strong> ประชาชนมี<strong>สิทธิขอเข้าถึง</strong>ข้อมูลข่าวสารของราชการ | ผู้รักษาการ: <strong>รัฐมนตรีว่าการกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</strong><br>" +
-"<strong>A2:</strong> (1) <strong>เปิดเผยได้ทันที</strong> = ผลคดี นโยบาย สถิติราชการ | (2) <strong>ห้ามเปิดเผย</strong> = กระทบความมั่นคง ข้อมูลลับ | (3) <strong>ข้อมูลส่วนบุคคล</strong> = ชื่อ ที่อยู่ บัตรปชช. ต้องยินยอม<br>" +
-"<strong>A3:</strong> มี 4 ขั้นตอน: ยื่นคำขอ → พิจารณา → แจ้งผล (อนุญาต/ปฏิเสธ) → อุทธรณ์ | ต้องตอบภายใน <strong>15 วันทำการ</strong> (มาตรา 12)<br>" +
-"<strong>A4:</strong> (1) <strong>ความยินยอม</strong> (2) <strong>ความโปร่งใส</strong> (3) <strong>การปกป้อง</strong> (4) <strong>สิทธิแก้ไข</strong><br>" +
-"<strong>A5:</strong> การปฏิเสธต้องทำเป็น<strong>หนังสือ</strong>ระบุเหตุผลและสิทธิอุทธรณ์ | ผู้ถูกปฏิเสธสามารถ<strong>อุทธรณ์ต่อ กสม. ภายใน 30 วัน</strong><br>" +
-"<strong>A6:</strong> หน้าที่: จัดเตรียมข้อมูลให้เข้าถึงได้ | เผยแพร่ทางอินเทอร์เน็ต | จัดเจ้าหน้าที่รับผิดชอบ | เก็บเอกสารสำคัญไม่น้อยกว่า <strong>10 ปี</strong>"
-        }
-      ]
-    },
-
-    {
-      "navIcon": "🏛️",
-      "navLabel": "โครงสร้าง",
-      "icon": "🏛️",
-      "title": "🏛️ โครงสร้างองค์กรและกสม.",
-      "description": "คณะกรรมการข้อมูลข่าวสารของราชการ (กสม.) และกระบวนการอุทธรณ์",
-      "blocks": [
-        {
-          "type": "highlight-box",
-          "color": "navy",
-          "title": "📋 คณะกรรมการข้อมูลข่าวสารของราชการ (กสม.)",
-          "content": "จัดตั้งตาม <strong>มาตรา 19</strong> มีหน้าที่พิจารณาอุทธรณ์และกำหนดนโยบายเปิดเผยข้อมูลภาครัฐ"
-        },
-        {
-          "type": "highlight-box",
-          "color": "blue",
-          "title": "🏛️ องค์ประกอบ กสม.",
-          "content": "<strong>ประธาน:</strong> บุคคลที่คณะกรรมการเลือกจากผู้ทรงคุณวุฒิ<br><strong>กรรมการผู้ทรงคุณวุฒิ:</strong> ไม่เกิน 4 คน แต่งตั้งโดยคณะรัฐมนตรี วาระ 3 ปี<br><strong>เลขานุการ:</strong> หัวหน้าสำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ"
-        },
-        {
-          "type": "highlight-box",
-          "color": "amber",
-          "title": "📊 แผนภาพโครงสร้าง 3 ระดับ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:13px;'>" +
-"<thead><tr style='background:#92400e;color:#fff;'><th style='padding:8px;border:1px solid #92400e;font-family:var(--font-display);'>ระดับ</th><th style='padding:8px;border:1px solid #92400e;font-family:var(--font-display);'>องค์กร</th><th style='padding:8px;border:1px solid #92400e;font-family:var(--font-display);'>หน้าที่หลัก</th></tr></thead>" +
-"<tbody>" +
-"<tr style='background:#fffbeb;'><td style='padding:8px;border:1px solid #fde68a;font-weight:700;'>ระดับ 1</td><td style='padding:8px;border:1px solid #fde68a;'><strong>คณะกรรมการข้อมูลข่าวสารฯ (กสม.)</strong></td><td style='padding:8px;border:1px solid #fde68a;'>พิจารณาอุทธรณ์ กำหนดนโยบาย</td></tr>" +
-"<tr style='background:#fff;'><td style='padding:8px;border:1px solid #fde68a;font-weight:700;'>ระดับ 2</td><td style='padding:8px;border:1px solid #fde68a;'><strong>สำนักงานคณะกรรมการข้อมูลข่าวสารฯ</strong></td><td style='padding:8px;border:1px solid #fde68a;'>รับเรื่องอุทธรณ์ ตอบข้อซักถาม ประสานงาน</td></tr>" +
-"<tr style='background:#fffbeb;'><td style='padding:8px;border:1px solid #fde68a;font-weight:700;'>ระดับ 3</td><td style='padding:8px;border:1px solid #fde68a;'><strong>หน่วยงานของรัฐทุกแห่ง</strong></td><td style='padding:8px;border:1px solid #fde68a;'>จัดเตรียมข้อมูล ให้บริการประชาชน ตอบคำขอภายใน 15 วัน</td></tr>" +
-"</tbody></table>"
-        },
-        {
-          "type": "highlight-box",
-          "color": "teal",
-          "title": "💡 จำโครงสร้าง",
-          "content": "<strong>กสม. = ประธาน + กรรมการผู้ทรงคุณวุฒิ ≤4 คน (วาระ 3 ปี)</strong><br><strong>สำนักงาน กสม. = เลขานุการ + หน่วยปฏิบัติ</strong>"
-        }
-      ]
-    },
-
-    {
-      "navIcon": "📚",
-      "navLabel": "คำศัพท์",
-      "icon": "📚",
-      "title": "📚 คำศัพท์และตัวเลขน่ารู้",
-      "description": "ค้นหาและทบทวนคำศัพท์เชิงกฎหมาย ระเบียบ และคำย่อสำคัญ",
-      "blocks": [
-        {
-          "type": "highlight-box",
-          "color": "amber",
-          "title": "🔢 ตัวเลขสำคัญ — จำได้เร็ว",
-          "content": "<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;'>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>2540</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ปีประกาศใช้ พ.ร.บ.</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>2542</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>วันเริ่มดำเนินการ</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>15</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>วัน กำหนดตอบคำขอ</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>30</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>วัน ยื่นอุทธรณ์ กสม.</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>10</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ปี จัดเก็บเอกสารสำคัญ</div></div>" +
-"<div style='background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;text-align:center;'><div style='font-family:var(--font-display);font-weight:900;font-size:1.6rem;color:#92400e;'>3</div><div style='font-size:0.75rem;color:#92400e;margin-top:4px;'>ปี วาระ กสม.</div></div>" +
-"</div>"
-        },
-        {
-          "type": "vocabularyGroups",
-          "groups": [
-            {
-              "icon": "🏛️",
-              "groupTitle": "องค์กรและคณะกรรมการ",
-              "category": "องค์กร",
-              "terms": [
-                { "term": "กสม. (คณะกรรมการข้อมูลข่าวสารฯ)", "eng": "OGPL Commission", "def": "ตั้งตามมาตรา 19 | มีหน้าที่พิจารณาอุทธรณ์และกำหนดนโยบายเปิดเผยข้อมูลภาครัฐ | ประธาน+กรรมการผู้ทรงคุณวุฒิ≤4 คน | วาระ 3 ปี | ตั้งโดยครม." },
-                { "term": "สำนักงานคณะกรรมการข้อมูลข่าวสารฯ", "eng": "OGPL Office", "def": "หน่วยงานรองรับ กสม. | รับเรื่องอุทธรณ์ ตอบข้อซักถาม ประสานงานหน่วยงานของรัฐ | สังกัดสำนักนายกรัฐมนตรี" },
-                { "term": "หน่วยงานของรัฐ", "eng": "Government Agency", "def": "กระทรวง ทบวง กรม รัฐวิสาหกิจ หน่วยงานของรัฐทุกแห่งที่มีข้อมูลในความครอบครอง | มีหน้าที่จัดเตรียมข้อมูล ตอบคำขอภายใน 15 วันทำการ" }
-              ]
-            },
-            {
-              "icon": "🔐",
-              "groupTitle": "ประเภทข้อมูลและสิทธิ",
-              "category": "ข้อมูล",
-              "terms": [
-                { "term": "ข้อมูลข่าวสารของราชการ", "eng": "Government Information", "def": "ข้อมูลที่อยู่ในความครอบครองของหน่วยงานของรัฐ ไม่ว่าจะเป็นเอกสาร ภาพ บันทึกเสียง หรือรูปแบบอื่น | ประชาชนมีสิทธิขอเข้าถึง (มาตรา 9)" },
-                { "term": "ข้อมูลราชการลับ", "eng": "Classified Information", "def": "ข้อมูลที่ห้ามเปิดเผยเพราะกระทบต่อความมั่นคงหรือเป็นอันตรายต่อราชการที่สำคัญ | อยู่ในประเภทที่ 2 ห้ามเปิดเผย" },
-                { "term": "ข้อมูลส่วนบุคคล", "eng": "Personal Data", "def": "ข้อมูลเกี่ยวกับบุคคลที่ทำให้ระบุตัวบุคคลได้ เช่น ชื่อ ที่อยู่ บัตรประจำตัวประชาชน | ต้องได้รับความยินยอมจากเจ้าของข้อมูล | มี 4 หลัก: ยินยอม โปร่งใส ปกป้อง แก้ไข" },
-                { "term": "สิทธิการรับรู้", "eng": "Right to Know", "def": "สิทธิของประชาชนในการเข้าถึงข้อมูลข่าวสารของราชการที่หน่วยงานของรัฐเก็บรักษา | บูรณาการตามรัฐธรรมนูญ มาตรา 41 | อนุมานได้ว่า รัฐต้องเปิดเผย ประชาชนมีสิทธิขอ" }
-              ]
-            },
-            {
-              "icon": "⚖️",
-              "groupTitle": "ศัพท์ทางกฎหมายและกระบวนการ",
-              "category": "กฎหมาย",
-              "terms": [
-                { "term": "อุทธรณ์ (Appeal)", "eng": "Appeal to OGPL Commission", "def": "การร้องเรียนต่อ กสม. เมื่อถูกปฏิเสธการขอเข้าถึงข้อมูล | ต้องยื่นภายใน 30 วันนับแต่ได้รับแจ้งปฏิเสธ | กสม. มีอำนาจสั่งให้หน่วยงานเปิดเผยข้อมูลได้" },
-                { "term": "Obstruction (การขัดขวาง)", "eng": "Obstruction of Right to Information", "def": "การกระทำที่ขัดขวางหรือปฏิเสธการเข้าถึงข้อมูลโดยมิชอบ | เป็น<strong>ความผิดทางอาญา</strong>ตามมาตรา 35 | จำคุกและ/หรือปรับ" },
-                { "term": "มาตรา 9 (สิทธิขอเข้าถึง)", "eng": "Section 9 — Right to Access", "def": "ประชาชนมีสิทธิขอเข้าถึงข้อมูลข่าวสารของราชการ | ขอเป็นหนังสือหรือช่องทางอิเล็กทรอนิกส์ | หน่วยงานต้องตอบภายใน 15 วันทำการ" },
-                { "term": "มาตรา 12-17 (กระบวนการ)", "eng": "Section 12-17 — Procedure", "def": "กระบวนการ: ยื่นคำขอ → พิจารณา 15 วัน → แจ้งผล (อนุญาต/ปฏิเสธเป็นหนังสือ) → อุทธรณ์ต่อ กสม. ภายใน 30 วัน" }
-              ]
-            }
-          ]
+          "type": "keypoint",
+          "title": "🧠 ทริคจำ (Memory Hack) - อุทธรณ์ & จดหมายเหตุ",
+          "text": "อุทธรณ์: <strong>\"ข้อมูลรัฐ 15 - ข้อมูลส่วนตัว 30\"</strong><br>ส่งหอจดหมายเหตุ: <strong>\"สถาบัน 75 - มั่นคง 20 - ต่อ 5\"</strong>"
         }
       ]
     }
   ],
-  "additionalSections": [],
+  "additionalSections": [
+    {
+      "navIcon": "👥",
+      "navLabel": "5. กขร. & กวฉ.",
+      "icon": "👥",
+      "title": "ธีมที่ 5 · คณะกรรมการ กขร. & กวฉ. (เจาะลึก)",
+      "description": "โครงสร้าง 2 คณะกรรมการ + สำนักงาน สขร. — ใครทำอะไร สำคัญอย่างไร",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "👥 คณะกรรมการข้อมูลข่าวสารของราชการ (กขร.) — มาตรา 27",
+          "content": "<strong>องค์ประกอบ:</strong><br>▪ <strong>ประธาน:</strong> รัฐมนตรีที่นายกฯ มอบหมาย (ม.5 บอกว่า \"รัฐมนตรีซึ่งนายกฯ มอบหมาย\" — ไม่ใช่นายกฯ เอง!)<br>▪ <strong>กรรมการโดยตำแหน่ง:</strong> ปลัดสำนักนายกรัฐมนตรี, เลขาธิการ ก.พ., เลขาธิการ ก.พ.ร., ผู้อำนวยการสำนักข่าวกรองแห่งชาติ, ผู้อำนวยการสำนักงบประมาณ, ฯลฯ<br>▪ <strong>กรรมการผู้ทรงคุณวุฒิ:</strong> ไม่เกิน 7 คน (จากภาครัฐ + เอกชน + สื่อมวลชน + นักวิชาการ) — <strong>วาระ 3 ปี</strong><br>▪ <strong>เลขานุการ:</strong> เลขาธิการคณะกรรมการข้อมูลข่าวสารของราชการ<br><br><strong>📋 หน้าที่ (ม.28):</strong><br>1️⃣ <strong>สอดส่อง ดูแล แนะนำ</strong>การปฏิบัติตาม พ.ร.บ. นี้<br>2️⃣ <strong>ให้คำปรึกษาแนะนำ</strong>แก่หน่วยงานของรัฐ<br>3️⃣ <strong>เสนอแนะ</strong>นโยบายเกี่ยวกับข้อมูลข่าวสาร<br>4️⃣ <strong>ออกระเบียบ/ประกาศ</strong>เกี่ยวกับข้อมูลข่าวสาร<br>5️⃣ <strong>รับเรื่องร้องเรียน (ม.13)</strong> กรณีหน่วยงานบริการช้า/ไม่ตั้งแฟ้ม"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "⚖️ คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวฉ.) — มาตรา 29",
+          "content": "<strong>องค์ประกอบ:</strong><br>▪ <strong>ประธาน:</strong> คณะกรรมการ กขร. เป็นผู้แต่งตั้ง (มักเป็นกรรมการผู้ทรงคุณวุฒิ)<br>▪ <strong>กรรมการ:</strong> ผู้ทรงคุณวุฒิที่มีความรู้ด้านกฎหมาย/ข้อมูลข่าวสาร — วาระ 3 ปี<br>▪ แบ่งเป็น <strong>หลายสาขา</strong> เช่น สาขาการทหาร ตำรวจ ความมั่นคง สาธารณสุข ฯลฯ (ขึ้นกับ กขร. กำหนด)<br><br><strong>⚖️ หน้าที่ (ม.29):</strong><br>1️⃣ <strong>วินิจฉัยอุทธรณ์</strong>กรณีรัฐปฏิเสธไม่เปิดเผยข้อมูล (ม.15)<br>2️⃣ <strong>วินิจฉัยอุทธรณ์</strong>กรณีรัฐปฏิเสธไม่แก้ไขข้อมูลส่วนบุคคล (ม.25)<br><br><strong>📌 สถานะคำวินิจฉัย:</strong> คำวินิจฉัยของ กวฉ. <strong>ถือเป็นที่สุดในทางบริหาร</strong> — ถ้ายังไม่พอใจ ฟ้อง<strong>ศาลปกครอง</strong>ต่อได้ (ม.42 วรรค 2)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🏢 สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ (สขร.) — มาตรา 36",
+          "content": "<strong>สถานะ:</strong> เป็น<strong>ส่วนราชการในสำนักนายกรัฐมนตรี (สนร.)</strong> ขึ้นตรงต่อนายกฯ (ไม่ผ่านปลัด สนร.)<br><br><strong>📋 หน้าที่ (ม.36):</strong><br>▪ รับผิดชอบงานธุรการของ กขร. และ กวฉ.<br>▪ ศึกษา วิเคราะห์ เสนอแนะนโยบาย<br>▪ ประสานงาน ติดตามประเมินผลการปฏิบัติ<br>▪ จัดทำรายงานประจำปีเสนอ ครม.<br>▪ ดูแล<strong>ศูนย์ข้อมูลข่าวสารของราชการ</strong> (ตาม ม.26)<br><br><strong>💡 ทริค:</strong> สขร. = สำนักงานเลขานุการของ กขร./กวฉ. ไม่ใช่คณะกรรมการ"
+        }
+      ]
+    },
+    {
+      "navIcon": "🛡️",
+      "navLabel": "6. 5 สิทธิประชาชน",
+      "icon": "🛡️",
+      "title": "ธีมที่ 6 · 5 สิทธิประชาชนตาม พ.ร.บ. ข้อมูลข่าวสารฯ",
+      "description": "สิทธิทั้ง 5 ที่ประชาชนได้รับ — จำง่าย ออกสอบบ่อย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🛡️ สิทธิที่ 1: สิทธิรับรู้ข้อมูล (Right to Know) — มาตรา 11",
+          "content": "<strong>รายละเอียด:</strong> ประชาชนทุกคนมีสิทธิ<strong>ขอข้อมูล</strong>จากหน่วยงานรัฐ <em>(ไม่จำเป็นต้องมีส่วนได้เสีย)</em><br><br><strong>📌 เงื่อนไข:</strong><br>▪ ต้อง<strong>ยื่นคำขอ</strong>เป็นหนังสือ (ยกเว้นกรณีเร่งด่วน)<br>▪ ระบุ<strong>ชื่อ-ที่อยู่</strong>ผู้ขอ + ข้อมูลที่ต้องการ + เหตุผล (ถ้ามี)<br>▪ หน่วยงานต้อง<strong>แจ้งผลภายใน 20 วัน</strong> (นับแต่วันรับคำขอ) — ถ้าไม่เปิดเผยต้องแจ้งเหตุผลเป็นหนังสือ + แจ้งสิทธิอุทธรณ์<br><br><strong>⚠️ ข้อยกเว้น:</strong> ข้อมูลที่ห้ามเปิดเผยตาม ม.14 (สถาบัน) หรือ ม.15 (ดุลพินิจ 7 ข้อ)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🛡️ สิทธิที่ 2-3: สิทธิร้องเรียน (ม.13) และสิทธิอุทธรณ์ (ม.15, 25)",
+          "content": "<table class='kb-table'><thead><tr><th>สิทธิ</th><th>เงื่อนไข</th><th>ระยะเวลา</th><th>ยื่นต่อ</th></tr></thead><tbody><tr class='odd'><td class='bold'>ร้องเรียน (ม.13)</td><td>หน่วยงานล่าช้า/ไม่ปฏิบัติตาม ม.7/ม.9</td><td>ไม่กำหนด</td><td><strong>กขร.</strong> (ชุดใหญ่)</td></tr><tr class='even'><td class='bold'>อุทธรณ์ (ม.15)</td><td>ปฏิเสธ<strong>เปิดเผยข้อมูล</strong></td><td><strong>15 วัน</strong></td><td><strong>กวฉ.</strong></td></tr><tr class='odd'><td class='bold'>อุทธรณ์ (ม.25)</td><td>ปฏิเสธ<strong>แก้ไขข้อมูลส่วนบุคคล</strong></td><td><strong>30 วัน</strong></td><td><strong>กวฉ.</strong></td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>ร้องเรียน = บริการช้า (กขร.)</strong> / <strong>อุทธรณ์ = ปฏิเสธ (กวฉ.)</strong><br><strong>⏱️ กวฉ. ต้องวินิจฉัยภายใน 30 วัน</strong> (ขยายได้รวมไม่เกิน 60 วัน) — ม.32"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🛡️ สิทธิที่ 4-5: สิทธิคัดค้าน (ม.17) และสิทธิส่วนบุคคล (ม.23-26)",
+          "content": "<strong>สิทธิที่ 4: สิทธิคัดค้านการเปิดเผย (ม.17)</strong><br>▪ ถ้าหน่วยงานจะเปิดเผยข้อมูลที่อาจ<strong>กระทบผู้อื่น</strong> → ต้องแจ้งผู้นั้นให้<strong>คัดค้าน</strong>ภายในไม่น้อยกว่า 15 วัน<br>▪ ผู้ถูกกระทบสามารถ<strong>ทำหนังสือคัดค้าน</strong>ได้<br>▪ ถ้าไม่รับฟังคำคัดค้าน → ต้องรอให้พ้นกำหนดอุทธรณ์ (15 วัน) ก่อนเปิดเผย<br><br><strong>สิทธิที่ 5: สิทธิข้อมูลส่วนบุคคล (ม.23-26)</strong><br>▪ <strong>ม.23:</strong> หน่วยงานเก็บรวบรวมข้อมูลส่วนบุคคลได้<strong>เท่าที่จำเป็น</strong> + ต้องแจ้งวัตถุประสงค์<br>▪ <strong>ม.24:</strong> เปิดเผยข้อมูลส่วนบุคคลต่อผู้อื่นได้<strong>เฉพาะเมื่อได้รับความยินยอม</strong> (เว้นแต่กรณีที่กฎหมายกำหนด)<br>▪ <strong>ม.25:</strong> เจ้าของข้อมูลมีสิทธิ<strong>ขอตรวจดู/ขอสำเนา/ขอแก้ไข</strong>ข้อมูลของตนเองได้<br>▪ <strong>ม.26:</strong> ข้อมูลส่วนบุคคลต้องส่งมอบ<strong>หอจดหมายเหตุแห่งชาติ</strong>เมื่อครบ<strong>20 ปี</strong> (ถ้าเป็นความลับให้เก็บได้ 75 ปี)"
+        }
+      ]
+    },
+    {
+      "navIcon": "📖",
+      "navLabel": "7. ตารางมาตราสำคัญ",
+      "icon": "📖",
+      "title": "ธีมที่ 7 · ตารางสรุปมาตราสำคัญสำหรับท่อง",
+      "description": "รวบรวมมาตราที่ออกสอบบ่อย พร้อมสาระสำคัญ",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📋 ตารางสรุปมาตราสำคัญ (Must Know)",
+          "content": "<table class='kb-table'><thead><tr><th>มาตรา</th><th>เนื้อหา</th><th>จุดสำคัญ</th></tr></thead><tbody><tr><td class='bold'>ม.2</td><td>ใช้บังคับ<strong>วันถัดจาก</strong>วันประกาศราชกิจจาฯ</td><td>2 ก.ย. 2540</td></tr><tr><td class='bold'>ม.3</td><td><strong>\"บทบัญญัตินี้ให้ใช้บังคับแก่หน่วยงานรัฐทุกหน่วย\"</strong></td><td>รวมถึงศาล (เฉพาะงานธุรการ)</td></tr><tr><td class='bold text-law-act'>ม.4</td><td>นิยาม \"ข้อมูลข่าวสาร\", \"ข้อมูลข่าวสารของราชการ\", \"หน่วยงานรัฐ\", \"เจ้าหน้าที่รัฐ\"</td><td>นิยามสำคัญ</td></tr><tr><td class='bold text-law-act'>ม.5</td><td>ให้<strong>นายกฯ รักษาการ</strong></td><td>นายกฯ รักษาการ!</td></tr><tr><td class='bold text-law-act'>ม.7</td><td>หน่วยงานต้อง<strong>พิมพ์ในราชกิจจาฯ</strong> เรื่องโครงสร้าง/อำนาจหน้าที่/สถานที่</td><td>เปิดเผยอัตโนมัติ #1</td></tr><tr><td class='bold text-law-act'>ม.9</td><td>ต้อง<strong>จัดไว้ให้ประชาชนตรวจดู</strong> (สัญญา งบประมาณ นโยบาย)</td><td>เปิดเผยอัตโนมัติ #2</td></tr><tr><td class='bold text-law-act'>ม.11</td><td>ประชาชน<strong>ขอข้อมูล</strong> → หน่วยงานต้องจัดหาให้</td><td>สิทธิรับรู้ (15 วัน)</td></tr><tr><td class='bold'>ม.12</td><td>ถ้าหน่วยงานมีข้อมูลที่ตนไม่ได้จัดทำ → <strong>ส่งต่อให้หน่วยที่จัดทำ</strong>พิจารณา</td><td>ส่งต่อคำขอ</td></tr><tr><td class='bold text-law-act'>ม.13</td><td>หน่วยงานล่าช้า/ไม่ปฏิบัติ → <strong>ร้องเรียน กขร.</strong></td><td>ร้องเรียน</td></tr><tr><td class='bold text-law-act'>ม.14</td><td><strong>ห้ามเปิดเผย</strong>ข้อมูลสถาบันพระมหากษัตริย์</td><td>ห้ามเด็ดขาด!</td></tr><tr><td class='bold text-law-act'>ม.15</td><td>ข้อมูล 7 ประเภทที่อาจ<strong>ใช้ดุลพินิจปฏิเสธ</strong></td><td>ดุลพินิจ</td></tr><tr><td class='bold'>ม.17</td><td>ข้อมูลกระทบบุคคลที่ 3 → <strong>แจ้งให้คัดค้าน</strong> ≥ 15 วัน</td><td>สิทธิคัดค้าน</td></tr><tr><td class='bold text-law-act'>ม.18</td><td>อุทธรณ์<strong>ภายใน 15 วัน</strong> เมื่อถูกปฏิเสธเปิดเผย (ม.15)</td><td>อุทธรณ์ 15 วัน</td></tr><tr><td class='bold text-law-act'>ม.20</td><td>เจ้าหน้าที่เปิดเผย<strong>โดยสุจริต</strong> = <strong>ไม่ต้องรับผิด</strong></td><td>คุ้มครองเจ้าหน้าที่</td></tr><tr><td class='bold text-law-act'>ม.23-25</td><td>คุ้มครอง<strong>ข้อมูลส่วนบุคคล</strong> — ขอตรวจดู/แก้ไขได้</td><td>สิทธิส่วนบุคคล</td></tr><tr><td class='bold text-law-act'>ม.25</td><td>อุทธรณ์<strong>ภายใน 30 วัน</strong> เมื่อถูกปฏิเสธแก้ไขข้อมูลส่วนบุคคล</td><td>อุทธรณ์ 30 วัน</td></tr><tr><td class='bold'>ม.26</td><td>ข้อมูลที่ไม่เปิดเผย → <strong>ส่งหอจดหมายเหตุ</strong>: ม.14 = 75 ปี / ม.15 = 20 ปี</td><td>หอจดหมายเหตุ</td></tr><tr><td class='bold text-law-act'>ม.27</td><td>จัดตั้ง <strong>กขร.</strong> (คณะกรรมการข้อมูลข่าวสารของราชการ)</td><td>กขร.</td></tr><tr><td class='bold text-law-act'>ม.29</td><td>จัดตั้ง <strong>กวฉ.</strong> (คณะกรรมการวินิจฉัยฯ)</td><td>กวฉ.</td></tr><tr><td class='bold text-law-act'>ม.42</td><td>โทษจำคุก<strong>ไม่เกิน 3 เดือน</strong> / ปรับ<strong>ไม่เกิน 5,000 บาท</strong> — ขัดขวาง/ฝ่าฝืนคำสั่ง กขร./กวฉ.</td><td>โทษอาญา</td></tr></tbody></table>"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 ทริคจำมาตราสำคัญ",
+          "text": "<strong>มาตราที่ต้องจำให้ได้:</strong><br>• <strong>ม.5:</strong> นายกฯ รักษาการ<br>• <strong>ม.7/9/11:</strong> 3 ช่องทางเปิดเผย (พิมพ์/ดู/ขอ)<br>• <strong>ม.14:</strong> ห้ามเปิดเผย (สถาบัน)<br>• <strong>ม.15:</strong> ดุลพินิจ (7 ข้อ)<br>• <strong>ม.18/25:</strong> อุทธรณ์ 15/30 วัน<br>• <strong>ม.27/29:</strong> กขร./กวฉ.<br>• <strong>ม.42:</strong> โทษ 3 เดือน/5,000 บาท"
+        }
+      ]
+    },
+    {
+      "navIcon": "🔍",
+      "navLabel": "8. ความแตกต่าง",
+      "icon": "🔍",
+      "title": "ธีมที่ 8 · ความแตกต่างที่ต้องจำ",
+      "description": "จุดเปรียบเทียบที่ข้อสอบชอบถามบ่อย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔄 ม.14 vs ม.15 (ข้อมูลที่ห้ามเปิดเผย)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>ม.14 (สถาบันฯ)</th><th>ม.15 (7 ข้อ)</th></tr></thead><tbody><tr class='odd'><td><strong>ลักษณะ</strong></td><td>ห้ามเปิดเผย<strong>เด็ดขาด</strong></td><td>อาจมี<strong>คำสั่งมิให้เปิดเผย</strong> (ใช้ดุลพินิจ)</td></tr><tr class='even'><td><strong>ไม่มีข้อยกเว้น</strong></td><td>ไม่มีดุลพินิจ</td><td>มีดุลพินิจ 3 ปัจจัย</td></tr><tr class='odd'><td><strong>อุทธรณ์ได้</strong></td><td>❌ ไม่ได้</td><td>✅ ได้ (15 วัน)</td></tr><tr class='even'><td><strong>ส่งหอจดหมายเหตุ</strong></td><td><strong>75 ปี</strong></td><td><strong>20 ปี</strong></td></tr><tr class='odd'><td><strong>หัวข้อ</strong></td><td>สถาบันพระมหากษัตริย์</td><td>1.ความมั่นคง 2.บังคับใช้กม. 3.ความเห็นใน 4.ชีวิต 5.ส่วนบุคคล 6.กฎหมายห้าม 7.พ.ร.ฎ.</td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>ม.14 = ห้ามเด็ดขาด + 75 ปี</strong> / <strong>ม.15 = ดุลพินิจ + 20 ปี</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 กขร. vs กวฉ. (2 คณะกรรมการ)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>กขร. (ชุดใหญ่)</th><th>กวฉ. (ชุดวินิจฉัย)</th></tr></thead><tbody><tr class='odd'><td><strong>เต็มชื่อ</strong></td><td>คณะกรรมการข้อมูลข่าวสารของราชการ</td><td>คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร</td></tr><tr class='even'><td><strong>มาตรา</strong></td><td>ม.27</td><td>ม.29</td></tr><tr class='odd'><td><strong>หน้าที่</strong></td><td>นโยบาย/แนะนำ/<strong>รับร้องเรียน (ม.13)</strong></td><td><strong>วินิจฉัยอุทณรณ์ (ม.15, 25)</strong></td></tr><tr class='even'><td><strong>ประธาน</strong></td><td>รัฐมนตรีที่นายกฯ มอบหมาย</td><td>กรรมการผู้ทรงคุณวุฒิ (แต่งตั้งโดย กขร.)</td></tr><tr class='odd'><td><strong>จำนวนกรรมการ</strong></td><td>ผู้ทรงคุณวุฒิ ≤ 7 คน</td><td>แบ่งเป็นหลายสาขา</td></tr><tr class='even'><td><strong>คำวินิจฉัย</strong></td><td>แนะนำ/เสนอแนะ</td><td><strong>ถือเป็นที่สุดในทางบริหาร</strong></td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>กขร. = ร้องเรียน (ชุดใหญ่)</strong> / <strong>กวฉ. = อุทธรณ์ (ชุดวินิจฉัย)</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🔄 ข้อมูลรัฐ vs ข้อมูลส่วนบุคคล",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>ข้อมูลรัฐ (ม.11)</th><th>ข้อมูลส่วนบุคคล (ม.23-26)</th></tr></thead><tbody><tr class='odd'><td><strong>นิยาม</strong></td><td>ข้อมูลการทำงานของรัฐ</td><td>ข้อมูลเฉพาะตัวบุคคล (การศึกษา/สุขภาพ/อาชญากรรม)</td></tr><tr class='even'><td><strong>ผู้ขอ</strong></td><td>ทุกคน (ไม่ต้องมีส่วนได้เสีย)</td><td>เจ้าของข้อมูล (ตรวจดู/แก้ไข)</td></tr><tr class='odd'><td><strong>เปิดเผยต่อ</strong></td><td>สาธารณะ</td><td>ต้อง<strong>ได้รับความยินยอม</strong> (ม.24)</td></tr><tr class='even'><td><strong>อุทธรณ์</strong></td><td>15 วัน (ม.18)</td><td>30 วัน (ม.25)</td></tr><tr class='odd'><td><strong>ส่งหอจดหมายเหตุ</strong></td><td>20 ปี (ม.15) / 75 ปี (ม.14)</td><td>20 ปี</td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>อุทธรณ์: รัฐ 15 / ส่วนตัว 30</strong> (ชอบถามมาก!)"
+        }
+      ]
+    },
+    {
+      "navIcon": "🗺️",
+      "navLabel": "9. แผนผัง & ไทม์ไลน์",
+      "icon": "🗺️",
+      "title": "ธีมที่ 9 · แผนผัง & ไทม์ไลน์ (Big Picture)",
+      "description": "ภาพรวม — ไทม์ไลน์กฎหมาย + แผนผังโครงสร้าง + Flow การอุทธรณ์",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📅 ไทม์ไลน์ พ.ร.บ. ข้อมูลข่าวสารฯ และฉบับแก้ไข",
+          "content": "<table class='kb-table'><thead><tr><th>ฉบับ</th><th>วันที่</th><th>สาระสำคัญ</th></tr></thead><tbody><tr class='odd'><td class='bold'>หลัก</td><td>2 ก.ย. 2540</td><td>ประกาศใช้ครั้งแรก — ประชาชนมีสิทธิรับรู้ข้อมูลรัฐ</td></tr><tr class='even'><td class='bold'>ฉ.1</td><td>2547</td><td>แก้ไขเพิ่มเติม</td></tr><tr class='odd'><td class='bold'>ฉ.2</td><td>2557</td><td>แก้ไขเพิ่มเติม</td></tr><tr class='even'><td class='bold text-law-act'>⭐ ฉ.3</td><td>2559</td><td>เพิ่มอำนาจ กขร. ในการกำหนดมาตรการเกี่ยวกับข้อมูลข่าวสาร</td></tr><tr class='odd'><td class='bold text-law-act'>⭐ ฉ.4</td><td>2562</td><td>เพิ่มเติมกระบวนการร้องเรียน/อุทธรณ์ผ่านระบบดิจิทัล</td></tr></tbody></table><br><strong>🧠 จำ:</strong> กฎหมายนี้<strong>ออก 2 ก.ย. 2540</strong> + ใช้บังคับ<strong>วันถัดไป</strong> (3 ก.ย. 2540) — เก่าแก่กว่า 20 ปีแล้ว"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🏛️ แผนผังโครงสร้าง กขร./กวฉ./สขร.",
+          "content": "<pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>คณะรัฐมนตรี (ครม.)\n  │\n  ├─ กขร. (คณะกรรมการข้อมูลข่าวสารของราชการ) — ม.27\n  │    ├─ ประธาน: รัฐมนตรีที่นายกฯ มอบหมาย\n  │    ├─ กรรมการโดยตำแหน่ง (ปลัด สนร. / เลขาฯ ก.พ. / ฯลฯ)\n  │    ├─ กรรมการผู้ทรงคุณวุฒิ ≤ 7 คน (วาระ 3 ปี)\n  │    ├─ เลขานุการ: เลขาธิการ สขร.\n  │    │\n  │    └─ กวฉ. (คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร) — ม.29\n  │         ├─ ประธาน: กรรมการ กขร. เป็นผู้แต่งตั้ง\n  │         └─ แบ่งเป็นหลายสาขา (ทหาร/ตำรวจ/ความมั่นคง/สาธารณสุข ฯลฯ)\n  │\n  └─ สขร. (สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ) — ม.36\n       └─ สังกัด: สำนักนายกรัฐมนตรี (สนร.)\n       └─ หน้าที่: งานธุรการของ กขร. + กวฉ. + ดูแลศูนย์ข้อมูลข่าวสาร</pre><br><strong>💡 จุดสังเกต:</strong> กขร. เป็นเหมือน \"บอร์ดแม่\" / กวฉ. เป็น \"บอร์ดลูก\" ที่ทำหน้าที่ชี้ขาด"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 แผนผัง Flow การอุทธรณ์",
+          "content": "<pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>ประชาชน → ยื่นคำขอข้อมูล → หน่วยงานรัฐ\n                              │\n                              ▼\n                  ┌───────────────────────┐\n                  │  หน่วยงานพิจารณา 20 วัน │\n                  └───────────────────────┘\n                              │\n            ┌─────────────────┼─────────────────┐\n            ▼                 ▼                 ▼\n        ✅ เปิดเผย        ❌ ปฏิเสธ        ⏰ ไม่ตอบ\n                                          (ล่าช้า)\n            │                 │                 │\n            │                 ▼                 ▼\n            │        อุทธรณ์ 15 วัน     ร้องเรียน กขร.\n            │           (ม.18)               (ม.13)\n            │                 │                 │\n            │                 ▼                 │\n            │         ┌─────────────┐           │\n            │         │   กวฉ.      │ ←─────────┘\n            │         │  วินิจฉัย    │\n            │         │  30+30 วัน  │\n            │         └─────────────┘\n            │                 │\n            │     ┌───────────┴───────────┐\n            │     ▼                       ▼\n            │  เปิดเผย              ปฏิเสธ\n            │  (ที่สุดใน             │\n            │   ทางบริหาร)            ▼\n            │                  ฟ้องศาลปกครอง\n            │                     (ม.42)\n            ▼\n          (จบ)</pre><br><strong>💡 สรุป:</strong> ร้องเรียน (กขร.) ≠ อุทธรณ์ (กวฉ.) → ถ้าทั้งสองทางไม่สำเร็จ ฟ้องศาลปกครอง"
+        }
+      ]
+    },
+    {
+      "navIcon": "💡",
+      "navLabel": "10. เทคนิคพิเศษ",
+      "icon": "💡",
+      "title": "ธีมที่ 10 · เทคนิคพิเศษสำหรับ 100 คะแนน",
+      "description": "เทคนิคขั้นสูง จุดที่คนมักจำผิด และสูตรจำแบบเร่งรัด",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🎯 เทคนิคที่ 1: จุดที่คนมักจำผิด",
+          "content": "<strong>❌ ผิด → ถูก:</strong><br>❌ <strong>ผิด:</strong> กฎหมายใช้บังคับ<strong>90 วัน</strong>หลังประกาศ → <strong>ถูก:</strong> ใช้บังคับ<strong>วันถัดจาก</strong>วันประกาศ (ม.2)<br>❌ <strong>ผิด:</strong> กขร. มีประธานเป็น<strong>นายกฯ</strong> → <strong>ถูก:</strong> เป็น<strong>รัฐมนตรีที่นายกฯ มอบหมาย</strong> (ม.27)<br>❌ <strong>ผิด:</strong> ศาล<strong>ไม่อยู่</strong>ภายใต้ พ.ร.บ. นี้ → <strong>ถูก:</strong> อยู่ภายใต้<strong>เฉพาะงานธุรการ</strong> (ไม่รวมงานพิจารณาคดี)<br>❌ <strong>ผิด:</strong> คนต่างด้าวนิติบุคคล = <strong>ถือหุ้น 100%</strong> → <strong>ถูก:</strong> ต่างชาติถือหุ้น<strong>เกินกึ่งหนึ่ง</strong> (>50%)<br>❌ <strong>ผิด:</strong> ข้อมูลม.15 ห้ามเปิดเผย<strong>เด็ดขาด</strong> → <strong>ถูก:</strong> เป็น<strong>ดุลพินิจ</strong> 7 ข้อ<br>❌ <strong>ผิด:</strong> อุทธรณ์ข้อมูลรัฐ = 30 วัน → <strong>ถูก:</strong> ข้อมูลรัฐ = <strong>15 วัน</strong> / ข้อมูลส่วนตัว = 30 วัน"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🎯 เทคนิคที่ 2: จำแบบจัดกลุ่ม",
+          "content": "<strong>จัดกลุ่มตัวเลข:</strong><br>• <strong>ชุด 15:</strong> อุทธรณ์ม.18 (15 วัน) / คัดค้านม.17 (15 วัน)<br>• <strong>ชุด 30:</strong> อุทธรณ์ม.25 (30 วัน) / วินิจฉัย กวฉ. (30 วัน, ขยายได้รวม 60)<br>• <strong>ชุด 3:</strong> โทษจำคุก (3 เดือน) / วาระกรรมการ (3 ปี)<br>• <strong>ชุด 5,000:</strong> โทษปรับ (5,000 บาท)<br>• <strong>ชุด 20:</strong> หอจดหมายเหตุม.15 (20 ปี)<br>• <strong>ชุด 75:</strong> หอจดหมายเหตุม.14 (75 ปี) / ต่ออายุความลับ (5 ปี × ไม่จำกัด แต่ขอทีละ 5 ปี)<br><br><strong>จัดกลุ่มคณะกรรมการ:</strong><br>• <strong>กขร.</strong> = ชุดใหญ่ (ร้องเรียน + นโยบาย) - 7 คน<br>• <strong>กวฉ.</strong> = ชุดวินิจฉัย (อุทธรณ์) - แบ่งเป็นสาขา<br>• <strong>สขร.</strong> = สำนักงานเลขานุการ (สังกัด สนร.)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🎯 เทคนิคที่ 3: สูตรจำ 3 ช่องทาง + 2 คณะกรรมการ",
+          "content": "<strong>3 ช่องทางเปิดเผยข้อมูล:</strong><br>7️⃣ = <strong>พิมพ์</strong>ราชกิจจาฯ (ม.7) — เปิดเผยอัตโนมัติ<br>9️⃣ = จัดไว้ให้<strong>ดู</strong> (ม.9) — ศูนย์ข้อมูล/บอร์ด<br>1️⃣1️⃣ = จัดหาเมื่อ<strong>ขอ</strong> (ม.11) — สิทธิรับรู้<br><strong>สูตร:</strong> <strong>\"7 พิมพ์ - 9 ดู - 11 ขอ\"</strong><br><br><strong>2 คณะกรรมการ:</strong><br>👥 <strong>กขร.</strong> = ชุดใหญ่ + <strong>ร้องเรียน</strong> (ม.13) + นโยบาย<br>⚖️ <strong>กวฉ.</strong> = ชุดวินิจฉัย + <strong>อุทธรณ์</strong> (ม.18, 25) + ชี้ขาด<br><strong>สูตร:</strong> <strong>\"ร้องเรียน = กขร. / อุทธรณ์ = กวฉ.\"</strong><br><br><strong>📊 โครงสร้าง 3-2-1:</strong><br>3 ช่องทาง / 2 คณะกรรมการ / 1 สำนักงาน (สขร.)"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 สรุปสูตรเร่งรัด - จำ 5 อย่างพอ",
+          "text": "<strong>กฎหมายนี้จำ 5 อย่างก็สอบผ่าน:</strong><br>1. <strong>2 ก.ย. 40</strong> = ประกาศ (ใช้บังคับ<strong>วันถัดไป</strong>)<br>2. <strong>3 ช่องทาง:</strong> 7 พิมพ์ - 9 ดู - 11 ขอ<br>3. <strong>ม.14 vs ม.15:</strong> ห้ามเด็ดขาด vs ดุลพินิจ (75 vs 20 ปี)<br>4. <strong>อุทธรณ์:</strong> รัฐ 15 วัน / ส่วนตัว 30 วัน (กวฉ. วินิจฉัย)<br>5. <strong>2 บอร์ด:</strong> กขร. (ร้องเรียน) + กวฉ. (อุทธรณ์) + สขร. (สำนักงาน)"
+        }
+      ]
+    }
+  ],
+  "vocabularyGroups": [
+    {
+      "icon": "🔢",
+      "groupTitle": "ตัวเลขและเงื่อนไขเวลาที่ต้องจำ",
+      "category": "ตัวเลขสำคัญ",
+      "terms": [
+        { "term": "15 วัน", "eng": "15 Days Appeal", "def": "ระยะเวลาการยื่นอุทธรณ์ต่อคณะกรรมการ เมื่อหน่วยงานปฏิเสธการเปิดเผยข้อมูลตามมาตรา 15" },
+        { "term": "30 วัน", "eng": "30 Days Appeal", "def": "ระยะเวลาการยื่นอุทธรณ์ต่อคณะกรรมการ เมื่อหน่วยงานปฏิเสธไม่ยอมแก้ไขข้อมูลส่วนบุคคลตามมาตรา 25" },
+        { "term": "30 วัน (+30 วัน)", "eng": "30-60 Days Resolution", "def": "กรอบเวลาพิจารณาอุทธรณ์ของคณะกรรมการวินิจฉัยฯ (ขยายได้รวมไม่เกิน 60 วัน)" },
+        { "term": "75 ปี", "eng": "75 Years Limit", "def": "กำหนดระยะเวลาส่งมอบข้อมูลที่เกี่ยวกับสถาบันพระมหากษัตริย์ (ม.14) ให้แก่หอจดหมายเหตุแห่งชาติ" },
+        { "term": "20 ปี", "eng": "20 Years Limit", "def": "กำหนดระยะเวลาส่งมอบข้อมูลความมั่นคง/ส่วนบุคคล/ความลับราชการทั่วไป (ม.15) ให้หอจดหมายเหตุฯ" },
+        { "term": "ไม่เกิน 5 ปี", "eng": "Max 5 Years Extension", "def": "ระยะเวลาการขอขยายเวลาการเก็บข้อมูลความลับของหน่วยงานรัฐต่อการพิจารณาเป็นคราวๆ" },
+        { "term": "3 ปี", "eng": "3 Years Term", "def": "วาระการดำรงตำแหน่งของกรรมการผู้ทรงคุณวุฒิ (ทั้งบอร์ดชุดใหญ่และคณะวินิจฉัย)" }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "groupTitle": "ความแตกต่างของคำร้องเรียนและอุทธรณ์",
+      "category": "สิทธิ์การสอบถาม",
+      "terms": [
+        { "term": "การร้องเรียน (มาตรา 13)", "eng": "Complaining", "def": "ใช้สิทธิ์กรณีหน่วยงานล่าช้า ไม่ได้รับความสะดวก หรือไม่ปฏิบัติตาม ม.7 และ ม.9 -> ยื่นต่อคณะกรรมการชุดใหญ่" },
+        { "term": "การอุทธรณ์ (มาตรา 15 / 25)", "eng": "Appealing", "def": "ใช้สิทธิ์กรณีหน่วยงานปฏิเสธการให้ข้อมูล หรือไม่ยอมแก้ข้อมูลส่วนบุคคล -> ชี้ขาดโดยคณะกรรมการวินิจฉัยฯ" }
+      ]
+    }
+  ],
   "tips": [
-    "จำ: 15 วันทำการ = กำหนดตอบคำขอ (มาตรา 12)",
-    "จำ: 30 วัน = ยื่นอุทธรณ์ต่อ กสม. นับแต่ได้รับแจ้งปฏิเสธ",
-    "จำ: 10 ปี = ระยะเวลาจัดเก็บเอกสารสำคัญ (มาตรา 7)",
-    "จำ: obstruction = ความผิดทางอาญา (มาตรา 35)",
-    "จำ: ปฏิเสธ = ต้องทำเป็นหนังสือ ระบุเหตุผล + สิทธิอุทธรณ์",
-    "จำ: กสม. = ประธาน + กรรมการผู้ทรงคุณวุฒิ ≤4 คน วาระ 3 ปี"
+    "✅ ผู้รักษาการตาม พ.ร.บ. นี้คือ นายกรัฐมนตรี เสมอ (มาตรา 5)",
+    "✅ ยื่นอุทธรณ์กรณีไม่เปิดเผยข้อมูล (ม.15) = ยื่นภายใน 15 วัน",
+    "✅ ยื่นอุทธรณ์กรณีปฏิเสธไม่แก้ข้อมูลส่วนบุคคล (ม.25) = ยื่นภายใน 30 วัน",
+    "✅ ข้อมูลความลับสถาบันฯ (ม.14) = ห้ามเปิดเผยเด็ดขาด ส่งมอบหอจดหมายเหตุที่ 75 ปี",
+    "✅ ข้อมูลความมั่นคง/ความลับทั่วไป (ม.15) = ใช้ดุลพินิจไม่เปิดเผยได้ ส่งมอบหอจดหมายเหตุที่ 20 ปี",
+    "✅ คณะวินิจฉัย (กวฉ.) = มีคำชี้ขาดถือเป็นที่สุดในทางบริหาร (หากยังขัดแย้งให้ฟ้องศาลปกครองต่อไป)",
+    "✅ โทษจำคุก 3 เดือน / ปรับ 5,000 บาท = ขัดขวางหรือฝ่าฝืนคำสั่งเรียกเอกสาร/ชี้แจงของคณะกรรมการ",
+    "✅ เจ้าหน้าที่เปิดเผยข้อมูลตาม ม.15 โดยสุจริตตามระเบียบ = กฎหมายคุ้มครองไม่ต้องรับผิดทั้งทางแพ่ง อาญา และวินัย"
   ],
   "quizFile": "quiz.html",
   "related": ["admin_act", "ministry_act"]
-}
-;
+};

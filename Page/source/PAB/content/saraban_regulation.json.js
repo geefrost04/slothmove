@@ -1,7 +1,7 @@
 window.SARABAN_REGULATION_DATA = {
   "id": "saraban_regulation",
   "PAGE_TYPE": "knowledge",
-  "title": "ระเบียบสำนักนายกรัฐมนตรี ว่าด้วยงานสารบรรณ พ.ศ. 2526 และที่แก้ไขเพิ่มเติมถึง ฉบับที่ 4 พ.ศ. 2565",
+  "title": "ระเบียบสำนักนายกรัฐมนตรี ว่าด้วยงานสารบรรณ พ.ศ. 2526 และที่แก้ไขเพิ่มเติมถึง ฉบับที่ 4 พ.ศ. 2564",
   "titleShort": "ระเบียบสารบรรณ พ.ศ. 2526 (ฉบับ 1-4)",
   "subtitle": "นิยามหนังสือ 6 ชนิด · การรับ-ส่ง-เก็บ-ยืม-ทำลาย · ระบบอิเล็กทรอนิกส์ · มาตรฐานกระดาษตราครุฑ",
   "badgeLabel": "สำหรับเตรียมสอบภาค ข. ปภ.",
@@ -213,7 +213,7 @@ window.SARABAN_REGULATION_DATA = {
           type: "highlight-box",
           color: "teal",
           title: "📋 จำนวนสำคัญอื่นๆ",
-          content: "<strong>6 ชนิด</strong> = หนังสือราชการ (ข้อ 10)<br><strong>12 รายการ</strong> = หนังสือภายนอก (ข้อ 11)<br><strong>3 ชนิด</strong> = หนังสือสั่งการ (คำสั่ง ระเบียบ ข้อบังคับ)<br><strong>3 ชนิด</strong> = หนังสือประชาสัมพันธ์ (ประกาศ แถลงการณ์ ข่าว)<br><strong>4 ฉบับ</strong> = ระเบียบฉบับที่ 1-4 (ฉบับล่าสุด พ.ศ. 2564/2565)<br><strong>25 พ.ค. 2564</strong> = วันประกาศใช้ระเบียบฉบับที่ 4"
+          content: "<strong>6 ชนิด</strong> = หนังสือราชการ (ข้อ 10)<br><strong>12 รายการ</strong> = หนังสือภายนอก (ข้อ 11)<br><strong>3 ชนิด</strong> = หนังสือสั่งการ (คำสั่ง ระเบียบ ข้อบังคับ)<br><strong>3 ชนิด</strong> = หนังสือประชาสัมพันธ์ (ประกาศ แถลงการณ์ ข่าว)<br><strong>4 ฉบับ</strong> = ระเบียบฉบับที่ 1-4 (ฉบับล่าสุด พ.ศ. 2564)<br><strong>25 พ.ค. 2564</strong> = วันประกาศใช้ระเบียบฉบับที่ 4"
         }
       ]
     },
@@ -228,7 +228,7 @@ window.SARABAN_REGULATION_DATA = {
           type: "highlight-box",
           color: "navy",
           title: "📊 ตารางเปรียบเทียบหนังสือ 6 ชนิด",
-          content: `<table style='width:100%; border-collapse:collapse; font-size:14px; background:#f8f9fa; border-radius:8px; overflow:hidden;'>
+          content: `<table style='width:100%; border-collapse:collapse; font-size:14px; background:#f8f9fa; border-radius:8px; overflow:hidden;color:#1a1a2e;'>
 <thead>
 <tr>
 <th style='padding:10px 12px; text-align:left; background:#1d1d42; color:#ffffff; font-family:var(--font-display); font-size:13px;'>ชนิด</th>
@@ -292,7 +292,175 @@ window.SARABAN_REGULATION_DATA = {
       ]
     }
   ],
-  "additionalSections": [],
+  "additionalSections": [
+    {
+      "navIcon": "📜",
+      "navLabel": "หนังสือ 6 ชนิดเจาะลึก",
+      "icon": "📜",
+      "title": "ธีมที่ 5 · หนังสือราชการ 6 ชนิด (เจาะลึก)",
+      "description": "ข้อ 9 · หนังสือ 6 ชนิด — กระดาษ การลงชื่อ ขอบเขตการใช้ ตัวอย่าง",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📜 หนังสือราชการ 6 ชนิด (ข้อ 9) — ฉบับเต็ม",
+          "content": "<table class='kb-table'><thead><tr><th>ลำดับ</th><th>ชนิด</th><th>กระดาษ</th><th>การลงชื่อ</th><th>ใช้เมื่อใด</th></tr></thead><tbody><tr class='odd'><td class='bold'>1</td><td><strong>หนังสือภายนอก</strong></td><td>กระดาษตราครุฑ (ครุฑ 3 ซม.)</td><td>ลายมือชื่อเจ้าของเรื่อง</td><td>ติดต่อ<strong>ระหว่างส่วนราชการ</strong>หรือถึง<strong>บุคคลภายนอก</strong></td></tr><tr class='even'><td class='bold'>2</td><td><strong>หนังสือภายใน</strong></td><td>กระดาษบันทึกข้อความ (ครุฑ 1.5 ซม.)</td><td>ลายมือชื่อเจ้าของเรื่อง</td><td>ติดต่อ<strong>ภายใน</strong>กระทรวง/กรม/จังหวัดเดียวกัน</td></tr><tr class='odd'><td class='bold text-law-act'>3</td><td><strong>หนังสือประทับตรา</strong></td><td>กระดาษตราครุฑ</td><td><strong>ประทับตราแทน</strong>ลายมือชื่อ + ผู้รับผิดชอบ<strong>ลงชื่อย่อกำกับตรา</strong></td><td>เรื่อง<strong>ไม่สำคัญ</strong> (ขอรายละเอียด, ส่งสำเนา, ตอบรับทราบ, เตือนเรื่องค้าง)</td></tr><tr class='even'><td class='bold'>4</td><td><strong>หนังสือสั่งการ</strong></td><td>กระดาษตราครุฑ</td><td>ลายมือชื่อผู้มีอำนาจ</td><td>คำสั่ง, ระเบียบ, ข้อบังคับ</td></tr><tr class='odd'><td class='bold'>5</td><td><strong>หนังสือประชาสัมพันธ์</strong></td><td>กระดาษตราครุฑ</td><td>ลายมือชื่อหัวหน้าส่วนราชการ</td><td>ประกาศ, แถลงการณ์, ข่าว</td></tr><tr class='even'><td class='bold text-law-act'>6</td><td><strong>หนังสือหลักฐาน</strong></td><td>กระดาษตราครุฑ/ธรรมดา</td><td>ตามประเภทเอกสาร</td><td>หนังสือรับรอง, บันทึก, รายงานการประชุม</td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>ภายนอก-ภายใน-ประทับตรา-สั่งการ-ประชาสัมพันธ์-หลักฐาน</strong> → ย่อว่า <strong>\"ภายนอก-ภายใน-ตรา-สั่ง-ปชส.-หลักฐาน\"</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "📯 หนังสือประทับตรา (ข้อ 13-15) — เจาะลึก",
+          "content": "<strong>หลักการ:</strong> ใช้<strong>ประทับตราแทนลายมือชื่อ</strong>ของหัวหน้าส่วนราชการระดับ<strong>กรมขึ้นไป</strong><br><br><strong>ผู้ลงนาม:</strong> หัวหน้าส่วนราชการระดับ<strong>กอง</strong> หรือผู้ได้รับมอบหมาย = ผู้รับผิดชอบ + ลง<strong>ชื่อย่อกำกับตรา</strong><br><br><strong>✅ ใช้ได้เฉพาะกรณี:</strong><br>① <strong>ขอรายละเอียดเพิ่มเติม</strong><br>② <strong>ส่งสำเนาหนังสือ/สิ่งของ/เอกสาร</strong><br>③ <strong>ตอบรับทราบ</strong>ที่ไม่สำคัญ<br>④ <strong>แจ้งผลงาน</strong>ที่ดำเนินไปแล้ว<br>⑤ <strong>เตือนเรื่องที่ค้าง</strong><br>⑥ กรณีที่หัวหน้าส่วนราชการระดับกรมขึ้นไป<strong>กำหนดโดยทำเป็นคำสั่ง</strong><br><br><strong>❌ ห้ามใช้:</strong> เรื่องสำคัญ เรื่องที่ต้องลงนามจริงจัง (เช่น คำสั่งแต่งตั้ง สัญญา)"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "⚖️ หนังสือสั่งการ 3 ชนิด (ข้อ 16-19)",
+          "content": "<table class='kb-table'><thead><tr><th>ชนิด</th><th>นิยาม</th><th>อำนาจ</th><th>อ้างกฎหมาย?</th></tr></thead><tbody><tr class='odd'><td class='bold text-law-act'>คำสั่ง (ข้อ 17)</td><td>ผู้บังคับบัญชา<strong>สั่งให้ปฏิบัติ</strong>โดยชอบด้วยกฎหมาย</td><td>ต้องอ้างเหตุ + อำนาจที่ออกคำสั่ง</td><td>✅ ต้อง</td></tr><tr class='even'><td class='bold text-law-act'>ระเบียบ (ข้อ 18)</td><td>ผู้มีอำนาจ<strong>วางหลักปฏิบัติ</strong>ประจำ</td><td>อาศัยอำนาจตามกฎหมาย<strong>หรือไม่ก็ได้</strong></td><td>ไม่จำเป็น</td></tr><tr class='odd'><td class='bold text-law-act'>ข้อบังคับ (ข้อ 19)</td><td>ผู้มีอำนาจ<strong>กำหนด</strong>โดยอาศัยอำนาจตามกฎหมาย</td><td>ต้องอ้างกฎหมายที่ให้อำนาจ</td><td>✅ ต้อง</td></tr></tbody></table><br><strong>🧠 จำ:</strong> <strong>คำสั่ง = สั่งปฏิบัติ / ระเบียบ = หลักปฏิบัติประจำ / ข้อบังคับ = กำหนดตามกฎหมาย</strong><br><strong>โครงสร้าง:</strong> ข้อ 1 = ชื่อ, ข้อ 2 = วันใช้บังคับ, ข้อสุดท้าย = ผู้รักษาการ"
+        }
+      ]
+    },
+    {
+      "navIcon": "📦",
+      "navLabel": "เก็บ-ยืม-ทำลาย (เจาะลึก)",
+      "icon": "📦",
+      "title": "ธีมที่ 6 · การเก็บ-ยืม-ทำลาย (เจาะลึก)",
+      "description": "ข้อ 29-43 · อายุ 20 ปี · สำเนาคู่ฉบับ · กองจดหมายเหตุแห่งชาติ · กระบวนการทำลาย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📚 การเก็บรักษาหนังสือ (ข้อ 29-30)",
+          "content": "<strong>หนังสือที่จัดทำขึ้น</strong> → เก็บ<strong>สำเนาคู่ฉบับ 2 ฉบับ</strong>:<br>① <strong>ต้นเรื่อง</strong> — เก็บที่หน่วยงาน<strong>ต้นทาง</strong><br>② <strong>สำเนา</strong> — เก็บที่<strong>หน่วยงานสารบรรณกลาง</strong><br><br><strong>สำเนาคู่ฉบับ</strong> ต้องมีลายมือชื่อ 4 คน (ที่ขอบล่างด้านขวา):<br>▪ ผู้ลงชื่อ + ผู้ร่าง + ผู้พิมพ์ + ผู้ตรวจ<br><br><strong>⚠️ ระบบอิเล็กทรอนิกส์:</strong> หนังสือที่ส่งด้วยระบบอิเล็กทรอนิกส์แล้ว → <strong>ถือว่าเก็บสำเนาในระบบแล้ว</strong> ไม่ต้องเก็บเป็นเอกสารอีก<br><br><strong>💡 ทริค:</strong> สำเนาคู่ฉบับคือหลักฐานยืนยันว่าเอกสารถูกต้องตามขั้นตอน"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔑 การยืมหนังสือ (ข้อ 33-36)",
+          "content": "<table class='kb-table'><thead><tr><th>สถานการณ์</th><th>ผู้ยืม</th><th>ผู้อนุญาต</th></tr></thead><tbody><tr class='odd'><td><strong>ระหว่างส่วนราชการ</strong></td><td>ผู้มีอำนาจ</td><td>หัวหน้าส่วนราชการ<strong>ระดับกองขึ้นไป</strong></td></tr><tr class='even'><td><strong>ภายในส่วนราชการเดียวกัน</strong></td><td>ผู้มีอำนาจ</td><td>หัวหน้าส่วนราชการ<strong>ระดับแผนกขึ้นไป</strong></td></tr><tr class='odd'><td><strong>บุคคลภายนอก</strong></td><td>❌ <strong>ยืมไม่ได้</strong></td><td>—</td></tr></tbody></table><br><strong>📋 ขั้นตอนการยืม:</strong> ① แจ้งว่านำไปใช้ราชการอะไร ② มอบ<strong>บัตรยืมหนังสือ</strong>เป็นหลักฐาน + ลงชื่อรับเรื่องในบัตร<br><br><strong>📌 บุคคลภายนอก</strong> แม้ยืมไม่ได้ แต่ <strong>\"ให้ดูหรือคัดลอก\"</strong> ได้ — โดยได้รับอนุญาตจากหัวหน้าส่วนราชการระดับกองขึ้นไป"
+        },
+        {
+          "type": "highlight-box",
+          "color": "rose",
+          "title": "🔥 การทำลายหนังสือ (ข้อ 37-43) — 5 ขั้นตอน",
+          "content": "<strong>อายุการเก็บ = 20 ปี</strong> (หนังสือทั่วไป) | ส่วนราชการขอเก็บเองได้ถึง <strong>25 ปี</strong><br><br><strong>📋 ขั้นตอน (จำให้ได้!):</strong><br>1️⃣ <strong>ภายใน 20 วัน</strong>หลังสิ้นปีปฏิทิน → เจ้าหน้าที่<strong>สำรวจ</strong>หนังสือที่ครบ 20 ปี → จัดทำ<strong>บัญชีหนังสือขอทำลาย</strong>เสนอหัวหน้าระดับกรม<br>2️⃣ หัวหน้าระดับกรม<strong>แต่งตั้งคณะกรรมการทำลาย</strong> (ประธาน + กรรมการ ≥ 2 คน, ระดับ<strong>ปฏิบัติการขึ้นไป</strong>)<br>3️⃣ คณะกรรมการพิจารณา → ถ้า<strong>ไม่ควรทำลาย</strong> = <strong>ขยายเวลาเก็บ</strong> (ประธานลงลายมือชื่อกำกับ)<br>4️⃣ ส่งบัญชีให้<strong>กองจดหมายเหตุแห่งชาติ กรมศิลปากร</strong>พิจารณา → ถ้าไม่ตอบภายใน <strong>20 วัน</strong> = <strong>เห็นชอบโดยปริยาย</strong><br>5️⃣ ทำลายโดย<strong>เผาหรือวิธีอื่นที่อ่านไม่ได้</strong> → ประธาน+กรรมการ<strong>ลงนามร่วมกัน</strong><br><br><strong>💡 จุดสำคัญ:</strong> <strong>20 วัน</strong> เป็นตัวเลขมหัศจรรย์ — เจอบ่อยมาก!"
+        }
+      ]
+    },
+    {
+      "navIcon": "🏛️",
+      "navLabel": "มาตรฐานตรา+กระดาษ",
+      "icon": "🏛️",
+      "title": "ธีมที่ 7 · มาตรฐานตราครุฑ + กระดาษ + ซอง",
+      "description": "ข้อ 44-53 · ตราครุฑ 3/1.5 ซม. · ตราชื่อส่วนราชการ · ขนาด A4/A5/B5 · ซอง C4/C5/DL",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🏺 ตราครุฑและตราชื่อส่วนราชการ (ข้อ 44-46)",
+          "content": "<strong>ตราครุฑ (ข้อ 44)</strong> — ตัวครุฑมี 2 ขนาด:<br>▪ <strong>สูง 3 ซม.</strong> = ใช้กับกระดาษตราครุฑ (หนังสือภายนอก, สั่งการ, ประชาสัมพันธ์)<br>▪ <strong>สูง 1.5 ซม.</strong> = ใช้กับกระดาษบันทึกข้อความ (หนังสือภายใน)<br><br><strong>ตราชื่อส่วนราชการ (ข้อ 45)</strong> — <strong>วงกลม 2 วงซ้อนกัน</strong>:<br>▪ <strong>วงนอก</strong> เส้นผ่าศูนย์กลาง <strong>5.5 ซม.</strong><br>▪ <strong>วงใน</strong> เส้นผ่าศูนย์กลาง <strong>3.5 ซม.</strong><br>▪ ล้อมรอบด้วยตัว<strong>ครุฑ</strong><br>▪ ระหว่างวงนอก-วงใน มี<strong>ชื่อกระทรวง/ทบวง/กรม</strong>อยู่ขอบล่าง<br>▪ ส่วนราชการที่ติดต่อ<strong>ต่างประเทศ</strong> → เพิ่มชื่อภาษาต่างประเทศ (อักษรไทยขอบบน อักษรโรมันขอบล่าง)<br><br><strong>ตรากำหนดเก็บหนังสือ (ข้อ 46)</strong> — ประทับบนหนังสือเก็บ:<br>▪ \"เก็บถึง พ.ศ. ....\" หรือ \"ห้ามทำลาย\"<br>▪ ขนาดตัวอักษร <strong>ไม่เล็กกว่า 25 พอยท์</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "📄 มาตรฐานกระดาษ (ข้อ 47-48)",
+          "content": "<table class='kb-table'><thead><tr><th>ประเภทกระดาษ</th><th>ขนาด (มม.)</th><th>น้ำหนัก</th><th>ใช้กับ</th></tr></thead><tbody><tr class='odd'><td class='bold'>A4</td><td>210 x 297</td><td>60 ก./ตร.ม.</td><td>หนังสือภายนอก, กระดาษบันทึกข้อความ</td></tr><tr class='even'><td class='bold'>A5</td><td>148 x 210</td><td>60 ก./ตร.ม.</td><td>กระดาษบันทึกข้อความขนาดเล็ก</td></tr><tr class='odd'><td class='bold'>B5</td><td>176 x 250</td><td>60 ก./ตร.ม.</td><td>ซอง C4</td></tr><tr class='even'><td class='bold'>A8</td><td>52 x 74</td><td>—</td><td>ขนาดเล็กที่สุด</td></tr></tbody></table><br><strong>📋 ข้อกำหนดกระดาษ:</strong><br>▪ <strong>กระดาษตราครุฑ</strong> = A4 + พิมพ์ครุฑ (3 ซม.) ตรงกึ่งกลางส่วนบน + <strong>หมึกสีดำ</strong> หรือทำเป็นครุฑดุน<br>▪ <strong>กระดาษบันทึกข้อความ</strong> = A4 หรือ A5 + พิมพ์ครุฑ (1.5 ซม.) ที่<strong>มุมบนด้านซ้าย</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "📨 มาตรฐานซอง (ข้อ 49)",
+          "content": "<table class='kb-table'><thead><tr><th>ขนาดซอง</th><th>ใช้กับ</th><th>การพับ</th></tr></thead><tbody><tr class='odd'><td class='bold text-law-act'>C4</td><td>หนังสือ A4</td><td><strong>ไม่ต้องพับ</strong></td></tr><tr class='even'><td class='bold'>C5</td><td>หนังสือ A4</td><td>พับ <strong>2</strong></td></tr><tr class='odd'><td class='bold'>C6</td><td>หนังสือ A4</td><td>พับ <strong>4</strong></td></tr><tr class='even'><td class='bold'>DL</td><td>หนังสือ A4</td><td>พับ <strong>3</strong></td></tr></tbody></table><br><strong>📌 ข้อกำหนด:</strong> กระดาษซอง น้ำหนัก <strong>50 ก./ตร.ม.</strong> (เบากว่ากระดาษเขียน 60 ก./ตร.ม.)<br><br><strong>🧠 ทริคจำ:</strong> <strong>C4 = ไม่พับ</strong> (เพราะ C4 = ขนาดเดียวกับ A4 โดยประมาณ)"
+        }
+      ]
+    },
+    {
+      "navIcon": "🔍",
+      "navLabel": "ความแตกต่าง",
+      "icon": "🔍",
+      "title": "ธีมที่ 8 · ความแตกต่างที่ต้องจำ",
+      "description": "จุดเปรียบเทียบที่ข้อสอบชอบถามบ่อย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔄 หนังสือภายนอก vs หนังสือภายใน",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>หนังสือภายนอก (ข้อ 11)</th><th>หนังสือภายใน (ข้อ 24)</th></tr></thead><tbody><tr class='odd'><td><strong>กระดาษ</strong></td><td>กระดาษตราครุฑ (ครุฑ 3 ซม.)</td><td>กระดาษบันทึกข้อความ (ครุฑ 1.5 ซม.)</td></tr><tr class='even'><td><strong>คำขึ้นต้น-ลงท้าย</strong></td><td>มี (ตามภาคผนวก 2)</td><td>ไม่มี</td></tr><tr class='odd'><td><strong>รายการ</strong></td><td>12 รายการ</td><td>ย่อกว่า</td></tr><tr class='even'><td><strong>ใช้เมื่อ</strong></td><td>ระหว่างส่วนราชการ / ถึงบุคคลภายนอก</td><td>ภายในกระทรวง/กรม/จังหวัดเดียวกัน</td></tr></tbody></table><br><strong>🧠 จำง่าย:</strong> <strong>ภายนอก = ครุฑใหญ่ + 12 รายการ + มีคำขึ้นต้น-ลงท้าย</strong><br><strong>ภายใน = ครุฑเล็ก + ไม่มีคำขึ้นต้น-ลงท้าย</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 คำสั่ง vs ระเบียบ vs ข้อบังคับ (ข้อ 17-19)",
+          "content": "<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>คำสั่ง</th><th>ระเบียบ</th><th>ข้อบังคับ</th></tr></thead><tbody><tr class='odd'><td><strong>วัตถุประสงค์</strong></td><td>สั่งให้ปฏิบัติ<strong>เฉพาะเรื่อง</strong></td><td>วาง<strong>หลักปฏิบัติประจำ</strong></td><td>กำหนด<strong>กติกา</strong></td></tr><tr class='even'><td><strong>อ้างกฎหมาย</strong></td><td>✅ ต้อง</td><td>ไม่จำเป็น</td><td>✅ ต้อง</td></tr><tr class='odd'><td><strong>ระยะเวลา</strong></td><td>เฉพาะกาล</td><td>ระยะยาว</td><td>ระยะยาว</td></tr><tr class='even'><td><strong>ตัวอย่าง</strong></td><td>คำสั่งย้ายข้าราชการ</td><td>ระเบียบสารบรรณ</td><td>ข้อบังคับว่าด้วยวินัย</td></tr></tbody></table><br><strong>🧠 จำ:</strong> <strong>คำสั่ง = สั่งการ / ระเบียบ = หลักปฏิบัติ / ข้อบังคับ = ตามกฎหมาย</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🔄 ด่วนที่สุด vs ด่วนมาก vs ด่วน (ข้อ 26)",
+          "content": "<table class='kb-table'><thead><tr><th>ระดับ</th><th>ความหมาย</th><th>การปฏิบัติ</th></tr></thead><tbody><tr class='odd'><td class='bold text-law-act'>ด่วนที่สุด</td><td>เรื่อง<strong>เร่งด่วนที่สุด</strong></td><td>เจ้าหน้าที่ปฏิบัติ<strong>ในทันที</strong>ที่ได้รับ</td></tr><tr class='even'><td class='bold'>ด่วนมาก</td><td>เรื่อง<strong>เร่งด่วนมาก</strong></td><td>เจ้าหน้าที่ปฏิบัติ<strong>โดยเร็ว</strong></td></tr><tr class='odd'><td class='bold'>ด่วน</td><td>เรื่อง<strong>เร่งด่วน</strong></td><td>เจ้าหน้าที่ปฏิบัติ<strong>เร็วกว่าปกติ</strong>เท่าที่จะทำได้</td></tr></tbody></table><br><strong>📌 ข้อกำหนด:</strong> ใช้<strong>ตัวอักษรสีแดง</strong>ไม่เล็กกว่าตัวพิมพ์โป้ง <strong>32 พอยท์</strong> ให้เห็นชัดทั้งบนหนังสือและซอง<br><br><strong>📅 ด่วนภายใน:</strong> ระบุ<strong>วัน เดือน ปี และเวลา</strong>ที่ต้องการให้หนังสือไปถึงผู้รับ (กำหนดชัดเจน)"
+        }
+      ]
+    },
+    {
+      "navIcon": "🗺️",
+      "navLabel": "แผนผัง & ไทม์ไลน์",
+      "icon": "🗺️",
+      "title": "ธีมที่ 9 · แผนผัง & ไทม์ไลน์ (Big Picture)",
+      "description": "ภาพรวม — ไทม์ไลน์ 4 ฉบับ + แผนผังกระบวนการเก็บ-ยืม-ทำลาย + Flow ระบบอิเล็กทรอนิกส์",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📅 ไทม์ไลน์ 4 ฉบับแก้ไข ระเบียบสารบรรณ พ.ศ. 2526",
+          "content": "<table class='kb-table'><thead><tr><th>ฉบับ</th><th>ปี พ.ศ.</th><th>สาระสำคัญ</th></tr></thead><tbody><tr class='odd'><td class='bold'>หลัก</td><td>2526</td><td>ประกาศใช้ครั้งแรก (11 มิ.ย. 2526) — กำหนดมาตรฐานงานสารบรรณทั้งระบบ</td></tr><tr class='even'><td class='bold'>ฉ.1</td><td>2548</td><td>แก้ไขเพิ่มเติมทั่วไป</td></tr><tr class='odd'><td class='bold'>ฉ.2</td><td>2556</td><td>แก้ไขเพิ่มเติมทั่วไป</td></tr><tr class='even'><td class='bold text-law-act'>⭐ ฉ.3</td><td>2560</td><td>เพิ่มเรื่อง<strong>ระบบสารบรรณอิเล็กทรอนิกส์</strong> + อีเมลกลางของส่วนราชการ</td></tr><tr class='odd'><td class='bold text-law-act'>⭐ ฉ.4</td><td>2564</td><td>ใช้บังคับ 25 พ.ค. 2564 — <strong>ปรับปรุงระบบอิเล็กทรอนิกส์</strong>ให้ทันสมัย (อีเมลขยะ, การตอบกลับ, การลงทะเบียน)</td></tr></tbody></table><br><strong>🧠 จำ:</strong> ฉบับที่ 3 (2560) และ 4 (2564) เน้นเรื่อง<strong>ระบบอิเล็กทรอนิกส์</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔄 แผนผังกระบวนการทำลายหนังสือ",
+          "content": "<pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>หนังสือครบ 20 ปี\n  │\n  ▼\nภายใน 20 วันหลังสิ้นปีปฏิทิน → เจ้าหน้าที่สำรวจ\n  │\n  ▼\nจัดทำ \"บัญชีหนังสือขอทำลาย\" เสนอหัวหน้าระดับกรม\n  │\n  ▼\nหัวหน้ากรมแต่งตั้ง \"คณะกรรมการทำลาย\" (≥ 3 คน, ระดับปฏิบัติการ+)\n  │\n  ├──→ คณะกรรมการเห็นว่า \"ไม่ควรทำลาย\" → ขยายเวลาเก็บ\n  │\n  └──→ คณะกรรมการเห็นว่า \"ควรทำลาย\" → ส่งบัญชีให้กองจดหมายเหตุฯ\n         │\n         ▼\n       กองจดหมายเหตุแห่งชาติ (กรมศิลปากร) พิจารณา\n         │\n         ├──→ ตอบภายใน 20 วัน → ทำลายได้\n         │\n         └──→ ไม่ตอบภายใน 20 วัน → ถือว่าเห็นชอบโดยปริยาย → ทำลายได้\n         │\n         ▼\n       ทำลายโดยเผาหรือวิธีอื่นที่อ่านไม่ได้\n         │\n         ▼\n       ประธาน + กรรมการ ลงนามร่วมกัน</pre><br><strong>💡 จุดสำคัญ:</strong> <strong>\"20 วัน\"</strong> เจอ 3 ครั้ง — ① หลังสิ้นปี ② กองจดหมายเหตุฯ ③ ... เป็นตัวเลขมหัศจรรย์"
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "💻 แผนผัง Flow ระบบสารบรรณอิเล็กทรอนิกส์ (ฉ.4/2564)",
+          "content": "<pre style='background:var(--surface-2); padding:12px; border-radius:8px; line-height:1.8; font-size:0.92em;'>ส่วนราชการต้องมี \"ที่อยู่อีเมลกลาง\"\n  │\n  ├──→ ภายนอกส่งอีเมลมา\n  │     │\n  │     ├──→ เจ้าหน้าที่สารบรรณกลาง (ที่ได้รับมอบหมาย) ตรวจสอบ\n  │     │     │\n  │     │     ├──→ ลงทะเบียนรับ (ทะเบียนหนังสือรับ)\n  │     │     ├──→ ตอบกลับ (reply) ยืนยันการได้รับ\n  │     │     ├──→ แจ้งเจ้าหน้าที่เกี่ยวข้อง\n  │     │     └──→ ตรวจสอบโฟลเดอร์อีเมลขยะด้วย (≥ ... ครั้ง/วัน)\n  │     │\n  │     └──→ ได้รับการตอบรับแล้ว → ไม่ต้องส่งเอกสารตามไป\n  │\n  └──→ ยกเว้น: ข้อมูลลับชั้นลับที่สุด / ความลับชั้นลับที่สุด\n         → ใช้เอกสารตามปกติ</pre><br><strong>💡 จุดสำคัญ:</strong> ฉบับ 4 เน้น <strong>\"อีเมลกลาง + ตอบกลับยืนยัน + ไม่ต้องส่งเอกสารตาม\"</strong> ต้องจำ!"
+        }
+      ]
+    },
+    {
+      "navIcon": "💡",
+      "navLabel": "เทคนิคพิเศษ",
+      "icon": "💡",
+      "title": "ธีมที่ 10 · เทคนิคพิเศษสำหรับอันดับ 1",
+      "description": "เทคนิคขั้นสูง + จุดที่คนมักจำผิด + สูตรจำแบบเร่งรัดสำหรับสอบ ปภ.",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🎯 เทคนิคที่ 1: จุดที่คนมักจำผิด",
+          "content": "<strong>❌ ผิด → ถูก:</strong><br>❌ <strong>ผิด:</strong> ผู้รักษาการ = <strong>นายกฯ</strong> → <strong>ถูก:</strong> = <strong>ปลัดสำนักนายกรัฐมนตรี</strong> (ข้อ 8)<br>❌ <strong>ผิด:</strong> หนังสือภายในใช้<strong>กระดาษตราครุฑ</strong> → <strong>ถูก:</strong> ใช้<strong>กระดาษบันทึกข้อความ</strong> + ครุฑ 1.5 ซม.<br>❌ <strong>ผิด:</strong> ครุฑใหญ่ 1 ขนาด → <strong>ถูก:</strong> มี 2 ขนาด (<strong>3 ซม. + 1.5 ซม.</strong>)<br>❌ <strong>ผิด:</strong> อายุเก็บหนังสือ <strong>10 ปี</strong> → <strong>ถูก:</strong> <strong>20 ปี</strong> (ขอเก็บเองได้ 25 ปี)<br>❌ <strong>ผิด:</strong> หนังสือประทับตราใช้ได้ทุกเรื่อง → <strong>ถูก:</strong> ใช้ได้<strong>เฉพาะเรื่องไม่สำคัญ</strong><br>❌ <strong>ผิด:</strong> ซอง C4 ต้อง<strong>พับ 2</strong> → <strong>ถูก:</strong> C4 <strong>ไม่ต้องพับ</strong><br>❌ <strong>ผิด:</strong> คำสั่ง + ระเบียบ + ข้อบังคับ = <strong>เหมือนกัน</strong> → <strong>ถูก:</strong> คำสั่ง/ข้อบังคับ<strong>ต้องอ้างกฎหมาย</strong> แต่ระเบียบ<strong>ไม่จำเป็น</strong><br>❌ <strong>ผิด:</strong> กองจดหมายเหตุฯ ต้อง<strong>ตอบก่อน</strong>ทำลาย → <strong>ถูก:</strong> <strong>ไม่ตอบภายใน 20 วัน = เห็นชอบโดยปริยาย</strong>"
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🎯 เทคนิคที่ 2: สูตรจำตัวเลขมหัศจรรย์ (เจอบ่อยในข้อสอบ)",
+          "content": "<strong>ตัวเลขที่ต้องจำ:</strong><br>▪ <strong>20 ปี</strong> = อายุเก็บหนังสือ (ข้อ 37)<br>▪ <strong>25 ปี</strong> = ขอเก็บเองได้ (สูงสุด)<br>▪ <strong>20 วัน</strong> = ภายใน 20 วันหลังสิ้นปี → สำรวจหนังสือ<br>▪ <strong>20 วัน</strong> = กองจดหมายเหตุฯ พิจารณา (ไม่ตอบ = เห็นชอบ)<br>▪ <strong>3 ซม.</strong> = ความสูงครุฑใหญ่<br>▪ <strong>1.5 ซม.</strong> = ความสูงครุฑเล็ก<br>▪ <strong>5.5 ซม.</strong> = เส้นผ่าศูนย์กลางวงนอกตราชื่อ<br>▪ <strong>3.5 ซม.</strong> = เส้นผ่าศูนย์กลางวงในตราชื่อ<br>▪ <strong>32 พอยท์</strong> = ขนาดตัวอักษร \"ด่วน\"<br>▪ <strong>25 พอยท์</strong> = ขนาดตัวอักษร \"เก็บถึง/ห้ามทำลาย\"<br>▪ <strong>60 ก./ตร.ม.</strong> = น้ำหนักกระดาษเขียน<br>▪ <strong>50 ก./ตร.ม.</strong> = น้ำหนักกระดาษซอง<br>▪ <strong>6 ชนิด</strong> = หนังสือราชการ<br>▪ <strong>12 รายการ</strong> = หนังสือภายนอก<br>▪ <strong>A4</strong> = 210×297 มม.<br>▪ <strong>C4</strong> = ไม่ต้องพับ"
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🎯 เทคนิคที่ 3: กระบวนการ \"รับ-ส่ง-เก็บ-ยืม-ทำลาย\" (Flow ครบ)",
+          "content": "<strong>📥 รับหนังสือ (ข้อ 32-40):</strong><br>▪ หนังสือจากภายนอก → ลงทะเบียนรับใน<strong>ทะเบียนหนังสือรับ</strong><br>▪ ระบบอิเล็กทรอนิกส์ → ลงทะเบียนผ่านระบบ + ตอบกลับยืนยัน<br><br><strong>📤 ส่งหนังสือ (ข้อ 41-46):</strong><br>▪ ลงทะเบียนหนังสือส่งใน<strong>ทะเบียนหนังสือส่ง</strong><br>▪ จ่าหน้าซอง + นำส่ง (ส่งตรง / ส่งทางไปรษณีย์ / EMS)<br>▪ มี<strong>ใบรับหนังสือ</strong>ให้ผู้รับลงชื่อรับ<br><br><strong>📚 เก็บรักษา (ข้อ 29-31):</strong><br>▪ ต้นเรื่องที่ต้นทาง + สำเนาที่สารบรรณกลาง<br>▪ เก็บตามอายุ <strong>20 ปี</strong><br><br><strong>📖 ยืม (ข้อ 33-36):</strong><br>▪ ยืมได้ระหว่างส่วนราชการ + ภายในหน่วยงาน<br>▪ บุคคลภายนอกยืมไม่ได้ (แต่ดู/คัดลอกได้)<br><br><strong>🔥 ทำลาย (ข้อ 37-43):</strong><br>▪ 5 ขั้นตอน (สำรวจ → แต่งกรรมการ → พิจารณา → ส่งกองจดหมายเหตุ → เผา)"
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 สรุปสูตรเร่งรัด - จำ 5 อย่างพอ (อันดับ 1)",
+          "text": "<strong>ระเบียบสารบรรณจำ 5 อย่างก็สอบผ่าน:</strong><br>1. <strong>ปลัด สนร.</strong> รักษาการ (ไม่ใช่นายกฯ!)<br>2. <strong>หนังสือ 6 ชนิด</strong> = ภายนอก/ภายใน/ประทับตรา/สั่งการ/ประชาสัมพันธ์/หลักฐาน<br>3. <strong>ครุฑ 3 vs 1.5 ซม.</strong> (ภายนอก vs ภายใน) + <strong>ตราชื่อ 5.5/3.5 ซม.</strong><br>4. <strong>เก็บ 20 ปี</strong> / ทำลาย: <strong>20 วัน</strong> สำรวจ + 20 วัน กองจดหมายเหตุฯ<br>5. <strong>ระบบอิเล็กทรอนิกส์</strong> = หลัก (ฉ.4/2564) | ได้ตอบรับ = ไม่ต้องส่งเอกสารตาม"
+        }
+      ]
+    }
+  ],
   "vocabularyGroups": [
     {
       icon: "📋",

@@ -103,7 +103,7 @@ window.BUDGET_ACT_DATA =
           "type": "highlight-box",
           "color": "green",
           "title": "🧠 บัตรลัดจำ — สรุปก่อนสอบ",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;'>" +
+          "content": "<table style='width:100%;border-collapse:collapse;font-size:12.5px;color:#1a1a2e;'>" +
 "<thead><tr style='background:#166534;color:#fff;'><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>สูตร</th><th style='padding:8px;border:1px solid #166534;text-align:left;font-family:var(--font-display);'>ความหมาย</th></tr></thead>" +
 "<tbody>" +
 "<tr style='background:#f0fdf4;'><td style='padding:8px;border:1px solid #ddd;font-weight:700;color:#166534;'>1 ต.ค. – 30 ก.ย.</td><td style='padding:8px;border:1px solid #ddd;'>ปีงบประมาณ (ม.2)</td></tr>" +
@@ -194,7 +194,7 @@ window.BUDGET_ACT_DATA =
           "type": "highlight-box",
           "color": "amber",
           "title": "🧠 จุดจำ — ตัวเลข 6 ขั้นตอน",
-          "content": "<table style='width:100%;border-collapse:collapse;font-size:13px;'>" +
+          "content": "<table style='width:100%;border-collapse:collapse;font-size:13px;color:#1a1a2e;'>" +
 "<thead><tr style='background:#92400e;color:#fff;'><th style='padding:8px;border:1px solid #92400e;text-align:center;width:60px;font-family:var(--font-display);'>ขั้นตอน</th><th style='padding:8px;border:1px solid #92400e;text-align:center;width:70px;font-family:var(--font-display);'>ตัวเลข</th><th style='padding:8px;border:1px solid #92400e;font-family:var(--font-display);'>รายละเอียด</th></tr></thead>" +
 "<tbody>" +
 "<tr style='background:#fffbeb;'><td style='padding:8px;border:1px solid #fde68a;text-align:center;font-weight:700;'>1</td><td style='padding:8px;border:1px solid #fde68a;text-align:center;'>ม.3/1</td><td style='padding:8px;border:1px solid #fde68a;'>ฐานะการคลัง — ห้ามใช้เงินต้น/ดอกเบี้ย</td></tr>" +

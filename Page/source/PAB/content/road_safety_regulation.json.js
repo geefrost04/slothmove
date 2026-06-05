@@ -137,7 +137,7 @@ window.ROAD_SAFETY_REGULATION_DATA = {
           type: "highlight-box",
           color: "navy",
           title: "ตัวเลขสำคัญ — วันที่และจำนวน",
-          content: `<strong>8 มกราคม 2554</strong> — วันประกาศระเบียบ ศปถ. พ.ศ. 2554 ในราชกิจจานุเบกษา<br><strong>15 มกราคม 2554</strong> — วันที่ พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534 มาตรา 11(8) มีผลบังคับใช้<br><strong>2 แนวทาง</strong> — ส่งเสริมวัฒนธรรมความปลอดภัย + บูรณาการงบประมาณ<br><strong>3 ระดับ</strong> — นโยบาย (นปถ.) + อำนวยการ (ศปถ. ระดับชาติ) + ปฏิบัติการ (ศปถ. จ./อ./อปท.)<br><strong>4 ศูนย์</strong> — ระดับชาติ + กทม. + จังหวัด + อำเภอ + อปท. (รวม 5 ระดับ)`
+          content: `<strong>8 มกราคม 2554</strong> — วันประกาศระเบียบ ศปถ. พ.ศ. 2554 ในราชกิจจานุเบกษา<br><strong>15 มกราคม 2554</strong> — วันที่ พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534 มาตรา 11(8) มีผลบังคับใช้<br><strong>2 แนวทาง</strong> — ส่งเสริมวัฒนธรรมความปลอดภัย + บูรณาการงบประมาณ<br><strong>3 ระดับ</strong> — นโยบาย (นปถ.) + อำนวยการ (ศปถ. ระดับชาติ) + ปฏิบัติการ (ศปถ. จ./อ./อปท.)<br><strong>5 ศูนย์</strong> — ระดับชาติ + กทม. + จังหวัด + อำเภอ + อปท. (รวม 5 ระดับ)`
         },
         {
           type: "highlight-box",
@@ -215,59 +215,108 @@ window.ROAD_SAFETY_REGULATION_DATA = {
   ],
   "additionalSections": [
     {
-      navIcon: "🔢",
-      navLabel: "ตัวเลขน่ารู้",
-      icon: "🔢",
-      title: "📌 ตัวเลขน่ารู้",
-      description: "ตัวเลขสำคัญที่ต้องจำสำหรับสอบ",
+      "navIcon": "🎯",
+      "navLabel": "โครงสร้าง นปถ. + ศปถ. (เจาะลึก)",
+      "icon": "🎯",
+      "title": "ธีมที่ 5 · โครงสร้าง นปถ. และ ศปถ. 4 ระดับ (เจาะลึก)",
+      "description": "คณะกรรมการ นปถ. + ศูนย์ ศปถ. ทุกระดับ — ใครเป็นประธาน รองประธาน เลขานุการ",
       "blocks": [
         {
-          type: "highlight-box",
-          color: "navy",
-          title: "สรุปตัวเลขสำคัญ",
-          content: `<strong>8 ม.ค. 2554</strong> — วันประกาศระเบียบ ศปถ.<br><strong>15 ม.ค. 2554</strong> — วันที่ มาตรา 11(8) มีผลบังคับใช้<br><strong>2 แนวทาง</strong> — ส่งเสริมวัฒนธรรม + บูรณาการงบ<br><strong>3 ระดับ</strong> — นโยบาย + อำนวยการ + ปฏิบัติการ<br><strong>4-5 ศูนย์</strong> — ชาติ + กทม. + จังหวัด + อำเภอ + อปท.<br><strong>1/3</strong> — องค์ประชุม กค. นปถ. ขั้นต่ำ<br><strong>1/2</strong> — องค์ประชุม ศปถ. จ./อ. ขั้นต่ำ<br><strong>2 ปี</strong> — วาระกรรมการผู้ทรงคุณวุฒิ<br><strong>5 คน</strong> — ผู้ทรงคุณวุฒิ นปถ. (สูงสุด)<br><strong>3 คน</strong> — ผู้ทรงคุณวุฒิ ศปถ. จ./อ. (สูงสุด)<br><strong>6 กระทรวง</strong> — ปลัดเป็นกรรมการ กค. นปถ.`
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🏛️ คณะกรรมการนโยบาย นปถ. (ระดับชาติ) — มาตรา 7",
+          "content": `<strong>ประธาน:</strong> นายกรัฐมนตรี หรือรองนายกรัฐมนตรีที่นายกฯ มอบหมาย<br><strong>รองประธาน 3 คน:</strong><br>• <strong>คนที่ 1:</strong> รัฐมนตรีว่าการกระทรวงมหาดไทย (กำกับดูแล อปท.)<br>• <strong>คนที่ 2:</strong> รัฐมนตรีว่าการกระทรวงคมนาคม (กำกับดูแลถนน/ยานพาหนะ)<br>• <strong>คนที่ 3:</strong> รัฐมนตรีว่าการกระทรวงสาธารณสุข (การแพทย์/กู้ชีพ)<br><strong>กรรมการโดยตำแหน่ง:</strong> ปลัด 6 กระทรวง (มหาดไทย, คมนาคม, สาธารณสุข, ศึกษาธิการ, อุตสาหกรรม, แรงงาน) + ผบ.ตร. + เลขาธิการ สสส.<br><strong>กรรมการผู้ทรงคุณวุฒิ:</strong> ≤ 5 คน (นายกฯ แต่งตั้ง) — <strong>วาระ 2 ปี</strong> (ต่อได้ไม่เกิน 2 วาระติดต่อกัน)<br><strong>เลขานุการ:</strong> อธิบดีกรมป้องกันและบรรเทาสาธารณภัย (ปภ.)<br><br>💡 <strong>จุดจำ:</strong> ประธาน นปถ. = นายกฯ (ไม่ใช่รัฐมนตรี!)`
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🚦 ศูนย์ ศปถ. 4-5 ระดับ — ผู้อำนวยการแต่ละระดับ",
+          "content": `<table class='kb-table'><thead><tr><th>ระดับ</th><th>ผู้อำนวยการ</th><th>รองประธาน</th><th>เลขานุการ</th></tr></thead><tbody><tr class='odd'><td><strong>ชาติ</strong></td><td>นายกฯ</td><td>—</td><td>ปลัดมหาดไทย</td></tr><tr class='even'><td><strong>กทม.</strong></td><td>ผู้ว่าฯ กทม.</td><td>—</td><td>—</td></tr><tr class='odd'><td><strong>จังหวัด</strong></td><td>ผู้ว่าฯ จังหวัด</td><td>ค1=ปลัดจังหวัด, ค2=ผบ.ภูธรจังหวัด, ค3=นายก อบจ.</td><td>หัวหน้า ปภ.จังหวัด</td></tr><tr class='even'><td><strong>อำเภอ</strong></td><td>นายอำเภอ</td><td>หัวหน้าสถานีตำรวจภูธร</td><td>—</td></tr><tr class='odd'><td><strong>อปท.</strong></td><td>ผู้บริหาร อปท.</td><td>—</td><td>—</td></tr></tbody></table><br>💡 <strong>จุดจำ:</strong> ผู้อำนวยการ ศปถ. ชาติ = นายกฯ (คนเดียวกับประธาน นปถ.)`
+        },
+        {
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 ความสัมพันธ์ระหว่าง นปถ. กับ ศปถ. (2 ระดับ)",
+          "content": `<strong>นปถ. (ระดับนโยบาย)</strong> กำหนดนโยบาย → สั่งการลงมาที่ <strong>ศปถ. ระดับชาติ</strong> (ระดับอำนวยการ) → บูรณาการงบประมาณ → สั่งการต่อไปยัง <strong>ศปถ. จังหวัด/อำเภอ/อปท.</strong> (ระดับปฏิบัติการ)<br><br><strong>Flow การบังคับบัญชา:</strong><br>นปถ. (กำหนดนโยบาย) → ศปถ. ชาติ (อำนวยการ) → ศปถ. จ. (อำนวยการระดับพื้นที่) → ศปถ. อ. (ปฏิบัติการ) → ศปถ. อปท. (ปฏิบัติการท้องถิ่น)<br><br><strong>ผู้อำนวยการ ศปถ. จ./อ./อปท. รายงานผลต่อ ศปถ. ระดับที่สูงกว่า</strong><br><br>💡 <strong>จุดจำ:</strong> นปถ. = นโยบาย / ศปถ. = ปฏิบัติการ — ทั้งสองระบบทำงานสอดคล้องกัน`
         }
       ]
     },
     {
-      navIcon: "⚖️",
-      navLabel: "เปรียบเทียบ",
-      icon: "⚖️",
-      title: "📌 เปรียบเทียบ ศปถ. แต่ละระดับ",
-      description: "จุดแตกต่างสำคัญระหว่างศูนย์แต่ละระดับ",
+      "navIcon": "📖",
+      "navLabel": "ตารางมาตราสำคัญ",
+      "icon": "📖",
+      "title": "ธีมที่ 6 · ตารางสรุปมาตราสำคัญสำหรับท่อง",
+      "description": "รวบรวมข้อ/มาตราที่ออกสอบบ่อย พร้อมสาระสำคัญ",
       "blocks": [
         {
-          type: "highlight-box",
-          color: "navy",
-          title: "เปรียบเทียบผู้อำนวยการ ศปถ. แต่ละระดับ",
-          content: `<table style="width:100%; border-collapse: collapse;">
-<tr style="background:var(--ddpm-navy); color:white;">
-<th>ระดับ</th><th>ผู้อำนวยการ</th><th>เลขานุการ</th>
-</tr>
-<tr style="background:var(--surface-alt)"><td><strong>ศปถ. ระดับชาติ</strong></td><td>นายกฯ</td><td>ปลัดมหาดไทย</td></tr>
-<tr style="background:var(--surface)"><td><strong>ศปถ. กทม.</strong></td><td>ผู้ว่าฯ กทม.</td><td>—</td></tr>
-<tr style="background:var(--surface-alt)"><td><strong>ศปถ. จังหวัด</strong></td><td>ผู้ว่าฯ จังหวัด</td><td>หัวหน้า ปภ.จังหวัด</td></tr>
-<tr style="background:var(--surface)"><td><strong>ศปถ. อำเภอ</strong></td><td>นายอำเภอ</td><td>—</td></tr>
-<tr style="background:var(--surface-alt)"><td><strong>ศปถ. อปท.</strong></td><td>ผู้บริหาร อปท.</td><td>—</td></tr>
-</table>`
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "📋 ตารางสรุปข้อสำคัญ (ระเบียบ พ.ศ. 2554)",
+          "content": `<table class='kb-table'><thead><tr><th>ข้อ</th><th>เนื้อหา</th><th>จุดสำคัญ</th></tr></thead><tbody><tr class='odd'><td class='bold text-law-act'>ข้อ 2</td><td>ใช้บังคับ<strong>วันถัดจาก</strong>วันประกาศราชกิจจาฯ</td><td>ประกาศ 8 ม.ค. 2554 → มีผล 9 ม.ค. 2554</td></tr><tr class='even'><td class='bold text-law-act'>ข้อ 3</td><td><strong>นายกฯ</strong> รักษาการ</td><td>ไม่ใช่รัฐมนตรีมหาดไทย!</td></tr><tr class='odd'><td class='bold'>ข้อ 3 (นิยาม)</td><td>"อำเภอ" <strong>รวมถึงกิ่งอำเภอ</strong></td><td>ขยายอำนาจไปยังกิ่งอำเภอ</td></tr><tr class='even'><td class='bold'>ข้อ 4 (นิยาม)</td><td>"อปท." = เทศบาล + เมืองพัทยา + อบต. + อบจ.</td><td><strong>ไม่รวม กทม.</strong></td></tr><tr class='odd'><td class='bold text-law-act'>ข้อ 5 (แนวทาง)</td><td><strong>2 แนวทาง</strong>: ส่งเสริมวัฒนธรรม + บูรณาการงบ</td><td>ไม่ใช่ 4 อย่างที่หลายคนจำผิด!</td></tr><tr class='even'><td class='bold text-law-act'>ข้อ 6 (ระดับ)</td><td><strong>3 ระดับ</strong>: นโยบาย (นปถ.) + อำนวยการ (ศปถ.ชาติ) + ปฏิบัติการ (ศปถ.พื้นที่)</td><td>ชัดเจน 3 ระดับ</td></tr><tr class='odd'><td class='bold'>ข้อ 7 (นปถ.)</td><td>ประธาน = นายกฯ/รองนายกฯ | รอง ค1-3 = มหาดไทย/คมนาคม/สาธารณสุข</td><td>เลขา = อธิบดี ปภ.</td></tr><tr class='even'><td class='bold'>ข้อ 8 (ศปถ.)</td><td>4-5 ระดับ: ชาติ/กทม./จ./อ./อปท.</td><td>ผู้อำนวยการแต่ละระดับต่างกัน</td></tr><tr class='odd'><td class='bold text-law-act'>ข้อ 8 (วาระ)</td><td>กรรมการผู้ทรงคุณวุฒิ: วาระ <strong>2 ปี</strong></td><td>ต่อได้ไม่เกิน 2 วาระ</td></tr><tr class='even'><td class='bold text-law-act'>ข้อ 9 (พ้นตำแหน่ง)</td><td>ตาย/ลาออก/ล้มละลาย/ไร้ความสามารถ/จำคุก</td><td>จำคุก <strong>เว้นประมาท/ลหุโทษ</strong></td></tr><tr class='odd'><td class='bold text-law-act'>ข้อ 10 (ประชุม)</td><td>องค์ประชุม ≥ <strong>กึ่งหนึ่ง</strong> (ศปถ.) | เสียงข้างมาก</td><td>เสียงเท่ากัน → ประธานชี้ขาด</td></tr><tr class='even'><td class='bold'>ข้อ 11</td><td>นปถ. องค์ประชุม ≥ <strong>1 ใน 3</strong></td><td>ต่างจาก ศปถ. (กึ่งหนึ่ง)</td></tr></tbody></table>`
         },
         {
-          type: "highlight-box",
-          color: "blue",
-          title: "เปรียบเทียบ องค์ประชุม ของ ศปถ. แต่ละระดับ",
-          content: `<table style="width:100%; border-collapse: collapse;">
-<tr style="background:var(--ddpm-navy); color:white;">
-<th>คณะกรรมการ</th><th>องค์ประชุม</th><th>เหตุผล</th>
-</tr>
-<tr style="background:var(--surface-alt)"><td><strong>กค. นปถ.</strong></td><td>ไม่น้อยกว่า 1 ใน 3 ของกรรมการทั้งหมด</td><td>มีกรรมการจำนวนมาก (ปลัด 6 กระทรวง + ผบ.ตร. + ผู้ทรงคุณวุฒิ) จึงกำหนดน้อยกว่า</td></tr>
-<tr style="background:var(--surface)"><td><strong>กค. ศปถ. จ./อ.</strong></td><td>ไม่น้อยกว่า กึ่งหนึ่ง ของกรรมการทั้งหมด</td><td>มีจำนวนกรรมการน้อยกว่า จึงต้องกำหนดมากกว่า</td></tr>
-</table>`
+          "type": "keypoint",
+          "title": "🧠 ทริคจำมาตราสำคัญ",
+          "text": `<strong>ข้อ/มาตราที่ต้องจำ:</strong><br>• <strong>ข้อ 2:</strong> ใช้บังคับวันถัดจากประกาศ<br>• <strong>ข้อ 3:</strong> นายกฯ รักษาการ<br>• <strong>ข้อ 5:</strong> 2 แนวทาง (ไม่ใช่ 4!)<br>• <strong>ข้อ 6:</strong> 3 ระดับ<br>• <strong>ข้อ 7:</strong> นปถ. + ประธาน = นายกฯ<br>• <strong>ข้อ 8:</strong> ศปถ. 4-5 ระดับ<br>• <strong>ข้อ 10:</strong> องค์ประชุม ศปถ. ≥ 1/2<br>• <strong>ข้อ 11:</strong> องค์ประชุม นปถ. ≥ 1/3`
+        }
+      ]
+    },
+    {
+      "navIcon": "🔍",
+      "navLabel": "ความแตกต่าง",
+      "icon": "🔍",
+      "title": "ธีมที่ 7 · ความแตกต่างที่ต้องจำ",
+      "description": "จุดเปรียบเทียบที่ข้อสอบชอบถามบ่อย",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🔄 นปถ. vs ศปถ. (ระดับนโยบาย vs ปฏิบัติการ)",
+          "content": `<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>นปถ.</th><th>ศปถ.</th></tr></thead><tbody><tr class='odd'><td><strong>ประเภท</strong></td><td>คณะกรรมการ</td><td>ศูนย์ปฏิบัติการ</td></tr><tr class='even'><td><strong>ระดับ</strong></td><td>นโยบาย (กำหนดทิศทาง)</td><td>ปฏิบัติการ (ลงพื้นที่)</td></tr><tr class='odd'><td><strong>หน้าที่หลัก</strong></td><td>กำหนดนโยบาย + เห็นชอบแผนแม่บท</td><td>บูรณาการงบ + ติดตาม + ฐานข้อมูล</td></tr><tr class='even'><td><strong>ประธาน/ผู้อำนวยการ</strong></td><td>นายกฯ</td><td>แต่ละระดับ (ชาติ/กทม./จ./อ./อปท.)</td></tr><tr class='odd'><td><strong>เลขานุการ</strong></td><td>อธิบดี ปภ.</td><td>ระดับชาติ = ปลัด มท. / ระดับจังหวัด = หน.ปภ.จังหวัด</td></tr><tr class='even'><td><strong>องค์ประชุม</strong></td><td>≥ <strong>1 ใน 3</strong></td><td>≥ <strong>กึ่งหนึ่ง</strong></td></tr><tr class='odd'><td><strong>กรรมการผู้ทรงคุณวุฒิ</strong></td><td>≤ 5 คน</td><td>≤ 3 คน</td></tr></tbody></table><br><strong>🧠 จำ:</strong> <strong>นปถ. = นโยบาย</strong> (1/3, ≤5 คน) / <strong>ศปถ. = ปฏิบัติการ</strong> (1/2, ≤3 คน) — ตัวเลขต่างกัน!`
         },
         {
-          type: "highlight-box",
-          color: "green",
-          title: "เปรียบเทียบ อำนาจหน้าที่ ของ ศปถ. vs นปถ.",
-          content: `<strong>นปถ. (คณะกรรมการนโยบาย)</strong> — กำหนดนโยบาย เห็นชอบแผนแม่บท กำกับดูแลระดับชาติ<br><strong>ศปถ. ระดับชาติ (ศูนย์อำนวยการ)</strong> — บูรณาการงบประมาณ รายงาน ครม. ประจำปี<br><strong>ศปถ. จ./อ./อปท. (ศูนย์ปฏิบัติการ)</strong> — ลงพื้นที่ ติดตาม กำกับ จัดทำฐานข้อมูล`
+          "type": "highlight-box",
+          "color": "purple",
+          "title": "🔄 ผู้อำนวยการ ศปถ. 5 ระดับ (จำง่าย)",
+          "content": `<table class='kb-table'><thead><tr><th>ระดับ</th><th>ผู้อำนวยการ</th><th>ตำแหน่งอื่น</th></tr></thead><tbody><tr class='odd'><td class='bold text-law-act'><strong>ชาติ</strong></td><td><strong>นายกรัฐมนตรี</strong></td><td>เลขา = ปลัด มท.</td></tr><tr class='even'><td><strong>กทม.</strong></td><td><strong>ผู้ว่าฯ กทม.</strong></td><td>กทม. มีฐานะ อปท. พิเศษ</td></tr><tr class='odd'><td><strong>จังหวัด</strong></td><td><strong>ผู้ว่าฯ จังหวัด</strong></td><td>รอง ค1=ปลัดจังหวัด, ค2=ผบ.ภูธรจังหวัด, ค3=นายก อบจ.</td></tr><tr class='even'><td><strong>อำเภอ</strong></td><td><strong>นายอำเภอ</strong></td><td>รอง = หน.สถานีตำรวจภูธร</td></tr><tr class='odd'><td><strong>อปท.</strong></td><td><strong>ผู้บริหาร อปท.</strong></td><td>นายกเทศมนตรี/นายก อบจ.</td></tr></tbody></table><br><strong>🧠 จำ:</strong> เรียงตามลำดับชั้น — <strong>ชาติ > กทม. > จังหวัด > อำเภอ > อปท.</strong><br><strong>ผู้อำนวยการ: นายกฯ → ผู้ว่าฯกทม. → ผู้ว่าฯจ. → นายอำเภอ → ผู้บริหารอปท.</strong>`
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🔄 2 แนวทาง vs 3 ระดับ (อย่าสับสน)",
+          "content": `<table class='kb-table'><thead><tr><th>หัวข้อ</th><th>2 แนวทาง (ข้อ 5)</th><th>3 ระดับ (ข้อ 6)</th></tr></thead><tbody><tr class='odd'><td><strong>เกี่ยวกับ</strong></td><td>วิธีการดำเนินงาน (How)</td><td>โครงสร้างการบริหาร (Who)</td></tr><tr class='even'><td><strong>ข้อ 5 (1)</strong></td><td>ส่งเสริมวัฒนธรรมความปลอดภัย</td><td>—</td></tr><tr class='odd'><td><strong>ข้อ 5 (2)</strong></td><td>บูรณาการแผนงาน + งบประมาณ</td><td>—</td></tr><tr class='even'><td><strong>ข้อ 6 (1)</strong></td><td>—</td><td>ระดับนโยบาย (นปถ.)</td></tr><tr class='odd'><td><strong>ข้อ 6 (2)</strong></td><td>—</td><td>ระดับอำนวยการ (ศปถ. ชาติ)</td></tr><tr class='even'><td><strong>ข้อ 6 (3)</strong></td><td>—</td><td>ระดับปฏิบัติการ (ศปถ. จ./อ./อปท.)</td></tr></tbody></table><br><strong>🧠 จำ:</strong> <strong>แนวทาง 2 ข้อ</strong> (ส่งเสริม + บูรณาการ) / <strong>ระดับ 3 ข้อ</strong> (นโยบาย + อำนวยการ + ปฏิบัติการ) — <strong>อย่าสับสน</strong>!`
+        }
+      ]
+    },
+    {
+      "navIcon": "💡",
+      "navLabel": "เทคนิคพิเศษ",
+      "icon": "💡",
+      "title": "ธีมที่ 8 · เทคนิคพิเศษสำหรับอันดับ 1 (เน้นความถูกต้อง)",
+      "description": "เทคนิคขั้นสูง + จุดที่คนมักจำผิด + ตัวเลขน่ารู้",
+      "blocks": [
+        {
+          "type": "highlight-box",
+          "color": "navy",
+          "title": "🎯 เทคนิคที่ 1: จุดที่คนมักจำผิด (ตรวจสอบความถูกต้อง)",
+          "content": `<strong>❌ ผิด → ถูก:</strong><br>❌ <strong>ผิด:</strong> ผู้รักษาการ = <strong>รัฐมนตรีมหาดไทย</strong> → <strong>ถูก:</strong> = <strong>นายกรัฐมนตรี</strong> (ข้อ 3 — เป็นระเบียบ สนร. ไม่ใช่กระทรวงมหาดไทย!)<br>❌ <strong>ผิด:</strong> แนวทางการดำเนินการ <strong>4 ประการ</strong> → <strong>ถูก:</strong> = <strong>2 ประการ</strong> (ข้อ 5 — ส่งเสริมวัฒนธรรม + บูรณาการงบ)<br>❌ <strong>ผิด:</strong> ศปถ. มี <strong>3 ระดับ</strong> → <strong>ถูก:</strong> = <strong>4-5 ระดับ</strong> (ชาติ/กทม./จ./อ./อปท.)<br>❌ <strong>ผิด:</strong> ผู้อำนวยการ ศปถ. ชาติ = <strong>รัฐมนตรีมหาดไทย</strong> → <strong>ถูก:</strong> = <strong>นายกฯ</strong><br>❌ <strong>ผิด:</strong> เลขานุการ นปถ. = <strong>ปลัด มท.</strong> → <strong>ถูก:</strong> = <strong>อธิบดี ปภ.</strong><br>❌ <strong>ผิด:</strong> องค์ประชุม นปถ. ≥ <strong>กึ่งหนึ่ง</strong> → <strong>ถูก:</strong> = <strong>1 ใน 3</strong> (ศปถ. = กึ่งหนึ่ง)<br>❌ <strong>ผิด:</strong> กรรมการผู้ทรงคุณวุฒิ วาระ <strong>3 ปี</strong> → <strong>ถูก:</strong> = <strong>2 ปี</strong><br>❌ <strong>ผิด:</strong> องค์กรปกครองส่วนท้องถิ่น = <strong>รวม กทม.</strong> → <strong>ถูก:</strong> = <strong>ไม่รวม กทม.</strong> (ตามนิยามข้อ 4)<br>❌ <strong>ผิด:</strong> "อำเภอ" ไม่รวม <strong>กิ่งอำเภอ</strong> → <strong>ถูก:</strong> = <strong>รวมถึงกิ่งอำเภอ</strong> (ตามนิยามข้อ 3)`
+        },
+        {
+          "type": "highlight-box",
+          "color": "teal",
+          "title": "🎯 เทคนิคที่ 2: ตัวเลขน่ารู้ (ออกสอบบ่อย)",
+          "content": `<strong>📌 ตัวเลขที่ต้องจำ:</strong><br>▪ <strong>8 ม.ค. 2554</strong> = วันประกาศระเบียบ (มีผล 9 ม.ค. 2554)<br>▪ <strong>2 แนวทาง</strong> (ข้อ 5) — ส่งเสริมวัฒนธรรม + บูรณาการงบ<br>▪ <strong>3 ระดับ</strong> (ข้อ 6) — นโยบาย/อำนวยการ/ปฏิบัติการ<br>▪ <strong>4-5 ระดับ</strong> ศปถ. — ชาติ/กทม./จ./อ./อปท.<br>▪ <strong>1 ใน 3</strong> = องค์ประชุม นปถ. (ข้อ 11)<br>▪ <strong>กึ่งหนึ่ง</strong> = องค์ประชุม ศปถ. (ข้อ 10)<br>▪ <strong>2 ปี</strong> = วาระกรรมการผู้ทรงคุณวุฒิ (ต่อได้ 2 วาระ)<br>▪ <strong>≤ 5 คน</strong> = ผู้ทรงคุณวุฒิ นปถ.<br>▪ <strong>≤ 3 คน</strong> = ผู้ทรงคุณวุฒิ ศปถ. จ./อ.<br>▪ <strong>6 กระทรวง</strong> = ปลัดเป็นกรรมการ นปถ. (มหาดไทย, คมนาคม, สาธารณสุข, ศึกษาธิการ, อุตสาหกรรม, แรงงาน)<br>▪ <strong>3 รองประธาน</strong> นปถ. = มหาดไทย/คมนาคม/สาธารณสุข<br>▪ <strong>3 รองประธาน</strong> ศปถ. จ. = ปลัดจังหวัด/ผบ.ภูธรจังหวัด/นายก อบจ.`
+        },
+        {
+          "type": "highlight-box",
+          "color": "amber",
+          "title": "🎯 เทคนิคที่ 3: โครงสร้างลำดับชั้น (สรุป)",
+          "content": `<strong>📋 ลำดับชั้นการบังคับบัญชา (จากบนลงล่าง):</strong><br><br>1️⃣ <strong>นายกฯ</strong> (ประธาน นปถ. + ผู้อำนวยการ ศปถ.ชาติ)<br>   │<br>2️⃣ <strong>รมว.มหาดไทย</strong> (รองประธาน นปถ. ค1)<br>   │<br>3️⃣ <strong>ผู้ว่าฯ จังหวัด</strong> (ผู้อำนวยการ ศปถ. จ.)<br>   │<br>4️⃣ <strong>นายอำเภอ</strong> (ผู้อำนวยการ ศปถ. อ.)<br>   │<br>5️⃣ <strong>ผู้บริหาร อปท.</strong> (ผู้อำนวยการ ศปถ. อปท.)<br><br><strong>🧠 จำ:</strong> <strong>นายกฯ > รมว. > ผู้ว่าฯ > นายอำเภอ > ผู้บริหาร อปท.</strong><br><br><strong>📌 Flow การทำงาน:</strong> นโยบาย (นปถ.) → อำนวยการ (ศปถ.ชาติ) → ปฏิบัติการ (ศปถ.จ./อ./อปท.) → รายงานกลับ`
+        },
+        {
+          "type": "keypoint",
+          "title": "🧠 สรุปสูตรเร่งรัด - จำ 5 อย่างพอ (อันดับ 1)",
+          "text": `<strong>ระเบียบ ศปถ. 2554 จำ 5 อย่างก็สอบผ่าน:</strong><br>1. <strong>นายกฯ = ผู้รักษาการ + ประธาน นปถ. + ผู้อำนวยการ ศปถ.ชาติ</strong> (3 ตำแหน่งในคนเดียว!)<br>2. <strong>2 แนวทาง</strong> (ส่งเสริมวัฒนธรรม + บูรณาการงบ) / <strong>3 ระดับ</strong> (นโยบาย/อำนวยการ/ปฏิบัติการ) / <strong>4-5 ระดับ ศปถ.</strong> (ชาติ/กทม./จ./อ./อปท.)<br>3. <strong>เลขานุการ นปถ. = อธิบดี ปภ.</strong> / <strong>เลขานุการ ศปถ.จ. = หัวหน้า ปภ.จังหวัด</strong><br>4. <strong>องค์ประชุม:</strong> นปถ. ≥ 1/3 / ศปถ. ≥ 1/2 / มติ = เสียงข้างมาก (เสียงเท่ากัน → ประธานชี้ขาด)<br>5. <strong>ผู้อำนวยการ ศปถ.:</strong> ชาติ=นายกฯ / กทม.=ผู้ว่าฯกทม. / จ.=ผู้ว่าฯจ. / อ.=นายอำเภอ / อปท.=ผู้บริหาร อปท.`
         }
       ]
     }
