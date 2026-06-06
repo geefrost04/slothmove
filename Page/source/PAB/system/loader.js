@@ -34,8 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </a>
                     <div class="nav-center">
                         <a href="#section-home" class="nav-tab active" data-section="home">🏠 หน้าแรก</a>
-                        <a href="#section-s1" class="nav-tab" data-section="s1">📖 สรุปเนื้อหา</a>
-                        <a href="#section-s2" class="nav-tab" data-section="s2">🏛️ โครงสร้าง</a>
                         <a href="flashcard.html" class="nav-tab nav-tab-flashcard" data-section="flashcard" target="_blank" rel="noopener noreferrer">
                             <span class="nav-fc-icon">🎴</span>
                             <span>Flashcard</span>
@@ -55,8 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="mobile-menu" id="mobileMenu">
                     <a href="#section-home">🏠 หน้าแรก</a>
-                    <a href="#section-s1">📖 สรุปเนื้อหา</a>
-                    <a href="#section-s2">🏛️ โครงสร้าง</a>
                     <a href="flashcard.html" class="mobile-flashcard-link" target="_blank" rel="noopener noreferrer">
                         <span>🎴 Flashcard</span>
                     </a>
@@ -81,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span class="hl-yellow" id="hero-title-short">ทบวง กรม</span>
                             </h1>
                             <div class="hero-actions">
-                                <a href="#section-s1" class="btn-primary">
+                                <a href="#section-k1" class="btn-primary">
                                     <span class="btn-fc-icon">📖</span>
                                     <span class="btn-fc-text"><strong>เข้าสู่บทเรียน</strong></span>
                                     <span class="btn-fc-arrow">→</span>
@@ -1728,31 +1724,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const tabs = document.getElementById('knav-tabs');
         const mobileMenu = document.getElementById('mobileMenu');
         if (tabs) {
-            let tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">🏠 หน้าแรก</a>`;
+            // Minimal nav: home + flashcard + quiz only.
+            // knowledgeSections / additionalSections remain on the page for
+            // reading, but we don't surface shortcut buttons in the nav.
+            const tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">🏠 หน้าแรก</a>
+                <a href="flashcard.html" class="nav-tab nav-tab-flashcard" data-section="flashcard" target="_blank" rel="noopener noreferrer">
+                    <span class="nav-fc-icon">🎴</span>
+                    <span>Flashcard</span>
+                </a>
+                <a href="quiz.html" class="nav-tab nav-tab-quiz" data-section="quiz" target="_blank" rel="noopener noreferrer">
+                    <span class="nav-fc-icon">✏️</span>
+                    <span>ทำข้อสอบ</span>
+                </a>`;
             let mobileHtml = `<a href="#section-home">🏠 หน้าแรก</a>`;
-            (kd.knowledgeSections || []).forEach((sec, i) => {
-                const id = 'k' + (i + 1);
-                tabHtml += `<a href="#section-${id}" class="nav-tab" data-section="${id}">${sec.navIcon || '📌'} ${sec.navLabel || ('บทที่ ' + (i+1))}</a>`;
-                mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
-            });
-            tabHtml += `<a href="flashcard.html" class="nav-tab nav-tab-flashcard" data-section="flashcard" target="_blank" rel="noopener noreferrer">
-                <span class="nav-fc-icon">🎴</span>
-                <span>Flashcard</span>
-            </a>`;
-            tabHtml += `<a href="quiz.html" class="nav-tab nav-tab-quiz" data-section="quiz" target="_blank" rel="noopener noreferrer">
-                <span class="nav-fc-icon">✏️</span>
-                <span>ทำข้อสอบ</span>
-            </a>`;
-            (kd.additionalSections || []).forEach((sec, i) => {
-                const id = 'add' + (i + 1);
-                mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
-            });
             mobileHtml += `<a href="flashcard.html" class="mobile-flashcard-link" target="_blank" rel="noopener noreferrer">
-                <span>🎴 Flashcard</span>
-            </a>`;
+                    <span>🎴 Flashcard</span>
+                </a>`;
             mobileHtml += `<a href="quiz.html" class="mobile-quiz-link" target="_blank" rel="noopener noreferrer">
-                <span>✏️ ทำข้อสอบ</span>
-            </a>`;
+                    <span>✏️ ทำข้อสอบ</span>
+                </a>`;
             mobileHtml += `<button class="mobile-cta" onclick="showDonatePopup()">☕ เลี้ยงกาแฟ</button>`;
             tabs.innerHTML = tabHtml;
             if (mobileMenu) mobileMenu.innerHTML = mobileHtml;
