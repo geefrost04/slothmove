@@ -198,44 +198,81 @@
 <!-- ═══ RESULT SCREEN ═══ -->
 <div class="screen" id="resultScreen">
   <div class="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-8">
-    <div class="w-full max-w-lg">
+    <div class="w-full max-w-4xl">
       <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
-        <div class="h-3 bg-accent"></div>
-        <div class="p-8 text-center">
-          <div class="text-6xl mb-4" id="resultEmoji">🏆</div>
-          <h2 class="font-black font-kanit text-2xl text-navy mb-2">ผลการทำข้อสอบจำลอง</h2>
-          <p class="text-slate-400 font-sarabun text-xs mb-4">จำลองสอบสนามจริง ปภ. (ภาค ข.)</p>
-          
-          <div class="my-5 p-6 rounded-2xl bg-cream border border-slate-100">
-            <div class="font-black font-kanit text-4xl text-accent" id="scoreText">145 / 200</div>
-            <div class="text-slate-500 font-kanit font-bold text-sm mt-1" id="scoreDetail">คิดเป็น 72.5%</div>
-            <div class="text-slate-400 font-sarabun text-xs mt-1" id="timeTakenText">เวลาที่ใช้: 1ชั่วโมง 45นาที</div>
-          </div>
+        <div class="h-3 bg-gradient-to-r from-yellow via-accent to-accent-warm"></div>
+        <div class="p-6 sm:p-10">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+            
+            <!-- Left: Score Summary & Primary Actions (2/5 size) -->
+            <div class="md:col-span-2 flex flex-col justify-between text-center border-b md:border-b-0 md:border-r border-slate-100 pb-8 md:pb-0 md:pr-8">
+              <div>
+                <div class="text-6xl mb-4" id="resultEmoji">🏆</div>
+                <h2 class="font-black font-kanit text-2xl text-navy mb-2">ผลการทำข้อสอบจำลอง</h2>
+                <p class="text-slate-400 font-sarabun text-xs mb-4">จำลองสอบสนามจริง ปภ. (ภาค ข.)</p>
+                
+                <div class="my-5 p-6 rounded-2xl bg-cream border border-slate-100">
+                  <div class="font-black font-kanit text-4xl text-accent" id="scoreText">145 / 200</div>
+                  <div class="text-slate-500 font-kanit font-bold text-sm mt-1" id="scoreDetail">คิดเป็น 72.5%</div>
+                  <div class="text-slate-400 font-sarabun text-xs mt-1" id="timeTakenText">เวลาที่ใช้: 1ชั่วโมง 45นาที</div>
+                </div>
 
-          <p class="text-navy font-sarabun text-sm leading-relaxed mb-6 font-semibold" id="resultMsg">ยอดเยี่ยม! พร้อมสอบแล้ว</p>
-          
-          <!-- Action Buttons -->
-          <div class="space-y-2 mb-4">
-            <button class="w-full py-3.5 rounded-2xl font-bold font-kanit text-sm text-white bg-accent hover:bg-accent/90 transition-all flex items-center justify-center gap-2" onclick="openSaveModal()">
-              🏅 บันทึกคะแนนขึ้นกระดานคะแนน
-            </button>
-            <button class="w-full py-3.5 rounded-2xl font-bold font-kanit text-sm bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-all flex items-center justify-center gap-2" id="reviewBtn" onclick="showReview()">
-              📋 ดูเฉลยและทบทวนคำตอบ
-            </button>
-          </div>
+                <p class="text-navy font-sarabun text-sm leading-relaxed mb-6 font-semibold" id="resultMsg">ยอดเยี่ยม! พร้อมสอบแล้ว</p>
+              </div>
 
-          <div class="flex gap-2 mb-4">
-            <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-xs border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5" id="shareBtn" onclick="shareResult()">
-              แชร์คะแนน
-            </button>
-            <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-xs border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5" onclick="downloadCard()">
-              ดาวน์โหลดรูปการ์ด
-            </button>
-          </div>
+              <div class="space-y-4">
+                <!-- Action Buttons -->
+                <div class="space-y-2">
+                  <button class="w-full py-3.5 rounded-2xl font-bold font-kanit text-sm text-white bg-accent hover:bg-accent/90 transition-all flex items-center justify-center gap-2" onclick="openSaveModal()">
+                    🏅 บันทึกคะแนนขึ้นกระดานคะแนน
+                  </button>
+                  <button class="w-full py-3.5 rounded-2xl font-bold font-kanit text-sm bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-all flex items-center justify-center gap-2" id="reviewBtn" onclick="showReview()">
+                    📋 ดูเฉลยและทบทวนคำตอบ
+                  </button>
+                </div>
 
-          <a class="block w-full py-3.5 rounded-2xl font-bold font-kanit text-sm border-2 border-slate-200 text-slate-700 hover:bg-slate-50 transition-all text-center" href="indexPAB.html">
-            กลับหน้าแรก ปภ.
-          </a>
+                <div class="flex gap-2">
+                  <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-xs border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5" id="shareBtn" onclick="shareResult()">
+                    แชร์คะแนน
+                  </button>
+                  <button class="flex-1 py-3 rounded-2xl font-bold font-kanit text-xs border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5" onclick="downloadCard()">
+                    ดาวน์โหลดรูปการ์ด
+                  </button>
+                </div>
+
+                <a class="block w-full py-3.5 rounded-2xl font-bold font-kanit text-sm border-2 border-slate-200 text-slate-700 hover:bg-slate-50 transition-all text-center" href="indexPAB.html">
+                  กลับหน้าแรก ปภ.
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Subject-wise weakness/strength analysis (3/5 size) -->
+            <div class="md:col-span-3 flex flex-col">
+              <h3 class="font-black font-kanit text-navy text-lg mb-1 flex items-center gap-2">
+                📊 วิเคราะห์ผลสัมฤทธิ์รายวิชา
+              </h3>
+              <p class="text-slate-400 font-sarabun text-xs mb-4">ระบบแบ่งตามวิชาที่สุ่มสอบเพื่อวิเคราะห์จุดอ่อน</p>
+
+              <!-- Tabs -->
+              <div class="flex bg-slate-100 p-1 rounded-2xl mb-4 font-kanit font-bold text-xs">
+                <button id="btnTabAll" class="flex-1 py-2 px-3 rounded-xl bg-white text-navy shadow-sm transition-all" onclick="filterAnalysis('all')">
+                  ทั้งหมด (20)
+                </button>
+                <button id="btnTabWeak" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-navy transition-all flex items-center justify-center gap-1" onclick="filterAnalysis('weak')">
+                  จุดอ่อน 🚨 <span id="weakCountBadge" class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full hidden">0</span>
+                </button>
+                <button id="btnTabStrong" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-navy transition-all flex items-center justify-center gap-1" onclick="filterAnalysis('strong')">
+                  จุดแข็ง ✨ <span id="strongCountBadge" class="bg-green-600 text-white text-[10px] px-2 py-0.5 rounded-full hidden">0</span>
+                </button>
+              </div>
+
+              <!-- List container -->
+              <div class="space-y-3 max-h-[450px] overflow-y-auto pr-1" id="analysisContainer">
+                <!-- Dynamically populated subject analysis cards -->
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -330,6 +367,8 @@ let currentIdx = 0;
 let timeRemaining = 180 * 60; // 180 minutes in seconds
 let examTimer = null;
 let startTime = null;
+let analysisData = []; // Subject breakdown data
+let currentAnalysisFilter = 'all'; // Active category filter
 
 const LETTERS = ['ก', 'ข', 'ค', 'ง'];
 
@@ -706,9 +745,149 @@ function submitExam() {
   
   document.getElementById('resultEmoji').textContent = emoji;
   document.getElementById('resultMsg').textContent = msg;
+
+  // Calculate subject-wise score analytics
+  const subjectStats = {};
+  examQuestions.forEach((q, idx) => {
+    if (!subjectStats[q.subject]) {
+      subjectStats[q.subject] = { correct: 0, total: 0 };
+    }
+    subjectStats[q.subject].total++;
+    if (userAnswers[idx] === q.a) {
+      subjectStats[q.subject].correct++;
+    }
+  });
+
+  analysisData = Object.keys(subjectStats).map(sub => {
+    const stat = subjectStats[sub];
+    return {
+      subject: sub,
+      correct: stat.correct,
+      total: stat.total,
+      pct: Math.round((stat.correct / stat.total) * 100)
+    };
+  });
+
+  // Sort by lowest percentage first to highlight weaknesses
+  analysisData.sort((a, b) => a.pct - b.pct);
+
+  // Update tabs counters badges
+  const weakCount = analysisData.filter(item => item.pct < 60).length;
+  const strongCount = analysisData.filter(item => item.pct >= 60).length;
+
+  const weakBadge = document.getElementById('weakCountBadge');
+  if (weakBadge) {
+    weakBadge.textContent = weakCount;
+    if (weakCount > 0) weakBadge.classList.remove('hidden');
+    else weakBadge.classList.add('hidden');
+  }
+
+  const strongBadge = document.getElementById('strongCountBadge');
+  if (strongBadge) {
+    strongBadge.textContent = strongCount;
+    if (strongCount > 0) strongBadge.classList.remove('hidden');
+    else strongBadge.classList.add('hidden');
+  }
+
+  // Render analytics UI in default 'all' tab
+  filterAnalysis('all');
   
   showScreen('resultScreen');
   buildSharePreview(finalScore, examQuestions.length, percentage, emoji);
+}
+
+// Filter subject analysis by categories (all, weak, strong)
+function filterAnalysis(filterMode) {
+  currentAnalysisFilter = filterMode;
+  
+  const btnAll = document.getElementById('btnTabAll');
+  const btnWeak = document.getElementById('btnTabWeak');
+  const btnStrong = document.getElementById('btnTabStrong');
+  
+  if (btnAll) {
+    btnAll.className = filterMode === 'all' 
+      ? 'flex-1 py-2 px-3 rounded-xl bg-white text-navy shadow-sm transition-all'
+      : 'flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-navy transition-all';
+  }
+  if (btnWeak) {
+    btnWeak.className = filterMode === 'weak'
+      ? 'flex-1 py-2 px-3 rounded-xl bg-white text-navy shadow-sm transition-all flex items-center justify-center gap-1'
+      : 'flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-navy transition-all flex items-center justify-center gap-1';
+  }
+  if (btnStrong) {
+    btnStrong.className = filterMode === 'strong'
+      ? 'flex-1 py-2 px-3 rounded-xl bg-white text-navy shadow-sm transition-all flex items-center justify-center gap-1'
+      : 'flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-navy transition-all flex items-center justify-center gap-1';
+  }
+  
+  renderSubjectAnalysis();
+}
+
+// Generate subject-wise analysis cards with progress bars
+function renderSubjectAnalysis() {
+  const container = document.getElementById('analysisContainer');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  
+  let filtered = analysisData;
+  if (currentAnalysisFilter === 'weak') {
+    filtered = analysisData.filter(item => item.pct < 60);
+  } else if (currentAnalysisFilter === 'strong') {
+    filtered = analysisData.filter(item => item.pct >= 60);
+  }
+  
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-8 text-slate-400 font-sarabun text-sm bg-slate-50/50 rounded-2xl border border-dashed border-slate-200">
+        ไม่มีวิชาในหมวดหมู่นี้
+      </div>
+    `;
+    return;
+  }
+  
+  filtered.forEach(item => {
+    const card = document.createElement('div');
+    const isWeak = item.pct < 60;
+    
+    const statusBg = isWeak ? 'bg-red-50 text-red-700 border-red-100' : 'bg-green-50 text-green-700 border-green-100';
+    const statusText = isWeak ? 'ต้องปรับปรุง 🚨' : 'ผ่านเกณฑ์ ✨';
+    const progressColor = isWeak ? 'from-red-400 to-orange-500' : 'from-emerald-400 to-green-600';
+    const bgBarColor = isWeak ? 'bg-red-100' : 'bg-green-100';
+    
+    card.className = `p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-2`;
+    
+    card.innerHTML = `
+      <div class="flex items-start justify-between gap-2">
+        <div class="min-w-0">
+          <h4 class="font-bold font-kanit text-navy text-xs sm:text-sm leading-snug line-clamp-2">${escHtml(item.subject)}</h4>
+        </div>
+        <span class="text-[10px] px-2 py-0.5 rounded-full font-bold font-kanit whitespace-nowrap border ${statusBg}">
+          ${statusText}
+        </span>
+      </div>
+      
+      <div class="flex items-center gap-3 mt-1">
+        <div class="flex-1 ${bgBarColor} h-2 rounded-full overflow-hidden">
+          <div class="bg-gradient-to-r ${progressColor} h-full rounded-full" style="width: ${item.pct}%"></div>
+        </div>
+        <span class="text-xs font-black font-kanit text-navy whitespace-nowrap w-14 text-right">
+          ${item.correct} / ${item.total} (${item.pct}%)
+        </span>
+      </div>
+      
+      <div class="flex justify-end mt-1">
+        <button class="btn-review-sub inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-slate-200 text-slate-700 hover:text-accent hover:border-accent font-bold font-kanit text-[10px] transition-all bg-white">
+          🔍 เจาะลึกเฉลยวิชานี้
+        </button>
+      </div>
+    `;
+    const btn = card.querySelector('.btn-review-sub');
+    if (btn) {
+      btn.onclick = () => showReview(item.subject);
+    }
+    container.appendChild(card);
+  });
 }
 
 // Save to Supabase leaderboard modal logic
@@ -768,16 +947,30 @@ async function confirmSave() {
   }
 }
 
-// Review panel generator
-function showReview() {
+// Review panel generator (supporting subject-wise filtering)
+function showReview(subjectFilter = null) {
   const list = document.getElementById('reviewList');
   list.innerHTML = '';
   
   let wrongCount = 0;
+  let filterCount = 0;
+  let filterWrongCount = 0;
   
   examQuestions.forEach((q, idx) => {
     const isCorrect = userAnswers[idx] === q.a;
-    if (!isCorrect) wrongCount++;
+    if (!isCorrect) {
+      wrongCount++;
+      if (subjectFilter && q.subject === subjectFilter) {
+        filterWrongCount++;
+      }
+    }
+    
+    // Apply subject filter if any
+    if (subjectFilter && q.subject !== subjectFilter) {
+      return;
+    }
+    
+    filterCount++;
     
     const card = document.createElement('div');
     card.className = 'bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm';
@@ -789,10 +982,10 @@ function showReview() {
       
       if (optIdx === q.a) {
         cls = 'review-correct border-2';
-        badge = `<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-green-700 bg-green-100 px-2 py-0.5 rounded-full">✓ คำตอบที่ถูกต้อง</span>`;
+        badge = `<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-green-700 bg-green-100 px-2 py-0.5 rounded-full font-sarabun">✓ คำตอบที่ถูกต้อง</span>`;
       } else if (optIdx === userAnswers[idx]) {
         cls = 'review-wrong border-2';
-        badge = `<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-red-700 bg-red-100 px-2 py-0.5 rounded-full">✗ คำตอบของคุณ</span>`;
+        badge = `<span class="ml-auto shrink-0 text-xs font-bold font-kanit text-red-700 bg-red-100 px-2 py-0.5 rounded-full font-sarabun">✗ คำตอบของคุณ</span>`;
       }
       
       optionsHtml += `
@@ -814,7 +1007,7 @@ function showReview() {
           <span class="text-xs font-bold font-kanit ${isCorrect ? 'text-green-600' : 'text-red-500'}">${isCorrect ? 'ตอบถูก' : 'ตอบผิด'}</span>
           <span class="text-[10px] text-slate-400 font-kanit ml-auto">${q.subject}</span>
         </div>
-        <p class="font-sarabun text-slate-800 text-sm leading-relaxed">${escHtml(q.q)}</p>
+        <p class="font-sarabun text-slate-800 text-sm leading-relaxed font-semibold">${escHtml(q.q)}</p>
       </div>
       <div class="px-5 pb-5 space-y-2">
         ${optionsHtml}
@@ -824,7 +1017,23 @@ function showReview() {
     list.appendChild(card);
   });
   
-  document.getElementById('reviewHeader').textContent = `ตอบผิดทั้งหมด ${wrongCount} จาก ${examQuestions.length} ข้อ`;
+  // Render review header with dynamic filter description and reset button
+  const headerEl = document.getElementById('reviewHeader');
+  if (subjectFilter) {
+    headerEl.innerHTML = `
+      <div class="text-accent font-black text-sm mb-0.5">เฉพาะวิชา: ${escHtml(subjectFilter)}</div>
+      <div class="text-navy font-bold text-xs">ทำถูก ${filterCount - filterWrongCount} / ${filterCount} ข้อ (ตอบผิด ${filterWrongCount} ข้อ)</div>
+      <button class="mt-1.5 px-3 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-[10px] font-bold font-kanit text-slate-600 transition-all inline-flex items-center gap-1" onclick="showReview(null)">
+        👁️ แสดงทุกวิชา
+      </button>
+    `;
+  } else {
+    headerEl.innerHTML = `
+      <div class="font-black text-navy text-sm">แสดงเฉลยทุกวิชา</div>
+      <div class="text-slate-500 text-xs">ตอบผิดทั้งหมด ${wrongCount} จาก ${examQuestions.length} ข้อ</div>
+    `;
+  }
+  
   showScreen('reviewScreen');
 }
 
@@ -1000,7 +1209,7 @@ function downloadCard() {
 }
 
 function escHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
 // Load resources onload
