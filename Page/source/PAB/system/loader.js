@@ -1391,6 +1391,229 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!kd) return;
         window.LESSON_DATA = kd;
 
+        // Inject premium styles if not already injected
+        if (!document.getElementById('premium-explanation-styles')) {
+            const style = document.createElement('style');
+            style.id = 'premium-explanation-styles';
+            style.innerHTML = `
+                /* Premium Infographic Styles */
+                .premium-timeline {
+                    position: relative;
+                    padding-left: 45px;
+                    margin: 30px 0;
+                }
+                .premium-timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 20px;
+                    top: 10px;
+                    bottom: 10px;
+                    width: 3px;
+                    background: linear-gradient(to bottom, var(--yellow-strong) 30%, var(--border) 70%);
+                }
+                .premium-timeline-item {
+                    position: relative;
+                    margin-bottom: 24px;
+                }
+                .premium-timeline-item:last-child {
+                    margin-bottom: 0;
+                }
+                .premium-timeline-node {
+                    position: absolute;
+                    left: -45px;
+                    top: 4px;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background: var(--navy);
+                    border: 3px solid var(--yellow);
+                    color: var(--white);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: var(--font-display);
+                    font-weight: 900;
+                    font-size: 0.95rem;
+                    box-shadow: 0 0 0 4px var(--cream);
+                    z-index: 2;
+                    transition: transform var(--duration-fast) var(--ease-bounce), background-color var(--duration-fast);
+                }
+                .premium-timeline-item:hover .premium-timeline-node {
+                    transform: scale(1.15);
+                    background: var(--yellow-strong);
+                    color: var(--navy);
+                }
+                .premium-timeline-card {
+                    background: var(--white);
+                    border: 1.5px solid var(--border-light);
+                    border-radius: var(--radius-lg);
+                    padding: 20px;
+                    box-shadow: var(--shadow-sm);
+                    transition: all var(--duration-normal) var(--ease-smooth);
+                }
+                .premium-timeline-card:hover {
+                    transform: translateX(4px);
+                    box-shadow: var(--shadow-md);
+                    border-color: var(--yellow-strong);
+                }
+                .premium-timeline-header {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 8px;
+                    margin-bottom: 8px;
+                }
+                .premium-timeline-title {
+                    font-family: var(--font-display);
+                    font-weight: 800;
+                    font-size: 1.05rem;
+                    color: var(--text);
+                }
+                .premium-timeline-badge {
+                    font-family: var(--font-display);
+                    font-size: 0.72rem;
+                    font-weight: 700;
+                    padding: 3px 10px;
+                    border-radius: var(--radius-full);
+                }
+                .premium-timeline-badge.rose { background: #fff1f2; color: #e11d48; border: 1px solid rgba(225,29,72,0.2); }
+                .premium-timeline-badge.amber { background: #fffbeb; color: #d97706; border: 1px solid rgba(217,119,6,0.2); }
+                .premium-timeline-badge.blue { background: #eff6ff; color: #2563eb; border: 1px solid rgba(37,99,235,0.2); }
+                .premium-timeline-badge.green { background: #f0fdf4; color: #16a34a; border: 1px solid rgba(22,163,74,0.2); }
+                .premium-timeline-badge.purple { background: #faf5ff; color: #9333ea; border: 1px solid rgba(147,51,234,0.2); }
+
+                .premium-timeline-desc {
+                    font-family: var(--font-body);
+                    font-size: 0.88rem;
+                    color: var(--text-muted);
+                    line-height: 1.75;
+                }
+
+                /* Flowchart / Card Grid */
+                .premium-flow-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 16px;
+                    margin: 24px 0;
+                }
+                .premium-flow-card {
+                    background: var(--white);
+                    border: 1.5px solid var(--border-light);
+                    border-radius: var(--radius-lg);
+                    padding: 20px;
+                    position: relative;
+                    box-shadow: var(--shadow-sm);
+                    transition: all var(--duration-normal) var(--ease-smooth);
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                .premium-flow-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                }
+                .premium-flow-card.status-allowed::before { background: var(--success); }
+                .premium-flow-card.status-warning::before { background: #f59e0b; }
+                .premium-flow-card.status-restricted::before { background: #d97706; }
+                .premium-flow-card.status-prohibited::before { background: #ef4444; }
+                .premium-flow-card.status-blue::before { background: #3b82f6; }
+                .premium-flow-card.status-navy::before { background: #1a1a2e; }
+                .premium-flow-card.status-purple::before { background: #a855f7; }
+                .premium-flow-card.status-teal::before { background: #14b8a6; }
+                .premium-flow-card.status-amber::before { background: #f59e0b; }
+                .premium-flow-card.status-green::before { background: var(--success); }
+                .premium-flow-card.status-rose::before { background: #f43f5e; }
+
+                .premium-flow-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: var(--shadow-md);
+                }
+                .premium-flow-card.status-allowed:hover { border-color: var(--success); }
+                .premium-flow-card.status-warning:hover { border-color: #f59e0b; }
+                .premium-flow-card.status-restricted:hover { border-color: #d97706; }
+                .premium-flow-card.status-prohibited:hover { border-color: #ef4444; }
+                .premium-flow-card.status-blue:hover { border-color: #3b82f6; }
+                .premium-flow-card.status-navy:hover { border-color: #1a1a2e; }
+                .premium-flow-card.status-purple:hover { border-color: #a855f7; }
+                .premium-flow-card.status-teal:hover { border-color: #14b8a6; }
+                .premium-flow-card.status-amber:hover { border-color: #f59e0b; }
+                .premium-flow-card.status-green:hover { border-color: var(--success); }
+                .premium-flow-card.status-rose:hover { border-color: #f43f5e; }
+
+                .premium-flow-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                .premium-flow-title {
+                    font-family: var(--font-display);
+                    font-weight: 800;
+                    font-size: 1rem;
+                    color: var(--text);
+                }
+                .premium-flow-icon {
+                    font-size: 1.4rem;
+                }
+                .premium-flow-authority {
+                    font-family: var(--font-display);
+                    font-weight: 700;
+                    font-size: 0.8rem;
+                    padding: 4px 10px;
+                    border-radius: var(--radius-md);
+                    width: fit-content;
+                }
+                .status-allowed .premium-flow-authority { background: #e8f5ef; color: var(--success); }
+                .status-warning .premium-flow-authority { background: #fffbeb; color: #b45309; }
+                .status-restricted .premium-flow-authority { background: #fff7ed; color: #c2410c; }
+                .status-prohibited .premium-flow-authority { background: #fef2f2; color: #b91c1c; }
+                .status-blue .premium-flow-authority { background: #eff6ff; color: #1e40af; }
+                .status-navy .premium-flow-authority { background: #f1f5f9; color: #0f172a; }
+                .status-purple .premium-flow-authority { background: #faf5ff; color: #6b21a8; }
+                .status-teal .premium-flow-authority { background: #f0fdfa; color: #0d9488; }
+                .status-amber .premium-flow-authority { background: #fffbeb; color: #b45309; }
+                .status-green .premium-flow-authority { background: #e8f5ef; color: var(--success); }
+                .status-rose .premium-flow-authority { background: #fff1f2; color: #be123c; }
+
+                .premium-flow-desc {
+                    font-family: var(--font-body);
+                    font-size: 0.83rem;
+                    color: var(--text-muted);
+                    line-height: 1.7;
+                }
+
+                /* Dark mode overrides */
+                [data-theme="dark"] .premium-timeline-card,
+                [data-theme="dark"] .premium-flow-card {
+                    background: var(--white);
+                    border-color: var(--border-light);
+                }
+                [data-theme="dark"] .premium-timeline-badge.rose { background: rgba(225,29,72,0.15); }
+                [data-theme="dark"] .premium-timeline-badge.amber { background: rgba(217,119,6,0.15); }
+                [data-theme="dark"] .premium-timeline-badge.blue { background: rgba(37,99,235,0.15); }
+                [data-theme="dark"] .premium-timeline-badge.green { background: rgba(22,163,74,0.15); }
+                [data-theme="dark"] .premium-timeline-badge.purple { background: rgba(147,51,234,0.15); }
+
+                [data-theme="dark"] .status-allowed .premium-flow-authority { background: rgba(61,140,108,0.15); color: #34d399; }
+                [data-theme="dark"] .status-warning .premium-flow-authority { background: rgba(245,158,11,0.15); color: #fbbf24; }
+                [data-theme="dark"] .status-restricted .premium-flow-authority { background: rgba(217,119,6,0.15); color: #fb923c; }
+                [data-theme="dark"] .status-prohibited .premium-flow-authority { background: rgba(239,68,68,0.15); color: #f87171; }
+                [data-theme="dark"] .status-blue .premium-flow-authority { background: rgba(59,130,246,0.15); color: #60a5fa; }
+                [data-theme="dark"] .status-navy .premium-flow-authority { background: rgba(30,41,59,0.3); color: #cbd5e1; }
+                [data-theme="dark"] .status-purple .premium-flow-authority { background: rgba(168,85,247,0.15); color: #c084fc; }
+                [data-theme="dark"] .status-teal .premium-flow-authority { background: rgba(20,184,166,0.15); color: #2dd4bf; }
+                [data-theme="dark"] .status-amber .premium-flow-authority { background: rgba(245,158,11,0.15); color: #fbbf24; }
+                [data-theme="dark"] .status-green .premium-flow-authority { background: rgba(61,140,108,0.15); color: #34d399; }
+                [data-theme="dark"] .status-rose .premium-flow-authority { background: rgba(244,63,94,0.15); color: #fb7185; }
+            `;
+            document.head.appendChild(style);
+        }
+
         document.title = (kd.title || 'ความรู้ทั่วไป') + ' | SlothMove ปภ.';
 
         document.body.innerHTML = `
@@ -1505,10 +1728,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const tabs = document.getElementById('knav-tabs');
         const mobileMenu = document.getElementById('mobileMenu');
         if (tabs) {
-            let tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">📖 เนื้อหาสรุป</a>`;
-            let mobileHtml = `<a href="#section-home">📖 เนื้อหาสรุป</a>`;
+            let tabHtml = `<a href="#section-home" class="nav-tab active" data-section="home">🏠 หน้าแรก</a>`;
+            let mobileHtml = `<a href="#section-home">🏠 หน้าแรก</a>`;
             (kd.knowledgeSections || []).forEach((sec, i) => {
                 const id = 'k' + (i + 1);
+                tabHtml += `<a href="#section-${id}" class="nav-tab" data-section="${id}">${sec.navIcon || '📌'} ${sec.navLabel || ('บทที่ ' + (i+1))}</a>`;
                 mobileHtml += `<a href="#section-${id}">${sec.navIcon || '📌'} ${sec.navLabel || sec.title}</a>`;
             });
             tabHtml += `<a href="flashcard.html" class="nav-tab nav-tab-flashcard" data-section="flashcard" target="_blank" rel="noopener noreferrer">
@@ -2036,6 +2260,42 @@ document.addEventListener('DOMContentLoaded', function() {
                         b.style.background='var(--navy)';b.style.color='#fff';b.style.borderColor='var(--navy)';
                     });
                     </script>`;
+                    break;
+                }
+                case 'premium-timeline': {
+                    html += `<div class="premium-timeline">`;
+                    (block.steps || []).forEach(step => {
+                        html += `
+                        <div class="premium-timeline-item">
+                            <div class="premium-timeline-node">${step.step}</div>
+                            <div class="premium-timeline-card">
+                                <div class="premium-timeline-header">
+                                    <div class="premium-timeline-title">${step.title}</div>
+                                    ${step.badge ? `<span class="premium-timeline-badge ${step.badgeColor || 'amber'}">${step.badge}</span>` : ''}
+                                </div>
+                                <div class="premium-timeline-desc">${step.desc}</div>
+                            </div>
+                        </div>`;
+                    });
+                    html += `</div>`;
+                    break;
+                }
+                case 'premium-flowchart': {
+                    html += `<div class="premium-flow-grid">`;
+                    (block.cards || []).forEach(card => {
+                        html += `
+                        <div class="premium-flow-card status-${card.status || 'allowed'}">
+                            <div class="premium-flow-header">
+                                <div class="premium-flow-title">${card.title}</div>
+                                <div class="premium-flow-icon">${card.icon || 'ℹ️'}</div>
+                            </div>
+                            ${card.authority ? `
+                            <div class="premium-flow-authority">${card.authorityLabel === '' || card.authorityLabel === 'none' ? '' : (card.authorityLabel || 'อนุมัติ') + ': '}${card.authority}</div>
+                            ` : ''}
+                            <div class="premium-flow-desc">${card.desc}</div>
+                        </div>`;
+                    });
+                    html += `</div>`;
                     break;
                 }
                 default: break;

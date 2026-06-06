@@ -1,351 +1,447 @@
-// Content data for: ความรู้เกี่ยวกับการเมือง เศรษฐกิจและสังคม
-// Redesigned for memorability: comparisons, mnemonics, relationship maps, exam points
+// Content data for: ความรู้เกี่ยวกับการเมือง เศรษฐกิจและสังคม - ฉบับเตรียมสอบ 100 คะแนนเต็ม
 window.POLITICAL_ECONOMY_DATA = {
+  id: "political_economy",
+  PAGE_TYPE: "knowledge",
   title: "ความรู้เกี่ยวกับการเมือง เศรษฐกิจและสังคม",
   titleShort: "การเมือง เศรษฐกิจ สังคม",
-  subtitle: "การปกครอง · เศรษฐกิจไทย · สังคม · นโยบายสาธารณะ",
-  badgeLabel: "สำหรับเตรียมสอบภาค ข. ปภ.",
+  subtitle: "การปกครองของไทย · โครงสร้างเศรษฐกิจและ SEP · ประชากรสูงวัย · นโยบายและองค์การระหว่างประเทศ",
+  badgeLabel: "สำหรับเตรียมสอบภาค ข. ปภ. (100 คะแนนเต็ม)",
   emoji: "🏛️",
-  stats: { chapters: 6, parts: 24, vocab: 20, quiz: 100 },
-  PAGE_TYPE: "knowledge",
-  id: "political_economy",
+  stats: {
+    chapters: 5,
+    parts: 25,
+    vocab: 20,
+    quiz: 100
+  },
+  heroStats: [
+    { value: "3 ฝ่าย", label: "อำนาจอธิปไตย" },
+    { value: "6 หลัก", label: "ธรรมาภิบาล" },
+    { value: "20 ปี", label: "ยุทธศาสตร์ชาติ" },
+    { value: "17 ข้อ", label: "เป้าหมาย SDGs" }
+  ],
   knowledgeSections: [
+    // ═══════════════════════════════════════════════════════════
+    // บทที่ 1 — การเมืองการปกครองและโครงสร้างบริหารราชการไทย
+    // ═══════════════════════════════════════════════════════════
     {
       navIcon: "🏛️",
       navLabel: "การเมืองการปกครอง",
       icon: "🏛️",
-      title: "ส่วนที่ 1 · การเมืองการปกครองของไทย",
-      description: "รูปแบบรัฐ · รัฐธรรมนูญ · อำนาจอธิปไตย · โครงสร้างสถาบันการเมือง",
+      title: "บทที่ 1 · การเมืองการปกครองและโครงสร้างบริหารราชการไทย",
+      description: "ทำความเข้าใจรูปแบบรัฐ อำนาจอธิปไตย โครงสร้างสถาบันการเมือง และการจัดสรรโครงสร้างการบริหารราชการไทย",
       blocks: [
         {
           type: "highlight-box",
           color: "navy",
-          title: "🏛️ รูปแบบการปกครองของไทย",
-          content: "<strong>ไทย: ประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข</strong><br><br><strong>💡 จำง่าย:</strong> พระมหากษัตริย์ = ประมุข (ไม่ใช่ผู้ปกครอง) อยู่เหนือการเมือง ดำรงพระองค์เป็นกลาง<br><br><strong>🔑 อำนาจอธิปไตยเป็นของปวงชนชาวไทย</strong> — ใช้ผ่าน 3 สถาบัน<br><br><strong>รัฐธรรมนูญ พ.ศ. 2560:</strong><br>• กฎหมายสูงสุด → กฎหมายใดขัดแย้ง ใช้ไม่ได้<br>• มี <strong>ศาลรัฐธรรมนูญ</strong> วินิจฉัยคดีรัฐธรรมนูญ"
+          title: "🏛️ รูปแบบการปกครองและรัฐธรรมนูญ พ.ศ. 2560",
+          content: "<strong>รูปแบบรัฐ:</strong> ประเทศไทยเป็น <strong>'รัฐเดี่ยว'</strong> (ราชอาณาจักรอันหนึ่งอันเดียว จะแบ่งแยกมิได้) ปกครองระบอบประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข<br>" +
+            "<strong>อำนาจอธิปไตย:</strong> เป็นของปวงชนชาวไทย พระมหากษัตริย์ผู้ทรงเป็นประมุขทรงใช้อำนาจนั้นทางรัฐสภา คณะรัฐมนตรี และศาล ตามบทบัญญัติแห่งรัฐธรรมนูญ<br>" +
+            "<strong>สถานะรัฐธรรมนูญ:</strong> รัฐธรรมนูญแห่งราชอาณาจักรไทย พ.ศ. 2560 เป็น <strong>'กฎหมายสูงสุด'</strong> ของประเทศ บทบัญญัติใดของกฎหมาย กฎ หรือข้อบังคับที่ขัดหรือแย้งต่อรัฐธรรมนูญ บทบัญญัตินั้นเป็นอันใช้บังคับมิได้"
         },
         {
-          type: "comparison-table",
+          type: "highlight-box",
           color: "blue",
-          title: "⚖️ [จำง่าย: นิติ-บริหาร-ตุลา] อำนาจอธิปไตย 3 ฝ่าย",
-          headers: ["อำนาจ", "สถาบัน", "จำนวน", "มาจาก", "ทำหน้าที่"],
-          rows: [
-            ["1️⃣ นิติบัญญัติ", "รัฐสภา", "—", "—", "ตรากฎหมาย"],
-            ["  • ส.ส.", "สภาผู้แทนฯ", "500 คน", "เลือกตั้ง", "—"],
-            ["    ↳ แบ่งเขต", "—", "400 คน", "1 เขต 1 คน", "—"],
-            ["    ↳ บัญชีรายชื่อ", "—", "100 คน", "สัดส่วนพรรค", "—"],
-            ["  • ส.ว.", "วุฒิสภา", "200 คน", "สรรหา", "พิจารณากฎหมาย"],
-            ["2️⃣ บริหาร", "ครม.", "ไม่เกิน 36 คน", "—", "บริหารราชการแผ่นดิน"],
-            ["  • นายกฯ", "—", "1 คน", "จาก ส.ส.", "หัวหน้า ครม."],
-            ["3️⃣ ตุลาการ", "ศาล", "—", "—", "พิจารณาคดี"],
-            ["  • ยุติธรรม", "—", "—", "—", "คดีแพ่ง/อาญาทั่วไป"],
-            ["  • ปกครอง", "—", "—", "—", "ประชาชน vs รัฐ"],
-            ["  • รัฐธรรมนูญ", "—", "—", "—", "วินิจฉัยรัฐธรรมนูญ"],
-            ["  • ทหาร", "—", "—", "—", "คดีทหาร"]
-          ],
-          examNote: "🔴 จุดสอบ: ส.ส. 500 คน (400+100) | ส.ว. 200 คน (สรรหา ไม่ใช่เลือกตั้ง) | รัฐมนตรี ≤36 คน"
+          title: "⚖️ การจัดแบ่งอำนาจอธิปไตย 3 ฝ่าย (นิติบัญญัติ · บริหาร · ตุลาการ)",
+          content: "ระบบการเมืองไทยใช้วิธีถ่วงดุลอำนาจผ่าน 3 สถาบันหลัก โดยมีการจัดสรรอัตราโครงสร้างดังนี้:"
         },
         {
-          type: "comparison-table",
-          color: "amber",
-          title: "📋 โครงสร้างการบริหาร: ส่วนกลาง → ภูมิภาค → ท้องถิ่น",
-          headers: ["ระดับ", "หน่วยงาน", "หัวหน้า", "🔗 ความเชื่อมโยงกับ ปภ."],
-          rows: [
-            ["🏛️ ส่วนกลาง", "กระทรวง/ทบวง/กรม", "รัฐมนตรี", "ปภ. สังกัด <strong>กระทรวงมหาดไทย</strong>"],
-            ["🗺️ ส่วนภูมิภาค", "จังหวัด", "ผู้ว่าฯ จังหวัด", "ปภ.ประจำจังหวัด รายงานผู้ว่าฯ"],
-            ["", "อำเภอ", "นายอำเภอ", "ปภ.ประจำอำเภอ สนับสนุน อบต./เทศบาล"],
-            ["🏘️ ส่วนท้องถิ่น (อปท.)", "องค์การบริหารส่วนจังหวัด (อบจ.)", "นายก อบจ.", "จัดการปัญหาสาธารณะในระดับจังหวัด"],
-            ["", "เทศบาล (นคร/เมือง/ตำบล)", "นายกเทศมนตรี", "เทศบาลนคร มีศูนย์ป้องกันฯ"],
-            ["", "องค์การบริหารส่วนตำบล (อบต.)", "นายก อบต.", "อบต. เป็นหน่วยพื้นที่ระดับตำบล"],
-            ["", "กรุงเทพมหานคร (กทม.)", "ผู้ว่าฯ กทม. (เลือกตั้ง)", "กทม. มีระบบป้องกันฯ เป็นของตัวเอง"],
-            ["", "เมืองพัทยา", "นายกเมืองพัทยา", "รูปแบบพิเศษ ไม่อยู่ใน อบต./เทศบาล"]
-          ],
-          examNote: "🔴 จุดสอบ: ปภ. = กระทรวง<strong>มหาดไทย</strong> ไม่ใช่สาธารณสุข! กทม.เลือกตั้งผู้ว่าฯ เอง"
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "1. ฝ่ายนิติบัญญัติ (รัฐสภา)",
+              icon: "📜",
+              status: "blue",
+              authority: "ส.ส. 500 คน + ส.ว. 200 คน",
+              authorityLabel: "โครงสร้างหลัก",
+              desc: "ทำหน้าที่บัญญัติกฎหมาย ควบคุมการบริหารราชการแผ่นดิน<br>• <strong>ส.ส. (สภาผู้แทนราษฎร):</strong> 500 คน (แบ่งเขต 400 คน + บัญชีรายชื่อ 100 คน)<br>• <strong>ส.ว. (วุฒิสภา):</strong> 200 คน (มาจากการเลือกกันเองของกลุ่มอาชีพ 20 กลุ่ม)"
+            },
+            {
+              title: "2. ฝ่ายบริหาร (คณะรัฐมนตรี)",
+              icon: "💼",
+              status: "purple",
+              authority: "นายกรัฐมนตรี 1 คน + รัฐมนตรีไม่เกิน 35 คน",
+              authorityLabel: "โครงสร้างหลัก",
+              desc: "ทำหน้าที่บริหารราชการแผ่นดิน วางนโยบายและงบประมาณแผ่นดิน มีนายกรัฐมนตรีเป็นหัวหน้าคณะผู้บริหารของประเทศ คณะรัฐมนตรีรวมกันต้องไม่เกิน 36 คน"
+            },
+            {
+              title: "3. ฝ่ายตุลาการ (ระบบศาล)",
+              icon: "⚖️",
+              status: "navy",
+              authority: "ศาลรัฐธรรมนูญ / ยุติธรรม / ปกครอง / ทหาร",
+              authorityLabel: "โครงสร้างหลัก",
+              desc: "ทำหน้าที่พิจารณาพิพากษาคดีตามกฎหมายอย่างยุติธรรม โดยแบ่งศาลออกเป็น 4 ศาลหลักตามขอบเขตคดีความอย่างชัดเจน"
+            }
+          ]
         },
         {
           type: "highlight-box",
           color: "teal",
-          title: "🗳️ ระบบเลือกตั้ง + หลักประชาธิปไตย",
-          content: "<strong>📊 ระบบเลือกตั้ง ส.ส. (รัฐธรรมนูญ 2560):</strong><br><br><table style='width:100%;border-collapse:collapse;font-size:0.85rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;text-align:left;'>ประเภท</th><th style='padding:8px;border:1px solid #333;'>จำนวน</th><th style='padding:8px;border:1px solid #333;text-align:left;'>หลัก</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>แบ่งเขต</strong></td><td style='padding:8px;border:1px solid #ddd;text-align:center;'>400 คน</td><td style='padding:8px;border:1px solid #ddd;'>1 เขต = 1 คน (SMD)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>บัญชีรายชื่อ</strong></td><td style='padding:8px;border:1px solid #ddd;text-align:center;'>100 คน</td><td style='padding:8px;border:1px solid #ddd;'>คำนวณสัดส่วนคะแนนพรรค</td></tr></table><br><strong>💡 จำง่าย: 4+1 = 5 ร้อย</strong><br><br><strong>4 หลักประชาธิปไตย:</strong><br>① เสรีภาพในการแสดงออก<br>② สิทธิเลือกตั้ง<br>③ นิติธรรม (Rule of Law)<br>④ ความโปร่งใส & ตรวจสอบได้<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> กกต. ดูแลเลือกตั้ง → ปภ. เตรียมพร้อมด้านความมั่นคงในช่วงเลือกตั้ง"
+          title: "🏢 โครงสร้างระเบียบบริหารราชการแผ่นดินไทย พ.ศ. 2534",
+          content: "แบ่งออกเป็น 3 ส่วนเพื่อกระจายบทบาทและอำนาจการบริหารงานราชการ:"
+        },
+        {
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "1. ราชการส่วนกลาง",
+              icon: "🏛️",
+              status: "blue",
+              authority: "กระทรวง (20) / ทบวง / กรม",
+              authorityLabel: "หน่วยงาน",
+              desc: "ใช้หลัก <strong>'รวมอำนาจ'</strong> (Centralization) เพื่อควบคุมนโยบายหลักของประเทศ มีฐานะเป็นนิติบุคคลทั้งหมด (ปภ. เป็นกรมสังกัดกระทรวงมหาดไทย)"
+            },
+            {
+              title: "2. ราชการส่วนภูมิภาค",
+              icon: "🗺️",
+              status: "teal",
+              authority: "จังหวัด (76) / อำเภอ",
+              authorityLabel: "หน่วยงาน",
+              desc: "ใช้หลัก <strong>'แบ่งอำนาจ'</strong> (Deconcentration) ส่งผู้แทนจากส่วนกลางไปปกครอง จังหวัดมีสถานะเป็นนิติบุคคล แต่อำเภอ<strong>ไม่เป็นนิติบุคคล</strong>"
+            },
+            {
+              title: "3. ราชการส่วนท้องถิ่น",
+              icon: "🏘️",
+              status: "purple",
+              authority: "อบจ. / อบต. / เทศบาล / กทม. / เมืองพัทยา",
+              authorityLabel: "หน่วยงาน",
+              desc: "ใช้หลัก <strong>'กระจายอำนาจ'</strong> (Decentralization) ให้ประชาชนดูแลตนเอง มีผู้บริหารจากการเลือกตั้ง และมีสถานะเป็นนิติบุคคลอิสระทั้งหมด"
+            }
+          ]
         }
       ]
     },
+
+    // ═══════════════════════════════════════════════════════════
+    // บทที่ 2 — โครงสร้างเศรษฐกิจไทย ดัชนีชีวัด และศาสตร์พระราชา
+    // ═══════════════════════════════════════════════════════════
     {
       navIcon: "💰",
-      navLabel: "เศรษฐกิจไทยและโลก",
+      navLabel: "เศรษฐกิจ & SEP",
       icon: "💰",
-      title: "ส่วนที่ 2 · เศรษฐกิจไทยและเศรษฐกิจโลก",
-      description: "โครงสร้างเศรษฐกิจ · GDP · การค้าระหว่างประเทศ · เศรษฐกิจพอเพียง",
+      title: "บทที่ 2 · โครงสร้างเศรษฐกิจไทย ดัชนีชีวัด และศาสตร์พระราชา",
+      description: "ทำความเข้าใจโครงสร้าง GDP 3 ภาคเศรษฐกิจ ตัวชี้วัดเสถียรภาพการเงิน และการประยุกต์ใช้เศรษฐกิจพอเพียง",
       blocks: [
         {
-          type: "comparison-table",
+          type: "highlight-box",
           color: "navy",
-          title: "📊 [จำง่าย: บ-อ-ก = บริการ > อุตสาหกรรม > เกษตร] โครงสร้างเศรษฐกิจไทย",
-          headers: ["ภาค", "สัดส่วน GDP", "สินค้าหลัก", "ลักษณะเด่น", "🔗 ความเชื่อมโยง ปภ."],
-          rows: [
-            ["1️⃣ บริการ", "~55-60%", "ท่องเที่ยว ค้า โทรคมนาคม", "สร้างรายได้มากสุด ก่อน COVID ~2.8 ล้านล้าน/ปี", "ภัยพิบัติกระทบท่องเที่ยว → ปภ. ช่วยเยียวยา"],
-            ["2️⃣ อุตสาหกรรม", "~30-35%", "ยานยนต์ อิเล็กทรอนิกส์ อาหาร", "EEC (ฉะเชิงเทรา ชลบุรี ระยอง)", "โรงงานเสี่ยงอุบัติเหตุทางอุตสาหกรรม → ปภ. รับผิดชอบ"],
-            ["3️⃣ เกษตร", "~8-10%", "ข้าว ยางพารา มันฯ ข้าวโพด", "ใช้แรงงานมาก (~30%) แต่ GDP ต่ำ ส่งออกข้าวชั้นนำ", "พื้นที่เกษตรเสี่ยงน้ำท่วม ภัยแล้ง → ปภ. ติดตาม"]
-          ],
-          examNote: "🔴 จุดสอบ: บริการ > อุตสาหกรรม > เกษตร (เรียงลำดับตามสัดส่วน GDP จากมากไปน้อย)"
+          title: "📊 โครงสร้างภาคเศรษฐกิจไทยในสัดส่วน GDP",
+          content: "เศรษฐกิจไทยขับเคลื่อนผ่าน 3 ภาคเศรษฐกิจหลักที่มีบทบาทและโครงสร้างต่างกันอย่างมีนัยสำคัญ:"
+        },
+        {
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "1. ภาคบริการ (Services)",
+              icon: "🏨",
+              status: "teal",
+              authority: "สัดส่วน GDP ~55–60%",
+              authorityLabel: "น้ำหนักเศรษฐกิจ",
+              desc: "ประกอบด้วย การท่องเที่ยว โรงแรม การค้าปลีกส่ง และการขนส่ง เป็นภาคเศรษฐกิจที่สร้างมูลค่าและรายได้เข้าประเทศสูงที่สุด"
+            },
+            {
+              title: "2. ภาคอุตสาหกรรม (Industry)",
+              icon: "🏭",
+              status: "purple",
+              authority: "สัดส่วน GDP ~30–35%",
+              authorityLabel: "น้ำหนักเศรษฐกิจ",
+              desc: "ประกอบด้วย อุตสาหกรรมรถยนต์ อิเล็กทรอนิกส์ อาหารสำเร็จรูป และเคมีภัณฑ์ มีฐานการผลิตใหญ่อยู่ในเขตพัฒนาพิเศษภาคตะวันออก (EEC)"
+            },
+            {
+              title: "3. ภาคเกษตรกรรม (Agriculture)",
+              icon: "🌾",
+              status: "blue",
+              authority: "สัดส่วน GDP ~8–10%",
+              authorityLabel: "น้ำหนักเศรษฐกิจ",
+              desc: "ประกอบด้วย การทำนา ยางพารา มันสำปะหลัง ประมง และปศุสัตว์ เป็นภาคที่มีการจ้างงานสูงที่สุด (~30% ของประชากร) แต่มูลค่า GDP ต่ำสุด"
+            }
+          ]
         },
         {
           type: "highlight-box",
           color: "amber",
-          title: "📈 GDP + ตัวชี้วัดเศรษฐกิจ",
-          content: "<strong>GDP</strong> = มูลค่าสินค้า+บริการทั้งหมดที่ผลิตในประเทศ 1 ปี<br><br><strong>💡 จำง่าย: GDP = ขนาดของกินของประเทศ</strong><br><br><strong>ตัวชี้วัดสำคัญ 4 ตัว:</strong><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;margin:8px 0;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:6px 10px;border:1px solid #333;text-align:left;'>ตัวชี้วัด</th><th style='padding:6px 10px;border:1px solid #333;'>วัดอะไร</th><th style='padding:6px 10px;border:1px solid #333;'>ใครดูแล</th></tr><tr style='background:#faf8f4;'><td style='padding:6px 10px;border:1px solid #ddd;'>📈 อัตราเติบโต GDP</td><td style='padding:6px 10px;border:1px solid #ddd;'>ความแข็งแกร่งเศรษฐกิจ</td><td style='padding:6px 10px;border:1px solid #ddd;'>—</td></tr><tr style='background:#f5f0e8;'><td style='padding:6px 10px;border:1px solid #ddd;'>💹 เงินเฟ้อ</td><td style='padding:6px 10px;border:1px solid #ddd;'>ราคาสูงขึ้น กำลังซื้อลด</td><td style='padding:6px 10px;border:1px solid #ddd;'><strong>ธปท.</strong> กนง.กำหนด</td></tr><tr style='background:#faf8f4;'><td style='padding:6px 10px;border:1px solid #ddd;'>💰 อัตราดอกเบี้ย</td><td style='padding:6px 10px;border:1px solid #ddd;'>ต้นทุนการกู้ยืม</td><td style='padding:6px 10px;border:1px solid #ddd;'><strong>กนง.</strong> (แขก ธปท.)</td></tr><tr style='background:#f5f0e8;'><td style='padding:6px 10px;border:1px solid #ddd;'>👷 อัตราว่างงาน</td><td style='padding:6px 10px;border:1px solid #ddd;'>สุขภาพตลาดแรงงาน</td><td style='padding:6px 10px;border:1px solid #ddd;'>กระทรวงแรงงาน</td></tr></table><br><strong>ธปท. ทำอะไร:</strong> นโยบายการเงิน | ควบคุมปริมาณเงิน | กำกับธนาคารพาณิชย์ | ทุนสำรองระหว่างประเทศ<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ภัยพิบัติทำ GDP ตก → ปภ. กู้ฟื้น ดูแลโครงสร้างพื้นฐาน"
+          title: "📈 ตัวชี้วัดเสถียรภาพทางเศรษฐกิจที่ออกสอบบ่อย",
+          content: "• <strong>GDP (Gross Domestic Product):</strong> ผลิตภัณฑ์มวลรวมในประเทศ คือมูลค่าตลาดของสินค้าและบริการขั้นสุดท้ายทั้งหมดที่ผลิตในประเทศในระยะเวลาหนึ่งปี<br>" +
+            "• <strong>อัตราเงินเฟ้อ (Inflation Rate):</strong> ระดับราคาสินค้าอุปโภคบริโภคทั่วไปที่เพิ่มสูงขึ้น ทำให้ค่าของเงินลดลง ควบคุมโดยคณะกรรมการนโยบายการเงิน (กนง.) ของธนาคารแห่งประเทศไทย (ธปท.)<br>" +
+            "• <strong>ดัชนีราคาผู้บริโภค (CPI):</strong> เครื่องมือวัดการเปลี่ยนแปลงราคาของสินค้าและบริการที่ผู้บริโภคซื้อหาเป็นประจำ เพื่อใช้วัดอัตราเงินเฟ้อ<br>" +
+            "• <strong>ทุนสำรองระหว่างประเทศ:</strong> สินทรัพย์ต่างประเทศที่อยู่ในความดูแลของธนาคารกลาง เพื่อใช้รับประกันเสถียรภาพค่าเงินบาท"
         },
         {
           type: "highlight-box",
-          color: "teal",
-          title: "🌐 การค้าระหว่างประเทศและ FTA",
-          content: "<strong>คู่ค้าสำคัญ:</strong> จีน | สหรัฐฯ | ญี่ปุ่น | อาเซียน | สหภาพยุโรป<br><br><strong>💡 จำง่าย FTA: A→R→C (จากเล็กไปใหญ่)</strong><br><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;'>ข้อตกลง</th><th style='padding:8px;border:1px solid #333;'>ระดับ</th><th style='padding:8px;border:1px solid #333;text-align:left;'>สิ่งที่ทำ</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>AFTA</strong></td><td style='padding:8px;border:1px solid #ddd;'>อาเซียน</td><td style='padding:8px;border:1px solid #ddd;'>ลดภาษีในกลุ่มอาเซียน</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>RCEP</strong></td><td style='padding:8px;border:1px solid #ddd;'>อาเซียน+5</td><td style='padding:8px;border:1px solid #ddd;'>ข้อตกลงใหญ่ที่สุดในโลก — อาเซียน+จีน+ญี่ปุ่น+เกาหลี+ออสฯ+นิวซีแลนด์</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>CPTPP</strong></td><td style='padding:8px;border:1px solid #ddd;'>แปซิฟิก</td><td style='padding:8px;border:1px solid #ddd;'>ไทย<strong>อยู่ระหว่างพิจารณา</strong></td></tr></table><br><strong>สินค้าส่งออก 5 อันดับ:</strong> รถยนต์/ชิ้นส่วน → อิเล็กทรอนิกส์ → อาหารแปรรูป → ยางพารา → ข้าว<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ภัยพิบัติกระทบห่วงโซ่อุปทาน → ปภ. ประสานฟื้นฟูการค้า"
+          color: "green",
+          title: "🌱 ปรัชญาเศรษฐกิจพอเพียง (Sufficiency Economy Philosophy - SEP)",
+          content: "พระราชดำริในพระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร (รัชกาลที่ 9) เพื่อเป็นแนวทางการดำรงชีวิตที่ยั่งยืน มีโครงสร้างการคิด 3 ห่วง 2 เงื่อนไข:"
         },
         {
-          type: "highlight-box",
-          color: "blue",
-          title: "🌱 เศรษฐกิจพอเพียง (SEP) — ปรัชญาของรัชกาลที่ 9",
-          content: "<strong>💡 จำง่าย: 3 ห่วง = พอ-เหตุ-ภูมิ | 2 เงื่อนไข = รู้-ดี</strong><br><br><strong>3 ห่วง (ที่ต้องมี):</strong><br>① <strong>พอประมาณ</strong> — ไม่มากเกิน ไม่น้อยเกิน พอดีกับความสามารถ<br>② <strong>มีเหตุผล</strong> — มีเหตุผลรองรับ คิดพิจารณาก่อน<br>③ <strong>ภูมิคุ้มกันในตัวที่ดี</strong> — เตรียมพร้อมรับมือความเสี่ยง<br><br><strong>2 เงื่อนไข (ที่ต้องมี):</strong><br>• <strong>ความรู้</strong> — รอบรู้ รอบคอบ ระมัดระวัง<br>• <strong>คุณธรรม</strong> — ซื่อสัตย์ ขยัน อดทน แบ่งปัน<br><br><strong>นำไปสู่:</strong> ความสมดุล → มั่นคง → ยั่งยืน<br><br><strong>บรรจุใน:</strong> แผนพัฒนาฯ ฉบับที่ 10-12 + ยุทธศาสตร์ชาติ<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> SEP สอนเตรียมพร้อมรับภัยพิบัติ → ชุมชนพึ่งตัวเองได้ → ปภ. ส่งเสริม"
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "3 ห่วง (คุณลักษณะ)",
+              icon: "🎯",
+              status: "green",
+              authority: "พอประมาณ · มีเหตุผล · มีภูมิคุ้มกันที่ดี",
+              authorityLabel: "องค์ประกอบหลัก",
+              desc: "• <strong>พอประมาณ:</strong> ความพอดีที่ไม่น้อยและไม่มากเกินไป ไม่เบียดเบียนตนเองและผู้อื่น<br>• <strong>มีเหตุผล:</strong> การตัดสินใจอย่างรอบคอบตามหลักวิชาการและเหตุปัจจัย<br>• <strong>มีภูมิคุ้มกันที่ดี:</strong> การเตรียมพร้อมรับผลกระทบและการเปลี่ยนแปลง"
+            },
+            {
+              title: "2 เงื่อนไข (พื้นฐานหลัก)",
+              icon: "📚",
+              status: "teal",
+              authority: "เงื่อนไขความรู้ · เงื่อนไขคุณธรรม",
+              authorityLabel: "ข้อกำหนดหลัก",
+              desc: "• <strong>เงื่อนไขความรู้:</strong> ความรอบรู้ รอบคอบ และความระมัดระวังในวิชาการต่างๆ<br>• <strong>เงื่อนไขคุณธรรม:</strong> ความซื่อสัตย์สุจริต ความขยันหมั่นเพียร ความอดทน และการแบ่งปันช่วยเหลือผู้อื่น"
+            }
+          ]
         }
       ]
     },
+
+    // ═══════════════════════════════════════════════════════════
+    // บทที่ 3 — การเปลี่ยนแปลงโครงสร้างประชากร สังคม และความเหลื่อมล้ำ
+    // ═══════════════════════════════════════════════════════════
     {
-      navIcon: "👥",
-      navLabel: "สังคมและประชากร",
-      icon: "👥",
-      title: "ส่วนที่ 3 · สังคม ประชากร และวัฒนธรรมไทย",
-      description: "โครงสร้างประชากร · สังคมผู้สูงอายุ · ความเหลื่อมล้ำ · วัฒนธรรม",
+      navIcon: "👴",
+      navLabel: "ประชากร & ความเหลื่อมล้ำ",
+      icon: "👴",
+      title: "บทที่ 3 · การเปลี่ยนแปลงโครงสร้างประชากร สังคม และความเหลื่อมล้ำ",
+      description: "วิเคราะห์สังคมผู้สูงอายุ (Super-aged Society) ดัชนีความขัดแย้ง Gini และดัชนีพัฒนามนุษย์ (HDI)",
       blocks: [
         {
-          type: "comparison-table",
+          type: "highlight-box",
           color: "navy",
-          title: "👴 [จำง่าย: 10-20-28 = เริ่ม-สูงวัย-สุงวัย] สังคมผู้สูงอายุ",
-          headers: ["ระดับ", "เกณฑ์ (ประชากร 60+)", "สถานะไทย", "💡 จำ"],
-          rows: [
-            ["เริ่มวัย (Aging)", "10-20%", "ไทยเข้าแล้ว", "10% ขึ้นไป"],
-            ["สูงวัย (Aged)", ">20%", "ไทยเข้าแล้ว ปี 2549", ">20%"],
-            ["สุงวัย (Super Aged)", ">28%", "—", ">28%"]
-          ],
-          content: "<br><strong>ผลกระทบ 3 ด้าน:</strong><br>• <strong>แรงงาน ↓</strong> — วัยทำงานลด ผลิตภาพลด<br>• <strong>คลัง ↓</strong> — สวัสดิการ+สุขภาพเพิ่ม<br>• <strong>Silver Economy ↑</strong> — ตลาดผู้สูงอายุเติบโต<br><br><strong>นโยบายรับมือ:</strong> กบช. | กองทุนบำเหน็จบำนาญ | Reskill | Silver Economy<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ผู้สูงอายุเป็นกลุ่มเปราะบางที่สุดต่อภัยพิบัติ → ปภ. จัดการอพยพ+ดูแลพิเศษ"
+          title: "👴 ลำดับระดับการก้าวสู่สังคมผู้สูงอายุของประเทศไทย",
+          content: "เกณฑ์อ้างอิงสากลในการวัดสังคมผู้สูงอายุ โดยใช้เกณฑ์สัดส่วนประชากรสูงวัย (อายุ 60 ปีขึ้นไป หรือ 65 ปีขึ้นไป) แบ่งออกเป็น 3 ขั้นตอนสำคัญ:"
+        },
+        {
+          type: "premium-timeline",
+          steps: [
+            {
+              step: "1",
+              title: "สังคมเริ่มเข้าสู่ช่วงผู้สูงอายุ (Aging Society)",
+              badge: "สัดส่วน 10%",
+              badgeColor: "blue",
+              desc: "เมื่อมีประชากรอายุ 60 ปีขึ้นไป เกินกว่า <strong>10%</strong> ของประชากรทั้งหมด หรือประชากรอายุ 65 ปีขึ้นไป เกินกว่า <strong>7%</strong> (ประเทศไทยก้าวเข้าสู่ขั้นนี้ตั้งแต่ปี พ.ศ. 2548)"
+            },
+            {
+              step: "2",
+              title: "สังคมผู้สูงอายุโดยสมบูรณ์ (Aged Society)",
+              badge: "สัดส่วน 20%",
+              badgeColor: "amber",
+              desc: "เมื่อมีประชากรอายุ 60 ปีขึ้นไป เกินกว่า <strong>20%</strong> ของประชากรทั้งหมด หรือประชากรอายุ 65 ปีขึ้นไป เกินกว่า <strong>14%</strong> (ประเทศไทยเข้าสู่ขั้นนี้ในปี พ.ศ. 2565–2566)"
+            },
+            {
+              step: "3",
+              title: "สังคมผู้สูงอายุระดับสุดยอด (Super-Aged Society)",
+              badge: "สัดส่วน 28%",
+              badgeColor: "rose",
+              desc: "เมื่อมีประชากรอายุ 60 ปีขึ้นไป เกินกว่า <strong>28%</strong> ของประชากรทั้งหมด หรือประชากรอายุ 65 ปีขึ้นไป เกินกว่า <strong>20%</strong> (คาดการณ์ว่าประเทศไทยจะก้าวเข้าสู่ระดับนี้ภายในปี พ.ศ. 2575)"
+            }
+          ]
         },
         {
           type: "highlight-box",
           color: "blue",
-          title: "⚖️ ความเหลื่อมล้ำทางสังคม + นโยบายเฉพาะ",
-          content: "<strong>ค่า Gini Coefficient:</strong> 0 = เสมอภาค | 1 = ไม่เสมอภาค | ไทย ~0.43 (สูง)<br><br><strong>💡 จำง่าย: 4+3 = ไทยยังเหลื่อม (0.43)</strong><br><br><strong>ความเหลื่อมล้ำในไทย:</strong><br>• เมือง ↔ ชนบท<br>• การเข้าถึงการศึกษา<br>• ระหว่างกลุ่มอาชีพ<br><br><strong>นโยบายลดความเหลื่อมล้ำ 4 ด้าน:</strong><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;margin:8px 0;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:6px 10px;border:1px solid #333;text-align:left;'>นโยบาย</th><th style='padding:6px 10px;border:1px solid #333;'>ใครดูแล</th><th style='padding:6px 10px;border:1px solid #333;text-align:left;'>ช่วยกลุ่มไหน</th></tr><tr style='background:#faf8f4;'><td style='padding:6px 10px;border:1px solid #ddd;'>บัตรสวัสดิการแห่งรัฐ</td><td style='padding:6px 10px;border:1px solid #ddd;'>สำนักงบฯ</td><td style='padding:6px 10px;border:1px solid #ddd;'>รายได้น้อย</td></tr><tr style='background:#f5f0e8;'><td style='padding:6px 10px;border:1px solid #ddd;'>ประกันสังคม</td><td style='padding:6px 10px;border:1px solid #ddd;'>สปส.</td><td style='padding:6px 10px;border:1px solid #ddd;'>แรงงาน</td></tr><tr style='background:#faf8f4;'><td style='padding:6px 10px;border:1px solid #ddd;'>สปสช. (บัตรทอง 30 บ.)</td><td style='padding:6px 10px;border:1px solid #ddd;'>สปสช.</td><td style='padding:6px 10px;border:1px solid #ddd;'>ผู้ป่วย ทุกคน</td></tr><tr style='background:#f5f0e8;'><td style='padding:6px 10px;border:1px solid #ddd;'>เบี้ยยังชีพผู้สูงอายุ</td><td style='padding:6px 10px;border:1px solid #ddd;'>ปภ./ท้องถิ่น</td><td style='padding:6px 10px;border:1px solid #ddd;'>ผู้สูงอายุ</td></tr></table><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ภัยพิบัติกระทบคนจนหนักกว่า → ปภ. ประสาน สปสช. เยียวยา"
-        },
-        {
-          type: "highlight-box",
-          color: "amber",
-          title: "🎭 วัฒนธรรมและอัตลักษณ์ไทย",
-          content: "<strong>เสาหลักสังคมไทย:</strong><br>🏛️ ชาติ — 🛕 ศาสนา — 👑 พระมหากษัตริย์<br><br><strong>💡 จำง่าย: ช-ศ-พ = ชาติ ศาสนา พระมหากษัตริย์</strong><br><br><strong>คุณค่าไทย:</strong><br>• น้ำใจไทย — อยู่อย่างเอื้อเฟื้อเผื่อแผ่<br>• ให้เกียรติผู้อาวุโส<br><br><strong>ศาสนาในไทย:</strong><br>• พุทธ (~95%) — ศาสนาหลัก<br>• อิสลาม — ภาคใต้ ชุมชนมุสลิม<br>• คริสต์ ฮินดู ซิกข์ — ชนกลุ่มน้อย<br><br><strong>ความหลากหลาย:</strong> ชนเผ่าพื้นเมือง (เหนือ) | ไทยมุสลิม (ใต้) | ชุมชนจีน (ผสมผสาน)<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> วัฒนธรรมอยู่ร่วมกัน → ปภ. ต้องเคารพความหลากหลายในการช่วยเหลือ"
+          title: "📊 ตัวชี้วัดความเหลื่อมล้ำและระดับการพัฒนาทางสังคม",
+          content: "• <strong>สัมประสิทธิ์จีนี (Gini Coefficient):</strong> เป็นค่าดัชนีวัดความเหลื่อมล้ำทางรายได้และการกระจายทรัพยากร มีค่าระหว่าง 0 ถึง 1 (0 = ความเสมอภาคสมบูรณ์แบบ, 1 = ความไม่เสมอภาคสูงสุด) ประเทศไทยมีค่าสัมประสิทธิ์จีนีอยู่ที่ประมาณ <strong>0.43</strong> ซึ่งอยู่ในระดับค่อนข้างสูง บ่งบอกถึงช่องว่างรายได้ขนาดใหญ่ระหว่างคนจนและคนรวย<br>" +
+            "• <strong>ดัชนีพัฒนามนุษย์ (HDI - Human Development Index):</strong> ตัวชี้วัดคุณภาพชีวิตประชากรขององค์การสหประชาชาติ (UNDP) ประเมินผ่าน 3 มิติหลัก: สุขภาพ (อายุขัยเฉลี่ย) · การศึกษา (จำนวนปีที่คาดว่าจะได้รับการศึกษา) · รายได้เฉลี่ย (รายได้ประชาชาติต่อหัว GNI per capita) ประเทศไทยจัดอยู่ในกลุ่ม <strong>'การพัฒนามนุษย์ระดับสูงมาก' (Very High Human Development)</strong>"
         },
         {
           type: "highlight-box",
           color: "teal",
-          title: "📚 การศึกษาไทย vs ปัญหา",
-          content: "<strong>ระบบการศึกษา:</strong><br>อนุบาล (3-5ป) → ประถม (6ป) → มัธยม (6ป) → อุดมศึกษา<br><br><strong>💡 จำง่าย: บังคับ 9 ปี = ประถม+มัธยมต้น | ฟรี 12 ปี = ถึงมัธยมปลาย</strong><br><br><strong>HDI (ดัชนีพัฒนามนุษย์) — ไทย: ระดับสูง</strong><br>วัดจาก: อายุยืน (สุขภาพ) + การศึกษา + รายได้<br><br><strong>ปัญหา 4 ด้าน:</strong><br>① คุณภาพต่างกัน เมือง↔ชนบท<br>② PISA ต่ำกว่า OECD<br>③ ขาดครูพื้นที่ห่างไกล<br>④ ทักษะดิจิทัล & 21st Century Skills<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> การศึกษาสร้างความรู้ภัยพิบัติ → ปภ. ส่งเสริมการเรียนรู้ภัยพิบัติในโรงเรียน"
+          title: "🏛️ เสาหลักสถาบันหลักและวัฒนธรรมสังคมไทย",
+          content: "• <strong>3 สถาบันหลักของชาติ:</strong> ชาติ ศาสนา และพระมหากษัตริย์ เป็นโครงสร้างความยึดเหนี่ยวสูงสุดในสังคมไทย<br>" +
+            "• <strong>ระบบหลักประกันสุขภาพถ้วนหน้า (บัตรทอง 30 บาท):</strong> ดำเนินงานโดยสำนักงานหลักประกันสุขภาพแห่งชาติ (สปสช.) เป็นนโยบายลดความเหลื่อมล้ำด้านการรักษาพยาบาลที่ได้รับความชื่นชมในระดับโลก<br>" +
+            "• <strong>บัตรสวัสดิการแห่งรัฐ:</strong> นโยบายจัดสรรเม็ดเงินช่วยเหลือค่าครองชีพให้แก่กลุ่มผู้มีรายได้น้อยผ่านระบบฐานข้อมูลภาครัฐ"
         }
       ]
     },
+
+    // ═══════════════════════════════════════════════════════════
+    // บทที่ 4 — นโยบายสาธารณะ ยุทธศาสตร์ชาติ และกรอบองค์การความร่วมมือสากล
+    // ═══════════════════════════════════════════════════════════
     {
       navIcon: "📋",
-      navLabel: "นโยบายสาธารณะ",
+      navLabel: "นโยบาย & สากล",
       icon: "📋",
-      title: "ส่วนที่ 4 · นโยบายสาธารณะและการบริหารภาครัฐ",
-      description: "วงจรนโยบาย · ธรรมาภิบาล · การกระจายอำนาจ · ยุทธศาสตร์ชาติ",
+      title: "บทที่ 4 · นโยบายสาธารณะ ยุทธศาสตร์ชาติ และกรอบองค์การความร่วมมือสากล",
+      description: "ทำความเข้าใจระยะวงจรนโยบาย 6 ยุทธศาสตร์ชาติ บอร์ดบริหารเตือนภัยพิบัติ และความร่วมมือ UN/ASEAN",
       blocks: [
         {
           type: "highlight-box",
           color: "navy",
-          title: "🔄 [จำง่าย: วาระ→เลือก→ตัดสิน→ทำ→วัด] วงจรนโยบายสาธารณะ 5 ระยะ",
-          content: "<strong>วงจรนโยบาย (Policy Cycle) = แนวทางรัฐจัดการปัญหาสังคม</strong><br><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;width:40px;'>ขั้น</th><th style='padding:8px;border:1px solid #333;'>ชื่อ</th><th style='padding:8px;border:1px solid #333;text-align:left;'>ทำอะไร</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>①</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>วาระ</strong><br><small>(Agenda)</small></td><td style='padding:8px;border:1px solid #ddd;'>ปัญหาได้รับความสนใจจากสาธารณะและผู้กำหนดนโยบาย</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>②</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>กำหนด</strong><br><small>(Formulate)</small></td><td style='padding:8px;border:1px solid #ddd;'>ออกแบบทางเลือก วิเคราะห์ผลกระทบ</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>③</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>ตัดสินใจ</strong><br><small>(Decision)</small></td><td style='padding:8px;border:1px solid #ddd;'>อนุมัติผ่านฝ่ายบริหาร/นิติบัญญัติ</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>④</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>ปฏิบัติ</strong><br><small>(Implement)</small></td><td style='padding:8px;border:1px solid #ddd;'>หน่วยงานรัฐดำเนินงาน</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>⑤</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>วัดผล</strong><br><small>(Evaluate)</small></td><td style='padding:8px;border:1px solid #ddd;'>วัดผลสัมฤทธิ์ ปรับปรุง → วกลับไปขั้น ①</td></tr></table><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ปภ. อยู่ขั้น ④ ปฏิบัติ → ขั้น ⑤ วัดผล → วนกลับปรับปรุง"
+          title: "🔄 วงจรนโยบายสาธารณะ (Public Policy Cycle) 5 ระยะ",
+          content: "กระบวนการจัดการปัญหาของรัฐบาลอย่างมีระบบ แบ่งออกเป็น 5 ลำดับขั้นที่ส่งต่อหน้าที่กันอย่างเชื่อมโยง:"
+        },
+        {
+          type: "premium-timeline",
+          steps: [
+            {
+              step: "1",
+              title: "การก่อตัวของนโยบาย (Policy Agenda Setting)",
+              badge: "วาระนโยบาย",
+              badgeColor: "blue",
+              desc: "การระบุระดมปัญหาในสังคมที่จำเป็นต้องได้รับการแก้ไข นำเข้าสู่วาระการประชุมพิจารณาของคณะรัฐมนตรีหรือผู้มีส่วนตัดสินใจหลัก"
+            },
+            {
+              step: "2",
+              title: "การกำหนดทางเลือกนโยบาย (Policy Formulation)",
+              badge: "ร่างทางเลือก",
+              badgeColor: "amber",
+              desc: "หน่วยงานภาครัฐ คณะกรรมการ หรือนักวิชาการร่วมออกแบบแผนงาน วิเคราะห์ข้อดีข้อเสีย และผลกระทบต่อเศรษฐกิจสังคมเพื่อเสนอแนวทาง"
+            },
+            {
+              step: "3",
+              title: "การอนุมัติตัดสินใจนโยบาย (Policy Decision Making)",
+              badge: "พิจารณาตัดสิน",
+              badgeColor: "rose",
+              desc: "ผู้มีอำนาจตัดสินใจสูงสุด (รัฐสภา หรือ คณะรัฐมนตรี) ทำการอนุมัติเลือกแผนงานที่ดีที่สุด ตราเป็นกฎหมาย งบประมาณ หรือแนวทางบริหารราชการ"
+            },
+            {
+              step: "4",
+              title: "การนำนโยบายไปปฏิบัติ (Policy Implementation)",
+              badge: "ลงมือปฏิบัติ",
+              badgeColor: "green",
+              desc: "การนำนโยบายไปปฏิบัติจริงในพื้นที่ผ่านกลไกส่วนราชการและหน่วยงานปฏิบัติการ เช่น กรมป้องกันและบรรเทาสาธารณภัย รับผิดชอบงานป้องกันภัย"
+            },
+            {
+              step: "5",
+              title: "การประเมินผลนโยบาย (Policy Evaluation)",
+              badge: "วัดผลสำเร็จ",
+              badgeColor: "purple",
+              desc: "การติดตามวัดผลสัมฤทธิ์ของนโยบายเทียบกับเป้าหมายที่ตั้งไว้ เพื่อปรับปรุงแก้ไข หรือยุติโครงการและนำข้อมูลย้อนกลับเข้าสู่วงจรนโยบายขั้นแรก"
+            }
+          ]
         },
         {
           type: "highlight-box",
-          color: "amber",
-          title: "⭐ [จำง่าย: นิ-คุ-โป-มี-รับ-คุ้ม] ธรรมาภิบาล 6 หลัก (2542)",
-          content: "<strong>💡 จำง่าย: นิ-คุ-โป-มี-รับ-คุ้ม</strong><br><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;width:40px;'>ลำดับ</th><th style='padding:8px;border:1px solid #333;'>หลัก</th><th style='padding:8px;border:1px solid #333;text-align:left;'>หมายถึง</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>①</td><td style='padding:8px;border:1px solid #ddd;'><strong>นิติธรรม</strong></td><td style='padding:8px;border:1px solid #ddd;'>ทุกคนอยู่ภายใต้กฎหมาย เท่าเทียม</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>②</td><td style='padding:8px;border:1px solid #ddd;'><strong>คุณธรรม</strong></td><td style='padding:8px;border:1px solid #ddd;'>ยึดมั่นความถูกต้อง ซื่อสัตย์</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>③</td><td style='padding:8px;border:1px solid #ddd;'><strong>โปร่งใส</strong></td><td style='padding:8px;border:1px solid #ddd;'>เปิดเผยข้อมูล ตรวจสอบได้</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>④</td><td style='padding:8px;border:1px solid #ddd;'><strong>มีส่วนร่วม</strong></td><td style='padding:8px;border:1px solid #ddd;'>ประชาชนมีส่วนในกระบวนการตัดสินใจ</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>⑤</td><td style='padding:8px;border:1px solid #ddd;'><strong>รับผิดชอบ</strong></td><td style='padding:8px;border:1px solid #ddd;'>รับผิดชอบต่อผลการกระทำ</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>⑥</td><td style='padding:8px;border:1px solid #ddd;'><strong>คุ้มค่า</strong></td><td style='padding:8px;border:1px solid #ddd;'>ใช้ทรัพยากรอย่างประหยัด+มีประสิทธิภาพ</td></tr></table><br>🔴 <strong>จุดสอบ: ธรรมาภิบาล = <u>6 หลัก</u> (ไม่ใช่ 5 หรือ 7) ตามระเบียบสำนักนายกฯ พ.ศ. 2542<br>⚠️ หมายเหตุ: UN มี 8 ข้อ แต่ไทยใช้ 6 หลักของตัวเอง</strong><br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ธรรมาภิบาล = กรอบการทำงานของ ปภ. ทุกระดับ → โปร่งใส มีส่วนร่วม รับผิดชอบ"
+          color: "blue",
+          title: "🎯 ยุทธศาสตร์ชาติ 20 ปี (พ.ศ. 2561–2580) และระเบียบธรรมาภิบาล",
+          content: "• <strong>ยุทธศาสตร์ชาติ 20 ปี:</strong> มี 6 ด้านหลัก ท่องจำย่อ: <strong>'ม-แ-ค-ส-ร-ป'</strong> (ความมั่นคง · ขีดความสามารถการแข่งขัน · พัฒนาศักยภาพคน · ความเสมอภาคสังคม · เติบโตบนคุณภาพชีวิตที่เป็นมิตรกับสิ่งแวดล้อม · ปรับสมดุลระบบบริหารราชการภาครัฐ)<br>" +
+            "• <strong>หลักธรรมาภิบาล (Good Governance):</strong> ระเบียบสำนักนายกรัฐมนตรี พ.ศ. 2542 กำหนดไว้ <strong>6 หลักสำคัญ</strong>: นิติธรรม · คุณธรรม · โปร่งใส · มีส่วนร่วม · รับผิดชอบ · คุ้มค่า"
         },
         {
           type: "highlight-box",
           color: "teal",
-          title: "🎯 [จำง่าย: ม-แ-ค-ส-ร-ป] ยุทธศาสตร์ชาติ 6 ด้าน (2561-2580)",
-          content: "<strong>💡 จำง่าย: ม-แ-ค-ส-ร-ป = ม(ั่นคง)-(แข่งขัน)-(คน)-(สิ่งแวดล้อม)-(รัฐ)</strong><br><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;width:40px;'>ด้าน</th><th style='padding:8px;border:1px solid #333;'>ชื่อ</th><th style='padding:8px;border:1px solid #333;text-align:left;'>เป้าหมาย</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>①</td><td style='padding:8px;border:1px solid #ddd;'><strong>มั่นคง</strong></td><td style='padding:8px;border:1px solid #ddd;'>ปกป้องเอกราช บูรณภาพแผ่นดิน</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>②</td><td style='padding:8px;border:1px solid #ddd;'><strong>แข่งขัน</strong></td><td style='padding:8px;border:1px solid #ddd;'>ยกระดับเศรษฐกิจ+นวัตกรรม</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>③</td><td style='padding:8px;border:1px solid #ddd;'><strong>คน</strong></td><td style='padding:8px;border:1px solid #ddd;'>คนไทยคุณภาพ (ทรัพยากรมนุษย์)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>④</td><td style='padding:8px;border:1px solid #ddd;'><strong>สิ่งแวดล้อม</strong></td><td style='padding:8px;border:1px solid #ddd;'>BCG — เติบโตคุณภาพชีวิต+สิ่งแวดล้อม</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>⑤</td><td style='padding:8px;border:1px solid #ddd;'><strong>สมดุล</strong></td><td style='padding:8px;border:1px solid #ddd;'>โอกาส+ความเสมอภาคทางสังคม</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'>⑥</td><td style='padding:8px;border:1px solid #ddd;'><strong>รัฐ</strong></td><td style='padding:8px;border:1px solid #ddd;'>รัฐบาลดิจิทัล ปรับสมดุลภาครัฐ</td></tr></table><br><strong>เป้าหมายรวม:</strong> ไทยเป็น <strong>ประเทศพัฒนาแล้ว</strong> — มั่นคง มั่งคั่ง ยั่งยืน<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ยุทธศาสตร์ชาติ ด้าน 1 ความมั่นคง → ปภ. เป็นหน่วยงานหลักด้านความมั่นคงพลเรือน"
+          title: "🌐 ความร่วมมือระหว่างประเทศและองค์การสากลด้านภัยพิบัติ",
+          content: "กรอบความร่วมมือระหว่างประเทศที่เกี่ยวข้องกับประเทศไทยและงานป้องกันภัย ปภ. โดยตรง:"
         },
         {
-          type: "highlight-box",
-          color: "blue",
-          title: "🏘️ การกระจายอำนาจสู่ท้องถิ่น — รูปแบบ อปท.",
-          content: "<strong>หลักการ:</strong> รัฐถ่ายโอนอำนาจ+ทรัพยากร → ท้องถิ่น → ประชาชนจัดการตนเอง<br><br><strong>รูปแบบ อปท. (เรียงจากเล็ก→ใหญ่):</strong><br><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;'>รูปแบบ</th><th style='padding:8px;border:1px solid #333;'>ระดับ</th><th style='padding:8px;border:1px solid #333;text-align:left;'>ผู้บริหาร</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'>อบต.</td><td style='padding:8px;border:1px solid #ddd;'>ตำบล</td><td style='padding:8px;border:1px solid #ddd;'>นายก อบต. (เลือกตั้ง)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'>เทศบาลตำบล</td><td style='padding:8px;border:1px solid #ddd;'>ตำบล/ชุมชน</td><td style='padding:8px;border:1px solid #ddd;'>นายกเทศมนตรี (เลือกตั้ง)</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'>เทศบาลเมือง</td><td style='padding:8px;border:1px solid #ddd;'>เขตเมือง</td><td style='padding:8px;border:1px solid #ddd;'>นายกเทศมนตรี (เลือกตั้ง)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'>เทศบาลนคร</td><td style='padding:8px;border:1px solid #ddd;'>เมืองใหญ่</td><td style='padding:8px;border:1px solid #ddd;'>นายกเทศมนตรี (เลือกตั้ง)</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'>อบจ.</td><td style='padding:8px;border:1px solid #ddd;'>จังหวัด</td><td style='padding:8px;border:1px solid #ddd;'>นายก อบจ. (เลือกตั้ง)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'>กทม.</td><td style='padding:8px;border:1px solid #ddd;'>กรุงเทพฯ</td><td style='padding:8px;border:1px solid #ddd;'>ผู้ว่าฯ กทม. (เลือกตั้งโดยตรง — พิเศษ!)</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'>เมืองพัทยา</td><td style='padding:8px;border:1px solid #ddd;'>รูปแบบพิเศษ</td><td style='padding:8px;border:1px solid #ddd;'>นายกเมืองพัทยา (เลือกตั้ง)</td></tr></table><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> อปท. เป็นหน่วยพื้นที่ระดับแรกที่ปภ. ประสานงาน → อบต. เทศบาล มีศูนย์ป้องกันฯ"
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "1. อาเซียน (ASEAN)",
+              icon: "🌏",
+              status: "blue",
+              authority: "ก่อตั้ง 8 ส.ค. 2510 ณ กรุงเทพฯ",
+              authorityLabel: "ก่อตั้ง",
+              desc: "สำนักงานเลขาธิการตั้งอยู่ ณ <strong>กรุงจาการ์ตา อินโดนีเซีย</strong> มีเสาหลักที่ 3 (ASCC) เรื่องประชาสังคมที่ดูแลความร่วมมือทางด้านมนุษยธรรมและบรรเทาภัยพิบัติ (AHA Centre)"
+            },
+            {
+              title: "2. องค์การสหประชาชาติ (UN)",
+              icon: "🇺🇳",
+              status: "purple",
+              authority: "สำนักงานใหญ่: นิวยอร์ก สหรัฐฯ",
+              authorityLabel: "ก่อตั้ง",
+              desc: "มีหน่วยงานเฉพาะกิจ <strong>UNDRR</strong> (สำนักงานลดความเสี่ยงภัยพิบัติ) และ <strong>UNOCHA</strong> (สำนักงานประสานงานช่วยเหลือด้านมนุษยธรรม) ทำหน้าที่สนับสนุน ปภ. เมื่อเกิดเหตุภัยพิบัติใหญ่"
+            },
+            {
+              title: "3. เป้าหมายการพัฒนาที่ยั่งยืน (SDGs)",
+              icon: "🌱",
+              status: "green",
+              authority: "17 เป้าหมาย สิ้นสุดปี 2030",
+              authorityLabel: "กรอบเป้าหมาย",
+              desc: "เป้าหมายหลักที่เกี่ยวข้องกับ ปภ. คือ <strong>SDG 13: Climate Action</strong> การดำเนินงานรับมือการเปลี่ยนแปลงสภาพภูมิอากาศเพื่อลดภัยธรรมชาติ"
+            }
+          ]
         }
       ]
     },
+
+    // ═══════════════════════════════════════════════════════════
+    // บทที่ 5 — สรุปจุดสำคัญ ตัวเลขลัดจำ และทริคพิชิต 100 คะแนนเต็ม
+    // ═══════════════════════════════════════════════════════════
     {
-      navIcon: "🌏",
-      navLabel: "ความสัมพันธ์ระหว่างประเทศ",
-      icon: "🌏",
-      title: "ส่วนที่ 5 · ความสัมพันธ์ระหว่างประเทศและอาเซียน",
-      description: "ASEAN · ความร่วมมือระหว่างประเทศ · นโยบายต่างประเทศ · UN",
+      navIcon: "🔢",
+      navLabel: "ทริค 100 คะแนน",
+      icon: "🔢",
+      title: "บทที่ 5 · สรุปจุดสำคัญ ตัวเลขลัดจำ และทริคพิชิต 100 คะแนนเต็ม",
+      description: "รวบรวม Mnemonics สูตรลัดจำตัวเลขทางเศรษฐกิจการเมือง และคีย์ลวงที่ออกสอบบ่อยที่สุด",
       blocks: [
         {
           type: "highlight-box",
           color: "navy",
-          title: "🌏 [จำง่าย: ก→จ→8 = ก่อตั้งที่กรุงเทพฯ จาการ์ตาเป็นสำนักงาน 8 ส.ค. 2510] ASEAN",
-          content: "<strong>ASEAN = Association of Southeast Asian Nations</strong><br><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;margin:8px 0;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;'>ข้อมูล</th><th style='padding:8px;border:1px solid #333;text-align:left;'>รายละเอียด</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>ก่อตั้ง</strong></td><td style='padding:8px;border:1px solid #ddd;'>8 สิงหาคม 2510 ที่ <strong>กรุงเทพฯ</strong> (ปฏิญญาบางกอก)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>สำนักเลขาฯ</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>กรุงจาการ์ตา อินโดนีเซีย</strong> (ไม่ใช่กรุงเทพฯ!)</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>สมาชิก</strong></td><td style='padding:8px;border:1px solid #ddd;'>10 ประเทศ</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>ไทย</strong></td><td style='padding:8px;border:1px solid #ddd;'>1 ใน 5 ผู้ก่อตั้ง | ประธาน ASEAN 2562</td></tr></table><br><strong>3 เสาหลัก (วิสัยทัศน์อาเซียน):</strong><br>① <strong>APSC</strong> — ประชาคมการเมืองและความมั่นคง<br>② <strong>AEC</strong> — ประชาคมเศรษฐกิจ<br>③ <strong>ASCC</strong> — ประชาคมสังคมและวัฒนธรรม<br><br><strong>💡 จำง่าย: ก-จ-3 = ก่อตั้ง→จาการ์ตา→3 เสาหลัก</strong><br><br><strong>🔴 จุดสอบ: สำนักเลขาฯ ASEAN = กรุง<strong>จาการ์ตา</strong> (ไม่ใช่กรุงเทพฯ)</strong><br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ASEAN = กรอบความร่วมมือด้านภัยพิบัติระดับภูมิภาค → ปภ. ประสานกับศูนย์ป้องกันฯ อาเซียน (AHA Centre)"
+          title: "🔢 ตัวเลขสำคัญทางสถิติที่ต้องมีในหัวสมองก่อนเข้าสอบ",
+          content: "<strong>2560</strong> — รัฐธรรมนูญฉบับปัจจุบันของไทย (ฉบับที่ 20)<br>" +
+            "<strong>500 / 200</strong> — ส.ส. 500 คน (400 แบ่งเขต + 100 บัญชี) และ ส.ว. 200 คน<br>" +
+            "<strong>36</strong> — จำนวนรัฐมนตรีสูงสุดในคณะรัฐมนตรี (นายกฯ 1 + รัฐมนตรีอื่น 35)<br>" +
+            "<strong>6 ด้าน / 20 ปี</strong> — ยุทธศาสตร์ชาติ 20 ปี มี 6 ด้านหลักย่อย<br>" +
+            "<strong>6 หลัก</strong> — หลักธรรมาภิบาลระเบียบสำนักนายกฯ พ.ศ. 2542<br>" +
+            "<strong>0.43</strong> — ดัชนีความเหลื่อมล้ำจีนี (Gini) ของไทย<br>" +
+            "<strong>10-20-28</strong> — เกณฑ์สัดส่วนผู้สูงอายุ 10% (Aging) / 20% (Aged) / 28% (Super-aged)"
+        },
+        {
+          type: "comparison-table",
+          title: "⚖️ เปรียบเทียบความแตกต่างบอร์ดการบริหารและการเมือง (จุดสอบระวังสับสน)",
+          headers: ["หัวข้อเปรียบเทียบ", "ข้อมูลข้อเขียนที่ถูกต้อง", "จุดหลอกของข้อสอบที่มักเจอ"],
+          rows: [
+            ["<strong>กระทรวงสังกัด ปภ.</strong>", "สังกัด <strong>กระทรวงมหาดไทย</strong>", "มักลวงว่าสังกัดกระทรวงสาธารณสุข"],
+            ["<strong>สำนักงานเลขาฯ อาเซียน</strong>", "ตั้งอยู่ที่ <strong>กรุงจาการ์ตา อินโดนีเซีย</strong>", "มักลวงว่าอยู่ที่กรุงเทพฯ (เพราะปฏิญญาเริ่มที่ไทย)"],
+            ["<strong>บอร์ด กภช. (เตือนภัย)</strong>", "ฝ่ายเลขาคือ <strong>อธิบดีกรม ปภ.</strong>", "มักลวงว่าเลขาคือปลัดสำนักนายกฯ (สับสนกับ กปอ.)"],
+            ["<strong>ตัวชี้วัดความเสมอภาค Gini</strong>", "ตัวเลขยิ่ง <strong>เข้าใกล้ 0 ยิ่งเสมอภาคมาก</strong>", "มักลวงว่าตัวเลขเข้าใกล้ 1 ยิ่งเสมอภาคมาก"],
+            ["<strong>BCG Economy</strong>", "โมเดลเศรษฐกิจเน้นเทคโนโลยีชีวภาพ ไม่ใช่เรื่องเดียวกับ SEP", "มักลวงว่าเป็นชื่อใหม่ของปรัชญาเศรษฐกิจพอเพียง"]
+          ]
+        },
+        {
+          type: "key-summary",
+          title: "🧠 สูตรย่อช่วยจำ (Mnemonics Hack) เพื่อสอบผ่านวิชาทั่วไป",
+          content: "• <strong>สูตรธรรมาภิบาลไทย (6 หลัก):</strong> \"นิ (นิติธรรม) - คุ (คุณธรรม) - โป (โปร่งใส) - มี (มีส่วนร่วม) - รับ (รับผิดชอบ) - คุ้ม (คุ้มค่า)\"<br>" +
+            "• <strong>สูตรยุทธศาสตร์ชาติ 6 ด้าน:</strong> \"ม (มั่นคง) - แ (แข่งขัน) - ค (คน) - ส (เสมอภาค) - ร (รักษ์โลก) - ป (ปรับรัฐ)\"<br>" +
+            "• <strong>สูตรเศรษฐกิจพอเพียง (3 ห่วง 2 เงื่อนไข):</strong> \"พอ (พอประมาณ) - เหตุ (มีเหตุผล) - ภูมิ (มีภูมิคุ้มกัน) คู่กับ ความรู้ + คุณธรรม\""
         },
         {
           type: "highlight-box",
-          color: "blue",
-          title: "🌐 [จำง่าย: ภัยพิบัติ→UNDRR/UNOCHA ศึกษา→UNESCO สุข→WHO] UN และองค์กรที่เกี่ยวกับ ปภ.",
-          content: "<strong>UN = United Nations</strong> ก่อตั้ง 1945 | สมาชิก 193 ประเทศ | สำนักงานใหญ่: <strong>นิวยอร์ก</strong><br><br><strong>องค์กรที่เกี่ยวข้องกับงาน ปภ. โดยตรง:</strong><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;margin:8px 0;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;'>องค์กร</th><th style='padding:8px;border:1px solid #333;text-align:left;'>ทำอะไร</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>UNDRR</strong></td><td style='padding:8px;border:1px solid #ddd;'>ลดความเสี่ยงจากภัยพิบัติ (Disaster Risk Reduction)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>UNOCHA</strong></td><td style='padding:8px;border:1px solid #ddd;'>ประสานงานการช่วยเหลือด้านมนุษยธรรม</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>UNHCR</strong></td><td style='padding:8px;border:1px solid #ddd;'>ผู้ลี้ภัย</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>WHO</strong></td><td style='padding:8px;border:1px solid #ddd;'>อนามัยโลก (COVID-19 → ปภ.ร่วม)</td></tr></table><br><strong>องค์กรเศรษฐกิจ:</strong><br>• <strong>IMF</strong> — กองทุนการเงินระหว่างประเทศ<br>• <strong>World Bank</strong> — ธนาคารโลก<br>• <strong>WTO</strong> — องค์การการค้าโลก<br>• <strong>ADB</strong> — ธนาคารพัฒนาเอเชีย (มีโครงการช่วยเหลือภัยพิบัติในไทย)<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ปภ. รับการสนับสนุนจาก UNDRR/UNOCHA/ADB เมื่อเกิดภัยพิบัติใหญ่"
-        },
-        {
-          type: "highlight-box",
-          color: "amber",
-          title: "📌 นโยบายต่างประเทศของไทย",
-          content: "<strong>หลักการ:</strong> ความเป็นกลาง + ดุลยภาพ + ส่งเสริมสันติภาพ<br><br><strong>💡 จำง่าย: กลาง-ดุล-ค้า = นโยบายต่างประเทศไทย</strong><br><br><strong>ความสัมพันธ์กับมหาอำนาจ:</strong><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;margin:8px 0;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;'>ประเทศ</th><th style='padding:8px;border:1px solid #333;text-align:left;'>ความสัมพันธ์</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>สหรัฐฯ</strong></td><td style='padding:8px;border:1px solid #ddd;'>พันธมิตรด้านความมั่นคง (สนธิสัญญาเชียงใหม่)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>จีน</strong></td><td style='padding:8px;border:1px solid #ddd;'>หุ้นส่วนยุทธศาสตร์ ลงทุนมากในไทย</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>ญี่ปุ่น</strong></td><td style='padding:8px;border:1px solid #ddd;'>ลงทุนอุตสาหกรรมยานยนต์/อิเล็กทรอนิกส์</td></tr></table><br><strong>การทูตเชิงเศรษฐกิจ:</strong> ส่งเสริมการค้า ลงทุน ท่องเที่ยว ดึงดูดต่างชาติ<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ภัยพิบัติข้ามพรมแดน → ปภ. ประสานความช่วยเหลือระหว่างประเทศ"
-        }
-      ]
-    },
-    {
-      navIcon: "🔮",
-      navLabel: "แนวโน้มและความท้าทาย",
-      icon: "🔮",
-      title: "ส่วนที่ 6 · แนวโน้มและความท้าทายของประเทศไทย",
-      description: "BCG Economy · ดิจิทัล · ความยั่งยืน · SDGs · Thailand 4.0",
-      blocks: [
-        {
-          type: "highlight-box",
-          color: "navy",
-          title: "🌱 [จำง่าย: B=ชีวภาพ C=หมุนเวียน G=สีเขียว] BCG Economy",
-          content: "<strong>BCG = Bio-Circular-Green Economy</strong> — โมเดลเศรษฐกิจใหม่ของไทย<br><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;width:40px;'>ตัว</th><th style='padding:8px;border:1px solid #333;'>ชื่อ</th><th style='padding:8px;border:1px solid #333;text-align:left;'>แนวคิด</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>B</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>Bio (ชีวภาพ)</strong></td><td style='padding:8px;border:1px solid #ddd;'>ใช้ทรัพยากรชีวภาพอย่างคุ้มค่า เกษตรมูลค่าสูง เทคโนโลยีชีวภาพ</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>C</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>Circular (หมุนเวียน)</strong></td><td style='padding:8px;border:1px solid #ddd;'>ลดของเสีย นำกลับมาใช้ใหม่ ลดการบริโภคทรัพยากร</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;text-align:center;'><strong>G</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>Green (สีเขียว)</strong></td><td style='padding:8px;border:1px solid #ddd;'>ลดก๊าซเรือนกระจก พลังงานสะอาด ลด Carbon Footprint</td></tr></table><br><strong>เป้าหมายไทย:</strong><br>• <strong>Carbon Neutrality 2050</strong> — ปล่อย = ดูดซับ<br>• <strong>Net Zero 2065</strong> — ปล่อย < ดูดซับ<br><br>🔴 <strong>จุดสอบ: BCG ≠ เศรษฐกิจพอเพียง แต่สอดคล้องกันในเชิงความยั่งยืน</strong><br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> BCG ลดความเสี่ยงภัยพิบัติทางธรรมชาติ → ปภ. สนับสนุน BCG เป็นนโยบายลดความเสี่ยง"
-        },
-        {
-          type: "highlight-box",
-          color: "blue",
-          title: "💻 [จำง่าย: Made in Thailand → Innovation from Thailand] Thailand 4.0",
-          content: "<strong>Thailand 4.0</strong> = ขับเคลื่อนเศรษฐกิจด้วยนวัตกรรม+เทคโนโลยี<br><br><strong>S-Curve ใหม่ 5 อุตสาหกรรม:</strong><br>① หุ่นยนต์และระบบอัตโนมัติ<br>② ดิจิทัล AI และ Big Data<br>③ การบินและอวกาศ<br>④ เชื้อเพลิงชีวภาพ/เคมีชีวภาพ<br>⑤ การแพทย์ครบวงจร<br><br><strong>EEC (Eastern Economic Corridor):</strong><br>• ฉะเชิงเทรา | ชลบุรี | ระยอง<br>• ดึงดูดอุตสาหกรรมแห่งอนาคต<br>• มีความเสี่ยงอุบัติเหตุอุตสาหกรรม → <strong>ปภ. รับผิดชอบ</strong><br><br><strong>รัฐบาลดิจิทัล:</strong> บริการภาครัฐออนไลน์ | e-Government | Open Data | GFMIS<br><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ปภ. ใช้เทคโนโลยี EWS (Early Warning System) แจ้งเตือนภัยล่วงหน้า"
-        },
-        {
-          type: "highlight-box",
-          color: "amber",
-          title: "🌍 [จำง่าย: 17 เป้าหมาย 3 มิติ = คน+โลก+เงิน] SDGs",
-          content: "<strong>SDGs = Sustainable Development Goals</strong><br>= 17 เป้าหมายการพัฒนาอย่างยั่งยืนของ UN ปี 2030<br><br><strong>3 มิติ:</strong><br>① <strong>เศรษฐกิจ</strong> — ขจัดความยากจน สร้างงาน<br>② <strong>สังคม</strong> — การศึกษา สุขภาพ ความเสมอภาค<br>③ <strong>สิ่งแวดล้อม</strong> — ลดโลกร้อน ปกป้องระบบนิเวศ<br><br><strong>SDGs ที่เชื่อมโยงกับงาน ปภ. โดยตรง:</strong><br><table style='width:100%;border-collapse:collapse;font-size:0.82rem;margin:8px 0;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;'>SDG</th><th style='padding:8px;border:1px solid #333;text-align:left;'>เป้าหมาย</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>SDG 1</strong></td><td style='padding:8px;border:1px solid #ddd;'>ขจัดความยากจน (ภัยพิบัติทำคนจนเพิ่ม)</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>SDG 11</strong></td><td style='padding:8px;border:1px solid #ddd;'>เมืองและชุมชนยั่งยืน (เมืองเผชิญภัยพิบัติ)</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>SDG 13</strong></td><td style='padding:8px;border:1px solid #ddd;'><strong>รับมือการเปลี่ยนแปลงสภาพภูมิอากาศ ← หน้าที่หลักของ ปภ.</strong></td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>SDG 17</strong></td><td style='padding:8px;border:1px solid #ddd;'>ความร่วมมือระหว่างประเทศ (ช่วยเหลือข้ามพรมแดน)</td></tr></table><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> SDG 13 = ภารกิจหลักของ ปภ. ทุกระดับ ต้องรายงาน HLPF ทุก 4 ปี"
-        },
-        {
-          type: "highlight-box",
-          color: "teal",
-          title: "⚠️ [จำง่าย: ติดกับดัก-แก้ยาก-ทำไม่ได้] ความท้าทาย 4 ด้าน",
-          content: "<table style='width:100%;border-collapse:collapse;font-size:0.82rem;'><tr style='background:#1a1a2e;color:#fff;'><th style='padding:8px;border:1px solid #333;'>ด้าน</th><th style='padding:8px;border:1px solid #333;text-align:left;'>ปัญหา</th></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>💰 เศรษฐกิจ</strong></td><td style='padding:8px;border:1px solid #ddd;'>• <strong>Middle Income Trap</strong> — ติดรายได้ปานกลาง<br>• ความสามารถแข่งขันต่ำ<br>• พึ่งพาการท่องเที่ยวสูงเกินไป</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>👥 สังคม</strong></td><td style='padding:8px;border:1px solid #ddd;'>• ประชากรสูงอายุเพิ่มเร็ว<br>• ความเหลื่อมล้ำระหว่างพื้นที่<br>• คุณภาพการศึกษาไม่เท่าเทียม</td></tr><tr style='background:#faf8f4;'><td style='padding:8px;border:1px solid #ddd;'><strong>🌍 สิ่งแวดล้อม</strong></td><td style='padding:8px;border:1px solid #ddd;'>• <strong>PM 2.5</strong> + มลพิษทางอากาศ<br>• การเปลี่ยนแปลงสภาพภูมิอากาศ<br>• การจัดการขยะและน้ำเสีย</td></tr><tr style='background:#f5f0e8;'><td style='padding:8px;border:1px solid #ddd;'><strong>🏛️ การเมือง/ราชการ</strong></td><td style='padding:8px;border:1px solid #ddd;'>• <strong>Corruption</strong> — ไทยอันดับ ~100/180 ประเทศ (CPI)<br>• ราชการยังไม่ทันสมัยเท่าที่ควร</td></tr></table><br><strong>🔗 ความเชื่อมโยง ปภ.:</strong> ทุกความท้าทาย → เพิ่มความเสี่ยงภัยพิบัติ → ปภ. ต้องเตรียมรับมือทุกด้าน"
+          color: "rose",
+          title: "🗺️ แผนที่เชื่อมโยงความรู้การเมือง-เศรษฐกิจ-สังคม สู่การสอบภาค ข. ปภ.",
+          content: "ทำไมต้องรู้เนื้อหาเหล่านี้ในการสอบวิชาของ ปภ.?<br>" +
+            "1. <strong>ด้านการเมือง:</strong> โครงสร้างท้องถิ่น (อปท.) ทำหน้าที่เป็นผู้อำนวยการท้องถิ่นในการสั่งการระงับภัยระดับ 1 ตาม พ.ร.บ. ปภ. 2550<br>" +
+            "2. <strong>ด้านเศรษฐกิจ:</strong> ภัยแล้ง น้ำท่วม พายุ ส่งผลต่อ GDP ภาคเกษตร ปภ. เป็นหน่วยงานเยียวยาจ่ายเงินทดรองราชการ<br>" +
+            "3. <strong>ด้านสังคม:</strong> ผู้สูงอายุ (Aged Society) เป็นประชากรกลุ่มเปราะบางที่สุดที่ ปภ. ต้องดูแลระบบเตือนภัยและการเดินทางช่วยเหลือเป็นพิเศษเมื่อเกิดการอพยพภัยพิบัติ"
         }
       ]
     }
   ],
   vocabulary: [
-    { groupTitle: "🏛️ คำศัพท์หลัก — การเมือง เศรษฐกิจ สังคม", terms: [
-      { term: "ประชาธิปไตย", eng: "Democracy", category: "การเมือง", def: "ระบอบการปกครองที่อำนาจสูงสุดเป็นของประชาชน ใช้อำนาจผ่านตัวแทนที่เลือกตั้งขึ้นมา ยึดหลักสิทธิเสรีภาพและความเสมอภาค", mnemonic: "ประ-ชา-ธิปไตย = ประชามีอำนาจสูงสุด (ไม่ใช่กษัตริย์หรือเผด็จการ)" },
-      { term: "รัฐธรรมนูญ", eng: "Constitution", category: "การเมือง", def: "กฎหมายสูงสุดของประเทศ กำหนดโครงสร้างการปกครอง อำนาจหน้าที่ของสถาบัน และสิทธิของประชาชน รัฐธรรมนูญไทยปัจจุบัน พ.ศ. 2560", mnemonic: "รัฐธรรมนูญ 2560 = ฉบับปัจจุบัน กฎหมายใดขัดแย้งใช้ไม่ได้" },
-      { term: "อำนาจอธิปไตย", eng: "Sovereignty", category: "การเมือง", def: "อำนาจสูงสุดในการปกครองรัฐ เป็นของปวงชนชาวไทย ใช้ผ่าน 3 ฝ่าย: นิติบัญญัติ บริหาร ตุลาการ", mnemonic: "อธิปไตย = อำนาจสูงสุด 3 ฝ่าย: นิติ-บริหาร-ตุลา" },
-      { term: "ธรรมาภิบาล", eng: "Good Governance", category: "นโยบาย", def: "หลักการบริหารกิจการบ้านเมืองที่ดี 6 ประการ: นิติธรรม คุณธรรม โปร่งใส มีส่วนร่วม รับผิดชอบ คุ้มค่า (พ.ศ. 2542)", mnemonic: "จำ: นิ-คุ-โป-มี-รับ-คุ้ม (6 หลัก ไม่ใช่ 5 หรือ 7)" },
-      { term: "GDP", eng: "Gross Domestic Product", category: "เศรษฐกิจ", def: "ผลิตภัณฑ์มวลรวมในประเทศ = มูลค่าสินค้าและบริการทั้งหมดที่ผลิตในประเทศใน 1 ปี วัดขนาดและการเติบโตของเศรษฐกิจ", mnemonic: "GDP = ขนาดของกินของประเทศ" },
-      { term: "เงินเฟ้อ", eng: "Inflation", category: "เศรษฐกิจ", def: "ภาวะที่ระดับราคาสินค้าโดยทั่วไปสูงขึ้นอย่างต่อเนื่อง กำลังซื้อของเงินลดลง ธปท.ดูแลให้อัตราเงินเฟ้ออยู่ในกรอบ 1-3%", mnemonic: "เงินเฟ้อ = เงินซื้อของได้น้อยลง" },
-      { term: "เศรษฐกิจพอเพียง", eng: "Sufficiency Economy Philosophy", category: "เศรษฐกิจ", def: "ปรัชญาของรัชกาลที่ 9 มี 3 ห่วง (พอประมาณ มีเหตุผล มีภูมิคุ้มกัน) และ 2 เงื่อนไข (ความรู้ คุณธรรม) นำสู่ความสมดุลและยั่งยืน", mnemonic: "3 ห่วง = พอ-เหตุ-ภูมิ | 2 เงื่อนไข = รู้-ดี" },
-      { term: "ค่า Gini Coefficient", eng: "Gini Coefficient", category: "สังคม", def: "ดัชนีวัดความเหลื่อมล้ำด้านรายได้ 0=เสมอภาคสมบูรณ์ / 1=ไม่เสมอภาค ไทยอยู่ ~0.43 ถือว่าสูง", mnemonic: "Gini ไทย 0.43 = ยังเหลื่อมอยู่" },
-      { term: "สังคมผู้สูงอายุ", eng: "Aging/Aged Society", category: "สังคม", def: "Aging = 10-20% | Aged = >20% | Super Aged = >28% ไทยเข้าสู่ Aged Society แล้ว", mnemonic: "10-20-28 = เริ่ม-สูงวัย-สุงวัย" },
-      { term: "ASEAN", eng: "Association of SE Asian Nations", category: "ต่างประเทศ", def: "ก่อตั้ง 8 ส.ค. 2510 ที่กรุงเทพฯ (สำนักเลขาฯ อยู่กรุงจาการ์ตา) มี 10 ประเทศ 3 เสาหลัก: การเมือง เศรษฐกิจ สังคม-วัฒนธรรม", mnemonic: "ก่อตั้งที่กรุงเทพฯ แต่สำนักงานที่จาการ์ตา" },
-      { term: "BCG Economy", eng: "Bio-Circular-Green Economy", category: "เศรษฐกิจ", def: "โมเดลเศรษฐกิจใหม่ของไทย: B=ชีวภาพ C=หมุนเวียน G=สีเขียว มุ่งสู่ความยั่งยืน ตั้งเป้า Carbon Neutrality 2050 Net Zero 2065", mnemonic: "BCG = ชีว-หมุนเวียน-สีเขียว (≠ เศรษฐกิจพอเพียง)" },
-      { term: "ยุทธศาสตร์ชาติ 20 ปี", eng: "National Strategy 20 Years", category: "นโยบาย", def: "แผนระยะยาว 2561-2580 มี 6 ด้าน ม.แ.ค.ส.ร.ป. (มั่นคง-แข่งขัน-คน-สิ่งแวดล้อม-เสมอภาค-รัฐ) เป้าหมายไทยพัฒนาแล้ว", mnemonic: "6 ด้าน: ม-แ-ค-ส-ร-ป" },
-      { term: "SDGs", eng: "Sustainable Development Goals", category: "ต่างประเทศ", def: "17 เป้าหมายการพัฒนาอย่างยั่งยืนของ UN ปี 2030 ครอบคลุม 3 มิติ: เศรษฐกิจ สังคม สิ่งแวดล้อม ทุกประเทศร่วมมือกัน", mnemonic: "17 เป้าหมาย 3 มิติ = คน+โลก+เงิน" },
-      { term: "EEC", eng: "Eastern Economic Corridor", category: "เศรษฐกิจ", def: "ระเบียงเศรษฐกิจพิเศษภาคตะวันออก ครอบคลุม ฉะเชิงเทรา ชลบุรี ระยอง ดึงดูดอุตสาหกรรม S-Curve ใหม่ เสี่ยงอุบัติเหตุ → ปภ.รับผิดชอบ", mnemonic: "EEC = ตะวันออก 3 จังหวัด: ฉะ-ชล-ระ" },
-      { term: "HDI", eng: "Human Development Index", category: "สังคม", def: "ดัชนีพัฒนามนุษย์ วัดจาก 3 มิติ: อายุยืน (สุขภาพ) + การศึกษา + รายได้ ไทยอยู่กลุ่ม HDI ระดับสูง", mnemonic: "HDI = สุข+เรียน+รวย" },
-      { term: "นโยบายสาธารณะ", eng: "Public Policy", category: "นโยบาย", def: "แนวทางรัฐจัดการปัญหาสาธารณะ มีวงจร 5 ระยะ: วาระ → กำหนด → ตัดสินใจ → ปฏิบัติ → ประเมิน", mnemonic: "วาระ→เลือก→ตัดสินใจ→ทำ→วัด" },
-      { term: "Middle Income Trap", eng: "Middle Income Trap", category: "เศรษฐกิจ", def: "กับดักรายได้ปานกลาง ประเทศติดอยู่ไม่ยกระดับเป็นรายได้สูง ไทยพยายามหลุดผ่าน Thailand 4.0 และ BCG", mnemonic: "ติดกับดัก = ไม่โตต่อ" },
-      { term: "Carbon Neutrality / Net Zero", eng: "Carbon Neutrality / Net Zero", category: "สังคม", def: "Carbon Neutrality = ปล่อย=ดูดซับ (2050) | Net Zero = ปล่อย<ดูดซับ (2065) ไทยตั้งเป้าทั้งสอง", mnemonic: "2050 CN = เท่ากัน | 2065 NZ = ปล่อยน้อยกว่าดูด" },
-      { term: "Thailand 4.0", eng: "Thailand 4.0", category: "เศรษฐกิจ", def: "ขับเคลื่อนเศรษฐกิจด้วยนวัตกรรม+เทคโนโลยี เปลี่ยนจาก Made in Thailand → Innovation from Thailand ผ่านอุตสาหกรรม S-Curve ใหม่", mnemonic: "Thailand 4.0 = Made in Thailand → Innovation from Thailand" },
-      { term: "CPI", eng: "Corruption Perception Index", category: "สังคม", def: "ดัชนีชี้วัดการรับรู้การทุจริต (Transparency International) คะแนนสูง = ทุจริตน้อย ไทยอยู่อันดับ ~100 จาก 180 ประเทศ", mnemonic: "CPI สูง = ซื่อสัตย์ (ไทยยังอันดับ 100 = ยังทุจริตมาก)" }
-    ]}
-  ],
-  additionalSections: [
     {
-      navIcon: "🔢",
-      navLabel: "ตัวเลขน่ารู้",
-      icon: "🔢",
-      title: "📌 ตัวเลขน่ารู้ — ตัวเลขที่ต้องจำ",
-      description: "รวบรวมตัวเลขสำคัญจากการเมือง เศรษฐกิจ และสังคมไทย",
-      blocks: [
-        {
-          type: "highlight-box",
-          color: "navy",
-          title: "🏛️ ตัวเลขการเมือง",
-          content: "<strong>2560</strong> = ปีรัฐธรรมนูญฉบับปัจจุบัน<br><strong>500</strong> = จำนวน ส.ส. (400 แบ่งเขต + 100 บัญชีรายชื่อ)<br><strong>200</strong> = จำนวน ส.ว. (สรรหา)<br><strong>36</strong> = รัฐมนตรีสูงสุด (รวมนายกฯ)<br><strong>6</strong> = หลักธรรมาภิบาล<br><strong>3</strong> = อำนาจอธิปไตย (นิติบัญญัติ บริหาร ตุลาการ)"
-        },
-        {
-          type: "highlight-box",
-          color: "blue",
-          title: "💰 ตัวเลขเศรษฐกิจ",
-          content: "<strong>~55-60%</strong> = สัดส่วน GDP จากภาคบริการ<br><strong>~30-35%</strong> = สัดส่วน GDP จากภาคอุตสาหกรรม<br><strong>~8-10%</strong> = สัดส่วน GDP จากภาคเกษตร<br><strong>1-3%</strong> = กรอบเงินเฟ้อที่ ธปท. ดูแล<br><strong>2050</strong> = เป้าหมาย Carbon Neutrality ของไทย<br><strong>2065</strong> = เป้าหมาย Net Zero ของไทย"
-        },
-        {
-          type: "highlight-box",
-          color: "amber",
-          title: "👥 ตัวเลขสังคม",
-          content: "<strong>>20%</strong> = เกณฑ์ Aged Society (ผู้สูงอายุเกิน 20%)<br><strong>~0.43</strong> = ค่า Gini Coefficient ของไทย (สูง)<br><strong>17</strong> = จำนวน SDGs ของ UN<br><strong>10</strong> = สมาชิก ASEAN<br><strong>8 ส.ค. 2510</strong> = วันก่อตั้ง ASEAN<br><strong>20 ปี</strong> = ระยะเวลายุทธศาสตร์ชาติ (2561-2580)"
-        },
-        {
-          type: "highlight-box",
-          color: "teal",
-          title: "📅 ปีสำคัญ",
-          content: "<strong>2510</strong> = ก่อตั้ง ASEAN<br><strong>2542</strong> = ระเบียบสำนักนายกฯ ว่าด้วยธรรมาภิบาล<br><strong>2560</strong> = รัฐธรรมนูญฉบับปัจจุบัน / พ.ร.บ.ยุทธศาสตร์ชาติ<br><strong>2561</strong> = เริ่มใช้ยุทธศาสตร์ชาติ 20 ปี<br><strong>2580</strong> = สิ้นสุดยุทธศาสตร์ชาติ<br><strong>2030</strong> = เป้าหมาย SDGs ของ UN"
-        }
+      groupTitle: "🏛️ คำศัพท์หลัก — การเมืองการปกครอง",
+      terms: [
+        { term: "รัฐธรรมนูญ", eng: "Constitution", category: "การเมือง", def: "กฎหมายสูงสุดของประเทศที่กำหนดโครงสร้างการปกครอง อำนาจหน้าที่ และการคุ้มครองสิทธิเสรีภาพ", mnemonic: "รัฐธรรมนูญ = กฎหมายสูงสุดของรัฐ" },
+        { term: "อำนาจอธิปไตย", eng: "Sovereignty", category: "การเมือง", def: "อำนาจสูงสุดในการปกครองรัฐ เป็นของปวงชนชาวไทย แบ่งออกเป็น 3 ส่วน: นิติบัญญัติ บริหาร ตุลาการ", mnemonic: "อธิปไตย = อำนาจสูงสุดในการปกครอง" },
+        { term: "ราชการส่วนภูมิภาค", eng: "Provincial Administration", category: "การเมือง", def: "การแบ่งอำนาจการบริหารปกครองส่งตัวแทนจากส่วนกลางไปดูแล ได้แก่ จังหวัด และอำเภอ", mnemonic: "ภูมิภาค = จังหวัด + อำเภอ (อำเภอไม่เป็นนิติบุคคล)" }
       ]
     },
     {
-      navIcon: "⚖️",
-      navLabel: "จุดพลิดจำ",
-      icon: "⚖️",
-      title: "⚖️ จุดพลิดและความเข้าใจผิดที่พบบ่อย",
-      description: "รวบรวมจุดหลอกจากแนวข้อสอบ การเมือง เศรษฐกิจ สังคม",
-      blocks: [
-        {
-          type: "highlight-box",
-          color: "rose",
-          title: "❌ พลิดจำ #1: ธรรมาภิบาล 6 หลัก ไม่ใช่ 5 หรือ 7",
-          content: "<strong>❌ ผิด:</strong> ธรรมาภิบาลมี 8 หลัก (จำสับสนกับของ UN)<br><strong>✅ ถูก:</strong> ธรรมาภิบาลของไทยมี <strong>6 หลัก</strong> ตามระเบียบสำนักนายกรัฐมนตรี พ.ศ. 2542<br><br><strong>💡 จำง่าย: นิ-คุ-โป-มี-รับ-คุ้ม</strong><br>① นิติธรรม ② คุณธรรม ③ โปร่งใส ④ มีส่วนร่วม ⑤ รับผิดชอบ ⑥ คุ้มค่า"
-        },
-        {
-          type: "highlight-box",
-          color: "rose",
-          title: "❌ พลิดจำ #2: ASEAN สำนักงานที่จาการ์ตา ไม่ใช่กรุงเทพฯ",
-          content: "<strong>❌ ผิด:</strong> สำนักเลขาธิการ ASEAN อยู่ที่กรุงเทพฯ<br><strong>✅ ถูก:</strong> สำนักเลขาธิการ ASEAN อยู่ที่ <strong>กรุงจาการ์ตา ประเทศอินโดนีเซีย</strong><br><br><strong>💡 จำง่าย:</strong> ก่อตั้ง<strong>ที่กรุงเทพฯ</strong> แต่สำนักงาน<strong>ที่จาการ์ตา</strong><br><strong>วันก่อตั้ง:</strong> 8 สิงหาคม 2510 (ปฏิญญาบางกอก)"
-        },
-        {
-          type: "highlight-box",
-          color: "rose",
-          title: "❌ พลิดจำ #3: BCG ≠ เศรษฐกิจพอเพียง",
-          content: "<strong>❌ ผิด:</strong> BCG Economy กับเศรษฐกิจพอเพียงเป็นสิ่งเดียวกัน<br><strong>✅ ถูก:</strong> เป็น<strong>คนละนโยบาย</strong> แต่<strong>สอดคล้องกัน</strong><br><br><strong>BCG:</strong> โมเดลเศรษฐกิจของรัฐบาล มุ่งพัฒนาเศรษฐกิจผ่านชีวภาพ-หมุนเวียน-สีเขียว<br><br><strong>เศรษฐกิจพอเพียง (SEP):</strong> ปรัชญาส่วนบุคคล/ชุมชน เน้นความพอประมาณ มีเหตุผล มีภูมิคุ้มกัน<br><br><strong>ร่วมกัน:</strong> ความยั่งยืนและความสมดุล"
-        },
-        {
-          type: "highlight-box",
-          color: "rose",
-          title: "❌ พลิดจำ #4: ปภ. สังกัดกระทรวงมหาดไทย ไม่ใช่สาธารณสุข",
-          content: "<strong>❌ ผิด:</strong> กรมป้องกันและบรรเทาสาธารณภัย (ปภ.) อยู่ในกระทรวงสาธารณสุข<br><strong>✅ ถูก:</strong> ปภ. อยู่ใน <strong>กระทรวงมหาดไทย</strong><br><br><strong>กระทรวงมหาดไทยดูแล:</strong><br>• กรมส่งเสริมการปกครองท้องถิ่น<br>• กรมการปกครอง<br>• กรมที่ดิน<br>• <strong>กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</strong><br>• กรมพัฒนาชุมชน<br>• กรมโยธาธิการและผังเมือง"
-        }
+      groupTitle: "💰 คำศัพท์หลัก — โครงสร้างเศรษฐกิจ",
+      terms: [
+        { term: "GDP", eng: "Gross Domestic Product", category: "เศรษฐกิจ", def: "ผลิตภัณฑ์มวลรวมในประเทศ มูลค่าสินค้าและบริการขั้นสุดท้ายทั้งหมดที่ผลิตในประเทศในรอบหนึ่งปี", mnemonic: "GDP = ขนาดเศรษฐกิจในประเทศ" },
+        { term: "เงินเฟ้อ", eng: "Inflation", category: "เศรษฐกิจ", def: "ภาวะที่ราคาสินค้าทั่วไปสูงขึ้นต่อเนื่อง ทำให้ค่าของเงินและอำนาจการซื้อของผู้บริโภคลดลง", mnemonic: "เงินเฟ้อ = ของแพงขึ้น เงินไร้ค่าลง" },
+        { term: "เศรษฐกิจพอเพียง", eng: "Sufficiency Economy", category: "เศรษฐกิจ", def: "ปรัชญาแนะแนวทางดำรงชีวิตในการเดินสายกลางตามหลัก 3 ห่วง 2 เงื่อนไข", mnemonic: "พอเพียง = พอประมาณ + มีเหตุผล + มีภูมิคุ้มกัน" }
       ]
     },
     {
-      navIcon: "🔗",
-      navLabel: "แผนที่ความเชื่อมโยง",
-      icon: "🔗",
-      title: "🔗 แผนที่ความเชื่อมโยง: การเมือง-เศรษฐกิจ-สังคม → งาน ปภ.",
-      description: "บทสรุปว่าความรู้แต่ละด้านเชื่อมกับงานป้องกันและบรรเทาสาธารณภัยอย่างไร",
-      blocks: [
-        {
-          type: "highlight-box",
-          color: "navy",
-          title: "🗺️ ทำไมต้องรู้การเมือง-เศรษฐกิจ-สังคม?",
-          content: "<strong>ทุกเนื้อหาในบทนี้เชื่อมโยงกับงาน ปภ. โดยตรง:</strong><br><br><strong>🏛️ การเมือง:</strong><br>• ปภ.สังกัดกระทรวงมหาดไทย (โครงสร้างราชการ)<br>• เลือกตั้ง → ปภ. เตรียมความพร้อมด้านความมั่นคง<br>• ยุทธศาสตร์ชาติ ด้าน 1 = ปภ.เป็นหน่วยหลักความมั่นคงพลเรือน<br><br><strong>💰 เศรษฐกิจ:</strong><br>• ภัยพิบัติทำ GDP ตก → ปภ. กู้ฟื้น<br>• ภัยพิบัติกระทบท่องเที่ยว/อุตสาหกรรม → ปภ.เยียวยา<br>• ภัยพิบัติข้ามพรมแดน → ปภ. ประสาน FTA/อาเซียน<br><br><strong>👥 สังคม:</strong><br>• ผู้สูงอายุ = กลุ่มเปราะบางที่สุดต่อภัยพิบัติ<br>• ความเหลื่อมล้ำ → คนจนกระทบหนักกว่า → ปภ.ช่วยเหลือพิเศษ<br>• วัฒนธรรมหลากหลาย → ปภ.ต้องเคารพในการช่วยเหลือ<br><br><strong>📋 นโยบายสาธารณะ:</strong><br>• วงจรนโยบาย = กรอบทำงานของ ปภ.<br>• ธรรมาภิบาล = มาตรฐานการทำงานของ ปภ. ทุกระดับ<br>• กระจายอำนาจ → ท้องถิ่นรับผิดชอบภัยพิบัติระดับแรก<br><br><strong>🌏 ความสัมพันธ์ระหว่างประเทศ:</strong><br>• ASEAN → AHA Centre ช่วยเหลือภัยพิบัติระดับภูมิภาค<br>• UNDRR/UNOCHA/ADB → แหล่งความช่วยเหลือระหว่างประเทศ<br><br><strong>🔮 แนวโน้ม:</strong><br>• ภัยพิบัติเพิ่มขึ้นจาก PM2.5/ภูมิอากาศ → ปภ. รับมือ<br>• BCG/SDGs → นโยบายลดความเสี่ยงภัยพิบัติ<br>• Thailand 4.0 → EWS แจ้งเตือนล่วงหน้า<br><br><strong>💡 จำง่าย: ทุกอย่างเชื่อมกับ ปภ. เพราะ ปภ. = หน่วยงานที่ทำงานข้ามศาสตร์มากที่สุดของไทย</strong>"
-        }
+      groupTitle: "👴 คำศัพท์หลัก — ประชากรและสังคม",
+      terms: [
+        { term: "สังคมผู้สูงอายุ", eng: "Aged Society", category: "สังคม", def: "สังคมที่มีประชากรอายุ 60 ปีขึ้นไป เกินกว่า 20% หรืออายุ 65 ปีขึ้นไป เกินกว่า 14% ของประชากรทั้งหมด", mnemonic: "ผู้สูงอายุ > 20% = สูงอายุโดยสมบูรณ์" },
+        { term: "สัมประสิทธิ์จีนี", eng: "Gini Coefficient", category: "สังคม", def: "ดัชนีชี้วัดความเหลื่อมล้ำทางรายได้ มีค่าระหว่าง 0 ถึง 1 โดยค่าเข้าใกล้ 0 แปลว่าเสมอภาคสมบูรณ์", mnemonic: "Gini เข้าใกล้ 0 เสมอภาค | เข้าใกล้ 1 เหลื่อมล้ำ" },
+        { term: "ดัชนีพัฒนามนุษย์", eng: "Human Development Index (HDI)", category: "สังคม", def: "ดัชนีวัดคุณภาพชีวิตประชากรประเมินโดยองค์กร UN จากมิติด้านสุขภาพ การศึกษา และรายได้เฉลี่ยต่อหัว", mnemonic: "HDI = อายุขัย + การศึกษา + รายได้เฉลี่ย" }
+      ]
+    },
+    {
+      groupTitle: "🌐 คำศัพท์หลัก — นโยบายสาธารณะและการทูต",
+      terms: [
+        { term: "ยุทธศาสตร์ชาติ 20 ปี", eng: "National Strategy 20 Years", category: "นโยบาย", def: "แผนการพัฒนาหลักของประเทศระยะยาว พ.ศ. 2561-2580 มี 6 ด้านหลัก (ม-แ-ค-ส-ร-ป)", mnemonic: "ยุทธศาสตร์ชาติ = แผนยาว 20 ปี มี 6 ด้าน" },
+        { term: "ธรรมาภิบาล", eng: "Good Governance", category: "นโยบาย", def: "หลักการบริหารปกครองกิจการบ้านเมืองที่ดีตามเกณฑ์กำหนด 6 ข้อของไทย (นิ-คุ-โป-มี-รับ-คุ้ม)", mnemonic: "ธรรมาภิบาล = บริหารกิจการบ้านเมืองที่ดี 6 หลัก" },
+        { term: "AHA Centre", eng: "ASEAN Coordinating Centre for Humanitarian Assistance", category: "ต่างประเทศ", def: "ศูนย์ประสานความช่วยเหลือด้านมนุษยธรรมเพื่อการจัดการภัยพิบัติอาเซียน ตั้งอยู่ ณ กรุงจาการ์ตา ประเทศอินโดนีเซีย", mnemonic: "AHA Centre = ศูนย์ประสานภัยพิบัติของอาเซียน" }
       ]
     }
-  ]
+  ],
+  quizFile: "quiz.html"
 };

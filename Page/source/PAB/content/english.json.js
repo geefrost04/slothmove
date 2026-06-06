@@ -5,201 +5,336 @@ window.ENGLISH_DATA = {
   title: "ภาษาอังกฤษ (ข้อสอบ ก. กทม. / ภาค ก ปภ.)",
   titleShort: "ภาษาอังกฤษ",
   subtitle: "Conversation · Grammar · Reading · Vocabulary",
-  badgeLabel: "ส่วนที่ 1 — ฟรี",
+  badgeLabel: "สำหรับเตรียมสอบภาค ก. / ก. กทม. (100 คะแนนเต็ม)",
   emoji: "🌍",
   stats: {
-    chapters: 4,
-    vocab: 4,
+    chapters: 5,
+    parts: 40,
+    vocab: 12,
     quiz: 100
   },
   heroStats: [
-    { value: "4", label: "หัวข้อสรุป" },
-    { value: "100", label: "ข้อสอบ" },
-    { value: "4", label: "หมวดศัพท์" },
-    { value: "500+", label: "ข้อในชุดเต็ม" }
+    { value: "5 บทสรุป", label: "หัวข้อสำคัญ" },
+    { value: "12 คำหลัก", label: "คำศัพท์ออกสอบบ่อย" },
+    { value: "100 ข้อ", label: "ข้อสอบแนวใหม่" },
+    { value: "10 ทริค", label: "จุดหลอกทำคะแนน" }
   ],
   knowledgeSections: [
     // ═══════════════════════════════════════════════════════════
-    // บทที่ 1 — บทสนทนา (Conversation)
+    // บทที่ 1 — บทสนทนาทั่วไป & สำนวนที่พบบ่อย
     // ═══════════════════════════════════════════════════════════
     {
       navIcon: "💬",
       navLabel: "บทสนทนา",
       icon: "💬",
-      title: "บทที่ 1 · บทสนทนา (Conversation)",
-      description: "สำนวนและรูปแบบการสื่อสารในสถานการณ์ต่างๆ — การทักทาย การขอความช่วยเหลือ การแสดงความเห็น การนัดหมาย การให้ความเห็นใจ",
+      title: "บทที่ 1 · บทสนทนาทั่วไป และสำนวนสื่อสารที่พบบ่อย (Conversation)",
+      description: "ทำความเข้าใจสำนวนการสนทนาในชีวิตประจำวัน การขออนุญาตอย่างสุภาพ และการตอบรับที่ไม่ตรงตัว",
       blocks: [
         {
           type: "highlight-box",
           color: "navy",
-          title: "💬 รูปแบบสำนวนที่พบบ่อยในข้อสอบ",
-          content: "<strong>การทักทาย / แนะนำตัว:</strong> Nice to meet you · Pleased to meet you · What a surprise!<br>" +
-                   "<strong>การขอข้อมูล:</strong> Could you please tell me...? · Do you mind telling me...? · Can you help me...?<br>" +
-                   "<strong>การเสนอความช่วยเหลือ:</strong> Can I give you a hand? · Let me help you with that.<br>" +
-                   "<strong>การตอบรับคำขอบคุณ:</strong> You're welcome · Don't mention it · It's my pleasure.<br>" +
-                   "<strong>การนัดหมาย:</strong> make an appointment · That works for me · Sounds good.<br>" +
-                   "<strong>การแสดงความยินดี / เสียใจ:</strong> Congratulations! · I'm so sorry to hear that.<br>" +
-                   "<strong>การแนะนำทาง:</strong> Go straight down this road for two blocks. · It's on your right.<br>" +
-                   "<strong>การปฏิเสธเชิญอย่างสุภาพ:</strong> I'd love to, but I can't. · I'm afraid I can't.<br>" +
-                   "<strong>การขออนุญาต:</strong> Would you mind...? · Is it alright if...? · No, not at all. Go ahead."
+          title: "💬 รูปแบบสำนวนที่ออกข้อสอบบ่อยที่สุด",
+          content: "• <strong>การทักทาย / แนะนำตัว:</strong> Nice to meet you · Pleased to meet you · What a surprise! (เจอกันโดยไม่คาดคิด)<br>" +
+            "• <strong>การขอความช่วยเหลือ:</strong> Could you please tell me...? · Do you mind telling me...? · Can you give me a hand? (ช่วยหน่อยได้ไหม)<br>" +
+            "• <strong>การตอบรับคำขอบคุณ:</strong> You're welcome · Don't mention it · It's my pleasure · My pleasure.<br>" +
+            "• <strong>การนัดหมาย:</strong> make an appointment · That works for me (สะดวกตามนั้น) · Sounds good (ฟังดูดี)<br>" +
+            "• <strong>การแสดงความยินดี / เสียใจ:</strong> Congratulations! · I'm so sorry to hear that (แสดงความเห็นใจข่าวร้าย)<br>" +
+            "• <strong>การปฏิเสธอย่างสุภาพ:</strong> I'd love to, but I can't · I'm afraid I can't (เกรงว่าฉันจะทำไม่ได้)"
+        },
+        {
+          type: "highlight-box",
+          color: "blue",
+          title: "⚠️ จุดจำจุดลวง: การขออนุญาตด้วย 'Do you mind / Would you mind'?",
+          content: "เมื่อประโยคถามขึ้นต้นด้วย <strong>Do you mind...?</strong> หรือ <strong>Would you mind...?</strong> (คุณจะรังเกียจไหม...?) มีความหมายเชิงปฏิเสธในตัว การตอบรับและปฏิเสธต้องจำสัญญะดังนี้:"
+        },
+        {
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "1. ตอบตกลง (อนุญาตให้ทำ)",
+              icon: "✅",
+              status: "allowed",
+              authority: "No / Not at all",
+              desc: "ตอบว่า <strong>'No, not at all.'</strong> หรือ <strong>'Of course not.'</strong> หรือ <strong>'Please go ahead.'</strong> (แปลว่า ไม่รังเกียจเลย เชิญตามสบาย)"
+            },
+            {
+              title: "2. ตอบปฏิเสธ (ไม่อนุญาต)",
+              icon: "❌",
+              status: "prohibited",
+              authority: "Yes / I'm afraid...",
+              desc: "ตอบว่า <strong>'Yes, I do.'</strong> หรือ <strong>'I'm afraid I do.'</strong> หรือสุภาพขึ้น <strong>'I'd rather you didn't.'</strong> (แปลว่า รังเกียจ / ไม่อยากให้ทำ)"
+            }
+          ]
         },
         {
           type: "highlight-box",
           color: "amber",
-          title: "⚠️ จุดสอบบ่อย — สำนวนที่หลายคนสับสน",
-          content: "<strong>make an appointment</strong> ✅ ถูกต้อง | make appointment ❌ ผิด<br>" +
-                   "<strong>Do you mind telling me?</strong> = ถามอย่างสุภาพมากที่สุด<br>" +
-                   "<strong>I'm pleased to meet you</strong> = ตอบรับการแนะนำตัวอย่างเป็นทางการ<br>" +
-                   "<strong>No, not at all.</strong> = อนุญาต! (ปฏิเสธความรังเกียจ หมายถึง 'ไม่รังเกียจเลย = เชิญได้')<br>" +
-                   "<strong>Good for you!</strong> = ชื่นชมให้กำลังใจ (ไม่ใช่ sarcasm)<br>" +
-                   "<strong>I couldn't agree more</strong> = เห็นด้วย 100%<br>" +
-                   "<strong>You shouldn't have.</strong> = แสดงความเกรงใจเมื่อได้รับของขวัญ<br>" +
-                   "<strong>I'm so sorry to hear that.</strong> = แสดงความเห็นใจเมื่อได้ยินข่าวร้าย<br>" +
-                   "<strong>Please feel at home.</strong> = ต้อนรับแขกอย่างอบอุ่น<br>" +
-                   "<strong>I see.</strong> = เข้าใจแล้ว (ตอบรับข้อมูลที่ได้รับ)"
-        },
-        {
-          type: "key-summary",
-          title: "📌 สรุปจำ — สำนวน Conversation ที่ต้องรู้",
-          content: "<strong>โทรศัพท์:</strong> could I speak with (สุภาพที่สุด) | Can I take a message? (มาตรฐานรับข้อความ)<br>" +
-                   "<strong>ปฏิเสธ:</strong> I'm afraid that's not possible. | That sounds great, but I'm afraid I can't.<br>" +
-                   "<strong>ฝากข้อความ:</strong> Call me back when you get this. | Would you like to leave a message?<br>" +
-                   "<strong>ให้ของ:</strong> Here you are. (ยื่นของให้) | Sure, here you go.<br>" +
-                   "<strong>ปลอบใจ:</strong> Cheer up. | Don't worry about it. | That's a shame."
+          title: "📌 สำนวนเฉพาะที่มักเจอในโจทย์ Conversation",
+          content: "• <strong>Good for you!</strong> = ดีจังเลยนะ! (แสดงความชื่นชมยินดี)<br>" +
+            "• <strong>I couldn't agree more.</strong> = ฉันเห็นด้วยอย่างยิ่ง (เห็นด้วยจนไม่สามารถเห็นด้วยได้มากกว่านี้แล้ว = เห็นด้วย 100%)<br>" +
+            "• <strong>You shouldn't have.</strong> = ไม่จำเป็นต้องลำบากซื้อมาให้เลย (แสดงความเกรงใจและขอบคุณเมื่อได้รับของขวัญ)<br>" +
+            "• <strong>Please feel at home.</strong> = ทำตัวตามสบายเหมือนอยู่บ้านนะ (ใช้ต้อนรับแขก)<br>" +
+            "• <strong>I see.</strong> = อ๋อ เข้าใจแล้ว (ไม่ใช่แปลว่าฉันเห็น)"
         }
       ]
     },
+
     // ═══════════════════════════════════════════════════════════
-    // บทที่ 2 — ไวยากรณ์ (Grammar)
+    // บทที่ 2 — ไวยากรณ์ & การเลือกใช้คำ
     // ═══════════════════════════════════════════════════════════
     {
       navIcon: "📝",
-      navLabel: "ไวยากรณ์",
+      navLabel: "ไวยากรณ์ & คำศัพท์",
       icon: "📝",
-      title: "บทที่ 2 · ไวยากรณ์ (Grammar)",
-      description: "Tense · Subject-Verb Agreement · Preposition · Conjunction · Word Form — มากกว่า 100 ข้อ ครอบคลุมทุกประเภท",
+      title: "บทที่ 2 · ไวยากรณ์ และโครงสร้างประธาน-กริยา (Subject-Verb Agreement)",
+      description: "กฎการเลือกใช้คำกริยาให้ตรงตามประเภทประธาน คำนามรูปหลอก และโครงสร้างประโยคเงื่อนไขที่ออกสอบบ่อย",
       blocks: [
         {
           type: "highlight-box",
-          color: "blue",
-          title: "⏱️ Tense — กริยาช่วง 7 ประเภทหลัก",
-          content: "<strong>Present Simple:</strong> กิจวัตร, ความจริงทางวิทยาศาสตร์, ตารางเวลา<br>" +
-                   "<em>บ่อยในข้อสอบ:</em> every morning · usually · always · every day<br>" +
-                   "<strong>Present Continuous:</strong> กำลังเกิดขณะพูด, แผนอนาคตใกล้<br>" +
-                   "<em>บ่อยในข้อสอบ:</em> Listen! · Look! · now · right now · at this moment<br>" +
-                   "<strong>Past Simple:</strong> เหตุการณ์จบลงในอดีต<br>" +
-                   "<em>บ่อยในข้อสอบ:</em> yesterday · last week · ago · last weekend<br>" +
-                   "<strong>Present Perfect:</strong> เกิดในอดีตดำเนินมาถึงปัจจุบัน<br>" +
-                   "<em>บ่อยในข้อสอบ:</em> since · for · already · just · yet<br>" +
-                   "<strong>Past Perfect:</strong> เหตุการณ์จบก่อนอีกเหตุการณ์ในอดีต<br>" +
-                   "<em>รูป:</em> had + V3 (เช่น had escaped, had finished)<br>" +
-                   "<strong>Future Simple:</strong> will + V1 · be going to + V1<br>" +
-                   "<em>บ่อยในข้อสอบ:</em> next week · next year · tomorrow<br>" +
-                   "<strong>Future Perfect:</strong> will have + V3 (เหตุการณ์จะเสร็จสิ้นก่อนเวลาในอนาคต)<br>" +
-                   "<em>บ่อยในข้อสอบ:</em> By this time next week · by Monday"
+          color: "navy",
+          title: "👥 Subject-Verb Agreement: ประธานและกริยาต้องสัมพันธ์กัน",
+          content: "กฎไวยากรณ์ที่ออกสอบในข้อสอบเกือบทุกชุด มีกฎที่ต้องจดจำลงสมองดังนี้:"
+        },
+        {
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "A number of vs The number of",
+              icon: "🔢",
+              status: "allowed",
+              authority: "ต่างกันตรงกริยา",
+              desc: "• <strong>A number of</strong> + นามพหูพจน์ → ใช้กริยา <strong>พหูพจน์ (are, have, do)</strong><br>• <strong>The number of</strong> + นามพหูพจน์ → ใช้กริยา <strong>เอกพจน์ (is, has, does)</strong> (เพราะเน้นจำนวนตัวเลขหนึ่งกลุ่ม)"
+            },
+            {
+              title: "Neither...nor / Either...or",
+              icon: "⚖️",
+              status: "warning",
+              authority: "กริยาตามตัวใกล้สุด",
+              desc: "เมื่อเชื่อมประธานสองตัว กริยาจะผันตามประธานตัวที่อยู่ <strong>'ใกล้กริยาที่สุด'</strong> เช่น Neither the teacher nor the students <strong>are</strong> here."
+            },
+            {
+              title: "Along with / Together with",
+              icon: "🤝",
+              status: "restricted",
+              authority: "กริยาตามประธานหน้า",
+              desc: "เมื่อประธานเชื่อมด้วย Along with, Together with, As well as กริยาจะผันตาม <strong>'ประธานตัวหน้าสุด'</strong> เท่านั้น เช่น The manager along with his team <strong>is</strong> attending."
+            }
+          ]
         },
         {
           type: "highlight-box",
           color: "teal",
-          title: "👥 Subject-Verb Agreement — กริยาผันตามประธาน",
-          content: "<strong>A number of + นามพหูพจน์ → are</strong><br>" +
-                   "<strong>The number of + นาม → is</strong> (จำง่าย: The number = ตัวเลข = เอกพจน์)<br><br>" +
-                   "<strong>Neither...nor / Either...or:</strong> กริยาผันตามประธานตัวที่อยู่ใกล้สุด<br>" +
-                   "<strong>Along with / Together with / As well as:</strong> กริยาผันตามประธานตัวหน้าสุด<br><br>" +
-                   "<strong>เอกพจน์เสมอ (จำไว้!):</strong><br>" +
-                   "• Everybody, Nobody, Someone, Anyone, Each, Every → ใช้กริยาเอกพจน์<br>" +
-                   "• Mathematics, News, Politics, Physics → เอกพจน์ (ลงท้ายด้วย s แต่ไม่นับเป็นพหูพจน์)<br><br>" +
-                   "<strong>พหูพจน์เสมอ (จำไว้!):</strong><br>" +
-                   "• The police, The staff, The committee, The family → พหูพจน์<br>" +
-                   "• The pliers, The scissors, A pair of glasses → พหูพจน์ (มีสองส่วน)"
-        },
-        {
-          type: "highlight-box",
-          color: "purple",
-          title: "🗺️ Preposition สำคัญที่ออกสอบบ่อย",
-          content: "<strong>at</strong> — จุดเฉพาะ: at the bus stop · at noon · at 10 a.m. · at 123 Main Street<br>" +
-                   "<strong>in</strong> — ช่วงเวลา/เดือน/ปี: in the morning · in May · in 1990 · in the afternoon<br>" +
-                   "<strong>on</strong> — วันที่/วัน/พื้นผิว: on Monday · on August 15th · on the wall · on the table<br><br>" +
-                   "<strong>between</strong> — ระหว่างสองสิ่ง (between A and B)<br>" +
-                   "<strong>among</strong> — ระหว่างมากกว่าสองสิ่ง<br>" +
-                   "<strong>through</strong> — ผ่าน/ลอด (tunnel, forest)<br>" +
-                   "<strong>over</strong> — ข้าม | <strong>under</strong> — ใต้ | <strong>in</strong> — ใน (ภาชนะ)"
+          title: "📌 คำนามรูปเอกพจน์/พหูพจน์ที่หลอกในข้อสอบ",
+          content: "• <strong>รูปพหูพจน์แต่ใช้กริยาเอกพจน์ (เป็นวิชา/ชื่อ):</strong> Mathematics, Physics, News (ข่าว), Politics (การเมือง) → ใช้กริยาเอกพจน์ (is/has)<br>" +
+            "• <strong>คำไม่มีรูปเติม s แต่เป็นพหูพจน์เสมอ:</strong> The police (ตำรวจ), The staff (ทีมงาน), The committee (คณะกรรมการ) → ใช้กริยาพหูพจน์ (are/have)<br>" +
+            "• <strong>นามเอกพจน์เสมอ:</strong> Everybody, Everyone, Someone, Anyone, Nobody, Each, Every → ใช้กริยาเอกพจน์เสมอ"
         },
         {
           type: "highlight-box",
           color: "rose",
-          title: "🔤 Word Form — รูปคำที่ต้องเลือกให้ถูก",
-          content: "<strong>Adj → Adv:</strong> quiet → quietly · quick → quickly · extreme → extremely · attentive → attentively<br><br>" +
-                   "<strong>คำนาม (Noun):</strong> confidence, intelligence, loyalty, passion, enthusiasm, construction, analysis, explanation, kindness, recommendation<br><br>" +
-                   "<strong>คำผิดบ่อย:</strong><br>" +
-                   "• adapt (ปรับตัว) ≠ adopt (นำมาใช้)<br>" +
-                   "• affect (กริยา) ≠ effect (นาม)<br>" +
-                   "• historic (สำคัญทางประวัติศาสตร์) ≠ historical (เกี่ยวกับประวัติศาสตร์)<br>" +
-                   "• discrete (แยกกัน) ≠ discreet (สุขุม, รอบคอบ)<br>" +
-                   "• adapt → amazingly / amazed / amazement<br>" +
-                   "• confidence → confident · confidently<br><br>" +
-                   "<strong>ประโยคเงื่อนไข Type 2:</strong> If I were you, I would... <em>(ใช้ were เสมอกับ I ไม่ใช่ was)</em>"
-        },
-        {
-          type: "key-summary",
-          title: "📌 สรุปจำ — จุดสอบ Grammar ที่พลาดไม่ได้",
-          content: "<strong>A number of = are | The number of = is</strong><br>" +
-                   "<strong>If I were you</strong> — ใช้ were เสมอ ไม่ใช่ was<br>" +
-                   "<strong>Neither...nor / Either...or</strong> — กริยาผันตามตัวหลังสุด<br>" +
-                   "<strong>The police / The committee / The staff</strong> = พหูพจน์เสมอ<br>" +
-                   "<strong>Listen! / Look!</strong> = Present Continuous<br>" +
-                   "<strong>had escaped / had finished</strong> = Past Perfect (เกิดก่อนและจบก่อนในอดีต)"
+          title: "🔤 คำที่มักสับสนในรูปฟอร์ม (Word Form & Conditionals)",
+          content: "• <strong>adapt (ปรับตัว) ≠ adopt (รับมาเลี้ยง/นำมาใช้):</strong> She decided to <strong>adopt</strong> a new strategy.<br>" +
+            "• <strong>affect (กริยา: ส่งผลกระทบ) ≠ effect (คำนาม: ผลกระทบ):</strong> The weather <strong>affects</strong> our flight (V). / The <strong>effect</strong> was clear (N).<br>" +
+            "• <strong>discrete (แยกจากกันเป็นชิ้น) ≠ discreet (สุขุม, ระมัดระวังรอบคอบ):</strong> Please be <strong>discreet</strong> about this matter.<br>" +
+            "• <strong>ประโยคสมมติเงื่อนไข (Conditional Type 2):</strong> ใช้สมมติเหตุการณ์ที่เป็นไปไม่ได้ในปัจจุบัน โครงสร้างคือ <strong>If + S + V2, S + would + V1</strong> และกริยา to be ในประพจน์ If จะใช้ <strong>were</strong> เสมอ ไม่ว่าประธานจะเป็นอะไร เช่น If I <strong>were</strong> you, I <strong>would</strong> accept the job."
         }
       ]
     },
+
     // ═══════════════════════════════════════════════════════════
-    // บทที่ 3 — การอ่านจับใจความ (Reading)
+    // บทที่ 3 — เจาะลึก กริยา & Tenses
     // ═══════════════════════════════════════════════════════════
     {
-      navIcon: "📖",
-      navLabel: "อ่านจับใจความ",
-      icon: "📖",
-      title: "บทที่ 3 · การอ่านจับใจความ (Reading Comprehension)",
-      description: "Passage สั้นหลากหลายประเภท — Main Idea · Inference · Vocabulary in Context · Detail Understanding",
+      navIcon: "⏱️",
+      navLabel: "เจาะลึก Tenses",
+      icon: "⏱️",
+      title: "บทที่ 3 · เจาะลึกโครงสร้างกาลเวลา (Tenses) และคำบอกเวลาคีย์หลัก",
+      description: "เปรียบเทียบ Tense ที่พบในข้อสอบบ่อยที่สุด และคีย์บอกใบ้เวลาสำหรับการเลือกชอยส์กริยา",
       blocks: [
         {
           type: "highlight-box",
           color: "navy",
-          title: "📄 ประเภท Passage ที่พบในข้อสอบ",
-          content: "<strong>ประกาศ/ป้าย:</strong> ปิดปรับปรุงห้องสมุด · แจ้งเตือนสาธารณูปโภค · ประกาศกำหนดการ<br>" +
-                   "<strong>อีเมล/บันทึกข้อความ:</strong> งานบริหาร · แจ้งเตือนภายในองค์กร · นัดหมาย<br>" +
-                   "<strong>บทความนิเจอร์/บทสัมภาษณ์:</strong> ความรู้รอบตัว · วิทยาศาสตร์ · สิ่งแวดล้อม<br>" +
-                   "<strong>โฆษณา/ประกาศรับสมัครงาน:</strong> รายละเอียดผลิตภัณฑ์ · คุณสมบัติผู้สมัคร<br>" +
-                   "<strong>บทวิจารณ์:</strong> หนังสือ · ภาพยนตร์ · รีวิวสินค้า<br>" +
-                   "<strong>คำแนะนำ/ขั้นตอน:</strong> วิธีใช้เครื่อง · การประกอบสิ่งของ · ตารางอาหาร"
+          title: "⏱️ สรุปไทม์ไลน์ Tenses ยอดนิยมในข้อสอบ",
+          content: "การเลือกตอบ Tense ให้ถูกต้อง ต้องมองหาคำระบุเวลา (Time Markers) ในประโยคเป็นคีย์หลักในการเชื่อมโยง:"
         },
         {
+          type: "premium-timeline",
+          steps: [
+            {
+              step: "1",
+              title: "Present Simple (S + V1/V_s,es)",
+              badge: "ความจริง/กิจวัตร",
+              badgeColor: "rose",
+              desc: "ใช้บอกกฎธรรมชาติหรือตารางเวลา คีย์หลัก: <strong>every morning, usually, always, routinely, normally</strong>"
+            },
+            {
+              step: "2",
+              title: "Present Continuous (S + is/am/are + V_ing)",
+              badge: "กำลังเกิดขณะนี้",
+              badgeColor: "amber",
+              desc: "ใช้เมื่อเหตุการณ์กำลังเกิดขึ้น คีย์ระบุ: <strong>now, right now, at this moment, Listen!, Look!</strong>"
+            },
+            {
+              step: "3",
+              title: "Past Simple (S + V2)",
+              badge: "เกิดและจบแล้วในอดีต",
+              badgeColor: "blue",
+              desc: "เหตุการณ์เกิดขึ้นและสิ้นสุดลงไปแล้ว คีย์สำคัญ: <strong>yesterday, last week, ago, in 1999</strong>"
+            },
+            {
+              step: "4",
+              title: "Present Perfect (S + has/have + V3)",
+              badge: "อดีตโยงถึงปัจจุบัน",
+              badgeColor: "green",
+              desc: "เหตุการณ์ในอดีตที่ส่งผลหรือดำเนินต่อเนื่อง คีย์หลอกยอดฮิต: <strong>since, for, already, yet, just, recently, so far</strong>"
+            },
+            {
+              step: "5",
+              title: "Past Perfect (S + had + V3)",
+              badge: "เกิดก่อนในอดีต",
+              badgeColor: "purple",
+              desc: "ใช้เมื่อมีเหตุการณ์อดีต 2 อย่างเกิดไม่พร้อมกัน <strong>เหตุการณ์ที่เกิดก่อนใช้ Past Perfect (had + V3)</strong> เหตุการณ์เกิดทีหลังใช้ Past Simple (V2)"
+            }
+          ]
+        }
+      ]
+    },
+
+    // ═══════════════════════════════════════════════════════════
+    // บทที่ 4 — เทคนิคการทำข้อสอบ Reading
+    // ═══════════════════════════════════════════════════════════
+    {
+      navIcon: "📖",
+      navLabel: "เทคนิค Reading",
+      icon: "📖",
+      title: "บทที่ 4 · เทคนิคการทำข้อสอบ Reading และคำศัพท์เชื่อมประโยค",
+      description: "กลยุทธ์การจับใจความสั้น ประกาศทางราชการ อีเมล และการหา Main Idea โดยไม่ต้องแปลหมด",
+      blocks: [
+        {
           type: "highlight-box",
-          color: "green",
-          title: "❓ ประเภทคำถามที่ต้องรู้จัก",
-          content: "<strong>Main Purpose / Main Idea:</strong> ถามวัตถุประสงค์หลักหรือใจความสำคัญของ Passage<br>" +
-                   "<strong>Detail Understanding:</strong> ถามรายละเอียดที่ระบุชัดใน Passage — ตอบตรงๆ จากบทความ<br>" +
-                   "<strong>Inference:</strong> ต้องอนุมานจากข้อมูลที่ให้ ไม่ใช่ตอบตรงๆ<br>" +
-                   "<strong>Vocabulary in Context:</strong> คำศัพท์ใน Passage มีความหมายอย่างไรในบริบทนั้น<br>" +
-                   "<strong>Reference (It/This/That):</strong> คำสรรพนาม指什么东西 — ดูประโยคก่อนหน้า<br>" +
-                   "<strong>Opinion vs. Fact:</strong> แยกว่าข้อความเป็นความเห็นหรือข้อเท็จจริง"
+          color: "navy",
+          title: "📖 5 วิธีแกะรอยประโยคข้อสอบ Reading Comprehension",
+          content: "การทำข้อสอบการอ่านเพื่อไม่ให้เสียเวลาเยอะ มีขั้นตอนการวิเคราะห์เชิงรุกดังนี้:"
+        },
+        {
+          type: "premium-flowchart",
+          cards: [
+            {
+              title: "1. อ่านโจทย์ก่อนบทความ",
+              icon: "🔍",
+              status: "allowed",
+              authority: "สแกนคีย์เวิร์ด",
+              desc: "อ่านโจทย์เพื่อดูว่าถามหาสถิติ ตัวเลข ชื่อคน หรือใจความกว้างๆ จะช่วยลดขอบเขตการกวาดสายตาได้ดี"
+            },
+            {
+              title: "2. ดูประโยคแรกและสุดท้าย",
+              icon: "📰",
+              status: "allowed",
+              authority: "หา Main Idea",
+              desc: "หัวข้อข่าว ประกาศ หรืออีเมล มักจะใส่ใจความสำคัญหรือวัตถุประสงค์หลักไว้ที่ <strong>'ย่อหน้าแรกสุด'</strong> หรือ <strong>'สรุปข้อความท้ายสุด'</strong>"
+            },
+            {
+              title: "3. ระวังคำที่เป็น Absolute",
+              icon: "⚠️",
+              status: "warning",
+              authority: "ชอยส์ลวงยอดฮิต",
+              desc: "ตัวเลือกชอยส์ที่มีคำว่า <strong>always (เสมอ), never (ไม่มีวัน), only (เท่านั้น), all (ทั้งหมด)</strong> มักจะเป็นชอยส์ที่ลวงหรือผิดบริบทจริง"
+            },
+            {
+              title: "4. การหาจุดคำสรรพนาม (Reference)",
+              icon: "🔗",
+              status: "restricted",
+              authority: "หาคำก่อนหน้า",
+              desc: "คำสรรพนาม เช่น <strong>it, they, this, these</strong> ชี้ไปหาคำนามที่อยู่ <strong>'ในประโยคก่อนหน้า'</strong> ให้ไล่สายตาถอยหลังขึ้นไป"
+            }
+          ]
         },
         {
           type: "highlight-box",
           color: "amber",
-          title: "⚠️ จุดสอบ Reading ที่พลาดไม่ได้",
-          content: "<strong>alternative = substitute</strong> ไม่ใช่ mandatory! (จุดหลอกที่ 1)<br>" +
-                   "<strong>albeit = อย่างไรก็ตาม / แม้ว่า</strong> (คำ conjunction ที่ใช้บ่อย)<br>" +
-                   "<strong>The latter</strong> = สิ่งที่กล่าวถึงเป็นลำดับสุดท้าย (ตัวหลังสุด)<br>" +
-                   "<strong>mandatory = บังคับ</strong> ≠ optional = เลือกได้<br><br>" +
-                   "<strong>กฎทอง:</strong><br>" +
-                   "• ตอบตาม Passage ไม่ใช่ความรู้ส่วนตัว<br>" +
-                   "• ข้อที่ paraphrase ตรงๆ จาก passage มักถูก<br>" +
-                   "• อย่าเลือกข้อที่ extreme หรือ absolute เกินไป<br>" +
-                   "• ข้อที่ 'ดูถูกต้อง' มากเป็นพิเศษ = สงสัย"
-        },
-        ]
+          title: "📌 คำเชื่อมประโยค (Conjunctions) ที่ออกสอบบ่อย",
+          content: "• <strong>albeit (ถึงแม้ว่า):</strong> ใช้เชื่อมความขัดแย้งแบบกระชับ เช่น The project was successful, <strong>albeit</strong> expensive.<br>" +
+            "• <strong>therefore / thus / consequently:</strong> ดังนั้น (บอกผลลัพธ์การกระทำ)<br>" +
+            "• <strong>however / nevertheless / nonetheless:</strong> อย่างไรก็ตาม (แสดงความขัดแย้ง)<br>" +
+            "• <strong>furthermore / moreover / in addition:</strong> ยิ่งกว่านั้น (บอกข้อมูลเพิ่มเติมปูความ)"
+        }
+      ]
     },
-    
-]
+
+    // ═══════════════════════════════════════════════════════════
+    // บทที่ 5 — จุดหลอกออกสอบบ่อย & ทริค 100 คะแนน
+    // ═══════════════════════════════════════════════════════════
+    {
+      navIcon: "🔢",
+      navLabel: "ทริค 100 คะแนน",
+      icon: "🔢",
+      title: "บทที่ 5 · สรุปคีย์ลัดสูตรจำ และ 10 จุดลวงในห้องสอบภาษาอังกฤษ",
+      description: "สูตรจำไวยากรณ์ด้วยกลอนช่วยท่องจำ ตารางเปรียบเทียบคำ และสรุปคะแนนเต็ม",
+      blocks: [
+        {
+          type: "highlight-box",
+          color: "navy",
+          title: "🔢 สถิติคีย์ตัวเลขสำคัญในกฎไวยากรณ์ภาษาอังกฤษ",
+          content: "<strong>1/2</strong> — กริยา Neither...nor ผันตามประธานตัวหลัง (ตัวใกล้สุด)<br>" +
+            "<strong>1</strong> — The number of + นามพหูพจน์ = <strong>กริยาเอกพจน์ (is/has)</strong><br>" +
+            "<strong>∞</strong> — A number of + นามพหูพจน์ = <strong>กริยาพหูพจน์ (are/have)</strong><br>" +
+            "<strong>Were</strong> — ใช้ใน If Clause Type 2 เสมอเมื่อประธานเป็น I / He / She (If I were you...)<br>" +
+            "<strong>V2</strong> — Past Simple (จบไปแล้ว) | <strong>had + V3</strong> — Past Perfect (เกิดก่อนและเสร็จสิ้นก่อน V2)"
+        },
+        {
+          type: "comparison-table",
+          title: "⚖️ ตารางสรุปเปรียบเทียบคำศัพท์หลอกคู่ตรงข้าม (Words Commonly Confused)",
+          headers: ["คำศัพท์", "หน้าที่คำ", "ความหมายจริง", "ข้อควรระวังในการทำข้อสอบ"],
+          rows: [
+            ["<strong>affect</strong>", "Verb (กริยา)", "ส่งผลกระทบ", "มีผลทำให้เกิดการเปลี่ยนแปลง (เช่น The rain affects our plans.)"],
+            ["<strong>effect</strong>", "Noun (คำนาม)", "ผลลัพธ์ / ผลกระทบ", "ตัวผลลัพธ์ที่เกิดตามหลังมา (เช่น The layout has a good effect.)"],
+            ["<strong>adapt</strong>", "Verb (กริยา)", "ปรับปรุง / ปรับตัว", "ปรับตัวเข้ากับสภาพใหม่ (เช่น Animals adapt to changes.)"],
+            ["<strong>adopt</strong>", "Verb (กริยา)", "นำมาใช้ / รับเลี้ยง", "นำวิธี/เด็กมาเลี้ยงมาใช้ (เช่น They adopt a new policy.)"],
+            ["<strong>discrete</strong>", "Adjective", "แยกตัวออกต่างหาก", "มีค่าเฉพาะตัวแยกชิ้นได้ (เช่น These are discrete categories.)"],
+            ["<strong>discreet</strong>", "Adjective", "ระมัดระวัง / สุขุม", "ทำอย่างไม่ประเจิดประเจ้อ (เช่น Please keep it discreet.)"]
+          ],
+          examNote: "⚠️ <strong>ข้อสอบลวง:</strong> มักนำคำเหล่านี้มาสลับพาร์ทออฟสปีชกันในพาร์ทเติมคำในช่องว่าง (Vocabulary Fill-in) ตรวจสอบความหมายบริบทก่อนกากบาท"
+        },
+        {
+          type: "key-summary",
+          title: "🧠 สูตรลัดช่วยท่องจำพิชิตข้อสอบพาร์ทภาษาอังกฤษ",
+          content: "• <strong>สูตรลัดบอร์ดประธาน:</strong> \"The number of... ให้เลือก <strong>is</strong> | A number of... ให้กาวิ่งไปหา <strong>are</strong>\"<br>" +
+            "• <strong>สูตรลับ Do you mind?:</strong> \"ถ้าผู้พูดขอใจกว้าง ให้ตอบ <strong>No / Not at all</strong> แปลว่าทำได้เลย ถ้าตอบ Yes คือห้ามทำนะจ๊ะ\"<br>" +
+            "• <strong>สูตรลัด Tenses อดีตซ้อน:</strong> \"เมื่อเกิดอดีตซ้อนกัน 2 ครา: ตัวเกิดก่อนเสร็จก่อนใช้ <strong>had V3</strong> | ตัวเกิดหลังแทรกเข้ามาใช้ <strong>V2</strong>\""
+        }
+      ]
+    }
+  ],
+
+  vocabulary: [
+    {
+      groupTitle: "📝 คำศัพท์ออกสอบบ่อย — Grammar & Reading",
+      terms: [
+        { term: "mandatory", eng: "mandatory (Adj.)", def: "บังคับตามกฎหมายหรือข้อบังคับ (เช่น wearing seatbelts is mandatory)" },
+        { term: "optional", eng: "optional (Adj.)", def: "เป็นทางเลือก สามารถเลือกได้ ไม่ใช่ข้อบังคับ (เช่น extra training is optional)" },
+        { term: "albeit", eng: "albeit (Conj.)", def: "ถึงแม้ว่า (มักใช้ขัดแย้งประโยคสั้น เช่น He accepted the job, albeit with reservations.)" },
+        { term: "alternative", eng: "alternative (N./Adj.)", def: "ทางเลือกที่เป็นไปได้ หรือสิ่งทดแทน (เช่น green energy is a good alternative)" }
+      ]
+    },
+    {
+      groupTitle: "🔤 คำศัพท์คู่ตรงข้าม — Words Confused",
+      terms: [
+        { term: "substitute", eng: "substitute (N./V.)", def: "สิ่งทดแทน ใช้แทนที่ (เช่น plastic can be used as a substitute for wood)" },
+        { term: "latter", eng: "latter (N./Adj.)", def: "สิ่งที่เอ่ยถึงทีหลังหรือลำดับสุดท้ายของกลุ่ม (ตรงข้ามกับ former)" },
+        { term: "former", eng: "former (N./Adj.)", def: "สิ่งที่เอ่ยถึงคนแรกหรือลำดับแรกของกลุ่ม (ตรงข้ามกับ latter)" },
+        { term: "discreetly", eng: "discreetly (Adv.)", def: "กระทำอย่างระมัดระวัง สุขุมรอบคอบ เพื่อป้องกันความวุ่นวาย" }
+      ]
+    },
+    {
+      groupTitle: "💡 คำกริยาพบบ่อย",
+      terms: [
+        { term: "affect", eng: "affect (V.)", def: "ส่งผลกระทบต่อสิ่งอื่น (เช่น Smoking affects health.)" },
+        { term: "effect", eng: "effect (N.)", def: "ตัวผลลัพธ์หรือประสิทธิผลที่ตามมา (เช่น The new law had a huge effect.)" },
+        { term: "adapt", eng: "adapt (V.)", def: "ปรับตัวให้เข้ากับสภาวะใหม่ (เช่น adapt to change)" },
+        { term: "adopt", eng: "adopt (V.)", def: "รับสิ่งใหม่เข้ามาใช้งานหรือรับเด็กมาอุปการะเลี้ยงดู (เช่น adopt a new policy)" }
+      ]
+    }
+  ],
+
+  quizFile: "quiz.html"
 };
