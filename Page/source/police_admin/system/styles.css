@@ -3,36 +3,48 @@
    ============================================ */
 
 :root {
-    --cream: #faf8f4;
-    --cream-warm: #f5f0e8;
+    --cream: #f7f3eb;
+    --cream-warm: #ede4d4;
     --white: #ffffff;
-    --text: #1a1a2e;
-    --text-muted: #7a756d;
-    --text-light: #a09a8c;
-    --border: #e5e0d8;
-    --border-light: #f0ebe4;
+    --text: #1a0d10;
+    --text-muted: #5c4a4d;
+    --text-light: #8a7a7d;
+    --border: #d9cfc1;
+    --border-light: #ebe2d4;
 
-    --yellow: #fcec4a;
-    --yellow-strong: #ddcf00;
-    --yellow-soft: #fffdf0;
+    /* Map system variables to Police identity */
+    --yellow: #b48a3e; /* Police Gold */
+    --yellow-strong: #d4ad5c; /* Police Gold Light */
+    --yellow-soft: #f4ecd8;
 
-    --accent: #c97d3a;
-    --accent-warm: #e8a87c;
-    --accent-deep: #8b5e3c;
-    --accent-bg: #fdf3e8;
+    --police: #7a1822;
+    --police-dark: #560f17;
+    --police-mid: #962030;
+    --police-light: #b5495b;
+    --police-bg: #fbeef0;
+    --gold: #b48a3e;
+    --gold-light: #d4ad5c;
+    --gold-soft: #f4ecd8;
+
+    --accent: #b48a3e;
+    --accent-warm: #d4ad5c;
+    --accent-deep: #7a1822;
+    --accent-bg: #f4ecd8;
     --success: #3d8c6c;
     --success-bg: #e8f5ef;
 
-    --navy: #1a1a2e;
-    --navy-mid: #2d2d4a;
+    --navy: #7a1822; /* Police Maroon */
+    --navy-mid: #962030;
 
-    --shadow-sm: 0 1px 3px rgba(26,26,46,0.06), 0 1px 2px rgba(26,26,46,0.04);
-    --shadow-md: 0 4px 16px rgba(26,26,46,0.08), 0 2px 6px rgba(26,26,46,0.04);
-    --shadow-lg: 0 12px 40px rgba(26,26,46,0.10), 0 4px 12px rgba(26,26,46,0.05);
-    --shadow-xl: 0 24px 64px rgba(26,26,46,0.12), 0 8px 24px rgba(26,26,46,0.06);
+    --shadow-sm: 0 1px 3px rgba(122,24,34,0.08), 0 1px 2px rgba(122,24,34,0.04);
+    --shadow-md: 0 4px 16px rgba(122,24,34,0.10), 0 2px 6px rgba(122,24,34,0.05);
+    --shadow-lg: 0 12px 40px rgba(122,24,34,0.12), 0 4px 12px rgba(122,24,34,0.06);
+    --shadow-xl: 0 24px 64px rgba(122,24,34,0.18), 0 8px 24px rgba(122,24,34,0.08);
 
-    --font-display: 'Kanit', sans-serif;
+    --font-display: 'Chakra Petch', 'Kanit', sans-serif;
+    --font-serif: 'Noto Serif Thai', 'Chakra Petch', serif;
     --font-body: 'Sarabun', sans-serif;
+    --font-ui: 'Chakra Petch', sans-serif;
 
     --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -57,27 +69,31 @@
 }
 
 [data-theme="dark"] {
-    --cream: #141420;
-    --cream-warm: #1a1a2e;
-    --white: #1e1e32;
+    --cream: #0f0a0b;
+    --cream-warm: #1a1314;
+    --white: #1f1819;
     --text: #f0ece4;
-    --text-muted: #9a9587;
-    --text-light: #7a756d;
-    --border: #2d2d4a;
-    --border-light: #252540;
-    --accent-bg: #252535;
+    --text-muted: #9a8d82;
+    --text-light: #6b5e54;
+    --border: #2a2223;
+    --border-light: #1f1819;
+    --police-bg: #2a1a1f;
+    --gold-soft: #2a2218;
+    --accent-bg: #2a1a1f;
 }
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --cream: #141420;
-        --cream-warm: #1a1a2e;
-        --white: #1e1e32;
+        --cream: #0f0a0b;
+        --cream-warm: #1a1314;
+        --white: #1f1819;
         --text: #f0ece4;
-        --text-muted: #9a9587;
-        --text-light: #7a756d;
-        --border: #2d2d4a;
-        --border-light: #252540;
-        --accent-bg: #252535;
+        --text-muted: #9a8d82;
+        --text-light: #6b5e54;
+        --border: #2a2223;
+        --border-light: #1f1819;
+        --police-bg: #2a1a1f;
+        --gold-soft: #2a2218;
+        --accent-bg: #2a1a1f;
     }
 }
 
@@ -186,178 +202,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-tab.active::after { left: 16px; right: 16px; }
 [data-theme="dark"] .nav-tab.active { color: var(--yellow); }
 [data-theme="dark"] .nav-tab.active::after { background: var(--yellow); }
-
-/* ===== Flashcard Nav Tab — yellow accent ===== */
-.nav-tab-flashcard {
-    color: var(--navy) !important;
-    background: var(--yellow) !important;
-    border: 1.5px solid var(--yellow-strong) !important;
-    font-weight: 800;
-    box-shadow: 0 2px 6px rgba(220,207,0,0.25);
-}
-.nav-tab-flashcard:hover {
-    background: var(--yellow-strong) !important;
-    border-color: var(--yellow-strong) !important;
-    color: var(--navy) !important;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(220,207,0,0.35);
-}
-.nav-tab-flashcard .nav-fc-icon {
-    font-size: 1rem;
-    display: inline-block;
-}
-[data-theme="dark"] .nav-tab-flashcard {
-    background: var(--yellow) !important;
-    color: var(--navy) !important;
-    border-color: var(--yellow-strong) !important;
-}
-[data-theme="dark"] .nav-tab-flashcard:hover {
-    background: var(--yellow-strong) !important;
-    color: var(--navy) !important;
-}
-
-/* ===== Mobile Flashcard link ===== */
-.mobile-flashcard-link {
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--yellow) !important;
-    color: var(--navy) !important;
-    font-weight: 800 !important;
-    border: 1.5px solid var(--yellow-strong) !important;
-    border-radius: var(--radius-md);
-    margin-top: 8px;
-    box-shadow: 0 2px 6px rgba(220,207,0,0.2);
-}
-.mobile-flashcard-link:hover {
-    background: var(--yellow-strong) !important;
-    color: var(--navy) !important;
-}
-.mobile-fc-badge {
-    background: var(--accent);
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 800;
-    padding: 3px 8px;
-    border-radius: var(--radius-full);
-    font-family: var(--font-display);
-}
-
-/* ===== Hero Button 2: Flashcard (Sleek Secondary/White) ===== */
-.btn-flashcard {
-    display: inline-flex !important;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text) !important;
-    background: var(--white) !important;
-    border: 1.5px solid var(--border) !important;
-    padding: 14px 28px !important;
-    border-radius: var(--radius-full) !important;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--duration-fast) var(--ease-bounce) !important;
-}
-.btn-flashcard::after { display: none !important; }
-.btn-fc-shimmer { display: none; }
-.btn-fc-icon {
-    font-size: 1.15rem;
-    z-index: 1;
-    display: inline-block;
-    flex-shrink: 0;
-}
-.btn-fc-text {
-    display: inline-flex;
-    align-items: center;
-    z-index: 1;
-    line-height: 1;
-}
-.btn-fc-text strong {
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 0.01em;
-}
-.btn-fc-arrow {
-    font-size: 1rem;
-    font-weight: 800;
-    z-index: 1;
-    transition: transform var(--duration-fast) var(--ease-bounce);
-    color: var(--text-muted);
-    margin-left: 2px;
-}
-.btn-flashcard:hover {
-    transform: translateY(-3px) scale(1.02) !important;
-    box-shadow: var(--shadow-md) !important;
-    background: var(--cream-warm) !important;
-    border-color: var(--text) !important;
-    color: var(--text) !important;
-}
-.btn-flashcard:hover .btn-fc-arrow {
-    transform: translateX(4px);
-    color: var(--text);
-}
-.btn-flashcard:active { transform: translateY(-1px) scale(0.98) !important; }
-
-[data-theme="dark"] .btn-flashcard {
-    background: var(--white) !important;
-    border-color: var(--border) !important;
-    color: var(--text) !important;
-}
-[data-theme="dark"] .btn-flashcard:hover {
-    background: var(--cream-warm) !important;
-    border-color: var(--text) !important;
-    color: var(--text) !important;
-}
-
-/* ===== Hero Button 3: Quiz (Vibrant Amber/Orange) ===== */
-.btn-quiz {
-    display: inline-flex !important;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--yellow) !important;
-    background: var(--navy) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.05) !important;
-    padding: 14px 28px !important;
-    border-radius: var(--radius-full) !important;
-    box-shadow: 0 4px 14px rgba(26,26,46,0.2) !important;
-    transition: all var(--duration-fast) var(--ease-bounce) !important;
-}
-.btn-quiz::after { display: none !important; }
-.btn-quiz .btn-fc-arrow {
-    font-size: 1rem;
-    font-weight: 800;
-    z-index: 1;
-    transition: transform var(--duration-fast) var(--ease-bounce);
-    color: var(--yellow);
-    margin-left: 2px;
-}
-.btn-quiz:hover {
-    transform: translateY(-3px) scale(1.02) !important;
-    box-shadow: 0 8px 24px rgba(26,26,46,0.35) !important;
-    background: var(--navy-mid) !important;
-}
-.btn-quiz:hover .btn-fc-arrow {
-    transform: translateX(4px);
-}
-.btn-quiz:active { transform: translateY(-1px) scale(0.98) !important; }
-
-[data-theme="dark"] .btn-quiz {
-    background: var(--navy) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-    color: var(--yellow) !important;
-}
-[data-theme="dark"] .btn-quiz:hover {
-    background: var(--navy-mid) !important;
-}
-
-@media (max-width: 480px) {
-    .btn-flashcard, .btn-quiz { padding: 12px 20px !important; font-size: 0.9rem; }
-    .btn-fc-arrow { display: none; }
-}
 
 .nav-actions { display: flex; align-items: center; gap: var(--space-xs); }
 .nav-btn {
@@ -580,71 +424,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     margin: 0;
     animation: fadeUp var(--duration-slower) var(--ease-out) 300ms both;
 }
-/* Unified Hero Button Base Styles */
-.btn-primary, .btn-flashcard, .btn-quiz {
-    display: inline-flex !important;
+.btn-primary {
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 1rem;
-    padding: 14px 28px !important;
-    border-radius: 12px !important;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-.btn-primary::after, .btn-flashcard::after, .btn-quiz::after { display: none !important; }
-
-/* Icon, Text, Arrow structures */
-.btn-fc-icon {
-    font-size: 1.15rem;
-    z-index: 1;
-    display: inline-block;
-    flex-shrink: 0;
-}
-.btn-fc-text {
-    display: inline-flex;
-    align-items: center;
-    z-index: 1;
-    line-height: 1;
-}
-.btn-fc-text strong {
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 0.01em;
-}
-.btn-fc-arrow {
-    font-size: 1rem;
-    font-weight: 800;
-    z-index: 1;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    margin-left: 2px;
-}
-
-/* 1. Primary Button (Vibrant brand yellow) */
-.btn-primary {
-    color: var(--navy) !important;
-    background: var(--yellow) !important;
-    border: 1.5px solid rgba(0, 0, 0, 0.03) !important;
-    box-shadow: 0 4px 14px rgba(252, 236, 74, 0.25) !important;
-}
-.btn-primary .btn-fc-arrow {
     color: var(--navy);
+    background: var(--yellow);
+    padding: 14px 32px;
+    border-radius: var(--radius-full);
+    transition: all var(--duration-fast) var(--ease-bounce);
+    box-shadow: var(--shadow-md);
+    letter-spacing: 0.01em;
 }
-.btn-primary:hover {
-    transform: translateY(-3px) scale(1.02) !important;
-    box-shadow: 0 8px 24px rgba(220, 207, 0, 0.4) !important;
-    background: var(--yellow-strong) !important;
-}
-.btn-primary:hover .btn-fc-arrow {
-    transform: translateX(4px);
-}
-.btn-primary:active { transform: translateY(-1px) scale(0.98) !important; }
-
+.btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: var(--shadow-lg); background: var(--yellow-strong); }
+.btn-primary:active { transform: translateY(-1px) scale(0.98); box-shadow: var(--shadow-sm); }
 .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -655,13 +451,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     color: var(--text);
     background: var(--white);
     padding: 14px 32px;
-    border-radius: 12px;
+    border-radius: var(--radius-full);
     border: 1.5px solid var(--border);
     transition: all var(--duration-fast) var(--ease-bounce);
 }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 .btn-secondary:active { transform: translateY(0); }
-
 .btn-dark {
     display: inline-flex;
     align-items: center;
@@ -672,7 +467,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     color: var(--yellow);
     background: var(--navy);
     padding: 14px 32px;
-    border-radius: 12px;
+    border-radius: var(--radius-full);
     transition: all var(--duration-fast) var(--ease-bounce);
     box-shadow: var(--shadow-md);
 }
@@ -1809,86 +1604,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background: var(--cream-warm);
     color: var(--text-muted);
     border-color: var(--border);
-}
-
-
-/* ============================================
-   KNOWLEDGE BASE TABLES (Themed)
-   ============================================ */
-.kb-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    background: var(--border-light);
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 10px 0;
-}
-.kb-table th {
-    padding: 12px 14px;
-    text-align: left;
-    background: var(--navy) !important;
-    color: #ffffff !important;
-    font-family: var(--font-display);
-    font-weight: 700;
-}
-.kb-table tr {
-    transition: background-color var(--duration-fast) var(--ease-smooth);
-}
-.kb-table tr.odd {
-    background: var(--white) !important;
-}
-.kb-table tr.even {
-    background: var(--border-light) !important;
-}
-.kb-table td {
-    padding: 12px 14px;
-    vertical-align: top;
-    line-height: 1.6;
-    color: var(--text) !important;
-}
-.kb-table td.bold {
-    font-weight: 700;
-}
-/* Column divider for comparison tables */
-.kb-table td.col-divider {
-    border-right: 1px solid var(--border) !important;
-}
-
-/* Text colors inside table to match theme and keep high contrast */
-.kb-table td.text-law-act {
-    color: #e11d48 !important;
-    font-weight: 700;
-}
-.kb-table td.text-law-decree {
-    color: #0d9488 !important;
-    font-weight: 700;
-}
-.kb-table td.text-law-regulation {
-    color: #7c3aed !important;
-    font-weight: 700;
-}
-
-[data-theme="dark"] .kb-table td.text-law-act {
-    color: #ff6b8b !important;
-}
-[data-theme="dark"] .kb-table td.text-law-decree {
-    color: #2dd4bf !important;
-}
-[data-theme="dark"] .kb-table td.text-law-regulation {
-    color: #c084fc !important;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .kb-table td.text-law-act {
-        color: #ff6b8b !important;
-    }
-    :root:not([data-theme="light"]) .kb-table td.text-law-decree {
-        color: #2dd4bf !important;
-    }
-    :root:not([data-theme="light"]) .kb-table td.text-law-regulation {
-        color: #c084fc !important;
-    }
 }
 
 @media (max-width: 768px) {

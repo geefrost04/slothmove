@@ -773,6 +773,151 @@ img { max-width: 100%; display: block; }
 }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* =========================================================
+   MAIN TYPE SWITCHER (Segmented control)
+   ========================================================= */
+.main-type-switcher {
+  display: flex;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  margin-bottom: 24px;
+  gap: 8px;
+}
+.type-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  padding: 14px 20px;
+  border-radius: 12px;
+  transition: all 0.25s var(--ease-smooth);
+}
+.type-tab:hover {
+  color: var(--text);
+  background: var(--cream-warm);
+}
+.type-tab.active {
+  color: var(--navy);
+  background: var(--yellow);
+  box-shadow: 0 4px 12px rgba(220, 207, 0, 0.3);
+}
+.type-badge-count {
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+.type-tab.active .type-badge-count {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================================
+   SUBJECT SELECTOR (Quiz mode only)
+   ========================================================= */
+.subject-select-wrap {
+  margin-bottom: 20px;
+  animation: fadeUp 0.4s var(--ease-out);
+}
+.subject-select-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 4px 16px;
+  transition: all 0.2s var(--ease-smooth);
+  box-shadow: var(--shadow-sm);
+}
+.subject-select-box:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+.subject-select-icon {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+.subject-select-box select {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text);
+  padding: 10px 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.subject-select-box::after {
+  content: '▼';
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  position: absolute;
+  right: 18px;
+  pointer-events: none;
+}
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+.theme-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    width: 60px;
+    height: 34px;
+    background: var(--border);
+    border: none;
+    border-radius: 17px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(0,0,0,0.08);
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+.theme-toggle.dark-mode {
+    background: var(--navy);
+    box-shadow: var(--shadow-md), inset 0 0 0 2px rgba(255,255,255,0.15);
+}
+.toggle-knob {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.12);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.toggle-icon { font-size: 14px; }
+.toggle-icon.sun { color: #fcec4a; position: absolute; left: 8px; }
+.toggle-icon.moon { color: #a0a0c0; position: absolute; right: 8px; }
+.theme-toggle:not(.dark-mode) .toggle-knob { transform: translateX(0); }
+.theme-toggle.dark-mode .toggle-knob { transform: translateX(26px); }
+.theme-toggle:hover { transform: scale(1.05); }
+.theme-toggle:active { transform: scale(0.96); }
 </style>
 </head>
 <body>
@@ -829,22 +974,46 @@ img { max-width: 100%; display: block; }
 <main class="content">
 
   <!-- SUBJECT TABS -->
-  <div class="tabs-wrap" role="tablist" aria-label="เลือกหมวดวิชา">
-    <button class="tab active" role="tab" aria-selected="true" data-sub="all">
-      <span>ทั้งหมด</span>
+  <!-- MAIN LEADERBOARD TYPE SWITCHER -->
+  <div class="main-type-switcher" role="tablist" aria-label="เลือกประเภทของกระดานคะแนน">
+    <button class="type-tab active" role="tab" aria-selected="true" data-type="mock">
+      <span class="type-icon">🏆</span>
+      <span class="type-label">จำลองสอบสนามจริง <span class="type-badge-count">200 ข้อ</span></span>
     </button>
-    <button class="tab" role="tab" aria-selected="false" data-sub="จำลองสอบ">
-      <span class="tab-icon">🎯</span><span>จำลองข้อสอบจริง</span>
+    <button class="type-tab" role="tab" aria-selected="false" data-type="quiz">
+      <span class="type-icon">📝</span>
+      <span class="type-label">แบบทดสอบรายวิชา <span class="type-badge-count">10 ข้อ</span></span>
     </button>
-    <button class="tab" role="tab" aria-selected="false" data-sub="ป้องกันและบรรเท">
-      <span class="tab-icon">🚒</span><span>พ.ร.บ. ป้องกันฯ</span>
-    </button>
-    <button class="tab" role="tab" aria-selected="false" data-sub="บริหารราชการ">
-      <span class="tab-icon">⚖️</span><span>บริหารราชการ</span>
-    </button>
-    <button class="tab" role="tab" aria-selected="false" data-sub="แผนพัฒนาเศรษฐกิจ">
-      <span class="tab-icon">📊</span><span>แผนพัฒนาฯ 13</span>
-    </button>
+  </div>
+
+  <!-- SUBJECT DROPDOWN SELECTOR (Quiz mode only) -->
+  <div class="subject-select-wrap" id="subjectFilterContainer" style="display: none;">
+    <div class="subject-select-box">
+      <span class="subject-select-icon">📚</span>
+      <select id="subjectSelect" aria-label="เลือกวิชา">
+        <option value="all">📂 ทุกรายวิชา (รวมทุกวิชา)</option>
+        <option value="พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534">🏛️ พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534</option>
+        <option value="พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561">💰 พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561</option>
+        <option value="ความรู้เกี่ยวกับการงบประมาณ">📊 ความรู้เกี่ยวกับการงบประมาณ</option>
+        <option value="พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551">👔 พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. 2551</option>
+        <option value="พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550">🚒 พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550</option>
+        <option value="ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย">🏠 ความรู้เกี่ยวกับกรม ปภ.</option>
+        <option value="ความรู้เกี่ยวกับวิเคราะห์สถานการณ์ภัยและจัดการภัยพิบัติ">⚠️ วิเคราะห์สถานการณ์ภัย & จัดการภัยพิบัติ</option>
+        <option value="ระเบียบกระทรวงการคลังว่าด้วยเงินทดรองราชการฯ พ.ศ. 2562">💵 ระเบียบเงินทดรองราชการ พ.ศ. 2562</option>
+        <option value="วิชาภาษาอังกฤษ">🇬🇧 วิชาภาษาอังกฤษ</option>
+        <option value="พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540">📋 พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. 2540</option>
+        <option value="พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545">🏛️ พ.ร.บ. ปรับปรุงกระทรวง ทบวง กรม พ.ศ. 2545</option>
+        <option value="ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2535">🛡️ ระเบียบป้องกันอุบัติภัยแห่งชาติ พ.ศ. 2535</option>
+        <option value="แผนการป้องกันและบรรเทาสาธารณภัยแห่งชาติ พ.ศ. 2564-2570">🗺️ แผนป้องกันฯ แห่งชาติ พ.ศ. 2564-2570</option>
+        <option value="แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13">📈 แผนพัฒนาเศรษฐกิจฯ ฉบับที่ 13</option>
+        <option value="ความรู้เกี่ยวกับการวางแผนเชิงกลยุทธ์และการวิเคราะห์นโยบาย">🎯 วางแผนเชิงกลยุทธ์ & วิเคราะห์นโยบาย</option>
+        <option value="ความรู้เกี่ยวกับเศรษฐกิจ สังคม การเมือง">🌍 เศรษฐกิจ สังคม การเมือง</option>
+        <option value="ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554">🚗 ระเบียบป้องกันและลดอุบัติเหตุทางถนน พ.ศ. 2554</option>
+        <option value="ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. 2526">✉️ ระเบียบงานสารบรรณ พ.ศ. 2526</option>
+        <option value="ระเบียบกระทรวงมหาดไทยว่าด้วยอาสาสมัครป้องกันภัยฝ่ายพลเรือน พ.ศ. 2547">🧑‍🚒 ระเบียบ อปพร. พ.ศ. 2547</option>
+        <option value="ระเบียบสำนักนายกรัฐมนตรีว่าด้วยระบบการเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552">📢 ระเบียบระบบเตือนภัยพิบัติแห่งชาติ พ.ศ. 2552</option>
+      </select>
+    </div>
   </div>
 
   <!-- STATS -->
@@ -966,7 +1135,8 @@ const SUPA = window.supabase.createClient(
    STATE
    ========================================================= */
 let allData = [];
-let activeSub = 'all';
+let activeType = 'mock';
+let activeQuizSubject = 'all';
 let activeSort = 'pct';
 let searchQuery = '';
 
@@ -1100,13 +1270,24 @@ function updateLastSeen() {
    ========================================================= */
 function getFilteredSorted() {
   let data = allData;
-  if (activeSub !== 'all') {
-    data = data.filter(r => (r.subject || '').includes(activeSub));
+  
+  // 1. Filter by Type (Mock vs Quiz)
+  data = data.filter(r => {
+    const isMock = (r.subject || '').includes('จำลอง') || (r.subject || '').includes('Mock') || (r.total >= 100);
+    return activeType === 'mock' ? isMock : !isMock;
+  });
+
+  // 2. Filter by Quiz Subject (if in quiz mode)
+  if (activeType === 'quiz' && activeQuizSubject !== 'all') {
+    data = data.filter(r => (r.subject || '') === activeQuizSubject);
   }
+
+  // 3. Filter by Search Query
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
     data = data.filter(r => (r.nickname || '').toLowerCase().includes(q));
   }
+
   const sorted = [...data];
   if (activeSort === 'pct') {
     sorted.sort((a, b) =>
@@ -1250,12 +1431,21 @@ function render() {
 /* =========================================================
    TABS + SORT + SEARCH
    ========================================================= */
-function setSubject(sub, el) {
-  activeSub = sub;
-  document.querySelectorAll('.tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.sub === sub);
-    t.setAttribute('aria-selected', t.dataset.sub === sub ? 'true' : 'false');
+function setType(type) {
+  activeType = type;
+  document.querySelectorAll('.type-tab').forEach(t => {
+    const isActive = t.dataset.type === type;
+    t.classList.toggle('active', isActive);
+    t.setAttribute('aria-selected', isActive ? 'true' : 'false');
   });
+
+  const subjectFilterContainer = document.getElementById('subjectFilterContainer');
+  if (type === 'quiz') {
+    subjectFilterContainer.style.display = 'block';
+  } else {
+    subjectFilterContainer.style.display = 'none';
+  }
+
   render();
 }
 
@@ -1265,8 +1455,12 @@ function setSort(sort, el) {
   render();
 }
 
-document.querySelectorAll('.tab').forEach(t => {
-  t.addEventListener('click', () => setSubject(t.dataset.sub, t));
+document.querySelectorAll('.type-tab').forEach(t => {
+  t.addEventListener('click', () => setType(t.dataset.type));
+});
+document.getElementById('subjectSelect').addEventListener('change', e => {
+  activeQuizSubject = e.target.value;
+  render();
 });
 document.querySelectorAll('.sort-btn').forEach(b => {
   b.addEventListener('click', () => setSort(b.dataset.sort, b));
@@ -1318,9 +1512,42 @@ window.addEventListener('scroll', () => {
 /* =========================================================
    INIT
    ========================================================= */
+function setupThemeToggle() {
+  var themeToggle = document.getElementById('themeToggle');
+  if (!themeToggle) return;
+  var saved = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var isDark = saved ? saved === 'dark' : prefersDark;
+  
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  } else if (!prefersDark) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+  
+  themeToggle.classList.toggle('dark-mode', isDark);
+  themeToggle.setAttribute('aria-checked', isDark ? 'true' : 'false');
+  
+  themeToggle.addEventListener('click', function() {
+    var nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var next = nowDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    themeToggle.classList.toggle('dark-mode', !nowDark);
+    themeToggle.setAttribute('aria-checked', !nowDark ? 'true' : 'false');
+  });
+}
+
 document.getElementById('year').textContent = new Date().getFullYear();
+setupThemeToggle();
 loadData();
 setInterval(loadData, 30000);
 </script>
+
+<button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดมืด/สว่าง">
+  <span class="toggle-icon sun">☀️</span>
+  <span class="toggle-icon moon">🌙</span>
+  <span class="toggle-knob"></span>
+</button>
 </body>
 </html>
