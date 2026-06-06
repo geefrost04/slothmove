@@ -12,127 +12,963 @@
 <meta content="กระดานคะแนน ปภ. | SlothMove" property="og:title"/>
 <meta content="กระดานคะแนนผู้เข้าสอบจำลองและควิซวิชาต่างๆ กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)" property="og:description"/>
 <meta content="https://slothmoveth.com/pic/slothmove_mascot.png" property="og:image"/>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Kanit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="../../../pic/slothmove_mascot.png">
 
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          cream: {
-            DEFAULT: '#faf8f4',
-            warm: '#f5f0e8',
-          },
-          navy: {
-            DEFAULT: '#1a1a2e',
-            mid: '#2d2d4a',
-          },
-          accent: {
-            DEFAULT: '#c97d3a',
-            warm: '#e8a87c',
-            bg: '#fdf3e8',
-          },
-          yellow: {
-            DEFAULT: '#fcec4a',
-            strong: '#ddcf00',
-            soft: '#fffdf0',
-          }
-        }
-      }
-    }
-  }
-</script>
-
 <style>
-  body { font-family:'Sarabun',sans-serif; background:#faf8f4; }
-  .font-kanit { font-family:'Kanit',sans-serif; }
-  .rank-1 { background:linear-gradient(135deg,#fef9c3,#fde68a); border-color:#fde68a; }
-  .rank-2 { background:linear-gradient(135deg,#f8fafc,#e2e8f0); border-color:#cbd5e1; }
-  .rank-3 { background:linear-gradient(135deg,#fff7ed,#fed7aa); border-color:#fdba74; }
-  .tab-active { background:#1a1a2e !important; color:#fff !important; }
+/* =========================================================
+   THEME — SlothMove Editorial (in sync with indexPAB/styles)
+   ========================================================= */
+:root {
+  --cream: #faf8f4;
+  --cream-warm: #f5f0e8;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #7a756d;
+  --text-light: #a09a8c;
+  --border: #e5e0d8;
+  --border-light: #f0ebe4;
+  --yellow: #fcec4a;
+  --yellow-strong: #ddcf00;
+  --yellow-soft: #fffdf0;
+  --accent: #c97d3a;
+  --accent-warm: #e8a87c;
+  --accent-deep: #8b5e3c;
+  --accent-bg: #fdf3e8;
+  --success: #3d8c6c;
+  --success-bg: #e8f5ef;
+  --danger: #dc2626;
+  --navy: #1a1a2e;
+  --navy-mid: #2d2d4a;
+  --shadow-sm: 0 1px 3px rgba(26,26,46,.06), 0 1px 2px rgba(26,26,46,.04);
+  --shadow-md: 0 4px 16px rgba(26,26,46,.08), 0 2px 6px rgba(26,26,46,.04);
+  --shadow-lg: 0 12px 40px rgba(26,26,46,.10), 0 4px 12px rgba(26,26,46,.05);
+  --font-display: 'Kanit', sans-serif;
+  --font-body: 'Sarabun', sans-serif;
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream: #141420;
+    --cream-warm: #1a1a2e;
+    --white: #1e1e32;
+    --text: #f0ece4;
+    --text-muted: #9a9587;
+    --text-light: #7a756d;
+    --border: #2d2d4a;
+    --border-light: #252540;
+    --accent-bg: #252535;
+  }
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background: var(--cream-warm); }
+::-webkit-scrollbar-thumb { background: var(--yellow-strong); border-radius:99px; }
+::selection { background: var(--yellow); color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
+.font-kanit { font-family: var(--font-display); }
+.font-sarabun { font-family: var(--font-body); }
+
+/* =========================================================
+   NAV (shared style with site)
+   ========================================================= */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-light);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: box-shadow .3s var(--ease-smooth);
+}
+.nav.scrolled { box-shadow: var(--shadow-md); }
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.nav-logo img { width: 32px; height: 32px; border-radius: 8px; object-fit: contain; }
+.logo-accent { color: var(--yellow-strong); }
+.logo-sep { color: var(--border); margin: 0 2px; }
+.logo-sub { font-size: .85rem; font-weight: 500; color: var(--text-muted); }
+
+.nav-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .82rem;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  transition: all .15s var(--ease-smooth);
+}
+.nav-btn:hover { border-color: var(--accent); color: var(--text); background: var(--accent-bg); transform: translateY(-1px); }
+.nav-btn-accent {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .82rem;
+  color: var(--navy);
+  background: var(--yellow);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  transition: all .15s var(--ease-bounce);
+  box-shadow: 0 2px 8px rgba(220,207,0,.3);
+}
+.nav-btn-accent:hover { background: var(--yellow-strong); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(220,207,0,.35); }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  padding: 56px 0 96px;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(252,236,74,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -150px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201,125,58,.10) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grid {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 32px;
+  position: relative; z-index: 1;
+}
+@media (max-width: 720px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600; font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--yellow);
+  background: rgba(252,236,74,.10);
+  border: 1px solid rgba(252,236,74,.25);
+  padding: 6px 14px; border-radius: 9999px;
+  margin-bottom: 16px;
+  width: fit-content;
+  animation: fadeUp .9s var(--ease-out) 0ms both;
+}
+@media (max-width: 720px) { .hero-badge { margin-left: auto; margin-right: auto; } }
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+  box-shadow: 0 0 8px rgba(252,236,74,.6);
+}
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.4); } }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1; letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 8px;
+  animation: fadeUp .9s var(--ease-out) 100ms both;
+}
+.hero-title .hl-yellow { color: var(--yellow); position: relative; }
+.hero-title .hl-yellow::after {
+  content: ''; position: absolute; left: 0; bottom: 2px;
+  width: 100%; height: 5px;
+  background: linear-gradient(90deg, rgba(252,236,74,.4), transparent);
+  border-radius: 2px;
+}
+.hero-desc {
+  font-family: var(--font-body);
+  font-size: clamp(.9rem, 1.4vw, 1rem);
+  color: rgba(255,255,255,.75);
+  line-height: 1.7;
+  max-width: 540px;
+  animation: fadeUp .9s var(--ease-out) 200ms both;
+}
+@media (max-width: 720px) { .hero-desc { margin-left: auto; margin-right: auto; } }
+
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
+  animation: fadeUp .9s var(--ease-out) 300ms both;
+}
+@media (max-width: 720px) { .hero-actions { justify-content: center; } }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .95rem;
+  color: var(--navy); background: var(--yellow);
+  padding: 12px 26px;
+  border-radius: 9999px;
+  transition: all .15s var(--ease-bounce);
+  box-shadow: 0 4px 16px rgba(220,207,0,.3);
+}
+.btn-primary:hover { transform: translateY(-2px) scale(1.02); background: var(--yellow-strong); box-shadow: 0 8px 24px rgba(220,207,0,.45); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .95rem;
+  color: #fff; background: rgba(255,255,255,.08);
+  padding: 12px 26px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  transition: all .15s var(--ease-smooth);
+}
+.btn-secondary:hover { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.3); transform: translateY(-2px); }
+
+.hero-visual {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeUp .9s var(--ease-out) 400ms both;
+}
+@media (max-width: 720px) { .hero-visual { display: none; } }
+.trophy-cluster {
+  position: relative;
+  width: 160px; height: 160px;
+  display: flex; align-items: center; justify-content: center;
+}
+.trophy-cluster::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle, rgba(252,236,74,.20) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease infinite;
+}
+.trophy-emoji {
+  font-size: 100px; line-height: 1;
+  filter: drop-shadow(0 16px 40px rgba(252,236,74,.3));
+  animation: floaty 4s ease-in-out infinite;
+  position: relative; z-index: 1;
+}
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.hero-stats-mini {
+  display: flex; gap: 16px;
+  font-family: var(--font-display);
+  font-size: .7rem; color: rgba(255,255,255,.6);
+  text-transform: uppercase; letter-spacing: .08em;
+  font-weight: 600;
+}
+.hero-stats-mini strong { color: var(--yellow); font-size: 1.2rem; font-weight: 800; display: block; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================
+   CONTENT WRAP
+   ========================================================= */
+.content {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 24px;
+  margin-top: -56px; /* overlap hero */
+  position: relative; z-index: 5;
+}
+
+/* =========================================================
+   SUBJECT TABS (segmented control)
+   ========================================================= */
+.tabs-wrap {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 6px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  display: flex; gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs-wrap::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 1; min-width: max-content;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .82rem;
+  color: var(--text-muted);
+  padding: 10px 16px;
+  border-radius: 18px;
+  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 6px; justify-content: center;
+  transition: all .2s var(--ease-smooth);
+  position: relative;
+}
+.tab:hover { color: var(--text); background: var(--cream-warm); }
+.tab.active {
+  color: var(--navy);
+  background: var(--yellow);
+  box-shadow: 0 2px 8px rgba(220,207,0,.25);
+}
+.tab-icon { font-size: 1rem; }
+
+/* =========================================================
+   STATS GRID
+   ========================================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+@media (max-width: 720px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: all .2s var(--ease-smooth);
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.stat-card::before {
+  content: ''; position: absolute;
+  top: 0; right: 0; width: 60px; height: 60px;
+  background: var(--accent);
+  opacity: .06; border-radius: 0 var(--radius-lg) 0 100%;
+  transition: opacity .2s;
+}
+.stat-card:hover::before { opacity: .10; }
+.stat-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+  background: var(--cream-warm);
+}
+.stat-icon.t-navy { background: rgba(26,26,46,.08); color: var(--navy); }
+.stat-icon.t-accent { background: var(--accent-bg); color: var(--accent); }
+.stat-icon.t-success { background: var(--success-bg); color: var(--success); }
+.stat-icon.t-blue { background: rgba(37,99,235,.08); color: #2563eb; }
+.stat-value {
+  font-family: var(--font-display);
+  font-weight: 900; font-size: 1.6rem;
+  color: var(--text);
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: .75rem; color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   FILTER BAR
+   ========================================================= */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 24px 0 16px;
+}
+.filter-label {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .8rem;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+.search-input {
+  flex: 1; min-width: 200px;
+  font-family: var(--font-body);
+  font-size: .9rem;
+  padding: 10px 14px 10px 38px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  background: var(--white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237a756d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>") no-repeat 14px center;
+  color: var(--text);
+  transition: all .15s var(--ease-smooth);
+}
+.search-input:focus { outline: none; border-color: var(--accent); background-color: var(--white); box-shadow: 0 0 0 3px var(--accent-bg); }
+.search-input::placeholder { color: var(--text-light); }
+
+.sort-group {
+  display: flex; gap: 2px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 3px;
+}
+.sort-btn {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .78rem;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  transition: all .15s var(--ease-smooth);
+  white-space: nowrap;
+}
+.sort-btn:hover { color: var(--text); }
+.sort-btn.active { color: var(--navy); background: var(--yellow); }
+
+/* =========================================================
+   PODIUM (Top 3)
+   ========================================================= */
+.podium-section { margin-top: 8px; }
+.podium-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  align-items: end;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+@media (max-width: 720px) {
+  .podium-grid { grid-template-columns: 1fr; gap: 8px; max-width: 380px; }
+  .podium-step[data-rank="2"] { order: 1; }
+  .podium-step[data-rank="1"] { order: 2; }
+  .podium-step[data-rank="3"] { order: 3; }
+}
+.podium-step {
+  position: relative;
+  text-align: center;
+  padding: 16px 12px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1.5px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  animation: fadeUp .7s var(--ease-out) both;
+  transition: all .25s var(--ease-bounce);
+}
+.podium-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.podium-step[data-rank="1"] {
+  background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+  border-color: #fde68a;
+  padding-top: 24px; padding-bottom: 28px;
+  animation-delay: 200ms;
+}
+.podium-step[data-rank="2"] {
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  border-color: #cbd5e1;
+  animation-delay: 100ms;
+}
+.podium-step[data-rank="3"] {
+  background: linear-gradient(180deg, #fff7ed 0%, #fed7aa 100%);
+  border-color: #fdba74;
+  animation-delay: 0ms;
+}
+.podium-medal {
+  font-size: 36px; line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.12));
+  animation: bounceMedal 2.5s ease-in-out infinite;
+}
+@keyframes bounceMedal { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.podium-step[data-rank="1"] .podium-medal { font-size: 48px; }
+.podium-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 1.4rem;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.10);
+}
+.podium-step[data-rank="1"] .podium-avatar { width: 72px; height: 72px; font-size: 1.8rem; }
+.podium-name {
+  font-family: var(--font-display);
+  font-weight: 800; font-size: .95rem;
+  color: var(--text);
+  margin-bottom: 2px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.podium-pct {
+  font-family: var(--font-display);
+  font-weight: 900; font-size: 1.6rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.podium-step[data-rank="1"] .podium-pct { font-size: 2rem; color: var(--yellow-strong); }
+.podium-meta {
+  font-size: .72rem; color: var(--text-muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   RANK LIST
+   ========================================================= */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 1.05rem;
+  color: var(--text);
+  margin: 32px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+}
+
+.rank-list { display: flex; flex-direction: column; gap: 8px; }
+.rank-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all .2s var(--ease-smooth);
+  animation: fadeUp .5s var(--ease-out) both;
+  cursor: pointer;
+}
+.rank-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); border-color: var(--border); }
+.rank-card .rank-num {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800; font-size: .85rem;
+  color: var(--text-muted);
+  background: var(--cream-warm);
+  flex-shrink: 0;
+}
+.rank-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 1rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.10);
+}
+.rank-body { flex: 1; min-width: 0; }
+.rank-row1 { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+.rank-name {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .92rem;
+  color: var(--text);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  max-width: 180px;
+}
+.chip {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .68rem;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+.chip-subject { color: #fff; }
+.chip-mode { background: var(--cream-warm); color: var(--text-muted); }
+
+.progress {
+  height: 6px;
+  background: var(--cream-warm);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 1s var(--ease-out);
+  background: var(--accent);
+}
+.rank-row2 {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .75rem; color: var(--text-muted);
+  margin-top: 4px;
+}
+.rank-meta { display: inline-flex; align-items: center; gap: 4px; }
+.rank-meta-sep { color: var(--border); }
+
+.rank-score {
+  text-align: right;
+  flex-shrink: 0;
+}
+.rank-pct {
+  font-family: var(--font-display);
+  font-weight: 900; font-size: 1.15rem;
+  line-height: 1;
+}
+.rank-pct.is-great { color: var(--success); }
+.rank-pct.is-good { color: var(--accent); }
+.rank-pct.is-low { color: var(--danger); }
+.rank-fraction {
+  font-size: .72rem; color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* =========================================================
+   STATES
+   ========================================================= */
+.state-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 48px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  margin-top: 24px;
+}
+.state-icon {
+  font-size: 64px; line-height: 1;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.08));
+}
+.state-title {
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.state-desc {
+  color: var(--text-muted);
+  font-size: .9rem;
+  max-width: 360px;
+  margin: 0 auto 20px;
+}
+.state-cta { display: inline-flex; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--cream-warm) 25%, #ece6dd 50%, var(--cream-warm) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-lg);
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.skeleton-card { height: 64px; margin-bottom: 8px; }
+
+/* =========================================================
+   DETAIL MODAL
+   ========================================================= */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(26,26,46,.5);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200;
+  padding: 16px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s var(--ease-smooth);
+}
+.modal-backdrop.open { opacity: 1; pointer-events: auto; }
+.modal {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  max-width: 420px; width: 100%;
+  box-shadow: var(--shadow-lg);
+  transform: scale(.95) translateY(8px);
+  transition: transform .25s var(--ease-bounce);
+}
+.modal-backdrop.open .modal { transform: scale(1) translateY(0); }
+.modal-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+.modal-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 900; font-size: 1.4rem;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+.modal-name {
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 1.1rem;
+  color: var(--text);
+}
+.modal-rank {
+  font-size: .8rem; color: var(--text-muted);
+  margin-top: 2px;
+}
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.modal-stat {
+  background: var(--cream-warm);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+.modal-stat-label {
+  font-size: .72rem; color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.modal-stat-value {
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 1.3rem;
+  color: var(--text);
+  margin-top: 2px;
+}
+.modal-actions { display: flex; gap: 8px; }
+.modal-close {
+  flex: 1;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: .9rem;
+  color: var(--text);
+  background: var(--cream-warm);
+  padding: 10px;
+  border-radius: 9999px;
+  transition: all .15s var(--ease-smooth);
+}
+.modal-close:hover { background: var(--border-light); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  margin-top: 64px;
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .82rem;
+  border-top: 1px solid var(--border-light);
+}
+.footer a { color: var(--accent); font-weight: 600; }
+.footer a:hover { text-decoration: underline; }
+
+/* =========================================================
+   RESPONSIVE / A11Y
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 </style>
 </head>
-<body class="min-h-screen text-navy">
+<body>
 
 <!-- NAV -->
-<nav class="bg-navy border-b border-navy-mid sticky top-0 z-40">
-  <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <img src="../../../pic/slothmove_mascot.png" class="w-8 h-8 rounded-xl object-contain" alt="SlothMove">
-      <span class="font-kanit font-bold text-white text-base">กระดานคะแนน ปภ.</span>
-    </div>
-    <div class="flex items-center gap-1.5">
-      <a class="px-3 py-1.5 rounded-lg bg-navy-mid hover:bg-navy/80 text-white text-xs font-kanit border border-navy-mid transition-all" href="indexPAB.html">หน้าหลัก ปภ.</a>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="indexPAB.html" aria-label="SlothMove กลับหน้าหลัก">
+      <img src="../../../pic/slothmove_mascot.png" alt="SlothMove">
+      <span>Sloth<span class="logo-accent">Move</span></span>
+      <span class="logo-sep">/</span>
+      <span class="logo-sub">กระดานคะแนน</span>
+    </a>
+    <div style="display:flex; gap:8px;">
+      <a class="nav-btn" href="indexPAB.html">← หน้าหลัก ปภ.</a>
+      <a class="nav-btn-accent" href="mock_test.html">เริ่มทำข้อสอบ →</a>
     </div>
   </div>
 </nav>
 
-<!-- HEADER -->
-<div class="bg-navy pb-8 pt-6 relative overflow-hidden">
-  <div class="max-w-2xl mx-auto px-4 text-center relative z-10">
-    <div class="text-5xl mb-3">🏆</div>
-    <h1 class="font-kanit font-black text-2xl text-white mb-1">กระดานเกียรติยศ ปภ.</h1>
-    <p class="text-slate-300 font-sarabun text-sm">ผู้ทำคะแนนควิซและข้อสอบจำลองสูงสุด ภาค ข. กรมป้องกันและบรรเทาสาธารณภัย</p>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Live · อัปเดตทุก 30 วินาที</span>
+      </div>
+      <h1 class="hero-title">
+        กระดาน<span class="hl-yellow"> เกียรติยศ</span> ปภ.
+      </h1>
+      <p class="hero-desc">
+        ผู้ทำคะแนนควิซและข้อสอบจำลองสูงสุด ภาค ข. กรมป้องกันและบรรเทาสาธารณภัย
+        — เก็บทุกคะแนนไว้ที่นี่ เพื่อเป็นแรงบันดาลใจให้เพื่อน ๆ ร่วมสู้
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="mock_test.html">🎯 ทำข้อสอบจำลอง</a>
+        <a class="btn-secondary" href="indexPAB.html">📚 เลือกวิชา</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="trophy-cluster">
+        <div class="trophy-emoji">🏆</div>
+      </div>
+      <div class="hero-stats-mini">
+        <div><strong id="heroTotal">—</strong>ผู้เข้าสอบ</div>
+        <div><strong id="heroTop">—</strong>คะแนนสูงสุด</div>
+      </div>
+    </div>
   </div>
-  <div class="absolute top-[-50%] right-[-20%] w-[350px] h-[350px] bg-yellow/5 rounded-full blur-3xl pointer-events-none"></div>
+</header>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- SUBJECT TABS -->
+  <div class="tabs-wrap" role="tablist" aria-label="เลือกหมวดวิชา">
+    <button class="tab active" role="tab" aria-selected="true" data-sub="all">
+      <span>ทั้งหมด</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-sub="จำลองสอบ">
+      <span class="tab-icon">🎯</span><span>จำลองข้อสอบจริง</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-sub="ป้องกันและบรรเท">
+      <span class="tab-icon">🚒</span><span>พ.ร.บ. ป้องกันฯ</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-sub="บริหารราชการ">
+      <span class="tab-icon">⚖️</span><span>บริหารราชการ</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-sub="แผนพัฒนาเศรษฐกิจ">
+      <span class="tab-icon">📊</span><span>แผนพัฒนาฯ 13</span>
+    </button>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon t-navy">👥</div>
+      <div class="stat-value" id="statTotal">—</div>
+      <div class="stat-label">ผู้เข้าสอบ</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon t-accent">📈</div>
+      <div class="stat-value" id="statAvg">—</div>
+      <div class="stat-label">คะแนนเฉลี่ย</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon t-success">⭐</div>
+      <div class="stat-value" id="statTop">—</div>
+      <div class="stat-label">สูงสุด</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon t-blue">⚡</div>
+      <div class="stat-value" id="statFast">—</div>
+      <div class="stat-label">เร็วที่สุด</div>
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <span class="filter-label">จัดเรียง:</span>
+    <div class="sort-group" role="tablist" aria-label="เรียงลำดับ">
+      <button class="sort-btn active" data-sort="pct">🏆 คะแนนสูงสุด</button>
+      <button class="sort-btn" data-sort="time">⚡ เร็วที่สุด</button>
+      <button class="sort-btn" data-sort="recent">🕐 ล่าสุด</button>
+    </div>
+    <input class="search-input" type="search" id="searchInput" placeholder="ค้นหาชื่อ…" aria-label="ค้นหาชื่อผู้เข้าสอบ">
+  </div>
+
+  <!-- PODIUM (Top 3) -->
+  <section class="podium-section" id="podiumSection" hidden>
+    <h2 class="section-title">🏆 ท็อป 3 ผู้นำ</h2>
+    <div class="podium-grid" id="podium"></div>
+  </section>
+
+  <!-- RANK LIST -->
+  <h2 class="section-title" id="rankListTitle">📋 อันดับทั้งหมด</h2>
+  <div id="loadingState">
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+  </div>
+
+  <div class="state-card" id="emptyState" hidden>
+    <div class="state-icon">🎯</div>
+    <p class="state-title">ยังไม่มีผลคะแนน</p>
+    <p class="state-desc">ไปทำข้อสอบแล้วบันทึกขึ้นกระดานกันเลย!<br>ทุกคะแนนจะปรากฏที่นี่แบบเรียลไทม์</p>
+    <a class="btn-primary state-cta" href="mock_test.html">ไปทำข้อสอบ</a>
+  </div>
+
+  <div class="rank-list" id="boardList" hidden></div>
+
+  <p id="lastUpdate" style="text-align:center; color:var(--text-light); font-size:.75rem; margin-top:24px;">
+    —
+  </p>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© <span id="year"></span> SlothMove · <a href="../../../index.html">หน้าหลัก</a> · <a href="indexPAB.html">คอร์ส ปภ.</a></p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div class="modal-avatar" id="modalAvatar">?</div>
+      <div>
+        <div class="modal-name" id="modalName">—</div>
+        <div class="modal-rank" id="modalRank">—</div>
+      </div>
+    </div>
+    <div class="modal-grid">
+      <div class="modal-stat">
+        <div class="modal-stat-label">คะแนน</div>
+        <div class="modal-stat-value" id="modalPct">—</div>
+      </div>
+      <div class="modal-stat">
+        <div class="modal-stat-label">ข้อที่ถูก</div>
+        <div class="modal-stat-value" id="modalScore">—</div>
+      </div>
+      <div class="modal-stat">
+        <div class="modal-stat-label">เวลา</div>
+        <div class="modal-stat-value" id="modalTime">—</div>
+      </div>
+      <div class="modal-stat">
+        <div class="modal-stat-label">โหมด</div>
+        <div class="modal-stat-value" id="modalMode">—</div>
+      </div>
+    </div>
+    <p style="font-size:.78rem; color:var(--text-muted); margin-bottom:12px;" id="modalDate">—</p>
+    <div class="modal-actions">
+      <button class="modal-close" onclick="closeModal()">ปิด</button>
+    </div>
+  </div>
 </div>
 
-<!-- SUBJECT TABS -->
-<div class="max-w-2xl mx-auto px-4 -mt-4 mb-3">
-  <div class="bg-white rounded-2xl shadow-md border border-slate-100 p-1.5 flex gap-1 overflow-x-auto">
-    <button class="tab-active flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold transition-all whitespace-nowrap" id="sub-all" onclick="setSubject('all')">ทั้งหมด</button>
-    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-mock" onclick="setSubject('จำลองสอบ')">🎯 จำลองข้อสอบจริง</button>
-    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-disaster" onclick="setSubject('ป้องกันและบรรเท')">🚒 พ.ร.บ. ป้องกันและบรรเทาฯ</button>
-    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-admin" onclick="setSubject('บริหารราชการ')">⚖️ บริหารราชการแผ่นดิน</button>
-    <button class="flex-shrink-0 px-3 py-2 rounded-xl font-kanit text-xs font-bold text-slate-500 hover:bg-slate-50 transition-all whitespace-nowrap" id="sub-plan13" onclick="setSubject('แผนพัฒนาเศรษฐกิจ')">📊 แผนพัฒนาฯ ฉบับ 13</button>
-  </div>
-</div>
-
-<!-- STATS ROW -->
-<div class="max-w-2xl mx-auto px-4 mb-4 grid grid-cols-4 gap-2">
-  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
-    <div class="text-lg font-kanit font-black text-navy" id="statTotal">—</div>
-    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">ผู้เข้าสอบ</div>
-  </div>
-  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
-    <div class="text-lg font-kanit font-black text-accent" id="statAvg">—</div>
-    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">เฉลี่ย %</div>
-  </div>
-  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
-    <div class="text-lg font-kanit font-black text-emerald-600" id="statTop">—</div>
-    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">สูงสุด %</div>
-  </div>
-  <div class="bg-white rounded-2xl p-3 text-center border border-slate-100 shadow-sm">
-    <div class="text-lg font-kanit font-black text-blue-600" id="statFast">—</div>
-    <div class="text-slate-400 text-[10px] font-sarabun mt-0.5">เร็วสุด</div>
-  </div>
-</div>
-
-<!-- BOARD LIST -->
-<div class="max-w-2xl mx-auto px-4 pb-10">
-  <div class="text-center py-12" id="loadingState">
-    <div class="text-3xl animate-pulse mb-2">⏳</div>
-    <p class="text-slate-400 font-sarabun text-sm">กำลังโหลดคะแนน...</p>
-  </div>
-  <div class="hidden text-center py-12" id="emptyState">
-    <div class="text-4xl mb-3">🎯</div>
-    <p class="text-navy font-kanit font-bold text-base mb-1">ยังไม่มีผลคะแนน</p>
-    <p class="text-slate-400 font-sarabun text-sm">ไปทำข้อสอบแล้วบันทึกขึ้นกระดานกันเลย!</p>
-    <a class="inline-block mt-4 px-5 py-2.5 rounded-2xl font-kanit font-bold text-sm text-white bg-navy hover:bg-navy-mid transition-all" href="indexPAB.html">ไปทำข้อสอบ</a>
-  </div>
-  <div class="space-y-2" id="boardList"></div>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
+/* =========================================================
+   SUPABASE
+   ========================================================= */
 const SUPA = window.supabase.createClient(
   'https://rtedyfalsfqcjsvgjqmx.supabase.co',
   'sb_publishable_vn5tbKzxOtHlmuFLlG_BJQ_54Lk-626'
 );
 
-let allData = [], activeSub = 'all';
+/* =========================================================
+   STATE
+   ========================================================= */
+let allData = [];
+let activeSub = 'all';
+let activeSort = 'pct';
+let searchQuery = '';
 
 const MEDALS = ['🥇','🥈','🥉'];
 
@@ -143,8 +979,13 @@ const COLOR_PALETTES = [
   '#a21caf', // purple
   '#b91c1c', // red
   '#0d9488', // teal
+  '#2563eb', // blue
+  '#ea580c', // orange-deep
 ];
 
+/* =========================================================
+   HELPERS
+   ========================================================= */
 function getSubjectShort(subj) {
   if (!subj) return 'ทั่วไป';
   if (subj.includes('จำลองข้อสอบจริง') || subj.includes('Mock')) return 'จำลองสอบ ปภ.';
@@ -156,179 +997,328 @@ function getSubjectShort(subj) {
   if (subj.includes('เงินทดรองราชการ')) return 'เงินทดรองฯ';
   if (subj.includes('งานสารบรรณ')) return 'งานสารบรรณ';
   if (subj.includes('รักษาความปลอดภัย')) return 'รปภ. ชาติ';
-  
-  return subj.substring(0, 15) + (subj.length > 15 ? '...' : '');
+  return (subj.length > 14 ? subj.substring(0, 14) + '…' : subj);
+}
+
+function hashStr(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = s.charCodeAt(i) + ((h << 5) - h);
+  return Math.abs(h);
 }
 
 function getSubjectColor(subj) {
-  let hash = 0;
-  for (let i = 0; i < subj.length; i++) {
-    hash = subj.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const idx = Math.abs(hash) % COLOR_PALETTES.length;
-  return COLOR_PALETTES[idx];
+  return COLOR_PALETTES[hashStr(subj || '') % COLOR_PALETTES.length];
+}
+
+function getInitials(name) {
+  if (!name) return '?';
+  const trimmed = String(name).trim();
+  if (!trimmed) return '?';
+  // Thai names: take first char of first + first char of last word
+  const parts = trimmed.split(/\s+/);
+  if (parts.length === 1) return parts[0].substring(0, 2);
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
 function fmtTime(sec) {
   if (!sec) return '—';
-  const m = Math.floor(sec/60), s = sec%60;
+  const m = Math.floor(sec / 60), s = sec % 60;
   return m > 0 ? `${m}น ${s}ว` : `${s}ว`;
 }
 
+function fmtDate(iso) {
+  try {
+    return new Date(iso).toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: '2-digit' });
+  } catch { return '—'; }
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/* =========================================================
+   LOAD
+   ========================================================= */
 async function loadData() {
   let data = null, error = null;
   try {
     const res = await SUPA
       .from('scores')
       .select('*')
-      .order('pct',      { ascending: false })
+      .order('pct', { ascending: false })
       .order('time_sec', { ascending: true })
-      .order('created_at',{ ascending: false })
+      .order('created_at', { ascending: false })
       .limit(500);
     data = res.data;
     error = res.error;
   } catch (e) {
     error = e;
   } finally {
-    const loadingEl = document.getElementById('loadingState');
-    if (loadingEl) loadingEl.classList.add('hidden');
+    document.getElementById('loadingState').hidden = true;
   }
 
   const empty = document.getElementById('emptyState');
 
   if (error) {
-    if (empty) {
-      let hint = empty.querySelector('[data-load-err]');
-      if (!hint) {
-        hint = document.createElement('p');
-        hint.setAttribute('data-load-err', '1');
-        hint.className = 'text-amber-600 font-sarabun text-xs mt-2 max-w-xs mx-auto leading-relaxed';
-        empty.appendChild(hint);
-      }
-      hint.textContent = 'โหลดข้อมูลไม่สำเร็จ — กรุณาลองใหม่อีกครั้ง';
-      empty.classList.remove('hidden');
-    }
+    empty.hidden = false;
+    empty.querySelector('.state-icon').textContent = '⚠️';
+    empty.querySelector('.state-title').textContent = 'โหลดข้อมูลไม่สำเร็จ';
+    empty.querySelector('.state-desc').textContent = 'กรุณาลองใหม่อีกครั้ง';
     return;
   }
 
-  if (!data?.length) {
-    if (empty) empty.classList.remove('hidden');
+  if (!data || !data.length) {
+    empty.hidden = false;
     return;
   }
-  
-  // Filter for PAB dept
+
   allData = data.filter(row => {
     if (row.dept === 'pab') return true;
-    // Fallback detection by subject names
     const s = row.subject || '';
     return s.includes('ป้องกันและบรรเทา') || s.includes('แผนการป้องกันและบรรเทา');
   });
 
   if (!allData.length) {
-    if (empty) empty.classList.remove('hidden');
+    empty.hidden = false;
     return;
   }
 
-  if (empty) empty.classList.add('hidden');
+  empty.hidden = true;
   render();
+  updateLastSeen();
 }
 
-function setSubject(sub) {
-  activeSub = sub;
-  const subMap = { 
-    all: 'sub-all',
-    'จำลองสอบ': 'sub-mock',
-    'ป้องกันและบรรเท': 'sub-disaster',
-    'บริหารราชการ': 'sub-admin',
-    'แผนพัฒนาเศรษฐกิจ': 'sub-plan13'
-  };
-  
-  document.querySelectorAll('[id^="sub-"]').forEach(el => {
-    el.classList.remove('tab-active');
-    el.classList.add('text-slate-500');
-  });
-  
-  const el = document.getElementById(subMap[sub] || 'sub-all');
-  if (el) { 
-    el.classList.add('tab-active'); 
-    el.classList.remove('text-slate-500'); 
-  }
-  render();
+function updateLastSeen() {
+  const el = document.getElementById('lastUpdate');
+  if (!el) return;
+  const now = new Date();
+  el.textContent = `อัปเดตล่าสุด ${now.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit', second: '2-digit' })} น.`;
 }
 
-function render() {
+/* =========================================================
+   FILTER + SORT
+   ========================================================= */
+function getFilteredSorted() {
   let data = allData;
   if (activeSub !== 'all') {
     data = data.filter(r => (r.subject || '').includes(activeSub));
   }
-
-  // Stats
-  const statEl = (id, v) => { 
-    const el = document.getElementById(id);
-    if (el) el.textContent = v; 
-  };
-  
-  if (data.length) {
-    statEl('statTotal', data.length);
-    statEl('statAvg',   Math.round(data.reduce((s,r)=>s+r.pct,0)/data.length)+'%');
-    statEl('statTop',   Math.max(...data.map(r=>r.pct))+'%');
-    const withTime = data.filter(r => r.time_sec > 0);
-    statEl('statFast', withTime.length ? fmtTime(Math.min(...withTime.map(r=>r.time_sec))) : '—');
-  } else {
-    ['statTotal','statAvg','statTop','statFast'].forEach(id => statEl(id,'—'));
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    data = data.filter(r => (r.nickname || '').toLowerCase().includes(q));
   }
+  const sorted = [...data];
+  if (activeSort === 'pct') {
+    sorted.sort((a, b) =>
+      (b.pct - a.pct) ||
+      ((a.time_sec || Infinity) - (b.time_sec || Infinity)) ||
+      (new Date(b.created_at) - new Date(a.created_at))
+    );
+  } else if (activeSort === 'time') {
+    sorted.sort((a, b) =>
+      ((a.time_sec || Infinity) - (b.time_sec || Infinity)) ||
+      (b.pct - a.pct)
+    );
+  } else if (activeSort === 'recent') {
+    sorted.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  }
+  return sorted;
+}
 
+/* =========================================================
+   STATS
+   ========================================================= */
+function setStat(id, v) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = v;
+}
+
+function renderStats(data) {
+  if (!data.length) {
+    ['statTotal','statAvg','statTop','statFast','heroTotal','heroTop'].forEach(id => setStat(id, '—'));
+    return;
+  }
+  setStat('statTotal', data.length);
+  setStat('statAvg', Math.round(data.reduce((s, r) => s + r.pct, 0) / data.length) + '%');
+  const top = Math.max(...data.map(r => r.pct));
+  setStat('statTop', top + '%');
+  const withTime = data.filter(r => r.time_sec > 0);
+  setStat('statFast', withTime.length ? fmtTime(Math.min(...withTime.map(r => r.time_sec))) : '—');
+  setStat('heroTotal', data.length);
+  setStat('heroTop', top + '%');
+}
+
+/* =========================================================
+   PODIUM (Top 3)
+   ========================================================= */
+function renderPodium(data) {
+  const sec = document.getElementById('podiumSection');
+  const wrap = document.getElementById('podium');
+
+  if (data.length < 1) { sec.hidden = true; return; }
+  sec.hidden = false;
+
+  // Show top 3 in order 2-1-3 for visual layout (left=2, center=1, right=3)
+  const top3 = data.slice(0, 3);
+  const order = [
+    { r: top3[1], rank: 2 },
+    { r: top3[0], rank: 1 },
+    { r: top3[2], rank: 3 },
+  ];
+
+  wrap.innerHTML = order.map(({ r, rank }) => {
+    if (!r) return '<div class="podium-step" data-rank="' + rank + '"></div>';
+    const color = getSubjectColor(r.subject || '');
+    return `
+    <div class="podium-step" data-rank="${rank}" onclick="openModal(${data.indexOf(r)})">
+      <div class="podium-medal">${MEDALS[rank - 1]}</div>
+      <div class="podium-avatar" style="background:${color}">${escHtml(getInitials(r.nickname))}</div>
+      <div class="podium-name" title="${escHtml(r.nickname)}">${escHtml(r.nickname)}</div>
+      <div class="podium-pct">${r.pct}%</div>
+      <div class="podium-meta">${escHtml(getSubjectShort(r.subject || ''))} · ${r.score}/${r.total}</div>
+    </div>`;
+  }).join('');
+}
+
+/* =========================================================
+   RANK LIST
+   ========================================================= */
+function renderRankList(data) {
   const list = document.getElementById('boardList');
   const empty = document.getElementById('emptyState');
+  const title = document.getElementById('rankListTitle');
 
-  if (!data.length) { 
-    if (list) list.innerHTML = ''; 
-    if (empty) empty.classList.remove('hidden'); 
-    return; 
+  if (!data.length) {
+    list.hidden = true;
+    list.innerHTML = '';
+    empty.hidden = false;
+    return;
   }
-  
-  if (empty) empty.classList.add('hidden');
+  empty.hidden = true;
+  list.hidden = false;
 
-  if (list) {
-    list.innerHTML = data.slice(0, 100).map((r, i) => {
-      const rank = i + 1;
-      const medal = rank <= 3 ? MEDALS[rank-1] : `<span class="font-kanit font-bold text-slate-400 text-sm w-6 inline-block text-center">${rank}</span>`;
-      const cls = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : 'bg-white';
-      const color = getSubjectColor(r.subject || '');
-      const shortSubject = getSubjectShort(r.subject || '');
-      const timeLbl = r.time_sec > 0 ? `⏱ ${fmtTime(r.time_sec)}` : '';
-      const dt = new Date(r.created_at).toLocaleDateString('th-TH', {day:'numeric', month:'short'});
-      const pctCls = r.pct >= 80 ? 'text-emerald-600' : r.pct >= 60 ? 'text-accent' : 'text-red-500';
-
-      return `
-      <div class="${cls} rounded-2xl border border-slate-100 shadow-sm px-4 py-3 flex items-center gap-3 transition-transform duration-200 hover:-translate-y-[1px]">
-        <div class="w-9 h-9 flex items-center justify-center text-xl flex-shrink-0">${medal}</div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-1.5 flex-wrap mb-1">
-            <span class="font-kanit font-bold text-slate-800 text-sm">${escHtml(r.nickname)}</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full font-kanit font-bold text-white" style="background:${color}">${shortSubject}</span>
-            ${r.mode ? `<span class="text-[10px] px-2 py-0.5 rounded-full font-kanit font-bold bg-slate-100 text-slate-500">${r.mode} ข้อ</span>` : ''}
-          </div>
-          <div class="flex items-center gap-2">
-            <div class="flex-1 bg-slate-100 rounded-full h-1.5 overflow-hidden">
-              <div class="h-full rounded-full" style="width:${r.pct}%;background:${color}"></div>
-            </div>
-            <span class="text-[10px] text-slate-400 font-sarabun flex-shrink-0">${timeLbl ? timeLbl+' · ' : ''}${dt}</span>
-          </div>
-        </div>
-        <div class="text-right flex-shrink-0">
-          <div class="font-kanit font-black text-base ${pctCls}">${r.pct}%</div>
-          <div class="text-slate-400 font-sarabun text-[11px]">${r.score}/${r.total}</div>
-        </div>
-      </div>`;
-    }).join('');
+  // Skip top 3 if we have at least 3 (already shown in podium)
+  const rest = data.length > 3 ? data.slice(3) : [];
+  if (!rest.length) {
+    list.innerHTML = '<p style="text-align:center; color:var(--text-muted); font-size:.85rem; padding:24px 0;">ทั้งหมดอยู่บน Podium แล้ว 🎉</p>';
+    return;
   }
+  title.textContent = `📋 อันดับที่ 4 ขึ้นไป (${rest.length} คน)`;
+
+  list.innerHTML = rest.slice(0, 100).map((r, i) => {
+    const rank = i + 4;
+    const color = getSubjectColor(r.subject || '');
+    const shortSubject = getSubjectShort(r.subject || '');
+    const pctCls = r.pct >= 80 ? 'is-great' : r.pct >= 60 ? 'is-good' : 'is-low';
+    const timeLbl = r.time_sec > 0 ? `⏱ ${fmtTime(r.time_sec)}` : '';
+    const dt = fmtDate(r.created_at);
+    const idx = data.indexOf(r);
+    return `
+    <div class="rank-card" onclick="openModal(${idx})" role="button" tabindex="0" style="animation-delay:${Math.min(i * 30, 600)}ms">
+      <div class="rank-num">${rank}</div>
+      <div class="rank-avatar" style="background:${color}" aria-hidden="true">${escHtml(getInitials(r.nickname))}</div>
+      <div class="rank-body">
+        <div class="rank-row1">
+          <span class="rank-name" title="${escHtml(r.nickname)}">${escHtml(r.nickname)}</span>
+          <span class="chip chip-subject" style="background:${color}">${escHtml(shortSubject)}</span>
+          ${r.mode ? `<span class="chip chip-mode">${r.mode} ข้อ</span>` : ''}
+        </div>
+        <div class="progress"><div class="progress-bar" style="width:${r.pct}%; background:${color}"></div></div>
+        <div class="rank-row2">
+          ${timeLbl ? `<span class="rank-meta">${timeLbl}</span><span class="rank-meta-sep">·</span>` : ''}
+          <span class="rank-meta">${dt}</span>
+        </div>
+      </div>
+      <div class="rank-score">
+        <div class="rank-pct ${pctCls}">${r.pct}%</div>
+        <div class="rank-fraction">${r.score}/${r.total}</div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
-function escHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+/* =========================================================
+   MAIN RENDER
+   ========================================================= */
+function render() {
+  const data = getFilteredSorted();
+  renderStats(data);
+  renderPodium(data);
+  renderRankList(data);
 }
 
+/* =========================================================
+   TABS + SORT + SEARCH
+   ========================================================= */
+function setSubject(sub, el) {
+  activeSub = sub;
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.sub === sub);
+    t.setAttribute('aria-selected', t.dataset.sub === sub ? 'true' : 'false');
+  });
+  render();
+}
+
+function setSort(sort, el) {
+  activeSort = sort;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === sort));
+  render();
+}
+
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => setSubject(t.dataset.sub, t));
+});
+document.querySelectorAll('.sort-btn').forEach(b => {
+  b.addEventListener('click', () => setSort(b.dataset.sort, b));
+});
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  render();
+});
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+function openModal(idx) {
+  const data = getFilteredSorted();
+  const r = data[idx];
+  if (!r) return;
+  const color = getSubjectColor(r.subject || '');
+  document.getElementById('modalAvatar').style.background = color;
+  document.getElementById('modalAvatar').textContent = getInitials(r.nickname);
+  document.getElementById('modalName').textContent = r.nickname;
+  document.getElementById('modalRank').textContent = `อันดับ #${idx + 1} · ${getSubjectShort(r.subject || '')}`;
+  document.getElementById('modalPct').textContent = r.pct + '%';
+  document.getElementById('modalScore').textContent = `${r.score}/${r.total}`;
+  document.getElementById('modalTime').textContent = r.time_sec > 0 ? fmtTime(r.time_sec) : '—';
+  document.getElementById('modalMode').textContent = r.mode ? r.mode + ' ข้อ' : '—';
+  document.getElementById('modalDate').textContent = 'ทำเมื่อ ' + new Date(r.created_at).toLocaleString('th-TH', { dateStyle: 'long', timeStyle: 'short' });
+
+  const backdrop = document.getElementById('modalBackdrop');
+  backdrop.classList.add('open');
+  backdrop.setAttribute('aria-hidden', 'false');
+}
+function closeModal() {
+  const backdrop = document.getElementById('modalBackdrop');
+  backdrop.classList.remove('open');
+  backdrop.setAttribute('aria-hidden', 'true');
+}
+document.getElementById('modalBackdrop').addEventListener('click', e => {
+  if (e.target.id === 'modalBackdrop') closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* =========================================================
+   NAV SHADOW ON SCROLL
+   ========================================================= */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+
+/* =========================================================
+   INIT
+   ========================================================= */
+document.getElementById('year').textContent = new Date().getFullYear();
 loadData();
 setInterval(loadData, 30000);
 </script>
