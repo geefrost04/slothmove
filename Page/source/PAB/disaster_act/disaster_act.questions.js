@@ -1,4 +1,3 @@
-// Quiz disaster_act
 var QUESTIONS = [
   {
     "question": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.) ก่อตั้งขึ้นภายใต้สังกัดกระทรวงใด",
@@ -30,8 +29,8 @@ var QUESTIONS = [
       "มุ่งมั่นบริการ ยึดมั่นความปลอดภัย",
       "สาธารณภัยต้องหมดไป คนไทยมีความสุข"
     ],
-    "answer": 2,
-    "explanation": "อธิบาย: คำขวัญของกรมป้องกันและบรรเทาสาธารณภัยคือ \"มุ่งมั่นบริการ ยึดมั่นความปลอดภัย\" สะท้อนถึงปรัชญาการปฏิบัติหน้าที่เพื่อช่วยเหลือและคุ้มครองประชาชนเป็นสำคัญ"
+    "answer": 1,
+    "explanation": "อธิบาย: คำขวัญของกรมป้องกันและบรรเทาสาธารณภัยคือ 'ป้องกันภัยเชิงรุก บรรเทาทุกข์เมื่อเกิดภัย' ซึ่งสื่อถึงหน้าที่หลักในการเตรียมการรับมือและบรรเทาความเดือดร้อน"
   },
   {
     "question": "วิสัยทัศน์ของกรมป้องกันและบรรเทาสาธารณภัยกำหนดไว้อย่างไร",
@@ -872,13 +871,13 @@ var QUESTIONS = [
   {
     "question": "ระบบการรายงานสถานการณ์สาธารณภัยของ ปภ. เรียกว่าอะไร",
     "choices": [
-      "SIGI",
+      "DPM Reporter",
       "ระบบแจ้งเหตุ 191",
       "ระบบ DDPM 24",
       "ระบบเตือนภัย 1669"
     ],
     "answer": 0,
-    "explanation": "อธิบาย: ระบบการรายงานสถานการณ์สาธารณภัยของ ปภ. เรียกว่า SIGI"
+    "explanation": "อธิบาย: แอปพลิเคชันและระบบการรายงานสาธารณภัยสำหรับประชาชนของ ปภ. เรียกว่า DPM Reporter"
   },
   {
     "question": "นโยบาย 'ปภ. 4.0' มุ่งเน้นการจัดการสาธารณภัยอย่างยั่งยืนโดยใช้อะไรเป็นกลไกขับเคลื่อน",
@@ -1035,15 +1034,15 @@ var QUESTIONS = [
     "explanation": "อธิบาย: การป้องกันและบรรเทาสาธารณภัยต้องอาศัยความร่วมมือจากทุกภาคส่วน ทั้งรัฐ ภาคเอกชน และประชาชน"
   },
   {
-    "question": "ค่านิยมองค์กรของ ปภ. 'DDPM SPIRIT' ประกอบด้วยอะไร",
+    "question": "ค่านิยมองค์กรของ ปภ. 'WE ARE DDPM' ประกอบด้วยอะไร",
     "choices": [
-      "Devote, Professional, Integrity, Teamwork, Heart, Innovation, Tenacity",
-      "Direct, Protect, Prevention, Manage, Safety, Improve, Team",
-      " Disaster, Prevention, Protection, Management, Safety, Integration, Teamwork",
-      "Deliver, Prepare, Promote, Mitigate, Support, Help, Training"
+      "Do Together, Devote, Professional, Moral",
+      "Direct, Protect, Prevention, Manage",
+      "Disaster, Prevention, Protection, Management",
+      "Deliver, Prepare, Promote, Mitigate"
     ],
     "answer": 0,
-    "explanation": "อธิบาย: DDPM SPIRIT ประกอบด้วย Devote, Professional, Integrity, Teamwork, Heart, Innovation, Tenacity"
+    "explanation": "อธิบาย: ค่านิยมองค์กรของ ปภ. คือ 'WE ARE DDPM' ประกอบด้วย Do Together (ร่วมมือร่วมใจ), Devote (อุทิศตนเพื่อสังคม), Professional (มืออาชีพ) และ Moral (คุณธรรมสากล)"
   },
   {
     "question": "การเตือนภัยล่วงหน้าทำได้โดยวิธีใด",
